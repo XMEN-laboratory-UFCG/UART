@@ -1,8 +1,4 @@
-# UART
-
-Descrição de Hardware de uma UART (Universal Asynchronous Receiver/Transmitter) para conexão com o barramento wishbone e com DMA.
-
-# Projeto de uma UART com sobreamostragem
+# Projeto de uma UART com Sobreamostragem Parametrizada
 
 ## Atraso de amostragem
 
@@ -36,7 +32,7 @@ Descrição de Hardware de uma UART (Universal Asynchronous Receiver/Transmitter
 <img src="./img/fsm_rx.png">
 
 # Diagrama de Blocos Hieraquico na recepção Rx
-<img src="./img/hieraquia.png">
+<img src="./img/uart_rx.png">
 
 # Receptor UART-Tx
 
@@ -59,3 +55,16 @@ Descrição de Hardware de uma UART (Universal Asynchronous Receiver/Transmitter
 
 ## Saídas    
     ` sdata := Dado serial a transmitido                                                    ; 1bit`
+# Diagrama de Blocos Hieraquico na Transmissão Tx
+
+<img src="./img/uart_tx.png">
+
+
+# Diagrama Estrutural UART Teste
+<img src="./img/diagrama_strutural_do_teste.png">
+
+# Waves Formes
+
+<p align="center">
+<img src="./img/waves_forms.png">
+</p>

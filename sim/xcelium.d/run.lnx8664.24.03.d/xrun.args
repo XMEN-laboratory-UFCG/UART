@@ -1,0 +1,10 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+../tb/testbench_funcional.sv
+../rtl/baud_rate.sv
+../rtl/counter.sv
+../rtl/uart_rx.sv
+../rtl/uart_top.sv
+../rtl/uart_tx.sv

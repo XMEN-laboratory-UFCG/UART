@@ -1,19 +1,21 @@
-xrun:
-	xrun testbanch_funcional.sv uart_rx.sv uart_tx.sv counter.sv baund_rate.sv
-		
-wave:
-	xrun testbanch_funcional.sv uart_rx.sv uart_tx.sv counter.sv baund_rate.sv -gui -access +rw
+TB = ../tb/testbench_funcional.sv
+RTL = ../rtl/*.sv
+dir = ./sim/
 
-cover:
-	imc -load cov_work/scope/test
+sims:
+	cd ${dir} &&\
+	xrun ${TB} ${RTL}
+		
+sim-gui:
+	cd ${dir} &&\
+	xrun ${TB} ${RTL} -gui -access +rw
 
 clean:
+	cd ${dir} &&\
 	rm -rf waves.shm xcelium.d xrun.* *.log .simvision
 
 help:
-	@echo "Xcelium and VManager need to be installed and environment needs to be set up to use this Makefile."
-	@echo "possible arguments to make:"
-	@echo "sim - run simulation"
-	@echo "wave - show waveforms and transaction diagrams after simulation"
-	@echo "       use & to keep the waveform viewer open and reload database after next simulation"
+	@echo "Arguments to make:"
+	@echo "sim - run testbench"
+	@echo "sim-gui - run testbench"
 	@echo "clean - remove simulation output files"

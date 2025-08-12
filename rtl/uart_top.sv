@@ -146,6 +146,5 @@ module uart_wrapper #(
     if (irq_status != 32'd0 && ctrl[3]) irq = 1'b1;
   end
 
-  // Note: este é um esqueleto; streaming FSMs, FIFO read/writes e conexão com as cores
-  // devem ser implementados conforme suas interfaces exatas.
+  
 endmodule

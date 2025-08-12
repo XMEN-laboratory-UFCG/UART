@@ -1,0 +1,113 @@
+xrun(64): 24.03-s005: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s005: Started on Aug 12, 2025 at 10:31:46 -03
+xrun
+	../tb/testbench_funcional.sv
+	../rtl/baud_rate.sv
+	../rtl/counter.sv
+	../rtl/uart_rx.sv
+	../rtl/uart_top.sv
+	../rtl/uart_tx.sv
+file: ../tb/testbench_funcional.sv
+	module worklib.tb:sv
+		errors: 0, warnings: 0
+file: ../rtl/baud_rate.sv
+	module worklib.baudRateGenerator:sv
+		errors: 0, warnings: 0
+file: ../rtl/counter.sv
+	module worklib.counter:sv
+		errors: 0, warnings: 0
+file: ../rtl/uart_rx.sv
+	module worklib.uart_rx:sv
+		errors: 0, warnings: 0
+file: ../rtl/uart_top.sv
+            6'h02: {24'd0, tx_thresh} <= wb_dat_i;
+                     |
+xmvlog: *E,NOTLVL (../rtl/uart_top.sv,75|21): illegal lvalue syntax [9.2(IEEE)].
+            6'h03: {24'd0, rx_thresh} <= wb_dat_i;
+                     |
+xmvlog: *E,NOTLVL (../rtl/uart_top.sv,76|21): illegal lvalue syntax [9.2(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                            |
+xmvlog: *E,ILLPRI (../rtl/uart_top.sv,113|76): illegal expression primary [4.2(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                             |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|77): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                              |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|78): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                               |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|79): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                  |
+xmvlog: *E,EXPLPA (../rtl/uart_top.sv,113|82): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                          |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|90): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                           |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|91): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                            |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|92): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                               |
+xmvlog: *E,EXPLPA (../rtl/uart_top.sv,113|95): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                                       |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|103): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                                        |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|104): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                                         |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,113|105): expecting an identifier [12.3.4(IEEE)].
+  uart_tx tx_inst (.clk(clk), .rst_n(rst_n), .tx_pin(uart_tx_pin), .data_in(...), .valid(...), .ready(...));
+                                                                                                          |
+xmvlog: *E,EXPSMC (../rtl/uart_top.sv,113|106): expecting a semicolon (';') [12.1.2][7.1(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                             |
+xmvlog: *E,ILLPRI (../rtl/uart_top.sv,114|77): illegal expression primary [4.2(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                              |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|78): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                               |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|79): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|80): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                   |
+xmvlog: *E,EXPLPA (../rtl/uart_top.sv,114|83): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                           |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|91): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                            |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|92): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                             |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|93): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                                |
+xmvlog: *E,EXPLPA (../rtl/uart_top.sv,114|96): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                                        |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|104): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                                         |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|105): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                                          |
+xmvlog: *E,EXPIDN (../rtl/uart_top.sv,114|106): expecting an identifier [12.3.4(IEEE)].
+  uart_rx rx_inst (.clk(clk), .rst_n(rst_n), .rx_pin(uart_rx_pin), .data_out(...), .valid(...), .ready(...));
+                                                                                                           |
+xmvlog: *E,EXPSMC (../rtl/uart_top.sv,114|107): expecting a semicolon (';') [12.1.2][7.1(IEEE)].
+	module worklib.uart_wrapper:sv
+		errors: 28, warnings: 0
+file: ../rtl/uart_tx.sv
+	module worklib.uart_tx:sv
+		errors: 0, warnings: 0
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	24.03-s005: Exiting on Aug 12, 2025 at 10:31:46 -03  (total: 00:00:00)

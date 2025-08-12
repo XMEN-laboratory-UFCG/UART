@@ -24,36 +24,29 @@ module baudRateGenerator#(parameter BAUDRATE = 9600,OVERSAMPLING  = 8, CLOCK_INP
     parameter WIDTH=$clog2(STOPCOUNTER);
 
     logic [WIDTH-1:0] counter, next_counter;
-    logic counting_done1;
-    logic counting_done3;
+    logic base_clock;
+    logic sampling;
 
-    counter #(.MODULET(STOPCOUNTER))inst_count1(
+    counter #(.MOD(STOPCOUNTER)) base_clock_counter( //Contador que gera a base de tempo stop_counter(clock_input,baundrate,oversampling)
         
-        .clock          (clock          ),
+        .clock          (clock           ),
         .ena            (1'b1            ),
-        .nreset         (nreset         ),
-        .counting_done  (counting_done1 ),
-        .counter1()
+        .nreset         (nreset          ),
+        .counting_done  (base_clock      )
     );
     
-    counter #(.MODULET(OVERSAMPLING))inst_count2(
+    counter #(.MOD(OVERSAMPLING)) sampling_counter( //Contador gerador de amostragem
 
         .clock          (clock_out      ),
-        .ena            (1'b1            ),
+        .ena            (ena            ),
         .nreset         (nreset         ),
-        .counting_done  (counting_done3 ),
-        .counter1       (counter)
+        .counting_done  ( counting_done2              ),
+        .counter1       (counter_out)
     );
-
-    assign counting_done2 = counter == OVERSAMPLING/2-1;
-
-	assign counter_out = counter;
-
     logic next_clock;
-
     always_ff@(posedge clock, negedge nreset)
         if(!nreset)         clock_out <= 0          ;
         else                clock_out <= next_clock ;
-    assign next_clock   =   counting_done1 ? ~ clock_out: clock_out;
+    assign next_clock   =   base_clock ? ~ clock_out: clock_out;
     
 endmodule
