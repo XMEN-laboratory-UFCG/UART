@@ -10,7 +10,7 @@
 // 
 //============================================================
 
-module baudRateGenerator#(parameter BAUDRATE = 9600,OVERSAMPLING  = 8, CLOCK_INPUT = 50_000_000) (
+module baudRateGenerator#(parameter BAUDRATE = 9600,OVERSAMPLING  = 8, CLOCK_INPUT = 50_000_000,CLOCK_REF=5_000_000) (
     input  logic nreset                  ,
     input   logic ena                    ,
     input   logic ena2                    ,
@@ -20,16 +20,23 @@ module baudRateGenerator#(parameter BAUDRATE = 9600,OVERSAMPLING  = 8, CLOCK_INP
 	 output logic [31:0] counter_out	
 );
 
-    parameter STOPCOUNTER = CLOCK_INPUT/(2*BAUDRATE*OVERSAMPLING)+1;
+    parameter STOPCOUNTER = CLOCK_REF/(2*BAUDRATE*OVERSAMPLING)+1;
     parameter WIDTH=$clog2(STOPCOUNTER);
 
-    logic [WIDTH-1:0] counter, next_counter;
     logic base_clock;
     logic sampling;
 
+
+// Ajustar o clock do baudrate
+    ref_clock #(.CLOCK_REF(CLOCK_REF),.CLOCK_INPUT(CLOCK_INPUT)) clock_base_ref(
+        .in_clock(clock),
+        .nreset(nreset),
+        .out_clock_ref(clock_out_refp)
+    );
+
     counter #(.MOD(STOPCOUNTER)) base_clock_counter( //Contador que gera a base de tempo stop_counter(clock_input,baundrate,oversampling)
         
-        .clock          (clock           ),
+        .clock          (clock_out_refp       ),
         .ena            (1'b1            ),
         .nreset         (nreset          ),
         .counting_done  (base_clock      )
@@ -37,16 +44,16 @@ module baudRateGenerator#(parameter BAUDRATE = 9600,OVERSAMPLING  = 8, CLOCK_INP
     
     counter #(.MOD(OVERSAMPLING)) sampling_counter( //Contador gerador de amostragem
 
-        .clock          (clock_out      ),
+        .clock          (clock_out ),
         .ena            (ena            ),
         .nreset         (nreset         ),
-        .counting_done  ( counting_done2              ),
-        .counter1       (counter_out)
+        .counting_done  (counting_done2 ),
+        .counter1       (counter_out    )
     );
-    logic next_clock;
-    always_ff@(posedge clock, negedge nreset)
-        if(!nreset)         clock_out <= 0          ;
-        else                clock_out <= next_clock ;
-    assign next_clock   =   base_clock ? ~ clock_out: clock_out;
     
+    logic next_clock;
+    always_ff@(posedge base_clock, negedge nreset)
+        if(!nreset)         clock_out <= 0          ;
+        else                clock_out <= ~clock_out;
+
 endmodule

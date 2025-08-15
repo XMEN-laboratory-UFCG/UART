@@ -21,9 +21,13 @@ module counter#(parameter MOD = 16)(
     logic [$clog2(MOD)-1:0] next_counter, counter;
     always_ff@(posedge clock, negedge nreset)begin
         if(!nreset)counter <=0;
-        else       counter <= next_counter;
+        else       counter <= counter == MOD - 1 || !ena ? 0 : counter +1 ;
     end
-    assign next_counter  = counter == MOD - 1 || !ena ? 0 : counter +1 ; 
-    assign counting_done = counter == MOD - 1 &&  ena                  ;
+
+
+    always_ff@(posedge clock, negedge nreset)begin
+        if(!nreset) counting_done <= 0;
+        else counting_done <= counter == MOD - 1 &&  ena;
+    end
     assign counter1 = counter;
 endmodule
