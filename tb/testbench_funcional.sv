@@ -1,3 +1,4 @@
+//Valmir 
 `timescale 10ns/1ns
 module tb;
     logic clock,clock2, nreset,nreset2,sdata1,sdata2,clock_out;
