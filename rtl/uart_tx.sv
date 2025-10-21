@@ -16,7 +16,8 @@ module uart_tx#(parameter  BYTESIZES = 8, OVERSAMPLING = 1, BAUDRATE = 115200,	C
     input  logic                     nreset            ,
     input  logic                     valid_tx_in       ,
     input  logic  [BYTESIZES-1:0]    data_tx_in        ,
-    output logic                     sdata_tx_out                
+    output logic                     sdata_tx_out       ,
+    output logic                     ready_tx_out        
 );
 
 logic clock_out;
@@ -59,6 +60,6 @@ always_comb begin
         default :next_fsm = FRAME_1                                         ;
     endcase
 end
-
+assign ready_tx_out = current_fsm == STOPBIT;
 assign pframe_data = valid_tx_in ? {1'b1,data_tx_in,3'b011}: 0;
 endmodule
