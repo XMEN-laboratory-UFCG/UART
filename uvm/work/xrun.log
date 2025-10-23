@@ -1,0 +1,42 @@
+xrun(64): 24.03-s005: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s005: Started on Oct 21, 2025 at 16:31:40 -03
+xrun
+	-uvm
+	-access +rw
+	-gui
+	-64bit
+	-top uart_top
+	+uvm_set_config_int=*,recording_detail,1
+	-timescale 1ns/1ns
+	-sv
+	-v93
+	-covdut uart_top
+	-covworkdir cov_work
+	-coverage all
+	-covoverwrite
+	+UVM_TESTNAME=uart_test
+	+UVM_VERBOSITY=UVM_MEDIUM
+	-f ../rtl.lst
+		+incdir+../bvm/
+		../rtl/baud_rate.sv
+		../rtl/counter.sv
+		../rtl/multiplier.sv
+		../rtl/ref_clock.sv
+		../rtl/uart_rx.sv
+		../rtl/uart_tx.sv
+		../rtl/uart_top.svh
+		../bvm/bvm_comparator.svh
+		../bvm/bvm_cover.svh
+		../bvm/bvm_macros.svh
+		../bvm/bvm_pkg.sv
+		../bvm/system_clock.c
+		+incdir+../tb_c/
+		../tb_c/test_pkg.sv
+		../tb_c/top.sv
+
+   User defined plus("+") options:
+	+uvm_set_config_int=*,recording_detail,1
+	+UVM_VERBOSITY=UVM_MEDIUM
+
+xrun: *E,FILEMIS: Cannot find the provided file ../rtl/uart_top.svh.
+TOOL:	xrun(64)	24.03-s005: Exiting on Oct 21, 2025 at 16:31:40 -03  (total: 00:00:00)
