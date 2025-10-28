@@ -5,7 +5,7 @@ module ref_clock#(parameter CLOCK_REF=5_000_000,CLOCK_INPUT=50_000_000)(
     output logic out_clock_ref
 );
 logic done;
-parameter STOPCOUNTER = CLOCK_INPUT/(2*CLOCK_REF);
+localparam STOPCOUNTER = CLOCK_INPUT/(2*CLOCK_REF);
 counter #(.MOD(STOPCOUNTER)) counter_base(
     .clock(in_clock),
     .nreset(nreset),

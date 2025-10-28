@@ -24,13 +24,12 @@ logic clock_out;
 logic bit_start,tmp_sdata;
 logic [BYTESIZES-1:0]   px_bit;
 logic [BYTESIZES-1+3:0] pframe_data;
-enum {FRAME_1,IDLE, START, S_DATA, STOPBIT} next_fsm,current_fsm;
+enum bit [2:0]{FRAME_1,IDLE, START, S_DATA, STOPBIT} next_fsm,current_fsm;
 baudRateGenerator #(.BAUDRATE(BAUDRATE),.OVERSAMPLING(OVERSAMPLING), .CLOCK_INPUT(COUNTER_CLOCK_INPUT),.CLOCK_REF(CLOCK_REF)) boudrategenerator_inst (
     .nreset        (nreset        		)     ,        
     .ena           (1'b1          		)     ,        
     .ena2          (1'b1          		)     ,        
     .clock         (clock         	    )     ,           
-	.counter_out   ()                         ,
     .clock_out     (clock_out     		)     ,            
     .counting_done2(sample_center_bit)     
 );
@@ -60,6 +59,6 @@ always_comb begin
         default :next_fsm = FRAME_1                                         ;
     endcase
 end
-assign ready_tx_out = current_fsm == STOPBIT;
+assign ready_tx_out = current_fsm == STOPBIT ? 1'b1:1'b0;
 assign pframe_data = valid_tx_in ? {1'b1,data_tx_in,3'b011}: 0;
 endmodule

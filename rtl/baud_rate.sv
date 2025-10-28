@@ -12,12 +12,11 @@
 
 module baudRateGenerator#(parameter BAUDRATE = 9600,OVERSAMPLING  = 8, CLOCK_INPUT = 50_000_000,CLOCK_REF=5_000_000) (
     input  logic nreset                  ,
-    input   logic ena                    ,
-    input   logic ena2                    ,
+    input  logic ena                     ,
+    input  logic ena2                    ,
     input  logic clock                   ,
     output logic clock_out               ,
-    output logic counting_done2          ,
-	 output logic [31:0] counter_out	
+    output logic counting_done2          
 );
 
     parameter STOPCOUNTER = CLOCK_REF/(2*BAUDRATE*OVERSAMPLING)+1;
@@ -48,10 +47,9 @@ module baudRateGenerator#(parameter BAUDRATE = 9600,OVERSAMPLING  = 8, CLOCK_INP
         .ena            (ena            ),
         .nreset         (nreset         ),
         .counting_done  (counting_done2 ),
-        .counter1       (counter_out    )
+        .counter1       (               )
     );
     
-    logic next_clock;
     always_ff@(posedge base_clock, negedge nreset)
         if(!nreset)         clock_out <= 0          ;
         else                clock_out <= ~clock_out;

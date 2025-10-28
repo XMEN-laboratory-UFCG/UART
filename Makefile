@@ -18,7 +18,7 @@ clean:
 genus_synthesis: #Síntese do RTL usando o PDK
 	cd ${dir} &&\
 	genus -f ${SYSTHESIS}/genus_script.tcl -log log
-lec_conformal:
+lec_conformal:#Equivalencia Lógica
 	cd ${dir} &&\
 	lec -xl -NOGui -dofile ${LOGICAL_EQ_LOGICAL}/uart.do -log log
 help:
