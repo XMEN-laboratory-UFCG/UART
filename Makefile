@@ -1,7 +1,7 @@
 TB = ../tb/testbench_funcional.sv
 RTL = ../rtl/*.sv
 SYSTHESIS = ../synthesis
-LOGICAL_EQ_LOGICAL = ../Equivalence_checking
+LOGIC_EQ_CHECKING = ../logic_equivalence_checking
 dir = ./sim/
 
 sims:
@@ -20,7 +20,7 @@ genus_synthesis: #Síntese do RTL usando o PDK
 	genus -f ${SYSTHESIS}/genus_script.tcl -log log
 lec_conformal:#Equivalencia Lógica
 	cd ${dir} &&\
-	lec -xl -NOGui -dofile ${LOGICAL_EQ_LOGICAL}/uart.do -log log
+	lec -xl -NOGui -dofile ${LOGIC_EQ_CHECKING}/uart.do -log log
 help:
 	@echo "Arguments to make:"
 	@echo "sim - run testbench"
