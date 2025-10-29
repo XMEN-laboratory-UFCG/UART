@@ -10,7 +10,7 @@
 # CLOCK_REF é a frequência de referência do clock do sistema.
 # Exemplo: CLOCK_REF = 50 MHz → período = 20 ns
 
-create_clock -name clk_uart -period 20.000 [get_ports clock]
+create_clock -name clk_uart -period 2.5000 [get_ports clock]
 
 # ===========================
 # 2. Reset
