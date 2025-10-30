@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_enable  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_enable\fR
-.SH Syntax \fBmetric_enable\fR {true | false} 
-.P Default: false
-.P Enables the metric snapshot capture.
-.P

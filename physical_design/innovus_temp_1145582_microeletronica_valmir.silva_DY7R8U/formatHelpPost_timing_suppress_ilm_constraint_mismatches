@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_suppress_ilm_constraint_mismatches  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_suppress_ilm_constraint_mismatches\fR \-  When set to true, the software suppresses all error and warning messages related to objects not found when loading SDC constraint files for the ILM flow
-.SH Syntax \fBtiming_suppress_ilm_constraint_mismatches\fR  {true | false}   Default: false 
-.P When set to true, the software suppresses all error and warning messages related to objects not found when loading SDC constraint files for the ILM flow.
-.P In the current ILM flow, SDC constraints originally specified against the complete flat netlist for the design do not get filtered when being applied against the ILM view of the design. Constraints that reference parts of the design that were pruned cause warnings and errors during constraint loading. 
-.P To set this global variable, use the set_global command.

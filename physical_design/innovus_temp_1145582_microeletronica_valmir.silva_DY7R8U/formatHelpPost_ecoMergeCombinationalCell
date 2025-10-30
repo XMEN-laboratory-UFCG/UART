@@ -1,4 +1,0 @@
- "*" 2 hier1/hier2/i_0 + hier1/hier2/i_1 + hier1/hier2/i_2 + hier1/hier2/i_3  TO  hier1/hier2/CDN_MB_i_0_MB_i_1_MB_i_2_MB_i_3  "*" 2 abc_x[0] + abc_x[1] + abc_x[2] + abc_x[3]  TO  CDN_MB_abc_x[0]_MB_x[1]_MB_x[2]_MB_x[3]
-.RE 
-.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each ecoMergeCombinationalCell parameter
-.SH Syntax \fBecoMergeCombinationalCell\fR  [-help]   [-area]  [-force]  -inst <comboInstName> | -listFile <instNamesFile> | -all  [-power]  -preCTS | -postCTS

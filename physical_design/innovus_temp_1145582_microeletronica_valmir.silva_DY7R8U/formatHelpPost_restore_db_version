@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH restore_db_version  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBrestore_db_version\fR
-.SH Syntax \fBrestore_db_version\fR <string>  
-.P Type: String
-.P Default: ""
-.P Restores the tool database version that generates the current design. This command was renamed from dbRestoreDbVersion.

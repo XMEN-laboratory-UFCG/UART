@@ -1,8 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH soft_stack_size_limit  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBsoft_stack_size_limit\fR
-.SH Syntax \fBsoft_stack_size_limit\fR 
-.P Default: 10
-.P Specifies the soft stack size limit in mbytes. When the tool is launched, the the soft stack size limit is auto-enlarged to 0.2% RAM. If 0.2%RAM is larger than the hard limit, the tool sets it to the hard limit.

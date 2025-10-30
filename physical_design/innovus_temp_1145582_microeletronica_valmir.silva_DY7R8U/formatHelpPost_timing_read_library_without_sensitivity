@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_read_library_without_sensitivity  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_read_library_without_sensitivity\fR \-  Disables loading of ECSM timing sensitivity data
-.SH Syntax \fBtiming_read_library_without_sensitivity\fR  {1 | 0}  Default: 0 
-.P Disables loading of ECSM timing sensitivity data.
-.P When set to 1, the global skips loading of all the data pertaining to ECSM timing sensitivity constructs when libraries are read.
-.P To set this global variable, use the set command.

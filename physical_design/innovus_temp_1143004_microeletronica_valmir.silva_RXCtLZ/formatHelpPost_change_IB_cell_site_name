@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH change_IB_cell_site_name  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBchange_IB_cell_site_name\fR \-  Change sites for the cells whose site definitions do not match the site definitions used by Innovus
-.SH Syntax \fBchange_IB_cell_site_name\fR  [-help]   [-NF <site_name>]  [-NNF <site_name>]    [-PF <site_name>]  [-PPF <site_name>]   [-new <site_name>]   [-original <site_name>]   [-vertical]
-.P Change sites for the cells whose site definitions do not match the site definitions used by Innovus. This is applicable only for specific nodes. 
-.SH Parameters   "\fB-help  \fR" Outputs a brief description that includes the type and default information for each change_IB_cell_site_name parameter.  For a detailed description of the command and all of its parameters, use the man command: man change_IB_cell_site_name  "\fB-NF <site_name>  \fR" Specifies the site name of the N-filler cell.   "\fB-NNF <site_name>\fR" Specifies site name of NN-filler cell.   "\fB-PF <site_name>  \fR" Specifies the site name of the P-filler cell.  "\fB-PPF <site_name>\fR" Specifies site name of PP-filler cell.   "\fB-new <site_name>  \fR" Specifies the new site name of the IB cell   "\fB-original <site_name>  \fR" Specifies the original site name of the IB cell.   "\fB-vertical  \fR" Is IB transform.
-.P

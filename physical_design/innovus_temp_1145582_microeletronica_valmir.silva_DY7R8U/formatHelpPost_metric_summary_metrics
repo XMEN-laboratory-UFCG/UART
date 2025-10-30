@@ -1,8 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_summary_metrics  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_summary_metrics\fR \-  Default: The default value of this string variable is not set
-.SH Syntax \fBmetric_summary_metrics\fR 
-.P Default: The default value of this string variable is not set.
-.P Lists metrics to report to log file during createSnapshot.

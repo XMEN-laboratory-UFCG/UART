@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH set_aocv_thresholds  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBset_aocv_thresholds\fR \-  Limits the minimum AOCV stage depth in graph-based analysis (GBA) mode
-.SH Syntax \fBset_aocv_thresholds\fR   [-help]  [-min_stage_count_setup <<int>>]  [-min_stage_count_hold <<int>>]  [-reset]  [-slack_pruning_threshold <<float>>]  -view <<list_of_views>>
-.P Limits the minimum AOCV stage depth in graph-based analysis (GBA) mode. 
-.SH Parameters    "\fB-help\fR" Prints out the command usage   "\fB-min_stage_count_setup <<int>>\fR" Applies the AOCV stage count floor, during Setup analysis, so that all the instances are guaranteed to have a stage depth no less than the specified value. A value of '0' will remove the assertion.  "\fB-min_stage_count_hold <<int>>\fR" Applies the AOCV stage count floor, during Hold analysis, so that all the instances are guaranteed to have a stage depth no less than the specified value. A value of '0' will remove the assertion.   "\fB-reset\fR" Removes/sets to default all of the AOCV threshold assertions for specified views.  "\fB-slack_pruning_threshold <<float>>\fR" Controls the slack threshold (in two-pass/slack-based AOCV analysis mode), at which paths are removed from consideration for the next phase of AOCV stage counting.  "\fB-view <<list_of_views>>\fR" Applies the specified thresholds to the list of analysis views.
-.P

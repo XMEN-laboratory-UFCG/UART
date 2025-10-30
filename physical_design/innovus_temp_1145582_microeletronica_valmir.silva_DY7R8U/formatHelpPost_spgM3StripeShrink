@@ -1,8 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH spgM3StripeShrink  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBspgM3StripeShrink\fR \-  Specifies the shrink effort of the virtual M2 stripe by given total site units
-.SH Syntax \fBspgM3StripeShrink\fR
-.P Specifies the shrink effort of the virtual M2 stripe by given total site units. This global should work with spgM3StripePushDown.
-.P If the default value is set to 0, it indicates that the entire pushed down M3 stripe is used to evaluate M1 pin access. If the default value is set to more than 0, it indicates that M3 stripe will shrink by the specified value before it is pushed down to M2. The left side will shrink first. For example, if the specified value is set to 1, the M3 stripe will shrink by 1 site on left, and if the specified value is set to 2, 1 site on left will shrink, along with 1 site on right.

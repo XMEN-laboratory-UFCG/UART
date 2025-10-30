@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH create_stress_rule  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBcreate_stress_rule\fR \-  Defines a spacing table for spacing rules
-.SH Syntax \fBcreate_stress_rule\fR  [-help]   { {-layer <layerName> -spacing_table <spacing_table> [-chip_name <chipName>]} | [-reset ] } 
-.P Defines a spacing table for spacing rules. Since the spacing rule varies with the location of the keep out zone in the chip, user can define different spacing tables for different spacing rule. These spacing tables are used by the tool to identify different scenarios and select the correct spacing constraint for a scenario. 
-.SH Parameters   "\fB-help\fR" Prints a brief description of the create_stress_rule command usage.  For a detailed description of the command, use the man command:  man create_stress_rule  "\fB-chip_name chipName\fR" Specifies the name of the chip for which the spacing table is used for checking violation. If this option is not specified, the tool applies the spacing rule for all the chips above, below, and current based on the masterslice layer definition in the LEF file   "\fB-layer <layerName>\fR" Specifies the name of the stress layer for which the spacing table is used for checking violation.  "\fB-reset\fR" Resets all stress rules.    "\fB-spacing_table <spacing_table>\fR" Specifies the spacing table definition, {x1 y1} {x2 y2}.
-.P

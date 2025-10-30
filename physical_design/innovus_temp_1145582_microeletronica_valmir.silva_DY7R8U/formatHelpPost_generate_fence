@@ -1,2 +1,0 @@
- "*" 2 Run proto_design to place FlexModel guides/fences.  "*" 2 Manually adjust/move FlexModels to shorten timing paths.  "*" 2 Run the following commands to analyze the floorplan and check timing
-.SH Syntax \fBgenerate_fence\fR  [-help]   [-flow {2G}]   [-for_partition]  [-rectangle_shape]   [-target_util <float>]   [ [-hInst {<hInst(s)>}] | [-module {<module(s)>}] | [-inst_group {<instGroup(s)>}] ]

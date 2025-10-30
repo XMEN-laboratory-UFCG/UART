@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH restore_db_file_check  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBrestore_db_file_check\fR
-.SH Syntax \fBrestore_db_file_check\fR {true | false}
-.P Type: boolean
-.P Default: true
-.P By default, restoreDesign will check all the files inside the saved DB directory. If any file is edited, renamed, or deleted, the tool will give an error. However, restoreDesign will not perform this check if restore_db_file_check is set to false.

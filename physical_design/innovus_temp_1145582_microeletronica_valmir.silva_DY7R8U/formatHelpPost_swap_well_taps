@@ -1,2 +1,0 @@
- "\fB-help\fR" Outputs a brief description that includes type and default information for each swap_well_taps parameter
-.SH Syntax \fBswap_well_taps\fR  [-help]  [-both_violation <cellName>]   -cells <cellName>   [-check_only]   [-default_cell <defaultCellName>]   -diffusion_forbidden_spacing <float>   [-left_violation <cellName>]   [-right_violation <cellName>]  [-skip_cells <cellNameList>]   [-swap_report <reportName>]   [-violation_report <reportName>]

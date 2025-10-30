@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_disable_netlist_constants  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_disable_netlist_constants\fR \-  When set to true, ignores constants defined in the Verilog netlist
-.SH Syntax \fBtiming_disable_netlist_constants\fR  {true | false}  Default: false 
-.P When set to true, ignores constants defined in the Verilog netlist. This includes all uses of the in-place constant notation, such as 1'b0, and the use of power and ground nets. Constants from set_case_analysis assertions and from tie-hi and tie-lo cells are still recognized.
-.P When set to false, the software recognizes all constants. 
-.P To set this global variable, use the set_global command.

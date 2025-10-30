@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_allow_input_delay_on_clock_source  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_allow_input_delay_on_clock_source\fR
-.SH Syntax  \fBtiming_allow_input_delay_on_clock_source\fR  {true | false} 
-.P Default: false
-.P When set to true, this global variable allows the software to apply input delay constraints on a pin where a clock was previously asserted.
-.P To set this global variable, use the set_global command.

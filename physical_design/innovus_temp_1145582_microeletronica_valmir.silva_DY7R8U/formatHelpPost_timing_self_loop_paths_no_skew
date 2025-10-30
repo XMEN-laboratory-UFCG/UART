@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_self_loop_paths_no_skew  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_self_loop_paths_no_skew\fR \-  When set to true, factors the skew on self loops
-.SH Syntax \fBtiming_self_loop_paths_no_skew\fR  {true | false}  Default: false
-.P When set to true, factors the skew on self loops. The software ignores the skew on the clock pin for hold analysis for data paths originating on sequential elements (for example, Q-pin of a flip flop) and ending on the data pins of the same element (D-pin of the same flip flop). Use this variable to eliminate pessimism due to skew when the launch and the capture edge of the clock are the same.
-.P To set this global variable, use the set_global command. 
-.P Note: The timing_self_loop_paths_no_skew global should not be used with the setAnalysisMode command. Use this global only when the setAnalysisMode command is not available. When the setAnalysisMode command is available, use the -timingSelfLoopsNoSkew parameter to enable skew factoring on self loops.

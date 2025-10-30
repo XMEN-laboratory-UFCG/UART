@@ -1,8 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_disable_user_data_to_data_checks  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_disable_user_data_to_data_checks\fR \-  When set to true, disables data to data checks that are created by the set_data_check command
-.SH Syntax \fBtiming_disable_user_data_to_data_checks\fR  {true | false}  Default: false 
-.P When set to true, disables data to data checks that are created by the set_data_check command. This global variable does not affect non-sequential timing checks described in the timing library.
-.P To set this global variable, use the set_global command.

@@ -1,8 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_enable_tristate_clock_gating  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_enable_tristate_clock_gating\fR \-  The timing system infers gated-clock checks in the design where a data and clock path intersect at a combinational device
-.SH Syntax \fBtiming_enable_tristate_clock_gating\fR  {true | false}  Default: false 
-.P The timing system infers gated-clock checks in the design where a data and clock path intersect at a combinational device. When this global is set to true, inferred gated-clock checks are added when clock and data signals converge through the tristate enable and data input of tristate buffers. By default (a setting of false), gated-clock checks are not added for these situations.
-.P To set this global variable, use the set_global command.

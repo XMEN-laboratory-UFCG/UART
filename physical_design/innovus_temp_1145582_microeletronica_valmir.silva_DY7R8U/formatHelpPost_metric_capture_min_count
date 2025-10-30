@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_capture_min_count  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_capture_min_count\fR
-.SH Syntax \fBmetric_capture_min_count\fR <integer> 
-.P Default: 1000
-.P Captures the minimum instance count for capturing hinst design and power metrics. 
-.P

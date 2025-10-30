@@ -1,2 +1,0 @@
- "\fB-help\fR" Outputs a brief description that includes type and default information for each comparePinAssignStatistic parameter
-.SH Syntax \fBcomparePinAssignStatistics\fR  [-help]  [-ignoreMinWireLength <minWireLength>]  [-outFile <pinQoRCompareFileNam> <e>]  -reference <referenceFileName>-target <targetFileName>

@@ -1,2 +1,0 @@
- "*" 2 Worst-Case Arc/Slack: Contains details about the extracted arcs and the slack or delay across them depending on the argument specified with the -type option
-.SH Syntax \fBwrite_model_timing\fR  [-help]   [<model_timing_report_file>]  [-inputs <string>]  [-nworst <integer>]  [-outputs <string>]  [-slew_propagation {worst | path_based}]   [-type {arc | slack}]  [-verbose]  [-view <string>]  -setup <string> | -hold <string>

@@ -1,2 +1,0 @@
- "\fB-cell <cell_name>\fR" Specifies the name of the module
-.SH Syntax \fBgetPinConstraint\fR  [-help]   [-dictFile <string>]   [[-global | -cell <cell_name>]   [-global | -pin <pin_name_list>]]

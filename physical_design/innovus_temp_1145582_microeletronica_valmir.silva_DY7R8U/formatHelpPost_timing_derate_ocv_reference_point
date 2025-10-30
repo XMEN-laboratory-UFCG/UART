@@ -1,8 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_derate_ocv_reference_point  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_derate_ocv_reference_point\fR \-  Allows specification of reference point for OCV factors
-.SH Syntax \fBtiming_derate_ocv_reference_point\fR {1 | 0}  Default: 1 
-.P Allows specification of reference point for OCV factors. As per the current OCV library definitions, the OCV reference point is always expected to be set at 1.0.
-.P To set this global variable, use the set_global command.

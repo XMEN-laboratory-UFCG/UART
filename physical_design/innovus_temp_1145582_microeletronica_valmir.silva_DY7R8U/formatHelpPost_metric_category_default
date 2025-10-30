@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_category_default  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_category_default\fR
-.SH Syntax \fBmetric_category_default\fR <metric_category> 
-.P Default: design
-.P Specifies to capture the default metric category if none are provided.
-.P

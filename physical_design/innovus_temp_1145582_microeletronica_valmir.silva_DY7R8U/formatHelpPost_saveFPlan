@@ -1,8 +1,0 @@
- "*" 2 A general floorplanning file with the extension
-.fp  "*" 2 A power route data file with the extension
-.fp.spr  Note: If there is an entry in the IO Cell Libraries field in the Design Import form, a third file is created with the extension
-.fp.areaio. 
-.RE
-.P Note: 
-.RS  "*" 2 The saveFPlan command honors the blackbox min/max aspect ratio information in the floorplan information file.  "*" 2 The saveFPlan command saves the net attributes including non-default attributes of a net, like weight, bottomPreferredRoutingLayer, or detour
-.SH Syntax \fBsaveFPlan\fR  <file>   [-help]   [-noName]  [-objType {macro | pin | bndry | special_route | pin_constraint}]  [-xml]

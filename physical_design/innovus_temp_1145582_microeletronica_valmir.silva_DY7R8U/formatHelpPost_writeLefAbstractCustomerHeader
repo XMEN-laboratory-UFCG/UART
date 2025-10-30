@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH writeLefAbstractCustomerHeader  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBwriteLefAbstractCustomerHeader\fR
-.SH Syntax \fBwriteLefAbstractCustomerHeader\fR <header_information> 
-.P Type: String
-.P Default: ""
-.P Writes LEF abstract files with the customer-specified header information.

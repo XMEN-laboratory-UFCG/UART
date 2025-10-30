@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_capture_overwrite  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_capture_overwrite\fR
-.SH Syntax \fBmetric_capture_overwrite\fR {true | false} 
-.P Default: false
-.P Overwrites pending metrics during the createSnapshot category capture. 
-.P

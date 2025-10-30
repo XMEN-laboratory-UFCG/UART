@@ -1,2 +1,0 @@
- "\fB-help\fR" Outputs a brief description that includes type and default information for each set_proc_verbose parameter
-.SH Syntax \fBset_proc_verbose\fR  [-help]   {[<procedure_name> [-quiet ]] | [-report ]}

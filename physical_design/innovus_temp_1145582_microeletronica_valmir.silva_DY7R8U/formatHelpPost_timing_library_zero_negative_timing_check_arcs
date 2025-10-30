@@ -1,7 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH timing_library_zero_negative_timing_check_arcs  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBtiming_library_zero_negative_timing_check_arcs\fR \-  When set to true, converts any negative timing check values in the timing library to zero
-.SH Syntax \fBtiming_library_zero_negative_timing_check_arcs\fR  {true | false}  Default: false 
-.P When set to true, converts any negative timing check values in the timing library to zero.

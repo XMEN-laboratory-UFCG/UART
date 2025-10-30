@@ -1,4 +1,0 @@
- "*" 2 hier1/hier2/i_[0:3]   TO  hier1/hier2/i_[0:3]__0, hier1/hier2/i_[0:3]__1, hier1/hier2/i_[0:3]__2, hier1/hier2/i_[0:3]__3  "*" 2 CDN_MB_abc_MB_def  TO  abc, def
-.RE 
-.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each ecoSplitCombinationalCell parameter
-.SH Syntax \fBecoSplitCombinationalCell\fR  [-help]   [-force]   [-fullSplit]   [-legal]   [-skipRoute]   -inst <combInstName> | {{Mbcb1 combCell1} {Mbcb2 combCell2}...} | -listFile <fileName> | -all  -preCTS | -postCTS | -postRoute

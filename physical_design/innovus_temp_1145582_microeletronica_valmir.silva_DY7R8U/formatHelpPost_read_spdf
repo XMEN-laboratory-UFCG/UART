@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH read_spdf  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBread_spdf\fR \-  Reads the statistical parameter distribution format (SPDF) file
-.SH Syntax \fBread_spdf\fR  {-help]  <SPDF_file_name> 
-.P Reads the statistical parameter distribution format (SPDF) file. An SPDF file contains statistics of variation of process parameters. The SPDF file is required for statistical static timing analysis (SSTA). 
-.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB<SPDF_file_name>\fR" Specifies the name of a SPDF file - that contains statistics of variation of process parameters.
-.P

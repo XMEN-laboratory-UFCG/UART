@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_capture_design_image_route_drc  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_capture_design_image_route_drc\fR
-.SH Syntax \fBmetric_capture_design_image_route_drc\fR {true | false} 
-.P Default: true
-.P Captures route DRC markers in the design image.
-.P

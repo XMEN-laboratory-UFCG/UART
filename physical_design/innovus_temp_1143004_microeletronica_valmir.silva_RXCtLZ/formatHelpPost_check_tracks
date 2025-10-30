@@ -1,5 +1,0 @@
- "*" 2 Tracks whose STEP is smaller than the minimum pitch for the designated layer.  "*" 2 The percentage of on-track pins and pins that are not accessible (for regular routing).  "*" 2 Fully blocked pins and potential off-grid track pins (for special routing). 
-.RE
-.P Before running this command, complete the following steps:
-.RS  "*" 2 Load a LEF file with the library and technology information.  "*" 2 Place the design
-.SH Syntax \fBcheck_tracks\fR  [-help]   [-direction {horiz | vert | H | V}]   [-grid <spacing>]   [-layer <layer_name>]   [-mask <mask_name>]   [-offset <string>]   [-origin {design | core | D | C}]

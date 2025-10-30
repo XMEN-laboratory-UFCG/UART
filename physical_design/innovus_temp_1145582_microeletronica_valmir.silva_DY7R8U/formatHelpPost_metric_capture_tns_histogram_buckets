@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_capture_tns_histogram_buckets  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_capture_tns_histogram_buckets\fR
-.SH Syntax \fBmetric_capture_tns_histogram_buckets\fR <integer> 
-.P Default: 50
-.P Specifies the number of buckets for the TNS histogram. 
-.P

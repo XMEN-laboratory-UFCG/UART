@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH report_socv_interconnect_variation  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBreport_socv_interconnect_variation\fR \-  Reports the RC variation multiplier data provided in the SOCV files
-.SH Syntax \fBreport_socv_interconnect_variation\fR   [-help]  [-delay_corner <string>]  [-power_domain <string>]
-.P Reports the RC variation multiplier data provided in the SOCV files. 
-.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-delay_corner <string>\fR" Specifies the name of the delay corner.   "\fB-power_domain <string>\fR" Specifies the name of the power domain.
-.P

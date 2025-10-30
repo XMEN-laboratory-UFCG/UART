@@ -1,8 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH script_search_path  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBscript_search_path\fR \-  Default: "."
-.SH Syntax \fBscript_search_path\fR 
-.P Default: ".". The default value represents the current application run directory.
-.P Provides a set of directories for the software to search for files that are sourced using the Tcl source command. The software searches each search path directory for the specified file.

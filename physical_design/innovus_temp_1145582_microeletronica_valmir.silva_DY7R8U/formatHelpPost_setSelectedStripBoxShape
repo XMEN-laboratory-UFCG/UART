@@ -1,2 +1,0 @@
- "\fB-help\fR" Outputs a brief description that includes the type and default information for each setSelectedStripBoxShape parameter
-.SH Syntax \fBsetSelectedStripBoxShape\fR   [-help]  index  {None RING STRIPE FOLLOWPIN IOWIRE COREWIRE BLOCKWIRE FILLWIRE PADRING DRCFILL FILLWIREOPC}

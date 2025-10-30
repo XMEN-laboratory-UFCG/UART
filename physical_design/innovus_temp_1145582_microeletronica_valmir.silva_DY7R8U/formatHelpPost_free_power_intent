@@ -1,2 +1,0 @@
- "\fB-help\fR" Prints a brief description that includes the type and default information for each free_power_intent parameter
-.SH Syntax \fBfree_power_intent\fR  [-help]  [-keep_fence]

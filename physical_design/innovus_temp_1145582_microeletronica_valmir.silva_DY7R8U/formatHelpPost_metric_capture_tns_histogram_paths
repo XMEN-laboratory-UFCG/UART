@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_capture_tns_histogram_paths  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_capture_tns_histogram_paths\fR
-.SH Syntax \fBmetric_capture_tns_histogram_paths\fR <integer> 
-.P Default: 10000
-.P Specifies the number of paths to capture for the TNS histogram. 
-.P

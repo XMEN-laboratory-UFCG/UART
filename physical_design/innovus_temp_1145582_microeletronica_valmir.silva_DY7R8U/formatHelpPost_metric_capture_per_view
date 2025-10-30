@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_capture_per_view  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_capture_per_view\fR
-.SH Syntax \fBmetric_capture_per_view\fR {true | false} 
-.P Default: true
-.P Captures timing metrics per analysis_view.  
-.P

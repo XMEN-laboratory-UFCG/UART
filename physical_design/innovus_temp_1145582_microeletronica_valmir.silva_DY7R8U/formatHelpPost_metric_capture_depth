@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH metric_capture_depth  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmetric_capture_depth\fR
-.SH Syntax \fBmetric_capture_depth\fR <integer> 
-.P Default: 0
-.P Specifies the depth for capturing hinst design and power metrics. 
-.P

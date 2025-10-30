@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH mustjoinallports_is_one_pin  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBmustjoinallports_is_one_pin\fR
-.SH Syntax \fBmustjoinallports_is_one_pin\fR {true | false} 
-.P Type: Boolean
-.P Default: true
-.P If false, the LEF MUSTJOINALLPORTS property on a LEF PIN automatically creates the MUSTJOIN pins for each PORT. If true, the MUSTJOIN pins are not created, but the router must be connected to every port with a single wire or single-via that physically overlaps all the ports.

@@ -1,2 +1,0 @@
- "\fB-bottom\fR" Specifies the add tap-wall cell on the bottom side
-.SH Syntax \fBadd_tap_walls\fR  [-help]  [-bottom]   -cell <cellName>   [-layer <layer_name>]  [-left]                       [-orientation {R0 MX MY R180}]   [-pitch <distance>]  [-prefix <prefix>]  [-range <lx ux>|<ly uy>]   [-right]   [-top]  [-y_flip_side {left right both}]

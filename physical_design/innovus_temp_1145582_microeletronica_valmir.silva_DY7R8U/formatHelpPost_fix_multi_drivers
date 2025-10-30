@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH fix_multi_drivers  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBfix_multi_drivers\fR \-  Fixes multi-drive issues by disconnecting driving ports that do not have a real driver
-.SH Syntax \fBfix_multi_drivers\fR  [-help]    [-exclude_net <netName> | <netNameList>]  [-replace_bus_bit]   [-report_only] 
-.P Fixes multi-drive issues by disconnecting driving ports that do not have a real driver. The fix_multi_drivers command also works for looped multi-driver assign net. 
-.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each fix_multi_drivers parameter.  "\fB-exclude_net <netName> | <netNameList>\fR" Specifies the list of nets to be excluded.   "\fB-replace_bus_bit\fR" Replaces all bus ports with wrong directions, if any, by new scalar ports. If not specified, just report without such replacement.   "\fB-report_only\fR" Reports, but does not fix, ports with wrong directions.
-.P

@@ -1,8 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH getBuildArch  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBgetBuildArch\fR \-  Reports whether the Innovus session is running in 32-bit or 64-bit mode
-.SH Syntax \fBgetBuildArch\fR [-help] 
-.P Reports whether the Innovus session is running in 32-bit or 64-bit mode. 
-.SH Parameters    "\fB-help\fR" Prints a brief description of the command.

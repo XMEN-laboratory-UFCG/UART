@@ -1,2 +1,0 @@
- "\fB-help\fR" Prints out the command usage
-.SH Syntax \fBset_glitch_threshold\fR   [-help]   [-cell <string>]  [-failure_point {none | input | internal | last}]  [-glitch_type {both | vl | vh | vlu | vho | vl_vh | vlu_vho}]  [-library_pins <string>]  [-nets <string>]  [-pins <string>]  [-pin_type {clock | data | latch | all}]  [-threshold_type {failure | reporting | propagation}]  -value float  [-views <string>]

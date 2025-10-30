@@ -1,7 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH Puts  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBPuts\fR \-  Outputs information to the screen (stdout) and Innovus log files (.log/.logv)
-.SH Syntax \fBPuts\fR  [-help]  string 
-.P Outputs information to the screen (stdout) and Innovus log files (.log/.logv).

@@ -1,9 +1,0 @@
-.nf
-.P Product Version     22.14    Cadence Design Systems, Inc. 
-.fi
-.TH clearSpareCellDisplay  22.14 "Fri Oct 06 02:12:27 2023" 
-.SH Name \fBclearSpareCellDisplay\fR \-  Removes spare cell instances from the display
-.SH Syntax \fBclearSpareCellDisplay\fR 
-.P Removes spare cell instances from the display. 
-.SH Parameters
-.P None

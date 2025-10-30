@@ -1,2 +1,0 @@
- "\fB<hInstName>\fR" Specifies the instantiation to delete
-.SH Syntax \fBdeleteSpareModule\fR hInst<Name>

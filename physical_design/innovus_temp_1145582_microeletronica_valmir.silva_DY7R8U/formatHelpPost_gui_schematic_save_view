@@ -1,2 +1,0 @@
-Note: This commands work only in the cone view (flattened mode)
-.SH Syntax \fBgui_schematic_save_view\fR  [-help]  -file <file_name>  [-name <string>]

@@ -1,2 +1,0 @@
- "\fB-help      \fR" Outputs a brief description that includes type and default information for each delete_ccopt_flexible_htrees parameter
-.SH Syntax \fBdelete_ccopt_flexible_htrees\fR  [-help]  pattern  [-regexp]
