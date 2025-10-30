@@ -1,0 +1,8 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createTrack  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateTrack\fR \-  Creates non-uniformed, customized tracks in selected design area
+.SH Syntax \fBcreateTrack\fR  [-help]  -dir <direction>-layer <layerNameList> <>-num <numOfTrack>  -start <coordinate>  -step <step> 
+.P Creates non-uniformed, customized tracks in selected design area. Typically, the routing grid is generated when the floorplan is initialized. The first track is located at an offset from the placement grid set by the OFFSET value for the layer in the LEF file. The track spacing is the PITCH value for the layer defined in LEF. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each createTrack parameter.  For a detailed description of the command and all of its parameters, use the man command: man createTrack.  "\fB-dir <direction>\fR" Specifies track direction as a string.   "\fB-start <coordinate>\fR" Specifies the starting coordinate to create the track. The unit for the coordinates is user unit (micron).  "\fB-num <numOfTrack>\fR" Specifies the number of tracks to create for the grid. You cannot specify 0 numtracks.  "\fB-step <step>\fR" Specifies the spacing between the tracks.  "\fB-layer <layerNameList>\fR" Specifies the routing layer used for the tracks. You can specify more than one layer.

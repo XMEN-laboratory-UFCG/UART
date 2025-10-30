@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_redirect_message_types  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_redirect_message_types\fR
+.SH Syntax \fBtiming_report_redirect_message_types\fR   {none | info}
+.P Default: none
+.P Redirects reporting messages to a report file.
+.P When set to info, the path count and max depth (displayed when the report_timing command is run in PBA mode) will be appended to the final report output.
+.P When set to none, the reporting messages are not redirected to a report file.
+.P To set this global variable, use the set command.
+.P

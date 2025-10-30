@@ -1,0 +1,99 @@
+[10/29 23:01:13      0s] 
+[10/29 23:01:13      0s] Cadence Innovus(TM) Implementation System.
+[10/29 23:01:13      0s] Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/29 23:01:13      0s] 
+[10/29 23:01:13      0s] Version:	v23.31-s109_1, built Mon Apr 22 16:02:43 PDT 2024
+[10/29 23:01:13      0s] Options:	-file innovus_script.tcl 
+[10/29 23:01:13      0s] Date:		Wed Oct 29 23:01:13 2025
+[10/29 23:01:13      0s] Host:		microeletronica (x86_64 w/Linux 4.18.0-477.27.1.el8_8.x86_64) (16cores*32cpus*Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz 16384KB)
+[10/29 23:01:13      0s] OS:		Red Hat Enterprise Linux 8.8 (Ootpa)
+[10/29 23:01:13      0s] 
+[10/29 23:01:13      0s] License:
+[10/29 23:01:13      0s] 		[23:01:13.510289] Configured Lic search path (23.02-s005): 5280@melicense.embedded.ufcg.edu.br
+
+[10/29 23:01:13      0s] 		invs	Innovus Implementation System	23.1	checkout succeeded
+[10/29 23:01:13      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[10/29 23:01:15      1s] {{{ isCertus 0,  isCertusOrDistOptClient = 0, isInnovusCertusClient = 0}}}
+[10/29 23:01:30     16s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v23.31-s109_1 (64bit) 04/22/2024 16:02 (Linux 3.10.0-693.el7.x86_64)
+[10/29 23:01:32     19s] @(#)CDS: NanoRoute 23.31-s109_1 NR240401-0735/23_11-UB (database version 18.20.622_1) {superthreading v2.20}
+[10/29 23:01:32     19s] @(#)CDS: AAE 23.11-s030 (64bit) 04/22/2024 (Linux 3.10.0-693.el7.x86_64)
+[10/29 23:01:32     19s] @(#)CDS: CTE 23.11-s024_1 () Apr 22 2024 08:03:17 ( )
+[10/29 23:01:32     19s] @(#)CDS: SYNTECH 23.11-s010_1 () Apr  5 2024 04:21:08 ( )
+[10/29 23:01:32     19s] @(#)CDS: CPE v23.11-s057
+[10/29 23:01:32     19s] @(#)CDS: IQuantus/TQuantus 22.1.1-s233 (64bit) Mon Dec 11 23:11:23 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[10/29 23:01:32     19s] @(#)CDS: OA 22.61-p011 Thu Nov 30 12:26:13 2023
+[10/29 23:01:32     19s] @(#)CDS: SGN 23.10-d005 (03-Oct-2023) (64 bit executable, TkQt5.15.9)
+[10/29 23:01:32     19s] @(#)CDS: RCDB 11.15.0
+[10/29 23:01:32     19s] @(#)CDS: STYLUS 23.10-a010_1 (02/06/2024 03:59 PST)
+[10/29 23:01:32     19s] @(#)CDS: IntegrityPlanner-23.11-14100 (23.11) (2024-02-05 09:01:07+0800)
+[10/29 23:01:32     19s] @(#)CDS: SYNTHESIS_ENGINE 23.11-s099
+[10/29 23:01:32     19s] Create and set the environment variable TMPDIR to /home/valmir.silva/UART/physical_design/innovus_temp_1209146_99f6edae-9344-4d0d-b9fd-d74f1e71bfdc_microeletronica_valmir.silva_GfbeBF.
+
+[10/29 23:01:32     19s] Change the soft stacksize limit to 0.2%RAM (256 mbytes). Set global soft_stack_size_limit to change the value.
+[10/29 23:01:34     21s] 
+[10/29 23:01:34     21s] **INFO:  MMMC transition support version v31-84 
+[10/29 23:01:34     21s] 
+[10/29 23:01:34     21s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[10/29 23:01:34     21s] <CMD> suppressMessage ENCEXT-2799
+[10/29 23:01:34     21s] <CMD> getVersion
+[10/29 23:01:35     21s] [INFO] Loading PVS 23.10 fill procedures
+[10/29 23:01:35     21s] Sourcing file "innovus_script.tcl" ...
+[10/29 23:01:35     21s] source innovus_script.tcl
+[10/29 23:01:35     21s] **ERROR: (IMPSYT-6692):	Invalid return code while executing 'innovus_script.tcl' was returned and script processing was stopped. Review the following error in 'innovus_script.tcl' then restart.
+[10/29 23:01:35     21s] **ERROR: (IMPSYT-6693):	Error message: innovus_script.tcl: invalid command name "import_mmmc".
+[10/29 23:01:35     21s] <CMD> win
+[10/29 23:08:49     41s] invalid command name "set_int*mmm*"
+[10/29 23:09:55     55s] couldn't load file "Default.view": Default.view: cannot open shared object file: No such file or directory
+[10/29 23:10:56     74s] <CMD> create_rc_corner -name RCMAX -cap_table {../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -T {125} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+[10/29 23:10:56     74s] <CMD> create_rc_corner -name RCMIN -cap_table {../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -T {-40} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+[10/29 23:10:56     74s] <CMD> create_library_set -name slow -timing {../lib/slow_vdd1v0_basicCells.lib}
+[10/29 23:10:56     74s] <CMD> create_library_set -name fast -timing {../lib/fast_vdd1v0_basicCells.lib}
+[10/29 23:10:56     74s] <CMD> create_constraint_mode -name funcional -sdc_files {../sim/outputs/uart_sdc.sdc}
+[10/29 23:10:56     74s] <CMD> create_delay_corner -name dc_RCMAX_slow -library_set {slow} -rc_corner {RCMAX}
+[10/29 23:10:56     74s] <CMD> create_delay_corner -name dc_RCMAX_fast -library_set {fast} -rc_corner {RCMAX}
+[10/29 23:10:56     74s] <CMD> create_delay_corner -name dc_RCMIN_slow -library_set {slow} -rc_corner {RCMIN}
+[10/29 23:10:56     74s] <CMD> create_delay_corner -name dc_RCMIN_fast -library_set {fast} -rc_corner {RCMIN}
+[10/29 23:10:56     74s] <CMD> create_analysis_view -name f_max_s -constraint_mode {funcional} -delay_corner {dc_RCMAX_slow}
+[10/29 23:10:56     74s] <CMD> create_analysis_view -name f_max_f -constraint_mode {funcional} -delay_corner {dc_RCMAX_fast}
+[10/29 23:10:56     74s] <CMD> create_analysis_view -name f_min_s -constraint_mode {funcional} -delay_corner {dc_RCMIN_slow}
+[10/29 23:10:56     74s] <CMD> create_analysis_view -name f_min_f -constraint_mode {funcional} -delay_corner {dc_RCMAX_slow}
+[10/29 23:10:56     74s] <CMD> set_analysis_view -setup {f_max_s f_max_f f_min_s f_min_f} -hold {f_max_s f_max_f}
+[10/29 23:10:56     74s] **ERROR: (TCLCMD-1230):	The command set_analysis_view is called before the design is initialized and not from init_design.
+
+[10/29 23:10:59     75s] <CMD> create_rc_corner -name RCMAX -cap_table {../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -T {125} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+[10/29 23:10:59     75s] Extraction setup Started 
+[10/29 23:10:59     75s] <CMD> create_rc_corner -name RCMIN -cap_table {../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -T {-40} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+[10/29 23:10:59     75s] Extraction setup Started 
+[10/29 23:10:59     75s] <CMD> create_library_set -name slow -timing {../lib/slow_vdd1v0_basicCells.lib}
+[10/29 23:10:59     75s] <CMD> create_library_set -name fast -timing {../lib/fast_vdd1v0_basicCells.lib}
+[10/29 23:10:59     75s] <CMD> create_constraint_mode -name funcional -sdc_files {../sim/outputs/uart_sdc.sdc}
+[10/29 23:10:59     75s] <CMD> create_delay_corner -name dc_RCMAX_slow -library_set {slow} -rc_corner {RCMAX}
+[10/29 23:10:59     75s] Extraction setup Started 
+[10/29 23:10:59     75s] <CMD> create_delay_corner -name dc_RCMAX_fast -library_set {fast} -rc_corner {RCMAX}
+[10/29 23:10:59     75s] Extraction setup Started 
+[10/29 23:10:59     75s] <CMD> create_delay_corner -name dc_RCMIN_slow -library_set {slow} -rc_corner {RCMIN}
+[10/29 23:10:59     75s] Extraction setup Started 
+[10/29 23:10:59     75s] <CMD> create_delay_corner -name dc_RCMIN_fast -library_set {fast} -rc_corner {RCMIN}
+[10/29 23:10:59     75s] Extraction setup Started 
+[10/29 23:10:59     75s] <CMD> create_analysis_view -name f_max_s -constraint_mode {funcional} -delay_corner {dc_RCMAX_slow}
+[10/29 23:10:59     75s] The existing analysis_view 'f_max_s' has been replaced with new attributes.
+[10/29 23:10:59     75s] <CMD> create_analysis_view -name f_max_f -constraint_mode {funcional} -delay_corner {dc_RCMAX_fast}
+[10/29 23:10:59     75s] The existing analysis_view 'f_max_f' has been replaced with new attributes.
+[10/29 23:10:59     75s] <CMD> create_analysis_view -name f_min_s -constraint_mode {funcional} -delay_corner {dc_RCMIN_slow}
+[10/29 23:10:59     75s] The existing analysis_view 'f_min_s' has been replaced with new attributes.
+[10/29 23:10:59     75s] <CMD> create_analysis_view -name f_min_f -constraint_mode {funcional} -delay_corner {dc_RCMAX_slow}
+[10/29 23:10:59     75s] The existing analysis_view 'f_min_f' has been replaced with new attributes.
+[10/29 23:10:59     75s] <CMD> set_analysis_view -setup {f_max_s f_max_f f_min_s f_min_f} -hold {f_max_s f_max_f}
+[10/29 23:10:59     75s] **ERROR: (TCLCMD-1230):	The command set_analysis_view is called before the design is initialized and not from init_design.
+
+[10/29 23:11:05     77s] 
+[10/29 23:11:05     77s] *** Memory Usage v#2 (Current mem = 1755.898M, initial mem = 843.559M) ***
+[10/29 23:11:05     77s] 
+[10/29 23:11:05     77s] *** Summary of all messages that are not suppressed in this session:
+[10/29 23:11:05     77s] Severity  ID               Count  Summary                                  
+[10/29 23:11:05     77s] ERROR     IMPSYT-6692          1  Invalid return code while executing '%s'...
+[10/29 23:11:05     77s] ERROR     IMPSYT-6693          1  Error message: %s: %s.                   
+[10/29 23:11:05     77s] ERROR     TCLCMD-1230          2  The command set_analysis_view is called ...
+[10/29 23:11:05     77s] *** Message Summary: 0 warning(s), 4 error(s)
+[10/29 23:11:05     77s] 
+[10/29 23:11:05     77s] --- Ending "Innovus" (totcpu=0:01:18, real=0:09:52, mem=1755.9M) ---

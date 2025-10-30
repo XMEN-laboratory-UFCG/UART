@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH changeBBoxMasterToR0  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBchangeBBoxMasterToR0\fR \-  Converts the orientation of the master instance blackboxes to R0. Partitioning-related commands such as assignPtnPin, partition, assembleDesign, flattenPartition, convertBlackBoxToFence, and editPin work only with those blackboxes whose master instances have an R0 orientation
+.SH Syntax \fBchangeBBoxMasterToR0\fR  [-help]  [-checkOnly]   [<cellName> | {<cellNameList>}] 
+.P Converts the orientation of the master instance blackboxes to R0. Partitioning-related commands such as assignPtnPin, partition, assembleDesign, flattenPartition, convertBlackBoxToFence, and editPin work only with those blackboxes whose master instances have an R0 orientation. If the design has master blackboxes whose orientation is non-R0, you can use the changeBBoxMasterToR0 command to change the orientation of these master blackboxes to R0.
+.P Note: Orientations of corresponding clone instances are also relatively transformed. 
+.SH Parameters    "\fB-checkOnly\fR" Specifies that the command will not actually convert the orientation of any master blackbox; it only displays the number of master blackboxes whose orientation would have been changed had the command been run without the -checkOnly parameter.  Default: The orientation of master blackboxes in the design are converted to R0.  Data_type: bool, optional  "\fB<cellName> | {<cellNameList>} \fR" Specifies that cell, or the list of blackbox cells, whose orientation will be converted to R0.  Default: The orientation of all master blackboxes is converted to R0.  Data_type: string, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each changeBBoxMasterToRO parameter.  For a detailed description of the command and all of its parameters, use the man command:   man changeBBoxMasterToRO 
+.SH Examples
+.RS  "*" 2 The following commands converts the orientation of all master blackboxes that have a non-R0 orientation to R0.   changeBBoxMasterToR0
+.RE
+.RS  "*" 2 The following commands converts the orientation of the master blackboxes CORE_CELL120 and CORE_CELL121 to R0.   changeBBoxMasterToR0 {CORE_CELL120 CORE_CELL121}
+.RE
+.RS  "*" 2 The following command uses the -checkOnly parameter. The command, therefore, does not actually convert the orientation of any master blackboxes; it only returns the number of blackboxes whose orientation would have been converted to R0 had the command been run without the -checkOnly parameter.   changeBBoxMasterToR0 -checkOnly
+.RE 
+.SH Related Information
+.RS  "*" 2 assignPtnPin  "*" 2 partition  "*" 2 assembleDesign  "*" 2 flattenPartition  "*" 2 convertBlackBoxToFence  "*" 2 editPin  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RS  "*" 2 Handling of Blackboxes with Non-R0 Orientation
+.RE 
+.RE
+.P

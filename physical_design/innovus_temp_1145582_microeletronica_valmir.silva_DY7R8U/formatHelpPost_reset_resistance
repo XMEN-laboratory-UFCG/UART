@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_resistance  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_resistance\fR \-  Resets the existing set_resistance assertions specified on nets
+.SH Syntax  \fBreset_resistance\fR  <net_list> 
+.P Resets the existing set_resistance assertions specified on nets. 
+.SH Parameters    "\fB<net_list>\fR" Specifies a list of nets for which the wire resistance is reset. 
+.SH Related Information
+.RS  "*" 2 set_resistance
+.RE
+.P

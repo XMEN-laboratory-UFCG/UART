@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_report_header_info  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_report_header_info\fR
+.SH Syntax  \fBtiming_disable_report_header_info\fR {true | false}  
+.P Default: false
+.P Controls whether timing reports are generated using a common report header.
+.P When set to false, the software generates timing reports with a report header that includes the following information:
+.RS  "*" 2 Innovus software version number
+.RE
+.RS  "*" 2 Platform on which the software is being run
+.RE
+.RS  "*" 2 Time when the report was generated
+.RE
+.RS  "*" 2 Command used to generate the report
+.RE
+.P Any report-specific banner information is included in the same header box, but listed after the common header information.
+.P When set to true, the software generates backward-compatible timing reports without the additional header information.
+.P To set this global variable, use the set_global command.

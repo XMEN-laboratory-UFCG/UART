@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_preset_clear_arcs  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_preset_clear_arcs\fR
+.SH Syntax  \fBtiming_enable_preset_clear_arcs\fR  {true | false}  
+.P Default: false
+.P Determines whether the timing arcs are created to model the transition to active state (assertion) of the preset or clear pin, and the subsequent transition of the output to a controlled state.
+.P When set to true, the software builds the arcs and the timer automatically analyzes paths through them (enable clock propagation through preset clear pins).
+.P When set to false, the software does not build these arcs, because they are associated with analyzing the reset mode timing paths. Filtering them prevents unwanted interaction with functional mode timing analysis.
+.P You can use the lib_build_asynch_de_assert_arc global variable to control whether input to output arcs from the preset or clear pins transitioning to inactive state are included when the timing system is initialized. If both the timing_enable_preset_clear_arcs and the lib_build_asynch_de_assert_arc global variables are set to true, all asynchronous arcs are recognized. However, if timing_enable_preset_clear_arcs is set to true and lib_build_asynch_de_assert_arc is set to false, only assert asynchronous arcs are recognized.
+.P Note: The timing_enable_preset_clear_arcs global variable can also impact delay calculation results of a design. When an arc is disabled, the software will calculate delay using the linear table lookup. When an arc is not disabled, the delay calculations are made based on the quadratic table lookup.
+.P Note: This global variable should be set to true when reset checks are performed on a dedicated reset SDC.
+.P To set this global variable, use the set_globalcommand.
+.P

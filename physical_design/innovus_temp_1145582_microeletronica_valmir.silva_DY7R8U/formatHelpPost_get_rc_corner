@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_rc_corner  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_rc_corner\fR \-  Returns attribute information for the specified RC corner object
+.SH Syntax  \fBget_rc_corner\fR  <rcCornerName>  -<rcCornerAttribute> 
+.P Returns attribute information for the specified RC corner object.
+.P Use this command after creating at least one RC corner object (create_rc_corner). 
+.SH Parameters    "\fB<-rcCornerAttribute>\fR" Returns the setting for the specified RC corner attribute.  You can query one of the following attributes: -cap_table, -T, -preRoute_res, -postRoute_res, -preRoute_cap, -postRoute_cap, -postRoute_xcap, -qx_tech_file.  For attribute information, see the create_rc_corner command.  "\fB<rcCornerName>\fR" Specifies the name of the RC corner to query. 
+.SH Examples
+.RS  "*" 2 The following commands create the RC corners rc-cbest and rc-cworst:   create_rc_corner -name rc-cbest -cap_table myTech_bc.CapTbl -T 50  create_rc_corner -name rc-cworst -cap_table myTech_wc.CapTbl
+.RE
+.RS  "*" 2 The following command returns the capacitance table specified for rc-cworst:   get_rc_corner rc-cworst -cap_table  The software returns the following results:  myTech_wc.CapTbl
+.RE 
+.SH Related Information
+.RS  "*" 2 create_rc_corner  "*" 2 update_rc_corner 
+.RE
+.P

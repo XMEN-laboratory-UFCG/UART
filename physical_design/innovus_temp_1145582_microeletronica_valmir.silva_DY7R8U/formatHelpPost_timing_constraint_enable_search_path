@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_constraint_enable_search_path  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_constraint_enable_search_path\fR
+.SH Syntax \fBtiming_constraint_enable_search_path\fR {true | false}
+.P Default: false
+.P Enables search of constraint files from the search path.
+.P To set this global variable, use the set command.
+.P

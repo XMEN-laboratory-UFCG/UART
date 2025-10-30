@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH commit_ccopt_clock_tree_route_attributes  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcommit_ccopt_clock_tree_route_attributes\fR \-  The command traces the clock tree as defined by the CCOpt spec and sets net attributes to allow early-global-route to more predictably model clock nets. It sets isClock and isCTSClock on clock tree nets in the database
+.SH Syntax \fBcommit_ccopt_clock_tree_route_attributes\fR  [-help]  [-verbose]
+.P The command traces the clock tree as defined by the CCOpt spec and sets net attributes to allow early-global-route to more predictably model clock nets. It sets isClock and isCTSClock on clock tree nets in the database.  It applies routing preferences such as: top_preferred_layer, bottom_preferred_layer, non_default_rule, and shield_net  based on the route_type CCOpt properties.    
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each commit_ccopt_clock_tree_route_attributes parameter. For a detailed description of the command and all of its parameters, use the man command:  man commit_ccopt_clock_tree_route_attributes.   "\fB-verbose    \fR" Prints the layer constraint summary for CCOpt nets after attribute application. 
+.SH Related Information
+.P For detailed information, see the CCOpt Properties chapter in the Innovus User Guide. 
+.P You can also view property help by running the following command:
+.P get_ccopt_property -help <property name>
+.P

@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addChannelDensityControl  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddChannelDensityControl\fR \-  Controls the routing density for a specified area on a layer by setting a maximum density percentage that early Global Route cannot exceed
+.SH Syntax \fBaddChannelDensityControl\fR  [-help]  <llx> <lly> <urx> <ury> <layer> <ratio> 
+.P Controls the routing density for a specified area on a layer by setting a maximum density percentage that early Global Route cannot exceed. Use the addChannelDensityControl command after performing placement. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each addChannelDensityControl parameter. For a detailed description of the command and all of its parameters, use the man command  man addChannelDensityControl.  "\fB<layer>\fR" Specifies the layer on which to specify the routing density control.  Note: Layers can be specified using the layer names or layer ID numbers.  Data_type: string, required  "\fB<llx>\fR" Specifies the lower left x coordinate of the density area.  Data_type: float, required  "\fB<lly>\fR" Specifies the lower left y coordinate of the density area.  Data_type: float, required  "\fB<ratio>\fR" Specifies the maximum routing density allowed for the area, as a percentage.  Min: 0  Max: 100  Value: 0 (zero percent) to 1 (100 percent)  Data_type: float, required  "\fB<urx>\fR" Specifies the upper right x coordinate of the density area.  Data_type: float, required  "\fB<ury>\fR" Specifies the upper right y coordinate of the density area.  Data_type: float, required 
+.SH Examples
+.P The following command creates a routing density control area on layer Metal3 with a maximum density of 50 percent:
+.P addChannelDensityControl 10 10 500 30 Metal3 0.50  
+.SH Related Information
+.RS  "*" 2 setRouteMode  "*" 2 getRouteMode  "*" 2 Using Early Global Route for Congestion and Timing Analysis chapter in the Innovus User Guide 
+.RE
+.P

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_path_groups  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_path_groups\fR \-  Lists the names of all path groups with the corresponding paths
+.SH Syntax \fBreport_path_groups\fR  [-name <group_name>]   [{> | >>} <filename> | -tcl_list] 
+.P Lists the names of all path groups with the corresponding paths. 
+.SH Parameters   "\fB{> | >>} <filename>\fR" When specified with >, writes the report to the specified file name. If the file already exists, the software overwrites it.  When specified with >>, writes the report to the specified file name. If the file already exists, the software concatenates the report to the end of the file.  The <filename> parameter must be the last argument in the list. The <filename> and -tcl_list parameters are mutually exclusive; you cannot specify them together.  Note: To write a compressed report, add the
+.gz extension to the file name.  Default: Report is displayed on standard output without being saved.  "\fB-name <group_name>\fR" Limits the report to the specified path group.  Default: All path groups are reported.  "\fB-tcl_list\fR" Produces the report in Tcl list format instead of a tabular format. This is useful for integrating timing with custom Tcl functions, and also for customizing report generation.  The -tcl_list and <filename> parameters are mutually exclusive; you cannot specify them together. 
+.SH Example
+.P The following command shows a sample report:
+.P > report_path_groups   ---------------------------------   From    To         Group Name   ---------------------------------   CLK1    seg1/u3/D  path1   --------------------------------- 
+.SH Related Information
+.RS  "*" 2 set_clock_groups   "*" 2 reset_clock_groups    "*" 2 reset_path_group  "*" 2 get_path_groups    "*" 2 group_path
+.RE
+.P

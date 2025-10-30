@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_constraint_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_constraint_mode\fR \-  Returns a Tcl list of the regular SDC constraint files, or the ILM SDC constraint files associated with the specified constraint mode
+.SH Syntax  \fBget_constraint_mode\fR  <modeName>  {-sdc_files | -ilm_sdc_files | -tcl_vars} 
+.P Returns a Tcl list of the regular SDC constraint files, or the ILM SDC constraint files associated with the specified constraint mode.
+.P Use this command after creating constraint modes (create_constraint_mode). 
+.SH Parameters    "\fB-ilm_sdc_files\fR" Returns the ILM SDC files associated with the specified constraint mode.  "\fB<modeName>\fR" Specifies the name of the constraint mode to query.  "\fB-sdc_files\fR" Returns SDC files associated with the specified constraint mode.  "\fB-tcl_vars\fR" Returns a list of tcl variables associated with the specified constraint mode. 
+.SH Example
+.RS  "*" 2 The following command creates the constraint mode missionSetup:   create_constraint_mode -name missionSetup    -sdc_files [list io.sdc mission1-clks.sdc mission1-except.sdc]
+.RE
+.RS  "*" 2 The following command returns the SDC constraint files associated with missionSetup:   get_constraint_mode missionSetup -sdc_files  The software returns the following Tcl list:   {io.sdc mission1-clks.sdc mission1-except.sdc}
+.RE 
+.SH Related Information
+.RS  "*" 2 create_constraint_mode  "*" 2 update_constraint_mode
+.RE
+.P

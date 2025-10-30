@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH writeHif  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwriteHif\fR \-  Writes out a HIF file after the NanoRoute router fixes lithography problems
+.SH Syntax \fBwriteHif\fR  [-help]  -file <filename> 
+.P Writes out a HIF file after the NanoRoute router fixes lithography problems. The file reports the areas where the router made changes. Use this command with loadViolationReport for incremental lithography checking and fixing. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each writeHif parameter.  For a detailed description of the command and all of its parameters, use the man command: man writeHif.  "\fB-file <filename>\fR" Specifies the HIF file to write out.  Data_type: string, required 
+.SH Example
+.P The following example writes the HIF file result.hif marking the areas in which the NanoRoute router has made changes to fix lithography problems:
+.P writeHif -file result.hif 
+.SH Related Information
+.RS  "*" 2 loadViolationReport  "*" 2 Using Early Global Route for Congestion and Timing Analysis chapter in the Innovus User Guide  "*" 2 Using the NanoRoute Router chapter in the Innovus User Guide 
+.RE
+.P

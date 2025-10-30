@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_pba_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_pba_mode\fR \-  Enables IPBA infinite depth path-based analysis (IPBA)
+.SH Syntax \fBset_pba_mode\fR  [-help]  [-epba_bounded_mode {true | false}]  [-reset]  
+.P Enables IPBA infinite depth path-based analysis (IPBA).
+.P This feature runs faster analysis (vs full depth exhaustive PBA (EPBA)) and attains PBA design coverage with no depth limit per endpoint.  
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-epba_bounded_mode {true | false}\fR" Enables IPBA mode with exhaustive PBA analysis (enabled using the report_timing -retime_mode exhaustive command).  In this mode, the software ensures that all the paths to the violating endpoints are covered for PBA, and the slack is the worst PBA slack reported across all the paths to the endpoint. For any endpoint that is considered for IPBA analysis, the complete fanin cone (all timing paths ending at that endpoint) is evaluated for any possible PBA violation.  Default: false  "\fB-reset \fR" Resets specified or all the options to the default value. 
+.SH Related Information
+.RS  "*" 2 report_timing
+.RE
+.P

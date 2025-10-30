@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_enable_max_capacitance_drv_for_constants  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_enable_max_capacitance_drv_for_constants\fR
+.SH Syntax \fBtiming_report_enable_max_capacitance_drv_for_constants\fR  {true | false}
+.P Default: false
+.P When set to true, performs max_capacitance design rule violation check on constant elements.
+.P Note: This global variable will be honored only when timing_disable_drv_reports_on_constant_nets is set to true.
+.P To set this global variable, use the set_global command.
+.P

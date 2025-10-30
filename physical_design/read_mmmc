@@ -1,0 +1,16 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.14-s061_1, built Wed Oct 18 11:21:25 PDT 2023
+Options:	Default.view 
+Date:		Wed Oct 29 21:35:12 2025
+Host:		microeletronica (x86_64 w/Linux 4.18.0-477.27.1.el8_8.x86_64) (16cores*32cpus*Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz 16384KB)
+OS:		Red Hat Enterprise Linux 8.8 (Ootpa)
+
+License:
+		[21:35:12.461169] Configured Lic search path (21.01-s002): 5280@melicense.embedded.ufcg.edu.br
+
+**ERROR: (IMPLIC-68):	Unknown argument: Default.view.
+	Run "innovus -help" for valid option/argument.
+

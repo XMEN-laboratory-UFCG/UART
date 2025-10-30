@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH add_sai_boundary_flops  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBadd_sai_boundary_flops\fR \-  Allows insertion of boundary flops for empty modules/blocks
+.SH Syntax \fBadd_sai_boundary_flops\fR  [-help]   [-clock <string>]   [-delete_flops]  -hinsts <string>   -ports <string>  [-ref_flop <string> [-clock_input_pin <string>]   [-data_input_pin <string>]   [-data_output_pin <string>]] 
+.P Allows insertion of boundary flops for empty modules/blocks. The command options specify the clock net name, the module name and the module pin name. 
+.SH  Parameters   "\fB-clock <string>  \fR" Specifies clock net name.  Data_type: string, optional  "\fB-clock_input_pin <string>\fR" Specifies the cell CLK port name.  Data_type: string, optional  "\fB-data_input_pin <string>\fR" Specifies the cell D port name.  Data_type: string, optional  "\fB-data_output_pin <string>\fR" Specifies the cell Q port name.  Data_type: string, optional  "\fB-delete_flops\fR" Removes all the flops that have been added.  Data_type: string, optional  "\fB-help\fR" Outputs a brief description that includes type and default information for each add_sai_boundary_flops parameter.  "\fB-hinsts <string> \fR" Specifies the module name.  Note: While specifying multiple hinsts and multiple ports, ensure that the number of specified hinsts is the same as the number of specified ports.  Data_type: string, optional   "\fB-ports <string>\fR" Specifies the module pin name.  Data_type: string, optional  "\fB-ref_flop <string>\fR" Specifies the flop cell name to be inserted along the boundary.  Data_type: string, optional 
+.SH Related Information
+.RS  "*" 2 read_sai  "*" 2 end_sai  "*" 2 Prototyping Methodologies chapter in the Innovus User Guide  "*" 2 Syntax and Scripts chapter in the Innovus User Guide
+.RS  "*" 2 Supported SAI Commands
+.RE 
+.RE
+.P

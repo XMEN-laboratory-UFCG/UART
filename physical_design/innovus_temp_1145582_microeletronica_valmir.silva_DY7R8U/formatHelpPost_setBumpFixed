@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setBumpFixed  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetBumpFixed\fR \-  Fixes a specified group of assigned bumps to keep them from being reassigned
+.SH Syntax \fBsetBumpFixed\fR  [-help]   {-allBumps | -byBumpName {<list>} | -byBumpSite {<list>}} 
+.P Fixes a specified group of assigned bumps to keep them from being reassigned. The software updates the DEF file by adding the +FIXEDBUMP attribute to the specified group of assigned bumps to indicate that they are now in a fixed state. You can use the defOut command to view the bumps with the +FIXEDBUMP attribute. Use this command after bumps are assigned with the assignBump command or defined in the I/O file with the signal name. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each setBumpFixed parameter.  For a detailed description of the command and all of its parameters, use the man command: man setBumpFixed.  "\fB-allBumps\fR" Fixes all of the assigned bumps.  "\fB-byBumpName <list>\fR" Fixes the assigned bumps that are specified in the bump name <list>.  "\fB-byBumpSite <list>\fR" Fixes the assigned bumps that are specified in the bump site <list>. 
+.SH Example
+.RS  "*" 2 The following command fixes all of the assigned bumps:   setBumpFixed -allBumps
+.RE 
+.SH Related Information
+.RS  "*" 2 assignBump  "*" 2 defOut  "*" 2 setBumpPlacementStatus  "*" 2 unfixBump  "*" 2 Flip Chip Methodologies chapter in the User Guide  "*" 2 Tools Menu chapter in the Menu Reference 
+.RS  "*" 2 Flip Chip
+.RE 
+.RE
+.P

@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getWhatIfTimingMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetWhatIfTimingMode\fR
+.SH Syntax  \fBgetWhatIfTimingMode\fR  [-quiet] 
+.P Displays the following information about setWhatIfTimingMode parameters in the system log file and in the system console:
+.RS  "*" 2 Parameter name
+.RE
+.RS  "*" 2 Current value
+.RE
+.RS  "*" 2 Type (Boolean, string, and so on)
+.RE
+.RS  "*" 2 Whether the current value was set by user
+.RE
+.P If you do not specify a parameter, the software displays values for all of the setWhatIfTimingMode mode parameters. 
+.SH Parameters   "\fBparameter_names\fR" Returns information for the specified parameter. You can specify one or more parameters.  See setWhatIfTimingMode for parameter descriptions.  "\fB-quiet\fR" Returns the current settings for the specified parameters in Tcl list format only.  If you specify -quiet without any parameters, the software returns the current settings of all setWhatIfTimingMode parameters in Tcl list format.
+.P 
+.SH Related Information
+.RS  "*" 2 setWhatIfTimingMode
+.RE
+.P

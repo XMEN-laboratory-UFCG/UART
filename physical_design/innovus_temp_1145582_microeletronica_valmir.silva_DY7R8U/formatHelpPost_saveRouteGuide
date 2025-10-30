@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveRouteGuide  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveRouteGuide\fR \-  Saves the routing information to a route guide format file
+.SH Syntax \fBsaveRouteGuide\fR  [-help]  [-rguide <routeGuideFileName>]   [-selNetFile <selNetFileName>] 
+.P Saves the routing information to a route guide format file. Routing guide files help control the routing topology by creating regions in which Early Global Route can create wires. You can use the saveRouteGuide command after running Early Global Route or after restoring routing data. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each saveRouteGuide parameter.  For a detailed description of the command and all of its parameters, use the man command  man saveRouteGuide.  "\fB-rguide <routeGuideFileName>\fR" Specifies the route guide file to which to save the routing information.  Data_type: string, optional  "\fB-selNetFile <selNetFileName>\fR" Specifies a file of hierarchical net names for which to save route information. Routing information is saved only for these nets.  Data_type: string, optional 
+.SH Examples
+.RS  "*" 2 The following command writes the route information in route guide format to the cts_3.guide file:   saveRouteGuide -guide cts_3.guide
+.RE 
+.SH Related Information
+.RS  "*" 2 earlyGlobalRoute  "*" 2 Using Early Global Route for Congestion and Timing Analysis chapter in the Innovus User Guide
+.RE
+.P

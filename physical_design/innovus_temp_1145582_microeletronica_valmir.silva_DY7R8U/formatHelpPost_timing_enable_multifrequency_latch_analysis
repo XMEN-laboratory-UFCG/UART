@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_multifrequency_latch_analysis  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_multifrequency_latch_analysis\fR
+.SH Syntax  \fBtiming_enable_multifrequency_latch_analysis\fR  {true | false} 
+.P Default: false
+.P Enables multi-frequency latch timing analysis of the latch time borrowing for when a data signal coming to a latch is controlled by a clock with a frequency different to a clock of the latch enabling signal.
+.P When set to true, the edges of all sending and receiving clocks are analyzed at every latch, which results in less pessimistic, and more detailed timing analysis.
+.P When set to false, latch time borrowing analysis uses the worst case relationship between sending and receiving clocks at the latch, which can produce paths with pessimistic slack.
+.P Note: Enabling advanced latch analysis can result in some performance penalty.
+.P To set this global variable, use the set_global command.

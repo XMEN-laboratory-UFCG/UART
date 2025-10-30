@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_suppress_escape_characters  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_suppress_escape_characters\fR \-  Supresses the reporting of escape characters in timing object names
+.SH Syntax \fBtiming_suppress_escape_characters\fR  {true | false}   Default: true
+.P Supresses the reporting of escape characters in timing object names.
+.P When the global is set to true, all the reporting and collection commands report the timing objects names (e.g., pins, ports, or instances) without the escape characters.
+.P To set this global variable, use the set_global command. 
+.P

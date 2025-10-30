@@ -1,0 +1,32 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_power  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_power\fR \-  Queries various power related properties of design objects like nets, pins, and instances
+.SH Syntax \fBget_power\fR  [-help]  [-outfile <filename>]  [-nets <nets_list>| -pins <pins_list>| -instances <instances_list>]   [-attribute <attributes_list>]   [-include_unit]   [-tcl_list ]  [-pg_net {<pg_net_name_list> | all}] 
+.P Queries various power related properties of design objects like nets, pins, and instances. Using this command, you can retrieve power attributes, such as internal power, switching power, leakage power, total power, and toggle rate. This command is very useful for writing custom scripts.
+.P Note: This command outputs toggle rates as N.A. if the clock domain information for a given net/pin/instance is not found.
+.P Use this command after running the report_power or restore_power_database command.
+.P Note: The -nets, -pins, and -instances parameters are mutually exclusive. You must specify only one of the parameters. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-attribute <attributes_list>\fR" Specifies a list of power attributes. If an attribute is not available for the specified design object, the software returns its value as NA. See attributesList of Power Attributes for a mapping of the list of available attributes with the design objects.  This is a required parameter.  "\fB-include_unit\fR" Specifies to include the units for the power attributes.  "\fB -instances <instances_list>\fR" Specifies a list of instance names. The -nets, -pins, and -instances parameters are mutually exclusive. You must specify one, and only one, of the parameters.  Note: You can use the get_cells command to determine the power attributes for a collection of instances.  "\fB-nets <nets_list>\fR" Specifies a list of net names. The -nets, -pins, and -instances parameters are mutually exclusive. You must specify one, and only one, of the parameters.  Note: You can use the get_nets command to determine the power attributes for a collection of nets.  "\fB-outfile <filename>\fR" Specifies the output file into which the power related properties are to be written.  The -tcl_list and -outfile parameters are mutually exclusive; you cannot specify them together.  "\fB-pg_net {<pg_net_name_list> | all}\fR" Specifies to query various power-related properties of a specified power net for an instance. This parameter supports the argument all to query properties of all power nets connected to the instance.  You must use the -instances parameter in conjunction with the -pg_net parameter.  The -pg_net parameter supports the following attributes: switching_power, internal_power, leakage_power, total_power, and dynamic_power.  "\fB-pins <pins_list>\fR" Specifies a list of pin names. The -nets, -pins, and -instances parameters are mutually exclusive. You must specify one, and only one, of the parameters.  Note: You can use the get_pins command to determine the power attributes for a collection of pins.  "\fB-tcl_list\fR" Produces the report in Tcl list format instead of a tabular format.  The -tcl_list and -outfile parameters are mutually exclusive; you cannot specify them together.
+.P The following power attributes can be queried for the design objects:
+.P List of Power Attributes with Attribute Description   "\fB
+.RS  "*" 2 switching_power (net, inst): switching power of a net or instance  "*" 2 internal_power (inst): internal power of an instance  "*" 2 dynamic_power (inst): switching and internal power of an instance  "*" 2 leakage_power (inst): leakage power of an instance  "*" 2 total_power (inst): total power of an instance  "*" 2 toggle_rate (net, pin, inst): Toggle rate - Number of toggles in the specified VCD/TCF in the duration  "*" 2 duty_cycle (net, pin): Static probability of the signal to stay high  "*" 2 ref_clock (net, pin, inst): Reference clock name (Fastest clock for multi clock domains)  "*" 2 ref_clock_period (net, pin, inst): Reference clock period  "*" 2 transition_density (net, pin): toggle_rate/ref_clock_period or toggle_rate*ref_clock_frequency  "*" 2 loading_cap (net, pin, inst): Loading capacitance  "*" 2 voltage (net, pin, inst): Operating voltage for a net or pin. For MSMV instance, this attribute can be used to get breakdown of domain specific power.  "*" 2 rise_slew (net, pin): Rise slew  "*" 2 fall_slew (net, pin): Fall slew  "*" 2 glitch_rate (net, pin): Glitch rate - Number of glitches per duration. Applies only to the vector-driven flow.  "*" 2 glitch_power (net, pin, inst): Glitch power. Applies only to the vector-driven flow.  "*" 2 activity_source (net, pin): Source of activity annotation. The options are: propagated, user_annotated, and constant.  "*" 2 pin_direction (pin): [input | output | inout ]  "*" 2 cell_type (inst):Lists cell type as memory, standard cell, IO, sequential, and so on  "*" 2 all_attributes (net, pin, inst): Lists all related power attributes for the specified design object.
+.RE \fR"
+.P 
+.SH Examples
+.RS  "*" 2 The following command returns the specified power attributes for the net clock1:   get_power -nets clock1 -attribute {switching_power internal_power toggle_rate}  The following is the sample output:   clock1 0.04 NA 2
+.RE
+.RS  "*" 2 The following command returns the specified power attributes for all nets that match the specified pattern master*:   get_power -nets [get_nets master*] -attribute {switching_power toggle_rate activity_source duty_cycle} -include_unit  The following is the sample output:   masterin[1] 0.001mW 0.2 user_annotated 0.5   masterin[2] 0.002mW 0.2 user_annotated 0.5   masterin[3] 0.003mW 0.1 propagated 0.5   masterin[4] 0.005mW 1 constant 1  "*" 2 The following command returns power-related properties of all power nets connected to the instance clk_buf_1:  get_power -pg_net all -instances clk_buf_1 -attribute {switching_power internal_power leakage_power}  The following is the sample output:  clk_buf_1 VDD 0.002 0.001 0.000001  clk_buf_1 VDDL 0.0001 0.0001 0.0000001
+.RE
+.P 
+.SH Related Information
+.RS  "*" 2 get_activity
+.RE
+.RS  "*" 2 set_power_analysis_mode
+.RE
+.RS  "*" 2 report_power
+.RE
+.RS  "*" 2 "Static Power, IRdrop and EM Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

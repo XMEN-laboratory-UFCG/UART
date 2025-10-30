@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setObjFPlanBoxList  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetObjFPlanBoxList\fR \-  Defines the rectilinear shape of an object even if the object lies outside the core area
+.SH Syntax \fBsetObjFPlanBoxList\fR   [-help]  {Cell | Group | Instance | Layershape | Module}   objectName   boxList 
+.P Defines the rectilinear shape of an object even if the object lies outside the core area. A rectilinear object comprises of two or more boxes. You can use this command after importing the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setObjFPlanBoxList parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setObjFPlanBoxList  "\fB<objectName>\fR" Specifies the name of the object for object type.  Data_type: string, required  "\fB {Cell | Group | Instance | Layershape | Module}  \fR" Specifies the type of object for objectName.  Data_type: enum, required  "\fB<boxList>\fR" Specifies the rectilinear shape of an object.
+.RS  "*" 2 <llx1>: Specifies the lower left x coordinate of the first box in the box list.  "*" 2 <lly1>: Specifies the lower left y coordinate of the first box in the box list.  "*" 2 <llx2>: Specifies the lower left x coordinate of the second box in the box list.  "*" 2 <lly2>: Specifies the lower left y coordinate of the second box in the box list.  "*" 2 <urx1>: Specifies the upper right x coordinate of the first box in the box list.  "*" 2 ury1: Specifies the upper right x coordinate of the first box in the box list.  "*" 2 urx2: Specifies the upper right x coordinate of the second box in the box list.  "*" 2 ury2: Specifies the upper right y coordinate of the second box in the box list.  "*" 2 llxn: Specifies the lower left x coordinate of the nth box in the box list.  "*" 2 llyn: Specifies the lower left y coordinate of the nth box in the box list.  "*" 2 urxn: Specifies the upper right x coordinate of the nth box in the box list.  "*" 2 uryn: Specifies the upper right y coordinate of the nth box in the box list.
+.RE   Data_type: list, required 
+.SH Example
+.P The following command defines a rectilinear boundary for module DTMF_INST/TDSP_CORE_INST. The rectilinear boundary is made up of two bounding boxes:
+.RS  "*" 2 (371.46, 537.60) (696.96, 754.35)  "*" 2 (412.5, 754.32) (696.96, 920.64)
+.RE
+.P setObjFPlanBoxList Module DTMF_INST/TDSP_CORE_INST 371.46 537.60 696.96 754.35 412.5 754.32 696.96 920.64  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 getObjFPlanBoxList  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Defining the Bounding Box
+.RE 
+.RE
+.P

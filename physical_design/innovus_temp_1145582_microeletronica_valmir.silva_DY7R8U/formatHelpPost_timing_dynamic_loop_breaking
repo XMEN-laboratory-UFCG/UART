@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_dynamic_loop_breaking  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_dynamic_loop_breaking\fR \-  Enables dynamic loop breaking
+.SH Syntax \fBtiming_dynamic_loop_breaking\fR  {true | false}   Default: false 
+.P Enables dynamic loop breaking. 
+.P By default (false), when the timing engine encounters combinational loops in the design, it breaks the loop by disabling a timing arc along the path. The heuristics used in breaking the loop cannot guarantee that a real path through the disabled arc will not be blocked as a consequence. Therefore, users must carefully investigate the arcs that have been disabled to ascertain that the loop break was done safely. If loop breaks are not then added to the master constraint file, they could move to other locations as the design matures.
+.P When set to true, the timing system performs a more sophisticated analysis of the design, and ensures that no valid paths are broken inadvertently due to loops. 
+.P Note: Setting this global variable to true will add additional run time to the analysis.
+.P To set this global variable, use the set_global command.

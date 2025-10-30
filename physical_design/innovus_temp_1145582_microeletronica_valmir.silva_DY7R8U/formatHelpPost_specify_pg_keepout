@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH specify_pg_keepout  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBspecify_pg_keepout\fR \-  Defines the PG keepout box for a cell or a pin
+.SH Syntax \fBspecify_pg_keepout\fR   [-help]   [-bottom <value>]   [-left <value>]   [-pin <string>]   [-right <value>]                            [-top <value>]   {-cell <lib_cell_name> | -inst <instance_name>} {-layer <layer_name> | -layerId <layer_id>}
+.P Defines the PG keepout box for a cell or a pin.
+.P PG keepouts can be applied on the cell or cell pin. Keepout values can be positive or negative and are always from the edge for both pin and cell.
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Parameters    "\fB-bottom <value>\fR" Specifies the value to expand the keepout box on the bottom side.   "\fB-cell <lib_cell_name>\fR" Specifies the lib cell that needs to be constrained by the PG keepout box.  "\fB-help\fR" Outputs a brief description that includes type and default information for each specify_pg_keepout parameter.  For a detailed description of the command and all of its parameters, use the man command: man specify_pg_keepout    "\fB-inst <instance_name>\fR" Specifies the instance that needs to be constrained by the PG keepout box.  "\fB-layer <layer_name>\fR" Specifies the layer on which the PG keepout box is applied. The layer is the LEF/OA name of routing layers.  "\fB-layerId <layer_id>\fR" Specifies the layer Ids on which the PG keepout box is applied. The layer Id is the layer number of routing layers.    "\fB-left <value>\fR" Specifies the value to expand the keepout box on the left side.   "\fB-pin <pin_name>\fR" Specifies the pin that needs to be constrained by the PG keepout box.   "\fB-right <value>\fR" Specifies the value to expand the keepout box on the right side.   "\fB-top <value>\fR" Specifies the value to expand the keepout box at the top. 
+.SH Example
+.P The following command keeps mycustomcell/the_m4_pin away from M5 power stripes:
+.P specify_pg_keepout -cell mycustomcell -pin the_m4_pin -layer M5 
+.SH Related Information
+.RS  "*" 2 delete_pg_keepout  "*" 2 report_pg_keepout
+.RE
+.P

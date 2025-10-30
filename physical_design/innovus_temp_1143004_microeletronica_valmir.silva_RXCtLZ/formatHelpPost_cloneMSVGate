@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH cloneMSVGate  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcloneMSVGate\fR \-  Ensures that the cloned isolation or level shifter can drive a group of the receivers and be placed close to this group of receivers
+.SH Syntax \fBcloneMSVGate\fR  [-help]  [-iso]  [-shifter]  [-instances <inst1 inst2
+....>]  [-maxFanout <integer>]  [-maxTran <num>]  [-maxCap <num>]  [-honorPrePlaced]  [-honorDontTouch] 
+.P Ensures that the cloned isolation or level shifter can drive a group of the receivers and be placed close to this group of receivers. By doing this, the timing QoR can be improved.
+.P Note: The command will not automatically update your CPF/IEEE1801 file to match the new netlist. It is advised that you run Conformal Low Power to check for any issues. When the enable signal for isolation cells is cloned (creating new ports on the boundary of the power domain), the users may need to update create_isolation_rule in CPF or set_isolation in IEEE1801 by defining the isolation control differently. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each cloneMSVGate parameter.  For a detailed description of the command and all its parameters, use the man command:  man cloneMSVGate  "\fB-honorDontTouch\fR" Does not clone don't touch instances or cells.  The default is to clone don't touch instances.  "\fB-honorPrePlaced\fR" Does not clone pre-placed (fixed) instances.  The default is to clone fixed instances  "\fB-instances <inst1 inst2
+...>\fR" Clones specified instances.  "\fB-iso\fR" Clones isolation cells.  "\fB-maxFanout <integer>\fR" Specifies the maximum fanout count.   "\fB-maxCap <num>\fR" An optional check to clone instances with maximum capacitance violation.  The default is not to use -maxCap violation.  "\fB-maxTran <num>\fR" Cloning will be only on instances with maximum transition  time violation.  The default is 2ns.  "\fB-shifter\fR" Clones level shifters. 
+.SH Related Information
+.P Low Power Design chapter in the Innovus User Guide
+.P

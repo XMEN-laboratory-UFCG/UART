@@ -1,0 +1,51 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setMetalFillSpacingTable  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetMetalFillSpacingTable\fR \-  Specifies the spacing table used by trimMetalFill based on existing metal fill width
+.SH Syntax \fBsetMetalFillSpacingTable\fR   [-help]   [-layer layer_name_list]   [-fill_to_active {{width1 spacing1}{width2 spacing2}...}]   [-fill_to_fill {{width1 spacing1}{width2 spacing2}...}]   [-fill_to_opc {{width1 spacing1}{width2 spacing2}...}]   [-opc_to_active {{width1 spacing1}{width2 spacing2}...}]   [-opc_to_opc {{width1 spacing1}{width2 spacing2}...}]   [-reset] 
+.P Specifies the spacing table used by trimMetalFill based on existing metal fill width. The spacing table includes the following spacing values:
+.RS  "*" 2 Fill to active spacing
+.RE
+.RS  "*" 2 Fill to fill spacing
+.RE
+.RS  "*" 2 Fill to OPC spacing
+.RE
+.RS  "*" 2 OPC to OPC spacing
+.RE
+.RS  "*" 2 OPC to active spacing
+.RE
+.P As trimMetalFill honors the spacing table, you can then run trimMetalFill to trim metal fill and get expected spacing. When required, you can use the getMetalFillSpacingTable command to print the spacing table.
+.P Note: If no spacing table is specified, trimMetalFill honors the setMetalFill settings for -activeSpacing and -gapSpacing. If setMetalFill values are also not specified, trimMetalFill uses the default settings. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setMetalFillSpacingTable parameter.  For a detailed description of the command and all its parameters, use the man command: man setMetalFillSpacingTable.  "\fB-layer <layer_name_list>\fR" Specifies the metal layers for the setting. Metal layers can be specified as numbers (2) or in the LEF format (METAL2) or as M2.  "\fB-fill_to_active {{<width1 spacing1>}{<width2 spacing2>}...}\fR" Specifies a spacing table for fill to active spacing for trimming metal fill.  "\fB-fill_to_fill {{<width1 spacing1>}{<width2 spacing2>}...}\fR" Specifies a spacing table for fill to fill spacing for trimming metal fill.  "\fB-fill_to_opc {{<width1 spacing1>}{<width2 spacing2>}...}\fR" Specifies a spacing table for fill to OPC spacing for trimming metal fill.  "\fB-opc_to_active {{<width1 spacing1>}{<width2 spacing2>}...}\fR" Specifies a spacing table for OPC to active spacing for trimming metal fill.  "\fB-opc_to_opc {{<width1 spacing1>}{<width2 spacing2>}...}\fR" Specifies a spacing table for OPC to OPC spacing for trimming metal fill.  "\fB-reset\fR" Resets the spacing tables. 
+.SH Example
+.P The following set of commands specifies the spacing table for fill to active spacing as given in the below table and trims metal fill accordingly:
+.P        +-------+---------------+-----------------+--------------------+
+.P        | Layer | Minwidth (=>) |   Maxwidth (<=) | activeSpacing (>=) |
+.P        +-------+---------------+-----------------+--------------------+
+.P        |   2   |      0.32     |                |        0.63        |
+.P        +-------+---------------+-----------------+--------------------+
+.P        |   2   |      0.14     |    0.32-1MFG    |        0.36        |
+.P        +-------+---------------+-----------------+--------------------+
+.P        |   2   |      0.08     |    0.14-1MFG    |        0.27        |
+.P        +-------+---------------+-----------------+--------------------+   
+.P  setMetalFillSpacingTable -layer {2} -fill_to_active {{0.08 0.27}{0.14 0.36}{0.32 0.63}}
+.P trimMetalFill -layer 2
+.P The software checks the existing metal fill with the specified spacing table. If no violations are detected, existing metal fill is retained. If the existing metal fills have activeSpacing violations with other features, trimMetalFill uses the fill_to_active spacing table to trim metal fill.
+.P Sample output is as follows:
+.P *** START TRIM METALFILL *** (CPU Time: 0:00:00.0 MEM: 558.359M)
+.P  Number of metal fills with spacing or/and short violations:4920
+.P  Total number of deleted metal fills: 4920
+.P  Total number of added metal fills: 4779
+.P  (CPU Time: 0:00:01.2 MEM: 558.359M)
+.P  *** END OF TRIM METALFILL *** 
+.SH Related Information
+.RS  "*" 2 fill_setting_save  "*" 2 trimMetalFill  "*" 2 The following sections in the Optimizing Metal Density chapter of User Guide. 
+.RS  "*" 2 "Specifying Metal Fill Spacing Table"
+.RE 
+.RE
+.RS  "*" 2
+.RS  "*" 2 "Trimming Metal Fill"
+.RE 
+.RE
+.P

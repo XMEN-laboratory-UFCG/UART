@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_noise_propagation  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_noise_propagation\fR \-  Prints text-based noise propagation reports that show glitch-source tracing for all the user-specified or all-violating receiver pins
+.SH Syntax \fBreport_noise_propagation\fR   [-help]  [-level {VL | VH | worst | all}]  [-max_paths <integer>]  [-max_slack <float>]   [-nets <string>]   [-nworst <integer>]  [-pins <string>]  [-source_depth <integer>]  [-views <string>]  [ [ > | >> ] ]
+.P Prints text-based noise propagation reports that show glitch-source tracing for all the user-specified or all-violating receiver pins. The report allows you to view full paths showing the glitch propagating from the source to the violating receiver pin. This helps to easily identify and fix glitch violations.
+.P Note: You need to set setSIMode -enable_glitch_report parameter to true to enable glitch reporting. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage. For a detailed description of the command and all of its parameters, use the man command: man report_noise_propagation  "\fB-level {VL | VH | worst | all}\fR" Reports paths for specified glitch level. You can specify one of these options - VL, VH, worst, or all.  "\fB-max_paths <integer>\fR" Reports the specified number of paths.  "\fB-max_slack <float>\fR" Reports paths with glitch slack equal to or lesser than the specified value.  "\fB-nets <string>\fR" Reports paths with endpoint being all the input pins connected to the specified net.  "\fB-nworst <integer>\fR" Specifies the maximum number of sources per endpoint for which paths need to be reported.  "\fB-pins <string>\fR" Reports the paths for the specified endpoint pins.  "\fB-source_depth <integer>\fR" Specifies the maximum number of sources to be traced in any given branch in the fanin cone of violation.  "\fB-views <string>\fR" Reports the paths for the specified view.  "\fB> <filename>\fR" Redirects output to the specified file.  "\fB>> <filename>\fR" Appends output to the specified output file.
+.P

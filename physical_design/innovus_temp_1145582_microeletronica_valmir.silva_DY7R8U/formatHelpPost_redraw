@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH redraw  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBredraw\fR \-  Refreshes the display in the viewable window
+.SH Syntax \fBredraw\fR [-help] 
+.P Refreshes the display in the viewable window. This command performs the same function as the Redraw icon (CTRL+R keyboard shortcut). You can use this command at any stage in the design flow. 
+.SH Parameters    "\fB-help\fR" Prints a brief description of the redraw command.  For a detailed description of the command, use the man command: man redraw. 
+.SH

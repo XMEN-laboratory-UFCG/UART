@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_via_pillars  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_via_pillars\fR \-  This command sets a via pillar list for a cell term or a single via pillar for an instterm
+.SH Syntax \fBset_via_pillars\fR  [-help]  {-term <term> | -instterm <instterm>}  <stack_via_rule+>  [-required {0 | 1}]
+.P This command sets a via pillar list for a cell term or a single via pillar for an instterm. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each set_via_pillars parameter.  For a detailed description of the command and all its parameters, use the man command:  man set_via_pillars  "\fB-instterm <instterm>\fR" Specifies the instterm name or pointer. Only one via pillar is allowed for instterm.  "\fB<stack_via_rule+>\fR" Provides a list of via pillars for an cell term, or a single via pillar for an instterm. This list further provides the candidates of instterm via pillar setting. On running:  set_via_pillars -term BUFX1/Z -required 1 {vp_rule1 vp_rule2}   set_via_pillars automatically sets the minimal cost via pillar rule for the corresponding instterm, which is vp_rule1. You can also set the other via pillar rule to the instterm by running:  set_via_pillars -instterm i1/i2/Y vp_rule2  An empty <stack_via_rule> will remove the via pillar from instterm:  set_via_pillars -instterm i1/i2/Y -required 1   "\fB-required {0 | 1}\fR" Sets the
+.stackViaRequied attribute for the <term>/<instTerm> values specified by the -term or -instTerm parameters. Setting the
+.stackViaRequied attribute determines whether the stack vias are required for the specified term.
+.RS  "*" 2 When set to 1 for a term, this parameter sets the
+.stackViaRequied attribute to 1 on all the <instTerm> values, which are instantiated by the specified term. When set to 1 for an instTerm, it enforces the via pillar only on the specified instTerm. However, if the via pillar list is empty for an instTerm, no via pillar is used even when the required bit is 1.  "*" 2 When set to 0 for a term, this parameter sets the
+.stackViaRequied attribute to 0, which ignores this term for stackViaRule checking. In this case, all the instTerm values originated from the term set the
+.stackViaRequied attribute accordingly. If the parameter is set to 0 only for an instTerm, other instTerm values instantiated from the same term will not be affected.
+.RE   "\fB-term <term>\fR" Specifies the Term name (cell name/term base_name) or pointer. A via pillar list is allowed for  term. 
+.SH Examples
+.RS  "*" 2  Where the cell of inst i1/i2 and i1/i3 are both BUFX1, the following commands indicate that instterm i1/i2/Z requires a via pillar M2M4_1X3:  set_via_pillars -term BUFX1/Z -required 1 {M2M4_1X2 M2M4_1X3}  set_via_pillars -instterm i1/i2/Z -required 1 M2M4_1X3   #The via pillar for instterm must be on the cell term's via pillar list. Otherwise, a proper ERROR should be returned.  "*" 2  The following command removes the via pillar M2M4_1X3 from instterm i1/i2/Z:set_via_pillars -instterm i1/i2/Z  -required 1  "*" 2 The following command sets a via pillar list on a cell pin:  set_via_pillars -term BUFX1/Z -required 1 {M2M4_1X2 M2M4_1X3}  "*" 2 The following command sets a via pillar with via pillar list of the corresponding cell pin on a instTerm; the cell of inst i1/i2 is BUFX1:  set_via_pillars -instTerm i1/i2/Z M2M4_1X3  "*" 2 The following command sets via pillar to cell pin AN2_NOM_D16*/Z:  foreach cell [dbGet head.libCells.name -e AN2_NOM_D16*] {set_via_pillars -term $cell/Z -required 0 {VPPERF_M2_M4_1_2_1 VPPERF_M2_M5_1_2_2_1 VPPERF_M2_M9_1_2_2_2_2_2_2_1} } 
+.RE
+.P

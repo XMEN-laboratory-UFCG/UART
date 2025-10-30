@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH loadBlackBoxNetlist  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBloadBlackBoxNetlist\fR \-  Loads a netlist for a black box
+.SH Syntax \fBloadBlackBoxNetlist\fR  [-help]  <netlist> 
+.P Loads a netlist for a black box. You can use this command to incrementally load an updated netlist for a blackbox. You can use this command before converting a blackbox to a fence. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each loadBlackBoxNetList parameter.  For a detailed description of the command and all of its parameters, use the man command:   man loadBlackBoxNetList  "\fB<netlist>\fR" Specifies the netlist name. The netlist can contain more than one black box netlist, but it should not contain any non-blackbox netlist.  Data_type: string, required 
+.SH Example
+.P The following command loads the netlist netlist_v1.
+.P loadBlackBoxNetlist netlist_v1 
+.SH Related Information
+.RS  "*" 2 convertBlackBoxToFence  "*" 2 convertFenceToBlackBox   "*" 2 Partitioning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Specifying Partitions and Blackboxes  "*" 2 Blackbox Flow
+.RE 
+.RE
+.P

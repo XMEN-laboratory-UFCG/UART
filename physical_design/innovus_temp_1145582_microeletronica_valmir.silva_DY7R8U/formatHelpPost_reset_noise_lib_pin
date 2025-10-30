@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_noise_lib_pin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_noise_lib_pin\fR \-  Allows you to reset any noise property mapping, specified previously using the set_noise_lib_pin command
+.SH Syntax \fBreset_noise_lib_pin\fR   [-help]   [-all]  [-to <string>]
+.P Allows you to reset any noise property mapping, specified previously using the set_noise_lib_pin command. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  "\fB-all\fR" Resets all the noise mappings in the design.  "\fB-to <string>\fR" Specifies the library pin name for which the user-specified noise mapping (if any) needs to be reset.  Note: The -to parameter accepts library cell pin names (that can be obtained using the get_lib_pins command). This parameters does not honour collections or instance pin names. 
+.SH Examples
+.RS  "*" 2 The following command resets any noise mapping previously applied to the library pin library1/macro_cell/A :   reset_noise_lib_pin -to library1/macro_cell/A  "*" 2 The following command resets all the existing noise mappings in the design:   reset_noise_lib_pin -all
+.RE 
+.SH Related Information
+.RS  "*" 2 set_noise_lib_pin   "*" 2 report_noise_lib_pin
+.RE
+.P

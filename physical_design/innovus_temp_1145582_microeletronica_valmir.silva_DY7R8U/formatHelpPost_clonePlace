@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH clonePlace  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBclonePlace\fR \-  Places all clone instances with relative location and relative orientation according to the master partition instances
+.SH Syntax \fBclonePlace\fR   [-help]   [-clone_list <cloneinstance(s)orientation(s)>]   [-master_inst <instance name>]
+.P Places all clone instances with relative location and relative orientation according to the master partition instances. Adjusts instance orientation based on the clone orientation. Use this command after running place_design. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each clonePlace.  For a detailed description of the command and all of its parameters, use the man command:   man clonePlace  "\fB-clone_list<cloneinstance(s)orientation>\fR" Specifies clone instances with relative location.   "\fB-master_inst <instance name>                  \fR" Specifies the master partition instance. 
+.SH Related Information
+.RS  "*" 2 place_design
+.RE
+.P

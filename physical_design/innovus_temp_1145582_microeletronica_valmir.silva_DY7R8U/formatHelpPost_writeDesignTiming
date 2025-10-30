@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH writeDesignTiming  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwriteDesignTiming\fR \-  Writes out the timing information of the design
+.SH Syntax \fBwriteDesignTiming\fR <filename> 
+.P Writes out the timing information of the design.
+.P Use this command when you run the NanoRoute router in timing-driven mode. The router prioritizes each net to route based on the timing information specified in the output file. Do not edit the file because it is internally generated for the router.
+.P By default, when the router runs with setNanoRouteMode -route_with_timing_driven true specified, it automatically generates a timing information file named timingfile.tif in the working directory, and uses it for timing-driven routing.
+.P However, you can control the timing information passed to the router by specifying a timing information file with writeDesignTiming. If you specify a file with this command, and also specify setNanoRouteMode -timingEngine <filename>, the router uses the file written out by writeDesignTiming to drive routing, instead of the timingfile.tif file. 
+.SH Parameters    "\fB<filename>\fR" Specifies the output filename.  Note: The output file is for internal tool use only. You must not edit the output file. 
+.SH Related Information
+.RS  "*" 2 setNanoRouteMode
+.RE
+.P

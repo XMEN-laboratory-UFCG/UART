@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_enable_report_clock_timing_across_clock_pin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_enable_report_clock_timing_across_clock_pin\fR
+.SH Syntax \fBtiming_report_enable_report_clock_timing_across_clock_pin\fR {true | false}
+.P Default: false
+.P Enables fanout tracing across clock pins if any combinational arc is present.
+.P To set this global variable, use the set command.
+.P

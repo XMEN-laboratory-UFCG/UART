@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getObjFPlanPolygon  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetObjFPlanPolygon\fR \-  Retrieves polygon coordinates of the specified rectilinear object that was created earlier with the setObjFPlanPolygon command
+.SH Syntax \fBgetObjFPlanPolygon\fR   [-help]  type   name
+.P Retrieves polygon coordinates of the specified rectilinear object that was created earlier with the setObjFPlanPolygon command. You can use this command after setting the polygon coordinates of a rectilinear block with the setObjFPlanPolygoncommand. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each getObjFPlanPolygon parameter. For a detailed description of the command and all of its parameters, use the man command:   man getObjFPlanPolygon  "\fB<name>\fR" Specifies the name of the object for type.  Data_type: string, required  "\fB<type>\fR" Specifies the type of object for objectName. This can be:
+.RS  "*" 2 Cell  "*" 2 Group  "*" 2 Instance  "*" 2 Layer shape  "*" 2 Module
+.RE   Data_type: string, required 
+.SH Example
+.P The following command retrieves the polygon coordinates of module xyz.
+.P getObjFPlanPolygon module xyz 
+.SH Related Information
+.RS  "*" 2 setObjFPlanPolygon  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

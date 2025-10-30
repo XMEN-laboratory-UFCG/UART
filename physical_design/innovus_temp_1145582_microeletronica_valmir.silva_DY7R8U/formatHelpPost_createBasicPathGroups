@@ -1,0 +1,26 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createBasicPathGroups  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateBasicPathGroups\fR \-  Explicitly creates standard path groups irrespective of the design stage
+.SH Syntax \fBcreateBasicPathGroups\fR  [-help]  [-expanded]  [-reset]
+.P Explicitly creates standard path groups irrespective of the design stage. The following path groups are created:
+.RS  "*" 2 reg2reg (register-to-register)  "*" 2 reg2cgate (register-to-clock-gate)  "*" 2 default
+.RE
+.P Note:
+.RS  "*" 2 If a design does not have any reg2reg paths, or reg2cgate paths, this command will create the corresponding path group(s).  "*" 2 If the specified path group, say reg2reg, already exists, the software will give the following warning:  **WARN: (IMPOPT-3666): Path group reg2reg already exists. Skipping the creation of this path group.
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each createBasicPathGroups parameter. For a detailed description of the command and all of its parameters, use the man command:  man createBasicPathGroups.   "\fB-expanded\fR" When this parameter is specified, the following path groups are created:
+.RS  "*" 2 reg2reg  "*" 2 reg2cgate  "*" 2 in2reg  "*" 2 reg2out  "*" 2 in2out
+.RE   When this parameter is not specified, only the default path groups, reg2reg and reg2cgate, are created.  Note: Timing optimization will consider these path groups in the same way as paths grouped using the group_path command. In addition, if a design does not have any reg2reg or reg2cgate paths, this command will not create the corresponding path groups.  "\fB-reset\fR" Deletes all existing path groups. This is equivalent to running the reset_path_group command.  Note: After deleting the existing path groups, new path groups, reg2reg and reg2cgate are created. 
+.SH Examples
+.RS  "*" 2 The following command is used to create the standard path groups and assigns an effort level to each group:  createBasicPathGroups   The software returns the following information:  Created reg2reg path group  Effort level <high> specified for reg2reg path_group  Created reg2cgate path group  Effort level <high> specified for reg2cgate path_group  "*" 2 The following commands are used to set the  effort level for the reg2reg path group to high, and report the parameters of the path groups that are created:  setPathGroupOptions reg2reg -effortLevel low   reportPathGroupOptions  The software prints the following report:  -----------------------------------------------------------------------------------------------  |Path Group|Effort|Adjustment(early/late)|Target Slack|weight|SkewingSlackCons|view          |  -----------------------------------------------------------------------------------------------  |reg2reg   | high | 0.1    /-0.2         | 0          |  2   |    0.3    |AV_HL_FUNC_MIN_RC1 |   |reg2cgate | high | 0.2    /0            | 0          |  1   |    0.5    |AV_HL_FUNC_MAX_RC1 | 
+.RE 
+.SH Related Information
+.RS  "*" 2 reportPathGroupOptions  "*" 2 resetPathGroupOptions  "*" 2 setPathGroupOptions
+.RE
+.RS  "*" 2 The following sections in Optimizing Timing chapter of the Innovus User Guide
+.RS  "*" 2 Path Group Support  "*" 2 Skipping Path Groups During Hold Fixing
+.RE 
+.RE
+.P

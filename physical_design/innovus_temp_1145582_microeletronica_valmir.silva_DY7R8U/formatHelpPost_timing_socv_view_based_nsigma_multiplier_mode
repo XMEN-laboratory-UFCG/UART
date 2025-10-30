@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_socv_view_based_nsigma_multiplier_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_socv_view_based_nsigma_multiplier_mode\fR
+.SH Syntax \fBtiming_socv_view_based_nsigma_multiplier_mode\fR {true | false} 
+.P Default: true
+.P Enables setting of view-based separate setup and hold sigma multipliers.
+.P By default or with an explicit true setting, the timing system is configured to support different N-sigma multiplier values for Setup vs. Hold - and for different analysis views. The specific N-sigma multipliers can be set using the set_socv_reporting_nsigma_multiplier command.
+.P In earlier releases, the timing_set_nsigma_multiplier global variable was used to specify a single N-sigma value that was used for both Setup and Hold analysis across all analysis views. To continue using older scripts with this control, you can set the timing_socv_view_based_nsigma_multiplier_mode global variable to false.
+.P Note: This backward compatibility option will not be supported in future releases. It is recommended to migrate your scripts to use the new view-based methodology.
+.P To set this global variable, use the set command.
+.P

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setSchedulingFile  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetSchedulingFile\fR \-  Specifies the name of the scheduling file
+.SH Syntax \fBsetSchedulingFile\fR  [-help]  <schedulingFileName> 
+.P Specifies the name of the scheduling file. The file is not taken into account by CTS, but skewClock must have access to the file if it runs several times consecutively.
+.P To see the current setting for the setSchedulingFile command, use getSchedulingFile. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each setSchedulingFile parameter. For a detailed description of the command and all of its parameters, use the man command:  man setSchedulingFile.  "\fB<schedulingFileName>\fR" Specifies the name of the scheduling file. 
+.SH Example
+.P The following command sets the name of the scheduling file to scheduling_file.cts:
+.P setSchedulingFile scheduling_file.cts 
+.SH Related Command
+.RS  "*" 2 getSchedulingFile
+.RE
+.P

@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_sdf_retain_arc_merging  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_sdf_retain_arc_merging\fR \-  Controls handling of retain arcs in SDF2.1
+.SH Syntax \fBtiming_disable_sdf_retain_arc_merging\fR  {true | false}  Default: false
+.P Controls handling of retain arcs in SDF2.1.
+.P When set to false, the Retain information is merged into SDF 2.1, as Retain represents a valid minimum path timing for a cell.
+.P When set to true, the Retain arc merging will be disabled.
+.P To set this global variable, use the set_global command. 
+.P

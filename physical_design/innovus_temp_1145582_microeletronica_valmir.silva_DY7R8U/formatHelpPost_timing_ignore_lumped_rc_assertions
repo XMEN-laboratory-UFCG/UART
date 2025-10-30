@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_ignore_lumped_rc_assertions  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_ignore_lumped_rc_assertions\fR
+.SH Syntax  \fBtiming_ignore_lumped_rc_assertions\fR  {true | false}  
+.P Default: false
+.P When set to false, the set_load and set_resistance values override the actual extracted representation. A warning message is issued stating that the specified constraints on internal nets will override extracted parasitics on those nets.
+.P When set to true, instructs the software to ignore set_load and set_resistance assertions on internal nets in the design. Parasitic data for internal nets normally should be provided by Innovus RC extraction, or external SPEF annotation.
+.P Using set_load to specify I/O boundary loading on ports is supported by either setting of this global.
+.P To set this global variable, use the set_global command.

@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH enc_tcl_return_display_limit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBenc_tcl_return_display_limit\fR
+.SH Syntax \fBenc_tcl_return_display_limit\fR <value>  
+.P Type: Integer
+.P Default: 10000
+.P You can use this variable to set the number of characters displayed on the xterm window (stdout) and the
+.log file. The Tcl return value itself is not truncated. A value of -1 indicates that there is no display limit. The Tcl return value of the history command will not be truncated by setting this variable. 
+.SH Example
+.RS  "*" 2 In the example below, the tcl return values of getDesignMode command options are not truncated. However, the remaining part is truncated to 3 characters.  innovus 1> set enc_tcl_return_display_limit 3  innovus 2> getDesignMode  -addPhysicalCell hier                   # enums={hier flat}, default=hier  -congEffort auto                        # enums={low medium high auto}, default=auto  -dual_rail_via_pitch {}                 # string, default=""""  -earlyClockFlow false                   # bool, default=false  -expressRoute false                     # bool, default=false  -flowEffort standard                    # enums={express standard extreme}, default=standard  -ignore_followpin_vias false            # bool, default=false  -pessimisticMode false                  # enums={true false}, default=false  -powerEffort none                       # enums={none low high}, default=none  -process 90                             # int, default=90, min=3, max=250  -slackWeighting unityWeighting          # enums={unityWeighting viewBasedWeighting}, default=unityWeighting  {ad... truncated to 3 characters (use the enc_tcl_return_display_limit variable to control the length before truncation).  "*" 2 In the example below, the value of enc_tcl_return_display_limit is set to -1. As a result, there is no display limit.  innovus 3> set enc_tcl_return_display_limit -1  -1  innovus 4> getDesignMode   -addPhysicalCell hier # enums={hier flat}, default=hier  -congEffort auto # enums={low medium high auto}, default=auto  -dual_rail_via_pitch {} # string, default=""  -earlyClockFlow false # bool, default=false  -expressRoute false # bool, default=false  -flowEffort standard # enums={express standard extreme}, default=standard  -ignore_followpin_vias false # bool, default=false  -pessimisticMode false # enums={true false}, default=false  -powerEffort none # enums={none low high}, default=none  -process 90 # int, default=90, min=3, max=250  -slackWeighting unityWeighting # enums={unityWeighting viewBasedWeighting}, default=unityWeighting  {addPhysicalCell hier} {congEffort auto} {dual_rail_via_pitch {}} {earlyClockFlow false} {expressRoute false} {flowEffort standard} {ignore_followpin_vias false} {pessimisticMode false} {powerEffort none} {process 90} {slackWeighting unityWeighting}  
+.RE
+.P

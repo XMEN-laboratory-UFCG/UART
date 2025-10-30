@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH zoomBox  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBzoomBox\fR \-  Zooms in the viewable window to the area that encloses the specified coordinates
+.SH Syntax \fBzoomBox\fR  [-help]   <area>
+.P Zooms in the viewable window to the area that encloses the specified coordinates. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each zoomBox parameter.  For a detailed description of the command and all of its parameters, use the man command: man zoomBox.  "\fB<area>\fR" Specifies the coordinates for the box representing the area into which you want to zoom. 
+.SH Example
+.P The following command zooms in the viewable window to the area enclosed by the lower-left coordinates (450 531) and the upper-right coordinates (550 631)
+.P zoomBox 450 531 550 631 
+.SH Related Information
+.RS  "*" 2  viewLast  "*" 2  viewNext  "*" 2  zoomTo  "*" 2  zoomIn  "*" 2  zoomOut  "*" 2  zoomSelected  "*" 2  View Menu chapter in the Menu Reference
+.RS  "*" 2 Zoom
+.RE 
+.RE
+.P

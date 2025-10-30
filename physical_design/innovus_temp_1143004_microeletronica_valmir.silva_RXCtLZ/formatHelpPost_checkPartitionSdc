@@ -1,0 +1,44 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH checkPartitionSdc  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheckPartitionSdc\fR \-  When you generate the timing budgets for partitions using the deriveTimingBudget command, the checkPartitionSdc command validates the results
+.SH Syntax \fBcheckPartitionSdc\fR  [-help]  {[-chip <string> -partition_dir <string>] | [-chip <string> -module_model_tag <string> [-add_ons <string>] [-accumulated] [-overwrite_tag]] | [-compare_only]}  [-cells <string>]  [-master_only]  [-no_top]  [-out_dir <string>]  [-validate_boundary_condition]
+.P When you generate the timing budgets for partitions using the deriveTimingBudget command, the checkPartitionSdc command validates the results. The validation ensures that the timing data of the partitioned block is the same as that of the chip. This saves the ECO iteration for the chips and partitioned blocks, and thereby reduces the overall design cycle time.
+.P Note: This validation is carried out independently by comparing the constraints data and timing data.
+.P The constraints data can be generated from the third-party tools well. To run the checkPartitionSdc command, the constraints data and timing data for the chips and blocks must be available in the Innovus format.
+.P On running this command, some simple constraints are directly validated though the SDC comparison. For some other checks related to pins, the chip and block values are compared. However, for some complex exception constraints, an independent validation is done by checking and comparing the phases reaching at the boundary pins of the chips and the blocks.
+.P The comparison checks the files of the missing, extra, and mismatching constraints in the blocks and the chips. These can help in fixing the partitioned block constraints to get accurate budgets. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each checkPartitionSdc parameter. For a detailed description of the command and all its parameters, use the man command:  man checkPartitionSdc  "\fB-accumulated\fR" Runs comparison for the accumulated budgeting mode.   "\fB-add_ons <string>\fR" Specifies the supplement model that can be loaded additionally with an existing model or a design. It can be used with the -module_model_tag parameter. This parameter can only be used in the Integrated Hierarchical Database (iHDB) flow.   This parameter is useful for the flows where partitioning and timing budgeting are done in parallel, as presented below:  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   "\fB-cells <string>\fR" Specifies the list of cell names for which the SDC comparison is to be done.  Default: all cells  "\fB-chip <string>\fR" Specifies the TCL file, which loads the chip database before timing budgeting.   "\fB-compare_only\fR" Compares the dumped data with the previous checkPartitionSdc run.   "\fB-master_only\fR" Dumps and compares constraints for checking only the master partitions for the master-clone designs. In case this parameter is not used, the tool dumps and compares constraints taking clones also in consideration.   "\fB-module_model_tag <string>\fR" Specifies the module model tag for the cell on which the SDC comparison is to be done.  For example, the following commands validate the timing budgeting results for the specified module model:  set_module_model -default_dir
+./DATA2  checkPartitionSdc -chip scripts/chip.tcl -cells $block -module_model_tag init -no_top  Note: This parameter is a part of the iHDB flow. Before using this parameter, you must set the default central directory name (set_module_model -default_dir <default_model_data_directory> ) where the module models data will be saved/loaded.  "\fB-no_top\fR" Disables checking of the TOP cell.   "\fB-overwrite_tag\fR" Regenerates design for the accumulated Budgeting mode.  "\fB-out_dir <string>\fR" Specifies the directory, which contains the output in the form of validation comparison reports and log files.  Default:
+./cps  "\fB-partition_dir <string>\fR" Specifies the directory, which contains the partition database.   "\fB-validate_boundary_condition\fR" Compares the slew values at the chip versus block level. Slew values are generated using the report_timing command, and the comparison is done at immediate pins to the block boundary.  This parameter can be used in the same session in which the default checkPartitionSdc check is used. However, it should not run in parallel with the default checkPartitionSdc check since writing of setup file may have a conflict.  The -validate_boundary_condition parameter can validate only the boundary conditions for the partition-block constraints generated for setBudgetingMode -useBoundaryCondition actual and build the timing graph from the actual netlist. This parameter dumps an output file in the
+.csv format.  Note: The -validate_boundary_condition parameter cannot support the setBudgetingMode -useBoundaryCondition {optimized | template} values. It also gives an error, if the timing graph is not built.   Following is a sample output of using the -validate_boundary_condition parameter:  +---------------------------+-----------+------------+----------+  |            Pin            | Chip Slew | Block Slew | Diff (%) |     +---------------------------+-----------+------------+----------+  | slave_haddr_o[0]          |     0.620 |      0.613 |     1.13 |    | rxdata1[6]                |     0.266 |      0.269 |     1.13 |    | rxdata1[7]                |     0.270 |      0.273 |     1.11 |     | master_hready_o           |     0.364 |      0.368 |     1.09 |    | SPCASCAN_N523             |     0.734 |      0.742 |     1.09 |    | rxdata2[1]                |     0.196 |      0.198 |     1.02 |    | slave_hrdata_i[0]         |     0.098 |      0.097 |     0.11 |    +---------------------------+-----------+------------+----------+ 
+.SH Examples
+.RS  "*" 2 The following command runs validation using the chip database chip.tcl and post-partition saved along with post-budgeted database in ptn tag:  checkPartitionSdc -chip
+./chip.tcl -module_model_tag ptn  "*" 2 The following command runs validation using the chip database chip.tcl, the post-partition database in the ptn tag, and post-budgeted database in the ptn tag, which are saved in parallel:  checkPartitionSdc -chip
+./chip.tcl -module_model_tag ptn -add_ons {mmmc}  "*" 2 The following command runs validation using the chip database chip.tcl, the post-partition database in the ptn tag, and post-budgeted database in the stb tag:  checkPartitionSdc -chip
+./chip.tcl -module_model_tag ptn -add_ons {STB/mmmc}  "*" 2 The following command runs validation using the chip database chip.tcl and the partition database in
+./PTNS:  checkPartitionSdc -chip
+./chip.tcl -partition_dir
+./PTNS
+.RE
+.RS  "*" 2 The following command runs validation using the chip database chip.tcl and the partition database in
+./PTNS for cells P1 and P2:  checkPartitionSdc -chip
+./chip.tcl -partition_dir
+./PTNS -cells {P1 P2}
+.RE
+.RS  "*" 2 The following command runs validation using the chip database chip.tcl, the partition database in
+./PTNS, and the dumping reports and log in
+./CHK:  checkPartitionSdc -chip
+./chip.tcl -partition_dir
+./PTNS -out_dir
+./CHK
+.RE
+.RS  "*" 2 The following command runs validation using the chip database chip.tcl, and partition database in
+./PTNS, and only checks the partitions data (no portioned top checking with chip):  checkPartitionSdc -chip
+./chip.tcl -partition_dir
+./PTNS -no_top
+.RE 
+.SH Related Information
+.P Refer to the Timing Budgeting chapter in the User Guide document.
+.P

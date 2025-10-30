@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_capture_tns_histogram_max_slack  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_capture_tns_histogram_max_slack\fR
+.SH Syntax \fBmetric_capture_tns_histogram_max_slack\fR <maximum_slack_value>  
+.P Default: 0
+.P Specifies the maximum slack value for the TNS histogram.  You can change its value if you need to shift the y axis. 
+.P

@@ -1,0 +1,28 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH filter_collection  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBfilter_collection\fR \-  Returns a collection of objects that were filtered from the specified collection of objects based on user-specified criteria (<filter_expression>)
+.SH Syntax \fBfilter_collection\fR  [-help]  <base_collection>  {<filter_expression>}   [-nocase]  [-quiet]   [-regexp] 
+.P Returns a collection of objects that were filtered from the specified collection of objects based on user-specified criteria (<filter_expression>). The following rules apply:
+.RS  "*" 2 The <filter_expression> can be created by combining several object properties using the following relational and logical operators: >, <, ==, !=, <=, >=, &&, ||, =~, !~, AND, OR. You also can use parentheses to create expressions.
+.RE
+.RS  "*" 2 You can use the defined and undefined existence operators to determine whether an attribute is defined for an object.
+.RE
+.RS  "*" 2 All design object properties supported through the get_property command can be used for filtering the base collection.
+.RE
+.P Note: You also can perform filtering operations by specifying the -filter parameter with the get_* commands. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB<base_collection>\fR" Specifies the collection of objects from which to filter objects for the new collection.  "\fB<filter_expression>\fR" Specifies the criteria with which to filter objects. The software adds any objects in the base collection that match <filter_expression> to the new collection.  "\fB-nocase\fR" Specifies that pattern matching is not case sensitive.  Note: You must specify -regexp in order to use this parameter.  "\fB-quiet\fR" Suppresses all the error and warning messages that are generated when the filter_collection command is run.  "\fB-regexp\fR" Treats the specified patterns as regular expression patterns.  Default: Treats the specified pattern as a wildcard. 
+.SH Examples
+.RS  "*" 2 The following command returns a single-object collection containing the pin with the hierarchical name lat_3/Q:   filter_collection [get_pins] {hierarchical_name == lat_3/Q}
+.RE
+.RS  "*" 2 The following command returns a collection of pins that have a maximum slew that is greater than 0.1:   filter_collection [get_pins] {slew_max_rise > 0.1}
+.RE
+.RS  "*" 2 The following commands create a new collection called newPaths that contains all of the paths from the collection paths that have a slack value that is greater than -0.806 and less than 0.0:   set paths [report_timing -collection -max_paths 10]  set newPaths [filter_collection $paths {(slack > -0.806 && slack < 0.0)}]  "*" 2  The following example creates a pin type user property to annotate useful_skew values which may be used in custom functions for analysis and  implementation:  define_property useful_skew -type float -object_type pin  set_interactive_constraint_modes [all_constraint_modes -active]   You can now apply some values to a few register clock pins:  set_property [get_pin hier1/reg1/clock] useful_skew 1.5  set_property [get_pin hier1/hier2/reg2/clock] useful_skew 2.5   In the script, you can look for pin objects that have (or does not have) this attributed applied:  find clock pins without useful skew  set pins_without_useful [filter_collection [all_registers -clock_pins] \\  "undefined(useful_skew)"]  count the number of registers with useful skew applied  set pins_with_useful [filter_collection [all_registers -clock_pins] \\  "defined(useful_skew)"] 
+.RE 
+.SH Related Information
+.RS  "*" 2 add_to_collection
+.RE
+.RS  "*" 2 compare_collections  "*" 2 copy_collection  "*" 2 foreach_in_collection
+.RE
+.P

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH read_sai  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBread_sai\fR \-  Enables the SoC Architecture Information (SAI) mode that allows the use of SAI commands interactively at the command line
+.SH Syntax \fBread_sai\fR  [-help]  [<name>]   [-partial]  [-reduce_by_flexfiller]   [-rule_only]  
+.P Enables the SoC Architecture Information (SAI) mode that allows the use of SAI commands interactively at the command line. 
+.SH  Parameters   "\fB-help\fR" Prints out the command usage.   "\fB<name>\fR" Specifies the SAI file name.  Data_type: string, optional  "\fB-partial\fR" When specified, it enables SAI to support designs loaded using the restoreDesign command. Use this option to enable partial netlist support in the SAI mode.  Data_type: bool, optional   "\fB-reduce_by_flexfiller\fR" When specified, it adds flexfillers in hinsts added by the add_module and create_module commands. Use this option to reduce the size of the generated SAI netlist using the FlexFiller technology that is same as the FlexModel methodology. This helps to address the capability and run-time limitations of a growing design size (10 or 100 of million instances).   Data_type: bool, optional   "\fB-rule_only\fR" When specified, the rules are imported only in the SAI file.   Data_type: bool, optional 
+.SH Example
+.P The following command reads in the example2.0.sai file and reduces the SAI netlist while maintaining the module areas:  read_sai example2.0.sai -reduce_by_flexfiller 
+.SH Related Information
+.RS  "*" 2 end_sai  "*" 2 Prototyping Methodologies chapter in the Innovus User Guide  "*" 2 Syntax and Scripts chapter in the Innovus User Guide
+.RS  "*" 2 Supported SAI Commands
+.RE 
+.RE
+.P

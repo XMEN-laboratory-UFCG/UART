@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_resistance_unit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_resistance_unit\fR \-  Returns the resistance unit for the current session
+.SH Syntax \fBget_resistance_unit\fR    
+.P Returns the resistance unit for the current session. 
+.SH Example
+.P The following command returns the resistance unit for the current session:
+.P get_resistance_unit
+.P 1.000000 kohm
+.P

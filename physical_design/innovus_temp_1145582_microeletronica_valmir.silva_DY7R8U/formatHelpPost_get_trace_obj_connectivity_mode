@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_trace_obj_connectivity_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_trace_obj_connectivity_mode\fR \-  Returns information about the specified set_trace_obj_connectivity_mode parameter in the Innovus log file and the console
+.SH Syntax \fBget_trace_obj_connectivity_mode\fR  [-help]   [-macro_pins]   [-max_fanin_fanout]   [-register_inputs]   [-register_outputs]  [-quiet]
+.P Returns information about the specified set_trace_obj_connectivity_mode parameter in the Innovus log file and the console. The following information is returned:
+.RS  "*" 2 Parameter name  "*" 2 Current value  "*" 2 Type (Boolean, string, and so on)  "*" 2 Whether the current value was set by user
+.RE
+.P Note: If you do not specify a parameter, the software displays values for all of the set_trace_obj_connectivity_mode parameters. 
+.P You can use this command after importing the design. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each get_trace_obj_connectivity_mode parameter. For a detailed description of the command and all of its parameters, use the man command:   man get_trace_obj_connectivity_mode  "\fB<parameter_names>\fR" Displays information for the specified parameters. You can specify one or more parameters. See set_trace_obj_connectivity_mode for descriptions of the parameters you can specify.   "\fB-quiet\fR" Displays the current settings for the specified parameters in Tcl list format only. 
+.SH Example
+.P The following command displays the values for all of the set_trace_obj_connectivity_mode parameters:  get_trace_obj_connectivity_mode 
+.SH Related Information
+.RS  "*" 2 trace_obj_connectivity  "*" 2 set_trace_obj_connectivity_mode  "*" 2 display_obj_connectivity  "*" 2 all_fanin  "*" 2 all_fanout  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference
+.RE
+.P

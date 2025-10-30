@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH generate_pg_library  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgenerate_pg_library\fR \-  Generates the output for power-grid library generation
+.SH Syntax  \fBgenerate_pg_library\fR  [-help]  [-output <dir_name>]  [-library_prefix <prefix>] 
+.P Generates the output for power-grid library generation.
+.P 
+.SH Parameters   "\fB-help \fR" Outputs the command usage.   "\fB-library_prefix <prefix>\fR" Specifies a prefix for the power-grid library. When this parameter is specified, the default PGV for each cell type is as follows:
+.RS  "*" 2 techonly - prefix_techonly.cl (default: techonly.cl)  "*" 2 stdcells - prefix_stdcells.cl (default: stdcells.cl)  "*" 2 macros - prefix_cellname.cl (default: macros_cellname.cl)
+.RE   You can generate macro PGVs without the "macro_" string in the name and without any prefix by specifying an empty string for -library_prefix, as shown below:  generate_pg_library -output <output_folder> -library_prefix ""  "\fB-output<dir_name>\fR" Specifies the name of the output directory in which power-grid libraries are created. The default is the current working directory.  Note: If you specify both -output <output_dir> and -library_prefix <prefix> parameters, the command generates the PGV in the output_dir directory with PGV name prefix_<name>.cl.
+.P 
+.SH Examples
+.RS  "*" 2  The following command generates a power-grid library in the temp folder:   generate_pg_library -output <temp/>  "*" 2 The following command specifies to generate a technology library with the default PGV name techonly and prefix ab:  set_pg_library_mode -celltype techonly
+...  generate_pg_library -output
+./ -library_prefix ab  The generated library name will be ab_techonly.cl  "*" 2 The following command specifies to generate a macro library with the default PGV name <cell_name> and prefix ab:  set_pg_library_mode -celltype macros
+...  generate_pg_library -output
+./ -library_prefix ab  The generated library name will be ab_<cell_name>.cl
+.RE 
+.SH Related Information
+.RS  "*" 2 set_pg_library_mode  "*" 2 set_advanced_pg_library_mode  "*" 2 generate_xpgv  "*" 2 "Power-Grid Library Generation" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

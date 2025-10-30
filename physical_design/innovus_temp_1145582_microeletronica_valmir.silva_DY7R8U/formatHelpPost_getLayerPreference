@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getLayerPreference  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetLayerPreference\fR \-  Provides information about a single preference for a single object
+.SH Syntax \fBgetLayerPreference\fR  [-help]   <layer_name>  {-isVisible | -isSelectable | -color | -lineWidth | -stipple | -stippleData} 
+.P Provides information about a single preference for a single object.
+.P See setLayerPreference for descriptions of how to set layer preferences. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each getLayerPreference parameter.  For a detailed description of the command and all of its parameters, use the man command:   man getLayerPreference  "\fB-color\fR" Provides information about the color of the object. A color name or a numeric RGB value is returned.  Data_type: bool, optional  "\fB-isSelectable\fR" Provides information about whether the object is selectable. If a value of 1 is returned, the object is selectable. If a value of 0 is returned, the object is not selectable.  Data_type: bool, optional  "\fB-isVisible\fR" Provides information about whether the object is visible. If a value of 1 is returned, the object is visible. If a value of 0 is returned, the object is not visible.  Data_type: bool, optional  "\fB<layer_name>\fR" Provides the name of the layer or the object type.  Data_type: string, required  "\fB-lineWidth\fR" Provides information about the number of pixels in the border of the specified object. An integer value is returned.  Data_type: bool, optional  "\fB-stipple\fR" Provides information about the stipple pattern of the object. A stipple name is returned.  Data_type: bool, optional  "\fB-stippleData\fR" Provides information about the width and height of the stipple pattern. This information is in x-window bitmap format.  Data_type: bool, optional 
+.SH Example
+.P Returns the color for Metal1 objects:
+.P getLayerPreference Metal1 -color 
+.SH Related Information
+.RS  "*" 2 setLayerPreference
+.RE
+.P

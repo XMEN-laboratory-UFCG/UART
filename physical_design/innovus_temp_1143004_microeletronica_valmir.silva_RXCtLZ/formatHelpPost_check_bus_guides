@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH check_bus_guides  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheck_bus_guides\fR \-  Checks bus guides for violations during master-clone-aware net_group implementation flow
+.SH Syntax \fBcheck_bus_guides\fR  [-help]  [-net_groups <list_of_net_groups>]  [-outFile <file_name>] 
+.P Checks bus guides for violations during master-clone-aware net_group implementation flow. It checks for the consistency of net groups and bus guides by performing the following:
+.RS  "*" 2 Bus-guide physical checks:
+.RS  "*" 2  Reports over-drawn bus guides.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   "*" 2 Reports under-drawn bus guides (bus guide does not reach the  sink of net group).  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   "*" 2 Reports bus guide that do not overlap/connect with the source of net group.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE  "*" 2 Checks the net-group consistency and reports non-homogeneous nets in a net group.
+.RE
+.P Note: The check_bus_guides command does not support nested designs yet. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each check_bus_guides parameter.  For a detailed description of the command and all of its parameters, use the man command:   man check_bus_guides  "\fB-net_groups <list_of_net_groups>\fR" Specifies the net groups whose bus guides are to be checked.  Default : *.  Example:  # -net_groups {ng1 ng2 ng3-*} (string, optional)  Data_type: string, optional  "\fB-outFile <file_name>\fR" Specifies the name of the file where the bus guide violation log is stored.  Default: checkBg.rpt  Data_type: string, optional 
+.SH Example
+.RS  "*" 2 The following command checks the bus guides for violations.  check_bus_guides  "*" 2 The following command checks the bus guides of net groups ng1, ng2, and ng3 for violations.  check_bus_guides -net_groups {ng1 ng2 ng3} 
+.RE 
+.SH Related Information
+.RS  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

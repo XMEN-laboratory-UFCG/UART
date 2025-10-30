@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH lminus  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBlminus\fR \-  Subtracts the specified elements in the second list (list2) from the first specified list (list1) 
+.SH Syntax \fBlminus\fR  [-exact]   <list1>  <list2>
+.P Subtracts the specified elements in the second list (list2) from the first specified list (list1)
+. 
+.SH Parameters   "\fB-exact\fR" Searches for an exact match.  "\fB<list1> \fR" Specifies the list from which elements must be removed.  "\fB<list2>\fR" Specifies the list of elements to be subtracted. 
+.SH Examples
+.RS  "*" 2 The following command subtracts the elements from list l2 from list l1.  innovus> set l1 {a a* ab2 b1 b2 c}  innovus> set l2 {a c}  innovus> lminus $l1 $l2   a* ab2 b1 b2
+.RE
+.RS  "*" 2 The following command subtracts a list consisting of a* and c from the list of elements of l1.  innovus> lminus $l1 {a* c}  b1 b2  "*" 2 The following command uses an exact search.  innovus> lminus -exact $l1 {a* c}  a ab2 b1 b2
+.RE
+.P

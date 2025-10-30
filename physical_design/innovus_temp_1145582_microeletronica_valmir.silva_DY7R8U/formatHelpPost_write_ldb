@@ -1,0 +1,26 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_ldb  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_ldb\fR \-  Converts text library to Cadence binary format library called LDB
+.SH Syntax \fBwrite_ldb\fR  -library <string> <>  -outfile <string> <> 
+.P Converts text library to Cadence binary format library called LDB.
+.P You can use LDB to run timing analysis. The ECSM and CCS libraries can be very large and loading them may take significant time. You can convert the ASCII NLDM (Liberty
+.lib), ECSM, and CCS libraries to LDB by using the write_ldb command.
+.P When loading the design, the timing libraries will be read faster because the software reads the binary versions. 
+.P Instead of the original ASCII libraries, you can specify LDB in the create_library_set command in MMMC configuration file.
+.P Notes:
+.RS  "*" 2 The software generated LDB files can be used in Tempus.  "*" 2 LDB files generated from Tempus can be used as input by other tools - Innovus, Genus, and Voltus.
+.RE
+.RS  "*" 2 LDB files are not forward compatible, that is, the LDB generated from 15.2 version cannot be used with 15.1 or prior versions of the software.
+.RE
+.RS  "*" 2 The software does not support concatenated Liberty library (multiple libraries in the same dotlib file) files during LDB conversion. To use these files, you are required to separate out individual libraries before converting to individual LDB files.
+.RE 
+.SH Parameters    "\fB-library <string>\fR" Specifies the name of the input library file.  "\fB-outfile <string> \fR" Specifies the name of the generated LDB file. 
+.SH Examples
+.RS  "*" 2 The following example illustrates the conversion of libraries to LDB:  write_ldb -library A.lib -outfile A.ldb
+.RE 
+.SH Related Information
+.RS  "*" 2 check_ldb_version
+.RE
+.P

@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH db_browser  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdb_browser\fR \-  Launches the database browser (DB Browser)
+.SH Syntax \fBdb_browser\fR  [-help]   <obj_list> | head | top | selected  
+.P Launches the database browser (DB Browser). The DB browser returns information about one of the following:
+.RS  "*" 2 Specified object list  "*" 2 Root of the database  "*" 2 Top cell of the design  "*" 2 Selected object
+.RE 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each db_browser parameter.  For a detailed description of the command and all of its parameters, use the man command:   man db_browser  "\fB<obj_list>  | head | top | selected\fR" Specifies the objects whose attributes need to be displayed in the browser: 
+.RS  "*" 2 obj_list: Displays attributes of the list of specified objects in the browser. Use the Show next object in list and the Show last object in list buttons in the browser to traverse through the list.  "*" 2 head: Displays technology information about the root of the database in the browser.  "*" 2 top: Displays attributes of the top cell of the design in the browser  "*" 2 selected: Displays attributes of the objects you have selected in the main window. Use the Show next object in list button in the DB Browser to move to the next object in the sequence.
+.RE 
+.SH Examples
+.RS  "*" 2 The following command launches the DB Browser and returns attributes of the top cell of the design.   db_browser top
+.RE 
+.SH Related Information
+.RS  "*" 2 Edit Menu chapter in the Innovus Menu Reference
+.RS  "*" 2 DB Browser
+.RE 
+.RE
+.P

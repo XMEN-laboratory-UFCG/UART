@@ -1,0 +1,220 @@
+[10/29 23:22:30      0s] 
+[10/29 23:22:30      0s] Cadence Innovus(TM) Implementation System.
+[10/29 23:22:30      0s] Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/29 23:22:30      0s] 
+[10/29 23:22:30      0s] Version:	v23.31-s109_1, built Mon Apr 22 16:02:43 PDT 2024
+[10/29 23:22:30      0s] Options:	-file innovus_script.tcl 
+[10/29 23:22:30      0s] Date:		Wed Oct 29 23:22:30 2025
+[10/29 23:22:30      0s] Host:		microeletronica (x86_64 w/Linux 4.18.0-477.27.1.el8_8.x86_64) (16cores*32cpus*Intel(R) Xeon(R) Silver 4314 CPU @ 2.40GHz 16384KB)
+[10/29 23:22:30      0s] OS:		Red Hat Enterprise Linux 8.8 (Ootpa)
+[10/29 23:22:30      0s] 
+[10/29 23:22:30      0s] License:
+[10/29 23:22:30      0s] 		[23:22:30.510305] Configured Lic search path (23.02-s005): 5280@melicense.embedded.ufcg.edu.br
+
+[10/29 23:22:30      0s] 		invs	Innovus Implementation System	23.1	checkout succeeded
+[10/29 23:22:30      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[10/29 23:22:31      1s] {{{ isCertus 0,  isCertusOrDistOptClient = 0, isInnovusCertusClient = 0}}}
+[10/29 23:22:47     16s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v23.31-s109_1 (64bit) 04/22/2024 16:02 (Linux 3.10.0-693.el7.x86_64)
+[10/29 23:22:49     19s] @(#)CDS: NanoRoute 23.31-s109_1 NR240401-0735/23_11-UB (database version 18.20.622_1) {superthreading v2.20}
+[10/29 23:22:49     19s] @(#)CDS: AAE 23.11-s030 (64bit) 04/22/2024 (Linux 3.10.0-693.el7.x86_64)
+[10/29 23:22:49     19s] @(#)CDS: CTE 23.11-s024_1 () Apr 22 2024 08:03:17 ( )
+[10/29 23:22:49     19s] @(#)CDS: SYNTECH 23.11-s010_1 () Apr  5 2024 04:21:08 ( )
+[10/29 23:22:49     19s] @(#)CDS: CPE v23.11-s057
+[10/29 23:22:49     19s] @(#)CDS: IQuantus/TQuantus 22.1.1-s233 (64bit) Mon Dec 11 23:11:23 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[10/29 23:22:49     19s] @(#)CDS: OA 22.61-p011 Thu Nov 30 12:26:13 2023
+[10/29 23:22:49     19s] @(#)CDS: SGN 23.10-d005 (03-Oct-2023) (64 bit executable, TkQt5.15.9)
+[10/29 23:22:49     19s] @(#)CDS: RCDB 11.15.0
+[10/29 23:22:49     19s] @(#)CDS: STYLUS 23.10-a010_1 (02/06/2024 03:59 PST)
+[10/29 23:22:49     19s] @(#)CDS: IntegrityPlanner-23.11-14100 (23.11) (2024-02-05 09:01:07+0800)
+[10/29 23:22:49     19s] @(#)CDS: SYNTHESIS_ENGINE 23.11-s099
+[10/29 23:22:49     19s] Create and set the environment variable TMPDIR to /home/valmir.silva/UART/physical_design/innovus_temp_1214731_92a96e08-0209-4f6e-9589-f4086aeef82e_microeletronica_valmir.silva_ueMLGJ.
+
+[10/29 23:22:49     19s] Change the soft stacksize limit to 0.2%RAM (256 mbytes). Set global soft_stack_size_limit to change the value.
+[10/29 23:22:51     21s] 
+[10/29 23:22:51     21s] **INFO:  MMMC transition support version v31-84 
+[10/29 23:22:51     21s] 
+[10/29 23:22:51     21s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[10/29 23:22:51     21s] <CMD> suppressMessage ENCEXT-2799
+[10/29 23:22:51     21s] <CMD> getVersion
+[10/29 23:22:51     21s] [INFO] Loading PVS 23.10 fill procedures
+[10/29 23:22:52     21s] Sourcing file "innovus_script.tcl" ...
+[10/29 23:22:52     21s] source innovus_script.tcl
+[10/29 23:22:52     21s] <CMD> set init_mmmc_file Default.view
+[10/29 23:22:52     21s] **ERROR: (IMPIMEX-10):	Specified file cannot be found: gsclib045_tech.lef.
+[10/29 23:22:52     21s] **ERROR: (IMPIMEX-10):	Specified file cannot be found: gsclib045_macro.lef.
+[10/29 23:22:52     21s] <CMD> set ::init_mmmc_version 2
+[10/29 23:22:52     21s] <CMD> set init_design_netlisttype Verilog
+[10/29 23:22:52     21s] <CMD> set ::init_verilog ../sim/outputs/uart_netlist.v
+[10/29 23:22:52     21s] <CMD> set ::init_original_verilog_files ../sim/outputs/uart_netlist.v
+[10/29 23:22:52     21s] <CMD> set init_top_cell uart_top
+[10/29 23:22:52     21s] #% Begin Load netlist data ... (date=10/29 23:22:52, mem=1830.6M)
+[10/29 23:22:52     21s] <CMD_INTERNAL> loadNetlist -i Verilog ../sim/outputs/uart_netlist.v
+[10/29 23:22:52     21s] *** Begin netlist parsing (mem=1732.8M) ***
+[10/29 23:22:52     21s] Created 0 new cells from 0 timing libraries.
+[10/29 23:22:52     21s] Reading netlist ...
+[10/29 23:22:52     21s] Backslashed names will retain backslash and a trailing blank character.
+[10/29 23:22:52     21s] Reading verilog netlist '../sim/outputs/uart_netlist.v'
+[10/29 23:22:52     21s] Module DFFRHQX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR2XL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR2BX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module CLKXOR2X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR2X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module AND2X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module ADDHX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module INVX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND2XL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND4XL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR4X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND2BXL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module OR4X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module SDFFRHQX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND3BXL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR4BX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR3BXL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND3XL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module MX2X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module DFFQX2 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND4BXL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR4BBX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR4X2 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NOR3X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module DFFSHQX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND2BX2 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module AND4X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module INVXL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module OAI211X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module OR2X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module OAI33X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module OR3X1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module CLKINVX4 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module BUFX2 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND2BX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module NAND4BX1 is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] Module OAI21XL is not defined and will be treated as an empty module.
+[10/29 23:22:52     21s] 
+[10/29 23:22:52     21s] *** Memory Usage v#2 (Current mem = 1737.793M, initial mem = 835.559M) ***
+[10/29 23:22:52     21s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1737.8M) ***
+[10/29 23:22:52     21s] #% End Load netlist data ... (date=10/29 23:22:52, total cpu=0:00:00.0, real=0:00:00.0, peak res=1838.8M, current mem=1838.8M)
+[10/29 23:22:52     21s] <CMD> setTopCell uart_top
+[10/29 23:22:52     21s] Set top cell to uart_top.
+[10/29 23:22:52     21s] <CMD> report_resource -start BindLib: -vlog
+[10/29 23:22:52     21s] Hooked 0 DB cells to tlib cells.
+[10/29 23:22:52     21s] <CMD> report_resource -end BindLib: -vlog
+[10/29 23:22:52     21s] Ending "BindLib:" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1839.4M, current mem=1839.4M)
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'DFFRHQX1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'OR4X1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND2BXL' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NOR4X1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND4XL' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND2XL' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'INVX1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'ADDHX1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'AND2X1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NOR2X1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'CLKXOR2X1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NOR2BX1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NOR2XL' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'OAI21XL' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND4BX1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND2BX1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'BUFX2' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'CLKINVX4' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'OR3X1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'OAI33X1' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+[10/29 23:22:52     21s] Type 'man IMPDB-2504' for more detail.
+[10/29 23:22:52     21s] **WARN: (EMS-27):	Message (IMPDB-2504) has exceeded the current message display limit of 20.
+[10/29 23:22:52     21s] To increase the message display limit, refer to the product command reference manual.
+[10/29 23:22:52     21s] Cell 'DFFRHQX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Q' of cell 'DFFRHQX1' as output for net 'counting_done' in module 'counter_MOD3'.
+[10/29 23:22:52     21s] Cell 'CLKXOR2X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'CLKXOR2X1' as output for net 'n_6' in module 'counter_MOD3'.
+[10/29 23:22:52     21s] Cell 'ADDHX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'CO' of cell 'ADDHX1' as output for net 'inc_add_24_72_n_0' in module 'counter_MOD5'.
+[10/29 23:22:52     21s] Cell 'ADDHX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'S' of cell 'ADDHX1' as output for net 'n_9' in module 'counter_MOD5'.
+[10/29 23:22:52     21s] Cell 'NOR4BX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR4BX1' as output for net 'n_0' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NAND4BXL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND4BXL' as output for net 'n_9' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NOR4BBX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR4BBX1' as output for net 'n_14' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NAND2BXL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND2BXL' as output for net 'n_37' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NOR4X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR4X1' as output for net 'n_38' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'OR4X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'OR4X1' as output for net 'n_39' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NOR2BX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR2BX1' as output for net 'n_40' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'INVXL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'INVXL' as output for net 'n_8' in module 'counter_MOD44'.
+[10/29 23:22:52     21s] Cell 'NOR2X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR2X1' as output for net 'n_0' in module 'counter_MOD5_40'.
+[10/29 23:22:52     21s] Cell 'AND2X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'AND2X1' as output for net 'n_1' in module 'counter_MOD5_40'.
+[10/29 23:22:52     21s] Cell 'INVX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'INVX1' as output for net 'n_0' in module 'ref_clock_CLOCK_REF10000000_CLOCK_INPUT100000000_41'.
+[10/29 23:22:52     21s] Cell 'DFFSHQX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Q' of cell 'DFFSHQX1' as output for net 'sdata_tx_out' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NOR3BXL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR3BXL' as output for net 'ready_tx_out' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'BUFX2' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'BUFX2' as output for net 'px_bit[0]' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'OAI21XL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'OAI21XL' as output for net 'lt_57_37_n_0' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NAND4BX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND4BX1' as output for net 'n_0' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NOR2XL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR2XL' as output for net 'n_5' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NAND2XL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND2XL' as output for net 'n_7' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NAND4XL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND4XL' as output for net 'n_9' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NAND3BXL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND3BXL' as output for net 'n_13' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'OAI33X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'OAI33X1' as output for net 'n_21' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'OR2X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'OR2X1' as output for net 'n_27' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'OAI211X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'OAI211X1' as output for net 'n_28' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'SDFFRHQX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'SE' of cell 'SDFFRHQX1' as output for net 'ready_rx_out' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'SDFFRHQX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Q' of cell 'SDFFRHQX1' as output for net 'data_rx_out[7]' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NAND2BX2' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND2BX2' as output for net 'n_4' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NOR3X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR3X1' as output for net 'n_12' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NOR4X2' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NOR4X2' as output for net 'n_13' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'MX2X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'MX2X1' as output for net 'n_30' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'NAND3XL' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND3XL' as output for net 'n_31' in module 'uart_rx_BYTESIZES8_OVERSAMPLING16_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'AND4X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'AND4X1' as output for net 'n_2' in module 'counter_MOD44'.
+[10/29 23:22:52     21s] Cell 'NAND2BX1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'NAND2BX1' as output for net 'n_1' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'CLKINVX4' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'CLKINVX4' as output for net 'n_2' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] Cell 'OR3X1' is referenced in the netlist but not defined in netlist, lef or timing library. Using the net connection data to mark the pin 'Y' of cell 'OR3X1' as output for net 'n_11' in module 'uart_tx_BYTESIZES8_OVERSAMPLING1_BAUDRATE115200_COUNTER_CLOCK_INPUT100000000_CLOCK_REF10000000'.
+[10/29 23:22:52     21s] 37 empty module found.
+[10/29 23:22:52     21s] Starting recursive module instantiation check.
+[10/29 23:22:52     21s] No recursion found.
+[10/29 23:22:52     21s] Term dir updated for 0 vinsts of 37 cells.
+[10/29 23:22:52     21s] Building hierarchical netlist for Cell uart_top ...
+[10/29 23:22:52     21s] ***** UseNewTieNetMode *****.
+[10/29 23:22:52     21s] *** Netlist is unique.
+[10/29 23:22:52     21s] **WARN: (IMPTRN-1100):	Cannot determine standard cell height.  Assume it 10 IGU.
+[10/29 23:22:52     21s] **WARN: (IMPTRN-1101):	Could not determine power-rail locations in cells. Use default value GNDOnBtm.
+[10/29 23:22:52     21s] ** info: there are 49 modules.
+[10/29 23:22:52     21s] ** info: there are 0 stdCell insts.
+[10/29 23:22:52     21s] ** info: there are 0 stdCell insts with at least one signal pin.
+[10/29 23:22:52     21s] <CMD> setEditMode -use_fixVia 0
+[10/29 23:22:52     21s] <CMD> setEditMode -use_fixVia false
+[10/29 23:22:52     21s] <CMD> setEditMode -reset -use_fixVia
+[10/29 23:22:52     21s] 
+[10/29 23:22:52     21s] *** Memory Usage v#2 (Current mem = 1789.707M, initial mem = 835.559M) ***
+[10/29 23:22:52     21s] <CMD> getCheckMode -netlist -quiet
+[10/29 23:23:08     22s] <CMD> init_design
+[10/29 23:23:08     22s] **ERROR: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+
+[10/29 23:23:17     22s] ambiguous command name "gui_": gui_attach_to_cursor gui_clear_trace_flightline gui_close_cell_view gui_deselect gui_dim_foreground gui_dump_picture gui_get_legend gui_get_schematic gui_group_hinst gui_open_cell_view gui_report_trace_flightline gui_save_flightline gui_schematic_add_selected gui_schematic_load_view gui_schematic_save_view gui_select gui_set_legend gui_show_edge_number gui_trace_flightline gui_ungroup_hinst gui_zoom_ctd
+[10/29 23:23:44     23s] <CMD> gui_get_schematic
+[10/29 23:24:05     23s] child process exited abnormally
+[10/29 23:24:07     23s] 
+[10/29 23:24:07     23s] *** Memory Usage v#2 (Current mem = 1786.707M, initial mem = 835.559M) ***
+[10/29 23:24:07     23s] 
+[10/29 23:24:07     23s] *** Summary of all messages that are not suppressed in this session:
+[10/29 23:24:07     23s] Severity  ID               Count  Summary                                  
+[10/29 23:24:07     23s] WARNING   IMPTRN-1101          1  Could not determine power-rail locations...
+[10/29 23:24:07     23s] WARNING   IMPTRN-1100          1  Cannot determine standard cell height.  ...
+[10/29 23:24:07     23s] ERROR     IMPSYT-7329          1  Cannot load design with init_design, aft...
+[10/29 23:24:07     23s] WARNING   IMPDB-2504          37  Unable to find netlist cell in the desig...
+[10/29 23:24:07     23s] ERROR     IMPIMEX-10           2  Specified file cannot be found: %s.      
+[10/29 23:24:07     23s] *** Message Summary: 39 warning(s), 3 error(s)
+[10/29 23:24:07     23s] 
+[10/29 23:24:07     23s] --- Ending "Innovus" (totcpu=0:00:23.6, real=0:01:37, mem=1786.7M) ---

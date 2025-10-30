@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH man  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBman\fR \-  This command is a Tcl wrapper that calls the Linux 'man' command, so you can see man pages for Innovus commands, Innovus Tcl global variable, or other Linux commands
+.SH Syntax \fBman\fR  <command_name> | <msg_id>
+.P This command is a Tcl wrapper that calls the Linux 'man' command, so you can see man pages for Innovus commands, Innovus Tcl global variable, or other Linux commands. The man-page directories inside the Innovus installation are automatically added to the beginning of the Linux environment variable MANPATH so you will see Innovus man-pages before any other man-pages in your MANPATH.
+.P The only exception is if the argument matches the msg_id format (e.g. several letters with a dash followed by an integer like 'ABC-123')., the Tcl wrapper directly returns the msg_id message you would see in the log file, along with any extended help description if it is available for that msg_id. These msg_id 'man-pages' are not included in the man-page directories, but are only available inside Innovus.
+.P For all other arguments, it just calls the Linux 'man' command with the proper MANPATH, so you can use any Linux 'man' options as described in the Linux man-page for 'man'.
+.P For information on setting up MANPATH for Stylus Common UI commands directly from Linux, see Setting Up the Run-Time Environment in the Getting Started chapter of the Innovus User Guide. 
+.SH Parameter    "\fB<command_name>\fR" Indicates the name of the text command (or variable) for which the manual information is required.  "\fB<msg_id>\fR" Specifies a message ID in the format like 'ABC-123'. The output will show the log file message and any extended help description that can include likely causes, possible fixes, and possible workarounds for this msg_id.  
+.SH   Example
+.RS  "*" 2 The following command returns the manual description of the command report_timing:   man report_timing
+.RE
+.RS  "*" 2 The following command returns the manual description of the IMPSYC-139 message ID. Some messages have extra man help, beyond what the original error or warning message says.  man IMPSYC-139
+.RE
+.P

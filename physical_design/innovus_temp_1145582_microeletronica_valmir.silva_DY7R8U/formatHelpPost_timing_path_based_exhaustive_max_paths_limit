@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_path_based_exhaustive_max_paths_limit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_path_based_exhaustive_max_paths_limit\fR
+.SH Syntax \fBtiming_path_based_exhaustive_max_paths_limit\fR <integer>  
+.P Default: 2000000
+.P Specifies the maximum number of paths that can be internally analyzed during exhaustive path-based analysis (PBA).
+.P If the number of candidate paths during exhaustive PBA is greater than the specified max paths limit, then the software will skip path-based analysis of these paths beyond this limit. The paths exceeding the specified max paths limit will then be included as GBA in the final report output so that real violations are not missed.
+.P To set this global variable, use the set command.
+.P

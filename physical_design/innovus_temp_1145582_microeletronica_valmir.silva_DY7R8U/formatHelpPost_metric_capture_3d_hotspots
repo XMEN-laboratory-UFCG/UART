@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_capture_3d_hotspots  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_capture_3d_hotspots\fR
+.SH Syntax \fBmetric_capture_3d_hotspots\fR {true | false} 
+.P Type: Boolean
+.P Default: true
+.P Captures 3d hotspot metrics.
+.P

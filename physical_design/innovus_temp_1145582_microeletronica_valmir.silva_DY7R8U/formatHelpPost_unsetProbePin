@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unsetProbePin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunsetProbePin\fR \-  Unsets a pad or bump as a probe point
+.SH Syntax \fBunsetProbePin\fR  [-help]   {-instName <InstName> -pinName <pinName>}   | <-bump bumpName> 
+.P Unsets a pad or bump as a probe point. Probe points are used for package-level design and testing. To set or report on probe points, use the setProbePin or reportProbePins commands respectively. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each unsetProbePin parameter.  For a detailed description of the command and all of its parameters, use the man command:  man unsetProbePin  "\fB-bump <bumpName>\fR" Specifies the instance name of the bump.  "\fB-instName <InstName>\fR" Specifies the name of the I/O instance.  "\fB-pinName <pinName>\fR" Specifies the name of the pin on the I/O instance that will be unset as a probe point. 
+.SH Example
+.RS  "*" 2 The following command unsets the PAD pin of Bump_1 as a probe point:   unsetProbePin -instName Bump_1 -pinName PAD
+.RE 
+.SH Related Information
+.RS  "*" 2 reportProbePins  "*" 2 setProbePin
+.RE
+.P

@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_ptn_fplan_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_ptn_fplan_mode\fR \-  Retrieves information about the option values set using the set_ptn_fplan_mode command
+.SH Syntax \fBget_ptn_fplan_mode\fR  [-help]   [-export]  [-import]  [-quiet]   [-nonDefault]
+.P Retrieves information about the option values set using the set_ptn_fplan_mode command. 
+.SH Parameters   "\fB-export\fR" Retrieves the value of data that saveParititon -fplan will write. An empty list means default objects are written.  Default: special_route (default data + special route is always saved)  Data_type: enums={macro special_route pin_constraint}_list  "\fB-help\fR" Outputs a brief description that includes the type and default information for each get_ptn_fplan_mode parameter.   For a detailed description of the command and all of its parameters, use the man command:   man get_ptn_fplan_mode  "\fB-import\fR" Retrieves the value of data that assembleDesign -fplan will bring back. An empty list means default objects are brought back.  Default: By default, -import brings only defaults objects  Data_type: enums={macro special_route pin_constraint}_list  "\fB-nonDefault\fR" Displays the current non-default settings.  "\fB-quiet \fR" Displays the current settings for the specified parameters in Tcl list format only. 
+.SH Example
+.P The following command reports the value for the -export parameter set using the set_ptn_fplan_mode command.  get_ptn_fplan_mode -export  
+.SH Related Information
+.RS  "*" 2 set_ptn_fplan_mode  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

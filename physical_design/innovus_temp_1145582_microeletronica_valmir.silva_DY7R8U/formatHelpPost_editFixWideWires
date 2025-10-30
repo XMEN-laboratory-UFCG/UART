@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editFixWideWires  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditFixWideWires\fR \-  Splits wires that violate the MAXWIDTH value in the LEF LAYER (Routing) statement
+.SH Syntax \fBeditFixWideWires\fR [-help] 
+.P Splits wires that violate the MAXWIDTH value in the LEF LAYER (Routing) statement. Also splits diagonal wires whose width is greater than the MAXWIDTH value as they are drawn. 
+.SH Parameters    "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man editFixWideWires 
+.SH Related Information
+.RS  "*" 2 editSplit  "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide
+.RS  "*" 2 Repairing Maximum Wire Width Violations 
+.RE  "*" 2 Flip Chip Methodologies chapter in the User Guide
+.RS  "*" 2 SPLIT Constraint 
+.RE  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

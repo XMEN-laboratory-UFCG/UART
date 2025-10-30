@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_null_collection_return_compatibility  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_null_collection_return_compatibility\fR \-  Allows you to migrate previous release scripts to the new use model
+.SH Syntax \fBtiming_null_collection_return_compatibility\fR  {true | false}  Default: false 
+.P Allows you to migrate previous release scripts to the new use model. 
+.P When the global is set to true, the software returns "NA" values that are consistent with the previous release. The nil return values are returned as an empty collection. This allows the return value to be used directly by collection iterators, such as foreach_in_collection. 
+.P The default value is false, which is consistent with the current release.
+.P Note: This compatibility option may be removed from future releases. You should update your scripts to the new use model to avoid future problems.
+.P To set this global variable, use the set_global command. 
+.P

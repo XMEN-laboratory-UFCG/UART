@@ -1,0 +1,2 @@
+ "\fB-file <fileName>\fR" Specifies the file name to dump space group   "\fB-group< groupName>\fR" Specifies the name of the group to be reported
+.SH Syntax \fBreport_inst_space_group\fR  [-help]  [-file <fileName>]   [-group <groupName>]

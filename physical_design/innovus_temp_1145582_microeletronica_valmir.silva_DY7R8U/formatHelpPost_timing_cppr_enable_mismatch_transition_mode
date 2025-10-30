@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_cppr_enable_mismatch_transition_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_cppr_enable_mismatch_transition_mode\fR
+.SH Syntax \fBtiming_cppr_enable_mismatch_transition_mode\fR {true | false} 
+.P Default: true
+.P Enables CPPR compatibility mode when transitions mismatch at the common pin.
+.P This global variable controls the CPPR adjustment calculations that are computed at the common pin when transitions for the launch and capture paths mismatch at the common pin. The following case scenarios are possible: 
+.RS  "*" 2 The launch and capture clocks at the common pin are different but match the launch and capture clocks reaching the endpoint, or, launch and capture clock at the common pin are same but different from the launch and capture clocks reaching the end point.  "*" 2 The launch and capture clocks at the common pin are same and match the launch and capture clocks reaching the endpoint.  
+.RE
+.P The following examples show the behavior for CPPR computations when this global variable is set to true: 
+.RS  "*" 2 Consider a launch path with clock CK1, late rise transition and a capture path with clock GCK1 (related to CK1), early fall transition. The CPPR adjustment is computed by considering the late fall from clock CK1 and early rise from clock GCK1.   When set to false (default), the software considers late fall from clock GCK1 and early rise from clock CK1.  "*" 2 Consider a launch path with clock CK1, late rise transition and a capture path with clock CK1, early fall transition. The CPPR adjustment is computed by considering the late fall from the launch phase of CK1 and early rise from the capture phase of CK1.  When set to false, the software considers the late fall from capture phase of CK1 and early rise from launch phase of CK1. 
+.RE
+.P The CPPR adjustment is the minimum of the two CPPR adjustments computed for the rise and fall transitions.
+.P All the other combinations of the launch and capture transitions at the common pin for late and early paths will show similar changes to the CPPR adjustment computation - when set to true. 
+.P To set this global variable, use the set command.
+.P

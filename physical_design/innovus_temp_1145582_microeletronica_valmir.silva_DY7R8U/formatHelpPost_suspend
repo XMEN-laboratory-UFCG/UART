@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH suspend  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsuspend\fR \-  Suspends your script and returns to the Innovus prompt
+.SH Syntax \fBsuspend\fR [-help] 
+.P Suspends your script and returns to the Innovus prompt.
+.P The suspend command gives you more flexibility in managing and debugging your scripts. You can insert multiple suspend commands in a script. The suspend command can also be used in nested scripts. When the script reaches a point where you have inserted the suspend command, it stops and restores access to the Innovus prompt. You can then type any command required for debugging.
+.P Whenever you want to resume your script, just type resume at the Innovus prompt. 
+.SH Parameters    "\fB-help\fR" Prints the usage of the suspend command.  For a detailed description of the command, use the man command: man suspend. 
+.SH Related Information
+.RS  "*" 2 resume  "*" 2 "Interrupting the Software" section of the Getting Started chapter in the Innovus User Guide
+.RE
+.P

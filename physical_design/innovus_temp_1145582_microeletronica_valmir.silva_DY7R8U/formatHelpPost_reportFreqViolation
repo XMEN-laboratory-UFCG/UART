@@ -1,0 +1,40 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportFreqViolation  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportFreqViolation\fR \-  Runs electromigration (EM) analysis based on the frequency table defined in the Liberty library and generates a frequency violation report
+.SH Syntax \fBreportFreqViolation\fR  [-help]  [-outfile <fileName>]  [-selInstFile <selInstFileName>]  [-em_type {avg | peak | rms | all}]  [-excInstFile <excInstFileName>]  [-tableScale <float>]  [-detailed]  [-slew {min | max}]  [-sort {name | freq | minDiff | maxDiff | minFreq | maxFreq}]  [-reportFormat <integer>]  [-view <viewName>] 
+.P Runs electromigration (EM) analysis based on the frequency table defined in the Liberty library and generates a frequency violation report.
+.P You must run the following commands prior to setting the reportFreqViolation command:
+.RS  "*" 2 write_tcf<activityFile>
+.RE
+.RS  "*" 2 read_activity_file -format TCF<activityFile>
+.RE
+.RS  "*" 2 propagate_activity
+.RE
+.RS  "*" 2 read_activity_file -set_net_freq true -format TCF activityFile
+.RE
+.RS  "*" 2 set_analysis_view -setup default_view_setup -hold default_view_hold
+.RE
+.RS  "*" 2 setAnalysisMode-checkType hold
+.RE
+.P Note: If activity files are not defined, then the frequency can also be calculated on a pin by the clock period. There will also be a default frequency of 500M (toggle count 1e+9) if there is no clock phase on this pin. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each reportFreqViolation parameter.   For a detailed description of the command and all its parameters, use the man command:   man reportFreqViolation  "\fB-detailed\fR" Generates a detailed report containing information for instances with violations.   "\fB-em_type {avg | peak | rms | all}\fR" Specifies the electromigration type.  Default: avg  "\fB-excInstFile <excInstFileName>\fR" Specifies an instance file that lists the names of instances to be excluded from the frequency violation report.   Note: The instance file is a text file that contains a list of instances. Each instance name appears in one line in the file. The comments begin with "#". Leading or ending spaces in instance names are ignored.  "\fB-outfile <fileName>\fR" Specifies the report file for the violation data.   "\fB-reportFormat <integer>\fR" Specifies a format for the violation report. The report details vary according to the selected report format. You can specify report formats 0, 1, or 2. For more information on the report formats, see Report Format section below.    Default: 0  "\fB-selInstFile <selInstFileName>\fR" Specifies a file that lists the names of instances to be included in the frequency violation report.   Note: The instance file is a text file that contains a list of instances. Each instance name appears in one line in the file. The comments begin with "#". Leading or ending spaces in instance names are ignored.  "\fB-slew {min | max}\fR" Specifies the minimum or maximum slew value.   Default: min  "\fB-sort {name | freq | minDiff | maxDiff | minFreq | maxFreq}\fR" Sorts the instance-based frequency data by name, freq, minDiff, maxDiff, minFreq, and maxFreq. By default, the violation report is not sorted. You can use one of the following options:
+.RS  "*" 2
+.RS  "*" 2 name: Name of a pin or arc.  "*" 2 freq: Frequency value of a pin or arc.  "*" 2 minDiff: Difference between freq and minFreq of a pin or arc.  "*" 2 maxDiff: Difference between freq and maxFreq of a pin or arc.  "*" 2 minFreq: Minimum frequency value of a pin or arc as defined in the frequency table.  "*" 2 maxFreq: Maximum frequency value of a pin or arc as defined in the frequency table.
+.RE 
+.RE   "\fB-tableScale <float>\fR" Specifies the scale factor for EM table value.  Default: 1.0  "\fB-view <viewName>\fR" Specifies the view for which to generate the frequency violation report. Use this parameter when working with multi-mode multi-corner (MMMC) designs. 
+.SH Example
+.P The following command reports instances that violate frequency constraints and lists them in the freqViol.rpt report file:   reportFreqViolation -outfile freqViol.rpt 
+.SH  
+.SH Report Format
+.P The report formats are described below.
+.RS  "*" 2 Format 0  The following command generates a report providing details of minFreq, Freq, Tran, Cap, Remark, and Arc/Pin and directs the output to report file summaryViol.rpt:  reportFreqViolation -outfile summaryViol.rpt -reportFormat 0  For example:  minFreq    Freq    Tran     Cap        Remark    Arc/Pin  5.985      1.009   0.0356   0.003103             tt0/data/r3/add_27/U1_1_6/Y
+.RE
+.RS  "*" 2 Format 1  When reportFreqViolation-reportFormat is set to 1, the report provides details as shown in the following example:  Status   Remark   freq   minFreq   maxFreq   Arc/Pin  [P]      *        1.009  5.985     5.995     tt0/data/r3/add_27/U1_1_6/Y
+.RE
+.RS  "*" 2  Format 2   A detailed report is generated when reportFreqViolation -reportFormat is set to 2, as shown in the following example:  Status  Remark  freq   minFreq  maxFreq    minTran    maxTran    minCap         maxCap     Arc/Pin  [P]     *       1.009  5.985    5.995      3.560e-02  3.790e-02  3.103e-03      3.103e-03  tt0/data/r3/add_27/U1_1_6/Y  Where:   "\fBStatus\fR" Arc or pin status - F (fail), V (violation), P (pass), or ? (unknown)  "\fBRemark\fR" Indicates whether the pin is a clock  "\fBfreq\fR" Working frequency of the arc or pin  "\fBminFreq\fR" Minimum frequency value taken from the frequency table  "\fBmaxFreq\fR" Maximum frequency value taken from the frequency table  "\fBminTran\fR" Minimum slew value  "\fBmaxTran\fR" Maximum slew value  "\fBminCap\fR" Minimum capacitance load  "\fBmaxCap\fR" Maximum capacitance load  "\fBArc/Pin\fR" Name of the arc or pin 
+.RE 
+.SH Related Information
+.P The Identifying and Viewing Violations chapter of User Guide.
+.P

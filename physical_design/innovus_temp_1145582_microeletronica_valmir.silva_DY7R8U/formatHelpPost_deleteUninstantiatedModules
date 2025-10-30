@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteUninstantiatedModules  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteUninstantiatedModules\fR \-  Deletes uninstantiated modules
+.SH Syntax \fBdeleteUninstantiatedModules\fR  [-help]   [-reportOnly] 
+.P Deletes uninstantiated modules. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  For a detailed description of the command, use the man command:  man deleteUninstantiatedModules  "\fB-reportOnly\fR" Reports all uninstantiated vcells instead of deleting them.  All uninstantiated vcells will be deleted if -reportOnly is not specified.  Data_type: bool, optional 
+.SH Related Information
+.RS  "*" 2 ECO Flows chapter in the Innovus User Guide
+.RE
+.P

@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_library_use_trilib_drv_values  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_library_use_trilib_drv_values\fR
+.SH Syntax  \fBtiming_library_use_trilib_drv_values\fR  {true | false} 
+.P Default: false
+.P Allows the software to use a range of trilib DRV values for performing delay calculations.
+.P When set to false, the DRV values are picked up from the first library of a trilib set and are used for DRV reporting. In some cases, the DRV constraints may not be the same across multi-voltage libraries. For this you can use a range of trilib DRV values, by setting the timing_library_use_trilib_drv_values global variable to true.
+.P When set to true, the trilib (or voltage scaling) mechanism allows more accurate delay calculation in case timing libraries are not characterized at operating voltage. Through this mechanism, the bounding libraries of the operating voltage are obtained from the trilib set and the worst value is used in delay calculations.
+.P This global variable is supported for report_constraint based DRVs. The global will impact the report_constraint command when there is a voltage scaling setup and the command is issued with the -drv_violation_type parameter.
+.P To set this global variable, use the set command.
+.P

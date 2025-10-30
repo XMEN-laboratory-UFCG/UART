@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_constraint_warn_for_timing_derate_exceeding_max_limit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_constraint_warn_for_timing_derate_exceeding_max_limit\fR
+.SH Syntax \fBtiming_constraint_warn_for_timing_derate_exceeding_max_limit\fR <double>
+.P Default: 100 
+.P Value Range: 0 to 100
+.P Sets a limit on derate values. If a larger derate value is applied, the derates are still processed. However, the software issues a warning.
+.P Note: It is recommended to specify derate values within the acceptable value range, because large derate values may cause errors during processing.
+.P To set this global variable, use the set command.
+.P

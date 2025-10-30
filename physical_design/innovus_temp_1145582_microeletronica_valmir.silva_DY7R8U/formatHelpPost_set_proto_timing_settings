@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_proto_timing_settings  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_proto_timing_settings\fR
+.SH Syntax \fBset_proto_timing_settings\fR
+.P [-help]  [-reset] 
+.P Sets or resets the prototyping settings in the flow. The following variables are set by the command:
+.RS  "*" 2 setInputTransitionDelay 80.0psps  (Default:250.0ps)  "*" 2 setDefaultNetLoad 0.0pf  (Default: 0.1pf)  "*" 2 setDefaultNetDelay 0ns  (Default: 2.5ns)  "*" 2 setUseDefaultDelayLimit 0  (Default: 300)  "*" 2 setDelayCalMode -enable_high_fanout true  (Default: false)
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each set_proto-timing_settings parameter.  For a detailed description of the command and all of its parameters, use the man command:   man set_proto-timing_settings.  "\fB-reset\fR" Resets all prototyping settings. The settings are enabled by default.  It resets the variables mentioned above and rebuilds the timing graph. It also resets the following setting:  setDelayCalMode -ignoreNetLoad false  The above is set to true by timeDesign -proto, and must be reset.  Data_type: bool, optional
+.P 
+.SH Related Information
+.RS  "*" 2  set_proto_model  "*" 2  Prototyping Methodologies chapter in the Innovus User Guide
+.RE
+.P

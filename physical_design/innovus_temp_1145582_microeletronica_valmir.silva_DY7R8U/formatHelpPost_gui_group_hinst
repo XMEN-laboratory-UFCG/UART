@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH gui_group_hinst  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgui_group_hinst\fR \-  Moves one level up the hierarchy for the specified module guide and displays the next module
+.SH Syntax \fBgui_group_hinst\fR  [-help]  [-type {flex_model} | <hname>] 
+.P Moves one level up the hierarchy for the specified module guide and displays the next module. The gui_group_hinst command is equivalent to the Group widget (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  on the toolbar. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each gui_group_hinst parameter.  For a detailed description of the command and all of its parameters, use the man command:   man gui_group_hinst  "\fB<hname>\fR" Specifies the name of the hierarchical instance to be grouped.  "\fB-type {<flex_model>}\fR" Specifies the type of objects to be grouped. At present, only the flex_model type is supported. 
+.SH Examples
+.RS  "*" 2 The following command goes one level up the specified module:  gui_group_hinst DTMF_INST/TDSP_CORE_INST  "*" 2 The following command groups all flexModels, including flex_module and flex_instgroup, up to the partition or instance group level.  gui_group_hinst -type flex_model
+.RE 
+.SH Related Information
+.RS  "*" 2 gui_ungroup_hinst  "*" 2 The Main Window chapter in Menu Reference 
+.RS  "*" 2 Toolbar Widgets
+.RE 
+.RE
+.P

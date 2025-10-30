@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_cppr_skip_clock_reconvergence  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_cppr_skip_clock_reconvergence\fR
+.SH Syntax \fBtiming_cppr_skip_clock_reconvergence\fR        {true | false}
+.P Default: false
+.P Specifies the branch point to use for computing clock path pessimism removal (CPPR) adjustment when there is reconvergence in the clock tree.
+.P When set to false, the software uses the branch point closest to the register clock pins where the clocks reconverge. When set to true, the software uses the farthest branch point from the register clock pins (that is, the branch point closest to the clock root pin where the clocks diverge).
+.P Note: The timing_cppr_skip_clock_reconvergence and timing_enable_pessimistic_cppr_for_reconvergent_clock_paths global variables are mutually exclusive.  Also, the timing_cppr_skip_clock_reconvergence global variable has precedence over timing_enable_pessimistic_cppr_for_reconvergent_clock_paths.
+.P To set this global variable, use the set command.
+.P

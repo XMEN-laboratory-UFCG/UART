@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH generateFFSetupFile  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgenerateFFSetupFile\fR \-  Starts the foundation flow on Innovus
+.SH Syntax \fBgenerateFFSetupFile\fR  [-help]  
+.P Starts the foundation flow on Innovus. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description for generateFFSetupFile.  For a detailed description of the command and all of its parameters, use the man command: man generateFFSetupFile. 
+.SH Related Information
+.RS  "*" 2 Design Implementation Flow chapter of the of the Innovus User Guide
+.RE
+.P

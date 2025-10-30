@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH defStreamOutCheckUncolored  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefStreamOutCheckUncolored\fR
+.SH Syntax \fBdefStreamOutCheckUncolored\fR {true 1 false 0 metal_only}  
+.P Type: enum
+.P Default: false
+.P true above N5 nodes and metal_only for N5 and below nodes
+.P Specifies how to check and ignore uncolored shapes on DPT layers during DEF out and stream out.
+.RS  "*" 2 true 1: defOut and streamOut will go through all wires/vias/physical pins first. If the related layer has the definition for the "MASK" and "SAMEMASK" rules, tool checks the object if a color should be assigned.  "*" 2 false 0: Ignores to check the uncolored object.  "*" 2 metal_only: Only checks the color on the metal (including wires, physical pins, and top/bottom layer of vias).
+.RE 
+.SH Related Information
+.RS  "*" 2 defOut   "*" 2 streamOut
+.RE
+.P

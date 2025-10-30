@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH exportNdr  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBexportNdr\fR \-  Exports/saves the new rule that was created with the add_ndr command into a LEF/DEF file
+.SH Syntax \fBexportNdr\fR   [-help]  ndrRuleName   {-def <defFileName> | -lef <lefFileName>}
+.P Exports/saves the new rule that was created with the add_ndr command into a LEF/DEF file.  You can use this command after creating a non-default rule. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each exportNdr parameter. For a detailed description of the command and all of its parameters, use the man command:   man exportNdr  "\fB<ndrRuleName>\fR" Specifies the name of a non-default rule.  Data_type: string, required  "\fB-def <defFileName>\fR" Specifies the name of a DEF file, to which the non-default rule is exported.  Data_type: string, required  "\fB-lef <lefFileName>\fR" Specifies the name of a LEF file, to which the non-default rule is exported.  Data_type: string, required 
+.SH Example
+.P The following command exports the non-default rule, testndr to the LEF file, all.lef.
+.P exportNdr testndr -lef all.lef 
+.SH Related Information
+.RS  "*" 2 add_ndr  "*" 2 modify_ndr  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Using the NanoRoute Router chapter in the Innovus User Guide
+.RS  "*" 2 Using Non-Default Rules
+.RE 
+.RE
+.P

@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH uiDelete  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBuiDelete\fR \-  Deletes an existing interface element with the specified name
+.SH Syntax \fBuiDelete\fR   [-help]  <name> 
+.P Deletes an existing interface element with the specified name. If multiple interface elements are found with the same name, the first matched element is deleted. Use this command to customize the Innovus graphical interface by removing menus, menu items, and other interface elements that you do not require any longer. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each uiDelete parameter.  For a detailed description of the command and all of its parameters, use the man command:  man uiDelete  "\fB<name>\fR" Specifies the internal name of the interface element as a string. An error is returned if an interface element with the specified name does not exist.  Note: Here, <name> represents the internal name assigned to the element when it was added to the interface and not the label that is displayed on the interface. If you specify the label instead of the name, the software will return an error. 
+.SH Examples
+.RS  "*" 2 The following command will delete an interface element with the internal name <Menu1>:   uiDelete Menu1
+.RE 
+.SH Related Information
+.RS  "*" 2 uiAdd  "*" 2 uiFind  "*" 2 uiGet  "*" 2 uiSet  "*" 2 Customizing the User Interface chapter in the User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2 Replacing an Existing Menu Element
+.RE 
+.RE
+.P

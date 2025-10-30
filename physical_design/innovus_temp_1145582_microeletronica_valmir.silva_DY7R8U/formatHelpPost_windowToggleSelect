@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH windowToggleSelect  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwindowToggleSelect\fR \-  Toggles between selecting or deselecting objects that are enclosed by the area defined by the coordinates
+.SH Syntax \fBwindowToggleSelect\fR  [-help]   <x1> <y1> <x2> <y2> 
+.P Toggles between selecting or deselecting objects that are enclosed by the area defined by the coordinates. Use this command to select or deselect all objects within a specific area.
+.P Note: This command works only in GUI mode. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each windowToggleSelect parameter.  For a detailed description of the command and all of its parameters, use the man command:   man windowToggleSelect  "\fB<x1> <y1> <x2> <y2>\fR" Specifies the coordinates of the window area to enclose the objects to be selected or deselected. 
+.SH Example
+.P The first command selects the objects that are totally enclosed by the area with coordinates defined as (x1=10, y1=200) and (x2=100, y2=50):
+.P The second command deselects the objects that are totally enclosed by the same area:
+.P windowToggleSelect 10 200 100 50
+.P windowToggleSelect 10 200 100 50  
+.SH Related Information
+.RS  "*" 2 windowDeselect  "*" 2 windowSelect
+.RE

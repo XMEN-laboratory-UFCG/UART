@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_socv_rc_variation_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_socv_rc_variation_mode\fR
+.SH Syntax \fBtiming_socv_rc_variation_mode\fR    {true | false}
+.P Default: false
+.P Enables modeling of interconnect variation in SOCV mode.
+.P The SOCV flow provides support for RC variation on the interconnect. 
+.P To set this global variable, use the set command.
+.P

@@ -1,0 +1,111 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH convert_lib_clock_tree_latencies  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBconvert_lib_clock_tree_latencies\fR \-  Converts the Liberty max_clock_tree_path and min_clock_tree_path (MCTP) data to per-pin clock latency adjustments
+.SH Syntax \fBconvert_lib_clock_tree_latencies\fR  [-help]  [-latency_file_prefix <prefix_name>]  [-pins <pin_list>]   [-views <view_list>]  [-override_existing_latencies | -sum_existing_latencies]  [-sum_existing_latencies | -override_existing_latencies_pins <pin_list>]  [-override_existing_latencies | -sum_existing_latencies_pins <pin_list>]  [-sum_existing_latencies | -sum_existing_latencies_pins <pin_list>]  [-override_existing_latencies | -override_existing_latencies_pins <pin_list>] 
+.P Converts the Liberty max_clock_tree_path and min_clock_tree_path (MCTP) data to per-pin clock latency adjustments.
+.P Note:
+.RS  "*" 2 Run the command before running the create_ccopt_clock_tree_spec command so that the the output of convert_lib_clock_tree_latencies command impacts the clock tree specification that is created.  "*" 2 Before running this command, ensure that the analysis type is set as onChipVariation in the following manner:  setAnalysisMode -analysisType onChipVariation
+.RE
+.P By default, the conversion will consider all instance pins with MCTP data in all analysis views.  Pins which have any existing network latency, differing from the corresponding clock network latency will be skipped completely for all clocks and for all views - this avoids the conversion process from interfering with any SDC-specified pin latencies. Alternatively, existing latency offsets can be summed or overridden for all or names pins using the appropriately named override and sum option. Additionally, the -pins option can be used to consider only a specified list of pins instead of all pins with MCTP data.
+.P By default, the conversion will internally apply the resulting set_clock_latency commands to the in memory timing constraints. Alternatively the -latency_file_prefix parameter can be specified to have one file per analysis view written containing the set_clock_latency command. 
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each convert_lib_clock_tree_latencies parameter. For a detailed description of the command and all of its parameters, use the man command:  man convert_lib_clock_tree_latencies.   "\fB-latency_file_prefix <prefix_name>\fR" When specified, the software, instead of applying changes, writes the commands to one latency file per analysis view. Any pre-existing files are overwritten. For example,  <<prefix>><<analysis_view_name>>.<sdc>  Note: The prefix may contain directory name components. New directories should be created, as required.  "\fB-override_existing_latencies\fR" When specified, includes all pins with existing latency offsets and overwrites the existing latency offsets.  Note:
+.RS  "*" 2 The -override_existing_latencies and -sum_existing_latencies parameters are mutually exclusive.  "*" 2 The -override_existing_latencies and -sum_existing_latencies_pins parameters are mutually exclusive.  "*" 2 The -override_existing_latencies and -override_existing_latencies_pins parameters are mutually exclusive.
+.RE   "\fB-override_existing_latencies_pins <pin_list>\fR" Includes only the specified list of pins with existing latency offsets and overwrites the existing latency offsets.   Note: 
+.RS  "*" 2 The -override_existing_latencies_pins and -override_existing_latencies parameters are mutually exclusive.  "*" 2 The -override_existing_latencies_pins and -sum_existing_latencies parameters are mutually exclusive.   "*" 2 The software issues an error if a pin is specified in both -override_existing_latencies_pins and -sum_existing_latencies_pins parameters.
+.RE   "\fB-pins <pin_list>\fR" Specifies the clock endpoint pins to consider. By default, the software considers all clock endpoints with the library max/min_clock_tree_path attributes.  Note: The software issues an error if a pin is specified in either the -sum_existing_latencies_pins or the -override_existing_latencies_pins list, but the pin is not included in the list of pins specified using the -pins parameter.  "\fB-sum_existing_latencies\fR" When specified, includes all pins with existing latency offsets and sums the existing latency offset with the library-specified offset.  Note:
+.RS  "*" 2 The -sum_existing_latencies and -override_existing_latencies parameters are mutually exclusive.  "*" 2 The -sum_existing_latencies and -override_existing_latencies_pins parameters are mutually exclusive.  "*" 2 The -sum_existing_latencies and -sum_existing_latencies_pins parameters are mutually exclusive.
+.RE   "\fB-sum_existing_latencies_pins <pin_list>\fR" Includes only the specified list of pins with existing latency offsets and sums the existing latency offset with the library-specified offset.   Note:
+.RS  "*" 2 The -sum_existing_latencies_pins and -sum_existing_latencies parameters are mutually exclusive.
+.RE
+.RS  "*" 2 The -sum_existing_latencies_pins and -override_existing_latencies parameters are mutually exclusive.  "*" 2 The software issues an error if a pin is specified to both -sum_existing_latencies_pins and -override_existing_latencies_pins parameters. 
+.RE   "\fB-views <view_list>\fR" Specifies the analysis views to operate on. By default the software operates on all active analysis views. 
+.SH Examples:
+.P Example 1 - Two clocks, existing clock network latency, no pre-existing latency override
+.P Circuit
+.P ck1 ---> +-----+
+.P          | mux | -----> icg --+--> flop1/CK   (regular flop pin without MCTP data)
+.P ck2 ---> +-----+              +--> macro1/CK  (pin with MCTP data, of 0.222R/0.232F at 0.125 transition time)
+.P                               +--> macro2/CK  (pin with MCTP data, of 0.333R/0.343F at 0.125 transition time)
+.P SDC
+.P   create_clock -period 1.0 [get_ports ck1]
+.P   create_clock -period 1.0 [get_ports ck2]
+.P   set_clock_transition 0.125 [get_clocks ck1]
+.P   set_clock_transition 0.125 [get_clocks ck2]
+.P   set_clock_latency 1.5 [get_clocks {ck1}]
+.P   set_clock_latency 2.0 [get_clocks {ck2}]
+.P Command and log output
+.P convert_lib_clock_tree_latencies -latency_file_prefix lat_ -sum_existing_latencies -views default_analysis_view_setup
+.P Converting library clock tree path delays to clock latencies for analysis_view default_analysis_view_setup
+.P Found 2 of 3 clock endpoints with library clock tree path data
+.P +------------------------------------------------------------------+
+.P | Clock endpoint         | Status                                  |
+.P |------------------------+-----------------------------------------|
+.P | macro1/ck              | converted                               |
+.P | macro2/ck              | converted                               |
+.P +------------------------------------------------------------------+
+.P Writing latencies to file 'lat_default_analysis_view_setup.sdc'
+.P Output file (the comments should not be written in the file)
+.P   set_clock_latency 1.278 [get_pins {macro1/CK}] -clock [get_clocks {ck1}] -rise /<1.5-0.222=1.278>
+.P   set_clock_latency 1.268 [get_pins {macro1/CK}] -clock [get_clocks {ck1}] -fall /<1.5-0.232=1.268>
+.P   set_clock_latency 1.778 [get_pins {macro1/CK}] -clock [get_clocks {ck2}] -rise /<2.0-0.222=1.778>
+.P   set_clock_latency 1.768 [get_pins {macro1/CK}] -clock [get_clocks {ck2}] -fall /<2.0-0.232=1.768>
+.P   set_clock_latency 1.167 [get_pins {macro2/CK}] -clock [get_clocks {ck1}] -rise /<1.5-0.333=1.167>
+.P   set_clock_latency 1.157 [get_pins {macro2/CK}] -clock [get_clocks {ck1}] -fall /<1.5-0.343=1.157>
+.P   set_clock_latency 1.667 [get_pins {macro2/CK}] -clock [get_clocks {ck2}] -rise /<2.0-0.333=1.667>
+.P   set_clock_latency 1.657 [get_pins {macro2/CK}] -clock [get_clocks {ck2}] -fall /<2.0-0.343=1.657>
+.P Example 2 - User-specified pin list
+.P Circuit
+.P   ck1 --> icg --+--> flop1/CK   (regular flop pin without MCTP data)
+.P                 +--> macro1/CK  (pin with MCTP data, of 0.222R/0.232F at 0.125 transition time)
+.P                 +--> macro2/CK  (pin with MCTP data, of 0.333R/0.343F at 0.125 transition time)
+.P SDC
+.P   create_clock -period 1.0 [get_ports ck1]
+.P   set_clock_transition 0.125 [get_clocks ck1]
+.P Command and log output
+.P convert_lib_clock_tree_latencies -latency_file_prefix lat_ -pins {flop1/CK macro2/CK flop3/D} -views default_analysis_view_setup
+.P Converting library clock tree path delays to clock latencies for analysis_view default_analysis_view_setup
+.P Found 2 of 3 clock endpoints with library clock tree path data
+.P +--------------------------------------------------------------------+
+.P | Clock endpoint         | Status                                    |
+.P |------------------------+-------------------------------------------|
+.P | flop1/ck               | skipped, no library clock tree path data  |
+.P | macro2/ck              | converted                                 |
+.P | flop3/D                | skipped, not a clock endpoint             |
+.P +--------------------------------------------------------------------+
+.P Writing latencies to file 'lat_default_analysis_view_setup.sdc'
+.P Output file
+.P   set_clock_latency -0.333 [get_pins {macro2/CK}] -clock [get_clocks {ck1}] -rise
+.P   set_clock_latency -0.343 [get_pins {macro2/CK}] -clock [get_clocks {ck1}] -fall
+.P Example 3 - Multiple analysis views 
+.P Command and log output
+.P convert_lib_clock_tree_latencies -latency_file_prefix lat_ -pins {flop1/CK macro2/CK}
+.P Converting library clock tree path delays to clock latencies for analysis_view 'setup1'
+.P Found 2 of 3 clock endpoints with library clock tree path data
+.P +--------------------------------------------------------------------+
+.P | Clock endpoint         | Status                                    |
+.P |------------------------+-------------------------------------------|
+.P | macro1/ck              | skipped, existing latency found           |
+.P | macro2/ck              | converted                                 |
+.P   +--------------------------------------------------------------------+
+.P Converting library clock tree path delays to clock latencies for analysis_view 'setup2'
+.P Found 2 of 3 clock endpoints with library clock tree path data
+.P +------------------------------------------------------------------------+
+.P | Clock endpoint         | Status                                        |
+.P |------------------------+-----------------------------------------------|
+.P | macro1/ck              | skipped, existing latency found in other view |
+.P | macro2/ck              | converted                                     |
+.P +------------------------------------------------------------------------+
+.P Writing latencies to file 'lat_setup1.sdc'
+.P Writing latencies to file 'lat_setup2.sdc' 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree_spec  "*" 2 get_lib_clock_tree_path_delay  "*" 2 set_clock_latency  "*" 2 setAnalysisMode  "*" 2 create_clock
+.RE
+.RS  "*" 2 The following topic in the Innovus  User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2  Converting Library Path Delays to Clock Latencies
+.RE 
+.RE
+.P

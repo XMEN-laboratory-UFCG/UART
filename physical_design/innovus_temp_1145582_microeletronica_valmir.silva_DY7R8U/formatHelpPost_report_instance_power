@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_instance_power  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_instance_power\fR \-  Generates a text based report for the specified instance
+.SH Syntax  \fBreport_instance_power\fR  [-help] <instance> [-file <filename>] 
+.P Generates a text based report for the specified instance. This command enables you to determine how the different components of static power are calculated. You can use the report to debug static power numbers after performing power analysis (report_power).
+.P This command is available through both the static and dynamic power engines. This command is supported in the dynamic power engine by including this command in the power include file through the command set_power_include_file.
+.P Note: For dynamic power engine, the report_instance_power command does not generate text reports incrementally. If the dynamic run has been performed and you need the debug information for a static power number, you should re-run power analysis. 
+.SH Parameters    "\fB-file <filename>\fR" Writes out the static power analysis report into the file that you specify.  "\fB-help\fR" Outputs the command usage and a brief description about the command parameters.  "\fB<instance>\fR" Specifies the instances to include in the instance power report. 
+.SH Example
+.RS  "*" 2 The following command specifies an instance power report file debug.rep for the instance top/i_1:   report_instance_power -file debug.rep top/i_1 
+.RE 
+.SH Related Information
+.RS  "*" 2 report_power  "*" 2 set_power_analysis_mode   "*" 2 "Static Power, IRdrop and EM Analysis" in the Voltus Stylus Common UI User Guide
+.RS  "*" 2 "Debugging Instance Power"
+.RE 
+.RE
+.P

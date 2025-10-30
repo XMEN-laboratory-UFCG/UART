@@ -1,0 +1,2 @@
+ "\fB-help\fR" Outputs a brief description that includes the type and default information for each dump_histogram_view parameter
+.SH Syntax \fBdump_histogram_view\fR   [-help]  -name <string>  [-type <string>]

@@ -1,0 +1,26 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH update_io_latency  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBupdate_io_latency\fR \-  Provides an automated means of balancing IO and Core clock latencies after the clock network has been added to the design so that pre and post clock tree skew between the clocks is maintained as closely as possible
+.SH Syntax  \fBupdate_io_latency\fR  [-source]  -verbose  
+.P Provides an automated means of balancing IO and Core clock latencies after the clock network has been added to the design so that pre and post clock tree skew between the clocks is maintained as closely as possible. This results in minimum change of inbound and outbound IO slacks.
+.P This command performs the following actions:
+.RS  "*" 2 Measures and calculates ideal average latency for each Core clock.
+.RE
+.RS  "*" 2 Calculates preCTS skew between IO and Core clocks.
+.RE
+.RS  "*" 2 Asserts set_propagated_clock on all clock root pins or ports to put clock trees in propagated mode.
+.RE
+.RS  "*" 2 Measures and calculates propagated mode average latency for each Core clock.
+.RE
+.RS  "*" 2 Adjusts set_clock_latency on IO clocks network latency to minimize pre to post CTS IO-to-Core clock skew.
+.RE
+.P In case a single IO clock interacts with multiple Core clocks, the IO clock will be adjusted by the overall average latency of all the related Core clocks combined.
+.P To be effective, this command should only be used after clock trees have been implemented. This allows the command to see both the ideal and propagated state of the clock trees. 
+.P Note: The set_propagated_clock command should not be issued after the update_io_latency command. 
+.SH Parameters   "\fB-source\fR" Adjusts the source latency of core clock.  "\fB-verbose\fR" Provides additional information to the console as adjustments are made to each IO clock. 
+.SH Related Information
+.RS  "*" 2 set_propagated_clock
+.RE
+.P

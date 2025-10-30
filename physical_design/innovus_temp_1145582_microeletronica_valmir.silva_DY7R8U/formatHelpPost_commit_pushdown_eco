@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH commit_pushdown_eco  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcommit_pushdown_eco\fR \-  Commits ECO for a partition block by applying ECO and generating a database for the block
+.SH Syntax \fBcommit_pushdown_eco\fR  [-help]   -eco_object_dir <dirName>  -post_eco_dir <dirName>  -pre_eco_dir <dirName>   [-ptns <ptnNameList>]
+.P Commits ECO for a partition block by applying ECO and generating a database for the block. It applies the previously generated ECO objects, to each partition, in parallel, using EDP (parallel/distributed) framework.
+.P Note: The commit_pushdown_eco command also commits the FlexHtree amendment into the partition block. Clock amendments can be restored by using the create_ccopt_clock_tree_spec command. 
+.SH Parameters   "\fB-eco_object_dir <dirName>\fR" Specifies the parent directory which contains all partition sub-directories in which ECO object files of partitions are kept.   Note: The eco object file names are pre-determined to be:   <eco_logical.txt>  <eco_physical.txt>  <eco_net.def.gz>  <eco_pin.txt>  Data_type: string, required  "\fB-help\fR" Outputs a brief description that includes type and default information for each commit_pushdown_eco parameter. For a detailed description of the command and all of its parameters, use the man command: man commit_pushdown_eco.  "\fB-post_eco_dir <dirName>\fR" Specifies the parent directory in which, after applying the ECOs, the partition databases are to be saved.  Default: <./post_eco_dir>  Data_type: string, required   "\fB-pre_eco_dir <dirName> \fR" Specifies the latest version of original design, to which ECO objects need to be applied. It contains sub-directories to represent latest version of each partition database.  Data_type: string, required  "\fB-ptns <ptnNameList>\fR" Specifies the list of partition names for which ECO objects are created.  Data_type: string, optional 
+.SH   Related Information
+.RS  "*" 2 create_pushdown_eco  "*" 2 push_ptn_network  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RS  "*" 2 Partition Pushdown Replay Flow 
+.RE 
+.RE
+.P

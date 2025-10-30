@@ -1,0 +1,26 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getMetalFillSpacingTable  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetMetalFillSpacingTable\fR \-  Prints the spacing table for specified or for all layers
+.SH Syntax \fBgetMetalFillSpacingTable\fR   [-help]   [-layer layer_name_list]   [-fill_to_active]   [-fill_to_fill]   [-fill_to_opc]   [-opc_to_active]   [-opc_to_opc]  
+.P Prints the spacing table for specified or for all layers. If no option is specified, prints all spacing tables for all layers.
+.P To specify spacing table based on existing metal fill width, use the setMetalFillSpacingTable command. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each getMetalFillSpacingTable parameter.  For a detailed description of the command and all its parameters, use the man command: man getMetalFillSpacingTable.  "\fB-layer <layer_name_list>\fR" Prints spacing table for specified layers.  Default: Prints spacing table for all layers  "\fB-fill_to_active\fR" Prints the fill to active spacing table for specified or all layers.  "\fB-fill_to_fill\fR" Prints the fill to fill spacing table for specified or all layers.  "\fB-fill_to_opc\fR" Prints the fill to OPC spacing table for specified or all layers.  "\fB-opc_to_active\fR" Prints the OPC to active spacing table for specified or all layers.  "\fB-opc_to_opc\fR" Prints the OPC to OPC spacing table for specified or all layers. 
+.SH Example
+.RS  "*" 2 The following command prints the fill to active spacing table for layer METAL2:   getMetalFillSpacingTable -layer 2 -fill_to_active  The output is as follows:  Layer 2,  fill_to_active {0.08 0.27}{0.14 0.36}{0.32 0.63}
+.RE
+.RS  "*" 2 The following command prints all spacing tables for all layers:   getMetalFillSpacingTable  The output is as follows:  Layer metal2,  fill_to_active {0.08 0.27}{0.14 0.36}{0.32 0.63}  Layer metal3,  fill_to_fill {0.08 0.2}{0.14 0.3}{0.32 0.6}  Layer metal3,  opc_to_active {0.05 0.08}{0.08 0.1}{0.1 0.12}
+.RE 
+.SH Related Information
+.RS  "*" 2 The following sections in the Optimizing Metal Density chapter of User Guide.
+.RE
+.RS
+.RS  "*" 2 "Specifying Metal Fill Spacing Table"
+.RE 
+.RE
+.RS
+.RS  "*" 2 "Trimming Metal Fill"
+.RE 
+.RE
+.P

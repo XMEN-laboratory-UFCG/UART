@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deselectIOPin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeselectIOPin\fR \-  Deselects an I/O pin. Use this command after selecting an I/O pin
+.SH Syntax \fBdeselectIOPin\fR   [-help]  pinName
+.P Deselects an I/O pin. Use this command after selecting an I/O pin. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each deselectIOPin parameter.  For a detailed description of the command and all of its parameters, use the man command:   man deselectIOPin  "\fB<pinName>\fR" Specifies the name of the I/O pin.  Data_type: string, required 
+.SH Related Information
+.RS  "*" 2 selectIOPin  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

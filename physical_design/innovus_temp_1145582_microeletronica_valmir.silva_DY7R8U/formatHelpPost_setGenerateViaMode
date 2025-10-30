@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setGenerateViaMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetGenerateViaMode\fR \-  Auto-generates vias required by nanoroute for the default and non-default rules (NDRs)
+.SH Syntax \fBsetGenerateViaMode\fR  [-help]   [-reset]   [-auto {true|false}]  [-ndr_only {true|false}] 
+.P Auto-generates vias required by nanoroute for the default and non-default rules (NDRs). The vias are based on the wire-widths of the routing-rule and are created to meet all the DRC via enclosure rules with variations for good pin-access, variations of double-cut vias for good double-cut via utilization, and min-area vias required for stacked-vias that have no route connected to them to meet the min-area metal rule.
+.P This command should be used before init_design, in which case the vias will be created during the initial netlist load. If you change the settings after loading the design, you will need to use saveDesign/restoreDesign to trigger the auto-generation of vias with the new settings. If you want to experiment with different settings inside one Innovus session, use generateVias instead.
+.P The command requires correct DRC rules (e.g. enclosure, spacing, minimum-cut, min-area rules, etc), and at least one LEF VIARULE GENERATE statement (or OpenAccess standardViaDef) for every via layer used for routing. The cut enclosure values in the VIARULE GENERATE statement are not used except for old LEF technology files (LEF version 5.5 and older) that have no enclosure rules (this is not recommended usage, but is kept for backward compatability). The VIARULE cut-spacing values are ignored-only the DRC cut-spacing values are used.
+.P No predefined vias are required (e.g LEF VIA DEFAULT, or NONDEFAULTRULE USEVIA is not necessary, and OpenAccess routing ConstraintGroup (NDR) definitions do not require any validVias list).
+.P If there are predefined vias, the generated vias are compared to the predefined vias and if they are geometrically identical, that specific generated via is not kept so no duplicate vias are created. In that case a combination of pre-defined and auto-generated vias will be used by nanoroute.
+.P The auto-generated vias are created as parameterized vias rather than fixed vias (e.g. VIA using VIARULE rather than RECT statements in DEF, or an OpenAccess standardVia rather than customVia).
+.P 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each setGenerateViaMode parameter.  For a detailed description of the command and all of its parameters, use the man command:  man setGenerateViaMode.  "\fB-reset\fR" Resets all or specified options to default value.  Any values that do not already match the default value and are reset will be reported.  "\fB-auto {true|false}\fR" Enables auto via generation when design is loaded. The option is of type bool.  Default: false  "\fB-ndr_only {true|false}\fR" Generates vias for non default rules only.  Default:  false 
+.SH Example
+.RS  "*" 2 setGenerateViaMode -auto true  Will add auto-generated vias to any existing vias for all routing rules when the design is loaded. 
+.RE 
+.SH See also:
+.RS  "*" 2 dumpOutVias to write out the vias   "*" 2 generateVias to generate vias in the current Innovus session  "*" 2 Design Implementation Flow chapter of Innovus User Guide.
+.RE
+.P

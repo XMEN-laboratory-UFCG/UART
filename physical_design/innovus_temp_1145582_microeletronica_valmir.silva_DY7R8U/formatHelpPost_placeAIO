@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH placeAIO  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBplaceAIO\fR \-  Places I/O driver cells
+.SH Syntax \fBplaceAIO\fR  [-help]  [-onlyAIO]  [-assignBump]  [-maxDistance <distance>]   [-fast]   [-packing]   [-ignoreAIOByName {<list>}]   [-ignoreAIOByCellName {<list>}]   [-hardFence] 
+.P Places I/O driver cells. The area I/O Library must be loaded when importing the design. Area I/O rows are also required.
+.P Note: Once you run the placeAIO -onlyAIO command to place the area I/Os, you can run placePIO -cellList to specify the cell(s) that must be placed on the periphery. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each placeAIO parameter. For a detailed description of the command and all of its parameters, use the man command:  man placeAIO  "\fB-assignBump\fR" If you have unassigned bumps for area I/O instance connections, this connects area I/O instances to the nearest unassigned bumps. This option requires that bump cells and bump locations are already loaded.  Note: You can also assign bumps after area I/O placement by using the assignBump command.  Data_type: bool, optional  "\fB-fast\fR" Runs area I/O placement in the fast mode, trading speed for quality.  Data_type: bool, optional  "\fB-hardFence\fR" If specified, restricts the area I/O placement to the power domain fence to which the area I/O's belong to.  Data_type: bool, optional  "\fB-ignoreAIOByCellName {<list>}\fR" Ignores all area I/O instances that instantiate from the cells specified in the list, during placement. For example, if a cell PDI has 2 AIO instances, test_in_1 and test_in_2, this parameter ignores both the instances during placement.  Data_type: string, optional  "\fB-ignoreAIOByName {<list>}\fR" Ignores all the area I/O cells specified in the list, during placement. Specify this parameter if you already placed the area I/O cells on the periphery and you want to avoid placing the same cells in the core.  Data_type: string, optional  "\fB-maxDistance <value>\fR" Specifies the maximum allowable distance between the I/O driver cells and the bumps.  Data_type: int, optional  "\fB-onlyAIO\fR" Places only area I/O instances. If this option is not specified, the command will also place all standard cell instances and blocks.  Data_type: bool, optional  "\fB-packing\fR" Specifies the packing of I/O driver cells within each cluster of rows. This option is only applicable to designs with clusters of I/O rows.  Data_type: bool, optional 
+.SH Examples
+.RS  "*" 2 The following command places area I/O instances and all standard cell instances, and assign bumps for all chip I/O pins:   placeAIO -assignBump  "*" 2 The following command places only area I/O cells:   placeAIO -onlyAIO
+.RE 
+.SH Related Information
+.RS  "*" 2 placePIO  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

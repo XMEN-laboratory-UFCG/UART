@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH selectNet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBselectNet\fR \-  Selects a net and highlights it in the design display window. You can use this command after importing or restoring the design
+.SH Syntax \fBselectNet\fR  [-help]  {<netName> | {<list_of_netNames>} | -allDefClock | -clock | -nonDefaultRule | -shield} 
+.P Selects a net and highlights it in the design display window. You can use this command after importing or restoring the design. 
+.SH Parameters    "\fB-allDefClock\fR" Selects all nets that have a DEF attribute + USE CLOCK  Note: The -allDefClock parameter is for backward compatibility only. Cadence recommends that you use the -clock parameter to select all nets that have a DEF attribute + USE CLOCK  Data_type: bool, optional  "\fB-clock\fR" Selects all clock nets.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each selectNet parameter.  For a detailed description of the command and all of its parameters, use the man command:   man selectNet  "\fB<netName> | {<list_of_netNames>}\fR" Specifies the name of one or more than one nets. You can use wildcards (*) to specify net names.  Data_type: (net)*, optional  "\fB-nonDefaultRule\fR" Selects all nets that have a DEF attribute   + USE NONDEFAULTRULE  Data_type: bool, optional  "\fB-shield\fR" Selects all nets that have a DEF attribute   + USE SHIELDNETS  Data_type: bool, optional 
+.SH Example:
+.RS  "*" 2 The following command selects nets and highlights them in the design display window:  selectNet {net1 net2 net3}
+.RE 
+.SH Related Information
+.RS  "*" 2 deselectNet  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

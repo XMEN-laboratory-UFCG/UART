@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH restore_ccopt_config  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBrestore_ccopt_config\fR \-  Reads the CCOpt configuration from the specified directory path. The CCOpt configurations are saved using the save_ccopt_config command
+.SH Syntax \fBrestore_ccopt_config\fR  [-help]  input_path
+.P Reads the CCOpt configuration from the specified directory path. The CCOpt configurations are saved using the save_ccopt_config command.
+.P Note: The CCOpt configuration is not restored if the restoreDesign -mmmcFile option is set. In this case, the software issues the following warning:
+.P **WARN: (IMPIMEX-4016): The saved CCOpt configuration will not be restored, as the -mmmcFile option has been set. To restore the CCOpt configuration try restoring the design again without using the -mmmcFile option. 
+.SH Parameters   "\fB-help      \fR" Outputs a brief description that includes type and default information for each restore_ccopt_config parameter. For a detailed description of the command and all of its parameters, use the man command:  man restore_ccopt_config.   "\fB<input_path>   \fR" Specifies the user-defined directory path from where to read the CCOpt configuration. 
+.SH Examples
+.RS  "*" 2 Use the following command to write the configuration scripts to the
+./az_ccopt dir:  save_ccopt_config
+./az_ccopt
+.RE
+.RS  "*" 2 Use the following command to clear the configuration:  reset_ccopt_config
+.RE
+.RS  "*" 2  Use the following command to restore the saved configuration by sourcing all the configuration scripts in the
+./az_ccopt dir:  restore_ccopt_config
+./az_ccopt
+.RE 
+.SH Related Information
+.RS  "*" 2 save_ccopt_config  "*" 2 reset_ccopt_config
+.RE
+.P

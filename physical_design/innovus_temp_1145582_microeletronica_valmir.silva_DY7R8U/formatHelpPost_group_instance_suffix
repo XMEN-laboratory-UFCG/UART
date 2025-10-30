@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH group_instance_suffix  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgroup_instance_suffix\fR
+.SH Syntax \fBgroup_instance_suffix\fR suffix
+.P Type: String
+.P Default: i
+.P This suffix is added to a new hinst name created by the group command. So, group -name abc creates a new module named abc, and a new hinst named abci.  If you do not want any suffix, you need to set the value to the empty string
+. 
+.SH Related Information
+.RS  "*" 2 group
+.RE
+.P

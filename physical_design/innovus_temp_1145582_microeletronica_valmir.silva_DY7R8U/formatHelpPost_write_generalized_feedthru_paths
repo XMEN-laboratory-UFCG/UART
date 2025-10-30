@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_generalized_feedthru_paths  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_generalized_feedthru_paths\fR \-  Automatically derives feedthrough topological paths from the user specified paths to cover all the chain connectivity probabilities in a master and clone hinst scenario
+.SH Syntax \fBwrite_generalized_feedthru_paths\fR  [-help]  [-dont_generalize_reverse_paths]   [-dont_generalize_sub_paths]   [-topological_out_file <file_name>]   -use_topological_file <file_name> 
+.P Automatically derives feedthrough topological paths from the user specified paths to cover all the chain connectivity probabilities in a master and clone hinst scenario. It reads an input topological file, in version 0.5 and creates the version 2.0 topological file. 
+.P Note: For the given set of master-clone hinst connectivity, based on floorplan, multiple user defined paths may be required for other same set hinst master and clones. The write_generalized_feedthru_paths command can automatically choose correct path for individual master and clone hinst, based on matching connectivity and floorplan, from the set of paths provided by the user. 
+.SH Parameters    "\fB-dont_generalize_reverse_paths\fR" When enabled, the generalization algorithm does not generalize reverse chain paths.  Data_type: bool, optional  "\fB-dont_generalize_sub_paths\fR" When enabled, the generalization algorithm does not generalize sub-paths.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each write_generalized_feedthru_paths parameter.  For a detailed description of the command and all of its parameters, use the man command:   man write_generalized_feedthru_paths  "\fB-topological_out_file <file_name>\fR" Specifies the name of the output topo 2.0 file that contains all paths for all master and clone chain.  Note: This file should be used as an input file for the insertPtnFeedthrough command.   Default: path.topo  Data_type: string, optional  "\fB-use_topological_file <file_name>\fR" Specifies the user specified feedthrough path guidance file. The input topological file with new version 0.5 format contains a path for one master and clone chain to derive path of all master and clone chains.  Note: You can use the Path Guidance GUI form (Partition - Feedthough Ports - Path Guidance) to generate the topological file with new version 0.5 format.  Data_type: string, required 
+.SH Example
+.RS  "*" 2 The following command reads the topology file a.topo in version 0.5 and creates the version 2.0 topological file path.topo:  write_generalized_feedthru_paths  -use_topological_file a.topo  "*" 2 The following command reads the topological file a.topo in version 0.5 and creates the version 2.0 topological file new.topo:  write_generalized_feedthru_paths  -use_topological_file a.topo -topological_out_file new.topo
+.RE 
+.SH Related Information
+.RS  "*" 2 insertPtnFeedthrough  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

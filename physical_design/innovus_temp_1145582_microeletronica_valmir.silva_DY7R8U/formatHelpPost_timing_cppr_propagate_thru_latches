@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_cppr_propagate_thru_latches  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_cppr_propagate_thru_latches\fR
+.SH Syntax \fBtiming_cppr_propagate_thru_latches\fR   {true | false} 
+.P Default: false
+.P When set to true, the CPPR of a timing path crossing a latch (or latches), for example, ff1 -> lat1 -> ff2, is calculated using the common point of the origin device (ff1) and the capture device at the end of the path (ff2).
+.P When set to false, the segment-based CPPR calculation is performed, considering the common point of latch (lat1) and the capture device (ff2). This CPPR setting is considered only when the latch thru analysis mode is enabled and a latch thru path exists.
+.P To set this global variable, use the set command.
+.P

@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH map_die_package  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmap_die_package\fR \-  The command launches the MCP Editor GUI to make manual connections between package and die pins
+.SH Syntax  \fBmap_die_package\fR  [-help]  [-output <directory>]  -package_model_file <filename>  {-die_mcp_header <filename> | -net_pad_file_pair {{<<net1>> <<pad file1>>} {<<net2>> <<pad file2>>}...}} 
+.P The command launches the MCP Editor GUI to make manual connections between package and die pins. It also performs the following functions:
+.RS  "*" 2 maps the voltage source files with the package model to check and correct mapping information before rail analysis.  "*" 2 generates a mapping file that can be used in previous versions of the software in case there is no mapping between die and package pins.
+.RE
+.P The command has two types of inputs:
+.RS  "*" 2 Voltage source files in the xy format and a package model file with the MCP header.  "*" 2 A circuit file with the MCP header and a package model file with the MCP header.
+.RE
+.P The output will be the same for both types of inputs:
+.RS  "*" 2 A ckt mapping file containing only the MCP header, with the name pkg_model_base_name + _map+suffix.  "*" 2 The file named 'un_mapped_bumps.txt' will contain all the bumps which cannot be mapped. 
+.RE 
+.SH Parameters    "\fB-help\fR" Outputs the command usage and a brief description about the command parameters.   "\fB-die_mcp_header <filename>\fR" Specifies a circuit file with the MCP header containing the die abstract.  "\fB-net_pad_file_pair {{<<net1>> <<pad file1>>} {<<net2>> <<pad file2>>}...}\fR" Specifies the voltage source files mapping to each net.  "\fB-output <directory>\fR" Specifies the output directory containing the mapping results.  "\fB-package_model_file<filename>\fR" Specifies the name of the package model file. 
+.SH Examples
+.RS  "*" 2  The following command specifies a circuit file with MCP header and a package model file with the MCP header:  map_die_package -die_mcp_header super_filter_mcp_ploc.ckt -package_model_file C1_Voltus_4L_C1_Voltus_4L_Final_PinBaseSPICE.ckt -output out_ploc  "*" 2  The following command specifies voltage source files in the XY format and a package model file with the MCP header:  map_die_package -output
+./out_pad -net_pad_file_pair {{VDD VDD_AO_srcs.pp} {VDD VDD_external_srcs.pp} {VSS VSS_srcs.pp}} -package_model_file C1_Voltus_4L_C1_Voltus_4L_Final_PinBaseSPICE.ckt
+.RE 
+.SH Related Information
+.RS  "*" 2 set_rail_analysis_mode  "*" 2 "Package Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

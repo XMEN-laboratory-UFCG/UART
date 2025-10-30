@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_derating_for_pulsewidth_checks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_derating_for_pulsewidth_checks\fR
+.SH Syntax  \fBtiming_enable_derating_for_pulsewidth_checks\fR  {true | false} 
+.P Default: false
+.P Controls whether the cell check derates, set by set_timing_derate -cell_check command, can be applied for pulse width checks.
+.P When set to true, the pulse width checks honor cell check derate factors.
+.P To set this global variable, use the set_global command.
+.P

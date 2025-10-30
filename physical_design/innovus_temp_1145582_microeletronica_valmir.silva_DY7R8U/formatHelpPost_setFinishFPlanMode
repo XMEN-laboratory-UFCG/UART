@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setFinishFPlanMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetFinishFPlanMode\fR \-  Set the active objects and specifies the channel direction for the finishFloorplan command to use whenever you perform advanced placement-related refinements to a floorplan
+.SH Syntax \fBsetFinishFPlanMode\fR  [-help]   [-reset]   [-abuttedEdgeAsNonRowArea {true|false}]  [-activeObj {macro|macroHalo|core|iopad|iocell|fence|hardblkg|softblkg|partialblkg|routeblkg|routingblkg|row}]  [-direction {<x>|<y>|<xy>}]   [-drcRegionObj {macro|macroHalo|hardBlkg|minGap|coreSpacing|nonRowArea}]   [-override {true|false}] 
+.P Set the active objects and specifies the channel direction for the finishFloorplan command to use whenever you perform advanced placement-related refinements to a floorplan. Use the getFinishFPlanMode command to return the current settings for the setFinishFPlanMode command. The setFinishFPlanMode parameters affects the behavior the finishFloorplan command. 
+.SH Parameters    "\fB-abuttedEdgeAsNonRowArea {true|false}\fR" Specifies whether the abutted edge of a power domain should treated be as nonRowArea. 
+.RS  "*" 2 true: The abutted edge of the power domain is treated as nonRowArea with size 0 by default. The tool creates a DRC region around the abutted edge with the finishFloorplan -edgeExtend parameter option.  "*" 2 false: The abutted edge of the power domain is excluded from nonRowArea. The tool then does not create a DRC region around the abutted edge with the finishFloorplan -edgeExtend parameter option.
+.RE   Note: This option can only be specified when the -drcRegionObj nonRowArea parameter option is also specified.  For example:  setFinishFPlanMode -drcRegionObj nonRowArea -abuttedEdgeAsNonRowArea {true|false}  finishFloorplan -drcRegionLayer M1 -edgeExtend {10 10}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   Default: true  Data_type: bool  "\fB-activeObj {macro|macroHalo|core|iopad|iocell|fence|hardblkg|softblkg|partialblkg|routeblkg|routingblkg|row}\fR" Specifies the active object list. The boundaries of the specified active objects are looked at while deciding where to add blockages. Non-active objects are treated like they don't exist by the finishFloorplan command. Active objects can be:
+.RS  "*" 2 core  "*" 2 macro  "*" 2 macroHalo  "*" 2 ioCell  "*" 2 ioPad   "*" 2 fence  "*" 2 hardblkg  "*" 2 softblkg  "*" 2 partialblkg  "*" 2 routeblkg  "*" 2 routingblkg  "*" 2 row
+.RE   Default: core macro macroHalo  Data_type: enums={macro macroHalo core iopad iocell fence hardblkg softblkg partialblkg routeblkg row}_list  "\fB-help\fR" Outputs a brief description that includes the type and default information for each setFinishFPlanMode parameter.  For a detailed description of the command and all of its parameters, use the man command man setFinishFPlanMode.  "\fB-direction {x | y | xy}\fR" Specifies the direction in which the blockage is added. You specify one of the following options:
+.RS  "*" 2 x: Fills the channel whose height is less than width.  "*" 2 y: Fills the channel whose width is less than height.  "*" 2 xy: Fills every channel whose smallest size (in X or Y direction) is within Max Gap range.
+.RE   Default: xy  Data_type: enums={x y xy}  "\fB-drcRegionObj {macro|macroHalo|hardBlkg|minGap|coreSpacing|nonRowArea}\fR" Specifies the drc region object list. The boundaries of the specified drc region objects are looked at while deciding where to add blockages. The drc region objects can be:
+.RS  "*" 2 coreSpacing  "*" 2 hardBlkg  "*" 2 macro  "*" 2 macroHalo  "*" 2 minGap  "*" 2 nonRowArea
+.RE   Default: macro macroHalo hardBlkg minGap coreSpacing  Data_type: enums={macro macroHalo hardBlkg minGap coreSpacing nonRowArea}_list  "\fB-override {true | false}\fR" Overrides old blockages that overlap with the new blockages.  Default: false  Data_type: bool  "\fB-reset\fR" Restores all parameters modified using setFinishFPlanMode to their default settings. The -reset parameter must be the first parameter specified. If you specify -reset by itself, the software resets all setFinishFPlanMode parameters to their default values. If you specify parameters after -reset, the software resets only those parameters to their default values. Any values that do not already match the default value and are reset will be reported. 
+.SH Example
+.RS  "*" 2 The following commands specify the region layer name list for creating a region layer for the specified DRC region object:   setFinishFPlanMode -drcRegionObj macro   finishFloorplan -drcRegionLayer R1
+.RE 
+.SH Related Information
+.RS  "*" 2 finishFloorplan  "*" 2 getFinishFPlanMode  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Finishing the Floorplan
+.RE 
+.RE
+.P

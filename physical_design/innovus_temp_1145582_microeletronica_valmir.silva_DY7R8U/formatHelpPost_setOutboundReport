@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setOutboundReport  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetOutboundReport\fR \-  Controls what extrapolation information is to be saved in the log file(s)
+.SH Syntax \fBsetOutboundReport\fR  [-help]  -delay {early | late | both}  [-filename_prefix <string>]  [-report_constant_nets {true | false}]  [-type {lower | upper | both}]
+.P Controls what extrapolation information is to be saved in the log file(s). The slew extrapolation information can be stored into separate files. 
+.P When this command is not specified, slew extrapolation will be reported for both minimum and maximum analysis, if outbound reporting has been enabled by specifying the setDelayCalMode-reportOutBound true command. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage   "\fB-delay {early | late | both}\fR" Control whether extrapolation information is to be shown for min or max (or both) analyses.  Default: both  "\fB-filename_prefix <string>\fR" Specify the prefix to be used in the name(s) of the report file(s).  Default: design-name  "\fB-report_constant_nets {true | false}\fR" Controls whether extrapolation information is to be shown for constant nets or not.   "\fB-type {lower | upper | both}\fR" Controls whether extrapolation information is to be shown for lower or upper (or both) outbound slews. 
+.SH Examples
+.P The following command will will dump slew extrapolation information for maximum analysis into the myreport.dc.outbound.slew.late.<view-name>.txt file:
+.P setOutboundReport -delay late -filename_prefix myreport 
+.SH Related Information
+.RS  "*" 2 setDelayCalMode 
+.RE
+.P

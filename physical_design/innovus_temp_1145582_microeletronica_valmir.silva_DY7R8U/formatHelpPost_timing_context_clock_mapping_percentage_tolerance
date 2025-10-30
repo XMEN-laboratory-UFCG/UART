@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_context_clock_mapping_percentage_tolerance  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_context_clock_mapping_percentage_tolerance\fR
+.SH Syntax \fBtiming_context_clock_mapping_percentage_tolerance\fR   {true | false}
+.P Default : false
+.P Controls the tolerance value in clock mapping. 
+.P To set this global variable, use the set command.
+.P

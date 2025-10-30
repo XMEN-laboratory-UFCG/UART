@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH viewNext  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBviewNext\fR \-  Displays the next view window
+.SH Syntax \fBviewNext\fR [-help]
+.P Displays the next view window. This command provides the same function as the Next toolbar widget. You can use the viewNext command or the Next toolbar widget to switch from the current display to the next location in the Go To Saved Area list or the next zoom level in the zoom sequence saved in the design memory. The equivalent bindkey is Y. When you press the Y bindkey or execute the viewNext command repeatedly, the tool cycles through all saved views (saved areas and zoom levels). 
+.SH Parameters   "\fB-help\fR" Prints a brief description of the viewNext command.  For a detailed description of the command, use the man command: man viewNext. 
+.SH Related Information
+.RS  "*" 2 viewLast  "*" 2  zoomTo  "*" 2  zoomIn  "*" 2  zoomOut  "*" 2  zoomSelected  "*" 2  The Main Window chapter in the Menu Reference
+.RE
+.P

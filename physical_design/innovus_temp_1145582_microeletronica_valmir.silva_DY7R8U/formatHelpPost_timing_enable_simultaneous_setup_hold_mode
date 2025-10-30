@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_simultaneous_setup_hold_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_simultaneous_setup_hold_mode\fR \-  Controls whether setup and hold checks are analyzed separately, or together on the same timing graph
+.SH Syntax \fBtiming_enable_simultaneous_setup_hold_mode\fR  {true | false}  Default: false 
+.P Controls whether setup and hold checks are analyzed separately, or together on the same timing graph. 
+.P When set to false, the setAnalysisMode -checkType setup and hold parameters are used to switch the system from analyzing setup slacks to analyzing hold slacks.
+.P When set to true, setup and hold slacks are analyzed concurrently. As a consequence, both -early and -late queries for reporting commands such as report_timing can be satisfied immediately, without additional calculation. Simultaneous mode is useful for immediately understanding the consequences to both setup and hold slacks from what-if operations and manual ECOs to the design.
+.P Note: Simultaneous setup and hold mode can be used only for timing analysis; it cannot be used for any physical implementation steps.    Note: Simultaneous setup/hold mode has the following behavior differences, with respect to the default mode:
+.RS
+.RS  "*" 2 setAnalysisMode-checkType setup and hold do not function in simultaneous mode.
+.RE 
+.RE
+.RS
+.RS  "*" 2 The write_timing_windows command does not generate timing window information using the min and max libraries. Instead, by default, it uses only the max libraries.
+.RE 
+.RE
+.P To set this global variable, use the set_global command.

@@ -1,0 +1,8 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_nochange_checks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_nochange_checks\fR \-  When set to true, disables no change timing model checks during timing analysis
+.SH Syntax \fBtiming_disable_nochange_checks\fR  {true | false}  Default: false (performs checks)
+.P When set to true, disables no change timing model checks during timing analysis.
+.P To set this global variable, use the set_global command.

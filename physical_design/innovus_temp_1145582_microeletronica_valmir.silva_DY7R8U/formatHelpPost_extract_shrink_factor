@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH extract_shrink_factor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBextract_shrink_factor\fR
+.SH Syntax \fBextract_shrink_factor\fR <shrink_factor_value> 
+.P Type: Double
+.P Default: 1.0
+.P Specifies the shrink factor by which to shrink the design before extraction. The shrink factor is used only for extraction calculations. It does not change the actual design.
+.P This global variable must only be used when restoring design.
+.P Note: This global is not recommended for newer technologies where shrink factor is defined in the Quantus techfiles or capacitance tables.
+.P To set this global, use the set command. 
+.SH Example
+.RS  "*" 2 The following global variable sets the shrink factor to 0.9:   set extract_shrink_factor 0.9  Setting the shrink factor to 0.9 means the value of wire lengths, widths, and spacings in the design will shrink to 90% of their original values.
+.RE
+.P

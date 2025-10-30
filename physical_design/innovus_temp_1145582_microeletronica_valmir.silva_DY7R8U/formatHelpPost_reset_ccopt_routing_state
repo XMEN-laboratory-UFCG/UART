@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_ccopt_routing_state  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_ccopt_routing_state\fR \-  Resets the status of the CCOpt clock nets to "routed"
+.SH Syntax \fBreset_ccopt_routing_state\fR  [-help]  [-excluded {<netname1 netname2>.....}]  [-no_delete_routes]   [-reset_preroutes] 
+.P Resets the status of the CCOpt clock nets to "routed". The default behavior of the software is to then delete these nets, but you can specify the -no_delete_routes parameter to stop these nets from being deleted. The purpose of this command is to reset the routing state post NanoRoute, so that it can be rerun later using theroute_ccopt_clock_tree_nets command.  
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each reset_ccopt_routing_state parameter. For a detailed description of the command and all of its parameters, use the man command:  man reset_ccopt_routing_state.   "\fB-excluded {<netname1 netname2>.....}    \fR" Specifies the list of nets whose routing state is not to be reset.   "\fB-no_delete_routes \fR" Specifies that the nets whose status is set to routed should not be deleted.   "\fB-reset_preroutes\fR" When specified, resets the status of pre routes. By default, the pre-routes will be skipped. 
+.SH Example
+.RS  "*" 2  The following command resets the routing state of clock nets without deleting them and excluding the specified net:   reset_ccopt_routing_state -no_delete_routes -excluded {clock1111}
+.RE 
+.SH Related Command
+.RS  "*" 2 route_ccopt_clock_tree_nets
+.RE
+.P

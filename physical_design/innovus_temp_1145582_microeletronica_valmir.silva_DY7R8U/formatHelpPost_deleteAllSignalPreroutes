@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteAllSignalPreroutes  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteAllSignalPreroutes\fR \-  Removes all signal preroutes from the floorplan. Use this command after importing the design
+.SH Syntax \fBdeleteAllSignalPreroutes\fR  [-help]
+.P Removes all signal preroutes from the floorplan. Use this command after importing the design. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description of the deleteAllSignalPreroutes command.  For a detailed description of the command, use the man command:   man deleteAllSignalPreroutes 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

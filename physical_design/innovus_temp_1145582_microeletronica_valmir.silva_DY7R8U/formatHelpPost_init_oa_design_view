@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH init_oa_design_view  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBinit_oa_design_view\fR
+.SH Syntax  \fBinit_oa_design_view\fR <viewname> 
+.P Type: String
+.P Default: NULL
+.P Specifies the OpenAccess design view name to be used. This global variable replaces the previous rda_Input(ui_oa_designView) configuration file variable. 
+.SH Example
+.RS  "*" 2 The following command specifies myOAView as the OpenAccess database view.   set init_oa_design_view {myOAView} 
+.RE 
+.SH Related Information
+.RS  "*" 2 init_design
+.RE
+.P

@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH pan  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBpan\fR \-  Specifies that the new center of the viewing window should shift from the current center of the viewing window by (<x>, <y>) microns
+.SH Syntax \fBpan\fR  [-help]   <dx>   <d> <y> 
+.P Specifies that the new center of the viewing window should shift from the current center of the viewing window by (<x>, <y>) microns. Use this command at any stage in the design flow to pan or move the design view in a specific direction. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each pan parameter.  For a detailed description of the command and all of its parameters, use the man command: man pan.  "\fB<dx>\fR" Specifies that the design center should shift dx microns on the x-axis from the center of the viewing window.  You can specify positive or negative values for dx. A positive value specifies shifting to the right on the x axis.  "\fB<dy>\fR" Specifies that the design center should shift dy microns on the y axis values from the center of the viewing window.  You can specify positive or negative values for <dy>. A positive value specifies shifting up on the y axis. 
+.SH Example
+.P The following example shifts the design center to the right by 200 microns and down by 300 microns from the center of the viewing window.
+.P pan 200 -300 
+.SH Related Information
+.RS  "*" 2 panCenter  "*" 2 panPage  "*" 2 View Menu chapter in the Menu Reference 
+.RS  "*" 2 Pan
+.RE  "*" 2 The Main Window chapter in the Menu Reference 
+.RS  "*" 2 Mouse Operations
+.RE 
+.RE
+.P

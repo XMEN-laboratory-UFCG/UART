@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH predict_floorplan  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBpredict_floorplan\fR \-  Generates an initial floorplan that can be used as a starting point for making the final floorplan
+.SH Syntax \fBpredict_floorplan\fR  [-help]   [-allow_illegal_macro]   [-enable_cpg]   [-reshape [[-post_reshape_tcl <string>]]]  [{-reshape | -skip_generate_fence }] 
+.P Generates an initial floorplan that can be used as a starting point for making the final floorplan. It can generates fences on power domains automatically, and then does the placement for all instances. If the design has macros/blocks, the predict_floorplan command calls the mixed placer to place the macros/stdcells, however, the design has only stdcells, then the place_opt_design command is called.  
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each predict_floorplan parameter. For a detailed description of the command and all of its parameters, use the man command:  man predict_floorplan  "\fB-allow_illegal_macro\fR" Allows the tool to continue even when macros are not legally placed.   Default: false  Data_type: bool, optional  "\fB-enable_cpg\fR" Enables CPG for a design which already has a floorplan with macro locations.  Data_type: bool, optional  "\fB-post_reshape_tcl <string>\fR" When specified it allows the tool to load user specified floorplan objects (like tracks) after the floorplan has been reshaped.   Note: This option must be use with the -reshape parameter.  Data_type: string, optional  "\fB-reshape\fR" Enables the floorplan to be enlarged in order to fit all instances.  Data_type: bool, optional  "\fB-skip_generate_fence\fR" When specified, auto-fence generation is skipped.  Data_type: bool, optional
+.P 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

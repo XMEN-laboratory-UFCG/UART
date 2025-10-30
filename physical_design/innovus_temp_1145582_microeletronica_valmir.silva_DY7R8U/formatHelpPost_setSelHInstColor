@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setSelHInstColor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetSelHInstColor\fR \-  Specifies the color Id for the selected hierarchical instances
+.SH Syntax \fBsetSelHInstColor\fR  [-help]   [<colorID>] 
+.P Specifies the color Id for the selected hierarchical instances. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each setSelHInstColor parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setSelHInstColor  "\fB<colorID>\fR" Specifies the color Id to apply to all selected hierarchical instances. The color value for the color id is the same as specified in the Module Color Preference form (accessed by clicking Floorplan - Edit Floorplan - Color Module)  Default: If no Id is specified, the color Id 0 is applied to all the selected hierarchical instances. 
+.SH Example
+.P The following command applies color Id 5 to all the selected hierarchical instances:
+.P setSelHInstColor 5 
+.SH Related Information
+.RS  "*" 2 resetMultiColorsHier  "*" 2 saveColorPreference  "*" 2 saveHInstColor  "*" 2 setHInstColorId  "*" 2 setMultiColorsHier  "*" 2 set_object_color  "*" 2 Floorplan Menu chapter in the Menu Reference
+.RS  "*" 2 Color Module
+.RE 
+.RE
+.P

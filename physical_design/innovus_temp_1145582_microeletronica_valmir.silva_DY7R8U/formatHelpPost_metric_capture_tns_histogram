@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_capture_tns_histogram  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_capture_tns_histogram\fR
+.SH Syntax \fBmetric_capture_tns_histogram\fR {true | false} 
+.P Default: true
+.P Capture histogram data for TNS.
+.P

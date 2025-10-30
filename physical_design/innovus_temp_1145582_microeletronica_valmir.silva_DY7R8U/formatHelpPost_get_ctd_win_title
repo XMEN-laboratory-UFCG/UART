@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_ctd_win_title  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_ctd_win_title\fR \-  Retrieves the titles of the CTD windows
+.SH Syntax \fBget_ctd_win_title\fR  [-help]  [-all | -id <WindowIDName>] 
+.P Retrieves the titles of the CTD windows. If no parameters are specified, the command retrieves the title of the current active CTD window. 
+.P Note: Before using this command, ensure that a CTD window is open. You can open a CTD window using the ctd_win command. 
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each get_ctd_win_title parameter. For a detailed description of the command and all of its parameters, use the man command:  man get_ctd_win_title.   "\fB-all   \fR" Retrieves the IDs of all CTD windows.  "\fB-id <WindowIDName>\fR" Retrieves the title of the CTD window with the specified ID.   Note: The parameters, -all and -id are mutually exclusive. 
+.SH Examples
+.RS  "*" 2 The following command retrieves the titles of all CTD windows in the current session:
+.RE
+.P get_ctd_win_title -all
+.P {user_id1 : Clock Tree Debugger : title1} {user_id2 : Clock Tree Debugger : title2} {user_id3 : Clock Tree Debugger : title3} 
+.RS  "*" 2 The following command retrieves the title of the CTD window with the ID, user_id2:
+.RE
+.P get_ctd_win_title -id user_id2
+.P user_id2 : Clock Tree Debugger : title2
+.P where, user_id2 is the window ID, Clock Tree Debugger is the window type, and title2 is the mapping title for this window. 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree_spec  "*" 2 close_ctd_win  "*" 2 ctd_trace  "*" 2 get_ctd_win_id  "*" 2 gui_zoom_ctd  "*" 2 set_ctd_win_title
+.RE
+.RS  "*" 2 Clock Menu chapter in the Innovus Menu Reference.
+.RE
+.P

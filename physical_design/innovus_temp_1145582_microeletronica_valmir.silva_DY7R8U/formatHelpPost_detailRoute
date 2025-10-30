@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH detailRoute  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdetailRoute\fR \-  Uses the NanoRoute router to perform detailed routing on the entire design, an area of the design specified by the bounding box, or on selected nets
+.SH Syntax \fBdetailRoute\fR  [-help]  [-select]   [<area>] 
+.P Uses the NanoRoute router to perform detailed routing on the entire design, an area of the design specified by the bounding box, or on selected nets. If you do not specify parameters, the router routes the entire design. If you specify both the bounding box and selected nets, the router routes only selected nets within the bounding box. You can perform detailed routing on specified area only if you are rerouting the design. If you have not already run detailed routing on the entire design, you cannot run detailed routing on a specified area.
+.P Note: This command supports multiple-CPU processing. 
+.P Use this command after completing the following steps:
+.RS  "*" 2 Placing the design.  "*" 2 Routing special nets.  "*" 2 Setting net attributes with setAttribute and NanoRoute run-time options with setNanoRouteMode.   Note: This step is optional. Complete this step only if you do not want to use the current values for attributes or default values for options.   "*" 2 Running global routing with globalRoute.
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each detailRoute parameter. For a detailed description of the command and all of its parameters, use the man command:   man detailRoute  "\fB<area>\fR" Specifies the x and y coordinates of the bounding box area.  Data_type: rect, optional  "\fB-select\fR" Routes selected nets. To select a net, use the selectNet command or click the net in the design display window.  Tip: You can also specify setNanoRouteMode -route_selected_net_only true to route the selected nets.  Data_type: bool, optional 
+.SH Example
+.P The following command selects net1 and runs detailed routing on it:
+.P selectNet net1  detailRoute -select 
+.SH Related Information
+.RS  "*" 2 globalRoute  "*" 2 globalDetailRoute  "*" 2 routeDesign  "*" 2 setAttribute  "*" 2 setNanoRouteMode  "*" 2 Using the NanoRoute Router chapter in the Innovus User Guide
+.RS  "*" 2 Detailed Routing 
+.RE 
+.RE
+.P

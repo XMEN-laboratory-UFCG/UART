@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_precision  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_precision\fR
+.SH Syntax \fBreport_precision\fR<integer> 
+.P Default: 3
+.P Controls the number of digits appearing after the decimal point in the report_timing, report_net, report_cell_instance_timing, and report_clocks reports. The maximum value of <integer> is 8.
+.P To set this global variable, use the set_global command.
+.P

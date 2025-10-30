@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_net_group  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_net_group\fR \-  Specifies the list of either power or ground nets that are isolated but need to be analyzed together as a single net
+.SH Syntax  \fBset_net_group\fR  [-help]   -reset | {-name <group_name>  -type [power | ground]  -nets {<net_list>}   } 
+.P Specifies the list of either power or ground nets that are isolated but need to be analyzed together as a single net. The results are generated for the new grouped net. The new grouped net name must be one of the net names in the group. To analyze the grouped net, you must also specify power pads for the grouped net name. 
+.SH Parameters    "\fB-help \fR" Outputs a brief description that includes the type and default information for each set_net_group parameter.  For a detailed description of the command and all of its parameters, use the man command: man set_net_group.  "\fB-name <group_name>\fR" Name of the net group.  Note: The name of the net group must be one of the net names in the group. Using a net name that is not in the net group will trigger error when displaying results in the flow.  "\fB-nets {<net_list>}\fR" Specifies a list of power or ground nets.  "\fB-reset\fR" Resets all previously created net name(s) with the new grouped net name(s).  "\fB-type [power | ground]\fR" Specifies whether it is a power or ground net. 
+.SH Examples
+.RS  "*" 2 The following example groups the power nets that will be analyzed together as a group called VDD.   set_net_group -name VDD -type power -nets { VDD VDD1 VDD2 VDD3 }   set_power_pads -net VDD -format xy -file VDD.pp   analyze_rail -type net VDD
+.RE 
+.SH Related Information
+.RS  "*" 2 set_rail_analysis_mode  "*" 2 set_power_pads  "*" 2 "Static Power, IRdrop and EM Analysis" in the Voltus IC Power Integrity Solution User Guide  "*" 2 "Dynamic Power and IRDrop Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

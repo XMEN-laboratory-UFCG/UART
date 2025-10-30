@@ -1,0 +1,2 @@
+ "\fB-outfile\fR" Specifies the name of the file
+.SH Syntax \fBreportJtagInst\fR  [-outfile]

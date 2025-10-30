@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH importPowerSwitch  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBimportPowerSwitch\fR \-  Imports power switch databases
+.SH Syntax \fBimportPowerSwitch\fR  [-help]   [-powerDomain <powerDomainName>]   [-file <fileName>] 
+.P Imports power switch databases. The need for this commands arises in case of defIn-based flows where power switch database required for power switch related operations is not loaded through defOut.
+.P So, using exportPowerSwitch a user can save power switch database after power switch insertion using addPowerSwitch for later use and it can be loaded back using importPowerSwitch.
+.P Note: The enable net IN and OUT connections should remain the same in the netlist in power switch database export/import process and the commands need not be run when saveDesign and defOut are run because the power switch database is automatically saved and restored. 
+.SH PSO File Generation and Usage
+.P A PSO file gets generated as an output of the exportPowerSwitch command, which can be used in a future session, if needed. One scenario where this file can be needed is when a DEF file containing a power switch chain is not used in the power switch synthesis and hence the incoming netlist to Innovus would not have any power switches. The power switch chain is then created at the init stage of Innovus using the addPowerSwitch command in such a run. A database saved using write_db after running the addPowerSwitch command, will have the power switch chain saved in a <design.pso> file. When restored, this database can also be used to write out the saved PSO file using the exportPowerSwitch command. When the power switches are added using the addPowerSwitch command, the reportPowerSwitch command can be used to validate their addition.
+.P To avoid regenerating power switches in future implementation runs, save the power switch chain using the exportPowerSwitch command along with the floorplan DEF. Ensure that the -routing parameter of the defOut command is also used along with -floorplan and -noStdCells to save the power switch network under the NETS section of the DEF.
+.P Refer to the following flows to understand the usage of the PSO file:
+.P Innovus Session 1:
+.P <init Design1 - incoming design has no power switches>  addPowerSwitch  exportPowerSwitch test.pso  defOut -floorplan -noStdCells -routing test.def
+.P Innovus Session 2:
+.P <init Design2 - incoming design has no power switches>  importPowerSwitch -file test.pso  defIn test.def
+.P While reading the DEF file, you can identify the power switches using the database commands, such as get_db and dbIsCellPowerSwitch, even without using the importPowerSwitch command. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each importPowerSwitch parameter.  For a detailed description of the command and all its parameters, use the man command:   man importPowerSwitch.  "\fB-powerDomain <powerDomainName>\fR" Specifies the power domain whose power switch information is to be imported.  "\fB-file <fileName>\fR" Specifies the name of the import file. 
+.SH Related Information
+.RS  "*" 2 deletePowerSwitch  "*" 2 exportPowerSwitch  "*" 2 movePowerSwitch  "*" 2 rechainPowerSwitch  "*" 2 replacePowerSwitch  "*" 2 verifyPowerSwitch  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

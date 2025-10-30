@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveSpecialRoute  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveSpecialRoute\fR \-  Saves special route information in a file
+.SH Syntax  \fBsaveSpecialRoute\fR  [-help]   <filename>  -pre10
+.P Saves special route information in a file. If the specified filename is compressed (with the
+.gz extension), the file is gzipped. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each saveSpecialRoute parameter.  For a detailed description of the command and all its parameters, use the man command:   man saveSpecialRoute  "\fB<filename>\fR" Specifies the name of the output file into which special route information to include metal fill is saved. The file is saved in the
+.spr format.  "\fB-pre10\fR" Saves the routing file with an older version. 
+.SH Related Information
+.RS  "*" 2 addSpecialRoute  "*" 2 loadSpecialRoute  "*" 2 Power Planning and Routing and Optimizing Metal Density chapters in the Innovus User Guide
+.RE
+.P

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_narrow_channel  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_narrow_channel\fR \-  Creates a report that contains a list of narrow channels. 
+.P Note: The report_narrow_channel command returns channel boxes as its return value
+.SH Syntax \fBreport_narrow_channel\fR  [-help]   {-width <width>}  [-ignore_placement_blockage ]   [-no_merge_channel_check ]   [-direction {x y xy}]   [-active_objects {macro macroHalo ioPad ioCell core fence hardBlkg softBlkg partialBlkg routeBlkg row}] }
+.P Creates a report that contains a list of narrow channels. 
+.P Note: The report_narrow_channel command returns channel boxes as its return value. 
+.SH Parameters    "\fB-active_objects {macro macroHalo ioPad ioCell core fence hardBlkg softBlkg partialBlkg routeBlkg row}\fR" Specifies the active objects for narrow channel checking.  Default: "core macro macroHalo hardBlkg"  Data_type: enum_list, optional  "\fB-help             \fR" Outputs a brief description that includes the type and default information for each report_narrow_channel parameter.   For a detailed description of the command and all of its parameters, use the man command:   man report_narrow_channel  "\fB-direction {x y xy}\fR" Specifies the direction for checking narrow channels. You can specify x, y, or xy.  Default: xy  Example:  report_narrow_channel -width 100 -direction x   (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   report_narrow_channel -width 100 -direction y  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   report_narrow_channel -width 100 -direction xy  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   Data_type: enum, optional   "\fB-ignore_placement_blockage\fR" When specified, the placement blockages are ignored while computing channel widths.  Data_type: bool, optional  "\fB-no_merge_channel_check\fR" Specifies that the narrow channel error boxes will be merged into contiguous error boxes.   Example: report_narrow_channel -width 100 -direction xy -no_merge_channel_check  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   Data_type: bool, optional  "\fB-width <width>\fR" Specifies the width for checking the channels.  Maximum: 100000  Minimum: 0  Data_type: float, optional 
+.SH Example
+.P The following command checks for channels with width 1.0 and ignores placement blockages:  report_narrow_channel -width 1.0 -ignore_placement_blockage 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

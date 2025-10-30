@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH all_outputs  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBall_outputs\fR \-  Creates a collection of all output ports in the current design
+.SH Syntax \fBall_outputs\fR  [-help]  [-clock <list_of_clocks>]  [-edge_triggered]  [-level_sensitive]
+.P Creates a collection of all output ports in the current design. To filter outputs, use the get_ports command to create a collection of ports matching certain criteria. Assign these ports to a variable or pass them using another command. You can limit the contents of the collection to ports with output delay relative to a specific clock. 
+.SH Parameters    "\fB-help\fR" Prints the command usage.   "\fB-clock <list_of_clocks>\fR" Considers only output ports with an output delay relative to a specific list of clocks.  "\fB-edge_triggered\fR" Returns a collection of output ports with the set_output_delay -clock constraint.  "\fB-level_sensitive\fR" Returns a collection of output ports with the set_output_delay -level_sensitive constraint. 
+.SH Example
+.RS  "*" 2  The following command returns the names all of the output ports with an output delay relative to an ideal_clk:   > all_outputs -clock ideal_clk
+.RE 
+.SH Related Information
+.RS  "*" 2 get_ports  "*" 2 report_ports  "*" 2 set_output_delay
+.RE
+.P

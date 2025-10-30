@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteAllInstGroups  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteAllInstGroups\fR \-  Removes all instance groups
+.SH Syntax \fBdeleteAllInstGroups\fR  [-help]
+.P Removes all instance groups. Instance groups are user-created and contain instances and/or other groups. Use this command after importing the design. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description of the deleteAllInstGroups command.  For a detailed description of the command, use the man command:   man deleteAllInstGroups 
+.SH Examples
+.RS  "*" 2 The following command removes all instance groups:   deleteAllInstGroups
+.RE 
+.SH Related Information
+.RS  "*" 2 addInstToInstGroup  "*" 2 createInstGroup  "*" 2 deleteInstFromInstGroup  "*" 2 deleteInstGroup  "*" 2 createLogicHierarchy  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Grouping Instances
+.RE 
+.RE
+.P

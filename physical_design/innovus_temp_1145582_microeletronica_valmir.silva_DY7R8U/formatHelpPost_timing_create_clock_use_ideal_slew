@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_create_clock_use_ideal_slew  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_create_clock_use_ideal_slew\fR
+.SH Syntax \fBtiming_create_clock_use_ideal_slew\fR   {true | false} 
+.P Default: false
+.P Enables the use of ideal slew at the inputs of the clock driver cells.
+.P When set to true, the software detects created clocks, and uses zero input slew. Other slew values, including those set using set_annotated_transition command, will be ignored.
+.P When set to false, the software honors set_annotated_transition command settings.
+.P To set this global variable, use the set command.
+.P

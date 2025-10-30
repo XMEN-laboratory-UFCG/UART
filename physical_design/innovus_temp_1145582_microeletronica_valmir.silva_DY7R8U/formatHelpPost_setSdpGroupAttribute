@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setSdpGroupAttribute  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetSdpGroupAttribute\fR \-  Sets or modifies the specified attributes of an existing SDP group. This command can be used in anywhere in the flow after an SDP group is created
+.SH Syntax \fBsetSdpGroupAttribute\fR  [-help]   [-flip {X Y XY NONE}]   [-justifyBy {SW SE NW NE MID}]   -name <sdp_name>  [-orient {R0 MX MY R180 NONE}]   [-origin {x y}]  [-padding {x y}]  [-skipSpace <spacing_pattern>]
+.P Sets or modifies the specified attributes of an existing SDP group. This command can be used in anywhere in the flow after an SDP group is created. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each setSdpGroupAttribute parameter.  For a detailed description of the command and all of its parameters, use the man command: man setSdpGroupAttribute.  "\fB-flip {X Y XY NONE}\fR" Specifies that the SDP group should be flipped on the X or Y axis along with its elements. The alignment information is adjusted accordingly.  "\fB-justifyBy {SW SE NW NE MID}\fR" Specifies the anchor point that will be used to align the SDP group.  "\fB-name <sdp_name>\fR" Specifies the name of the SDP object.   "\fB-orient {R0 MX MY R180 NONE}\fR" Specifies the orientation of the SDP object.   "\fB-origin {x y}\fR" Specifies the location of the top SDP group. It can be set only to the top group.  "\fB-padding {x y}\fR" Specifies the edge extend value of the SDP bounding box in horizontal and vertical direction for the specified top SDP group. The tool uses the sum of the actual SDP bounding box and the extended value to place the SDP groups during global placement. This way, less SDP groups overlap because the tool can enlarge the SDP bounding box by using padding during global placement.   For example, the following command specifies a padding of {5.0 1.0} for the SDP top group named top_group1:  setSdpGroupAttribute -name top_group1 -padding {5.0 1.0}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   Default: {0 0}  Note: The padding is an attribute of each top SDP group. If the specified SDP group name is not a top SDP group, the tool will give an error and return.  "\fB-skipSpace <spacing_pattern>\fR" Specifies the spacing pattern of the SDP group. The value for row skipping represents the number of skipped rows. The value for column skipping represents the number of the first vertical layer pitch. If the SDP group for which attributes are being set is of type space, the tool will accept a value for -skipSpace. 
+.SH Examples
+.RS  "*" 2  Consider the SDP group, sub_group1, with origin at {383.46 628.88}. The following command will update the origin of the SDP group:  setSdpGroupAttribute -name sub_group1 -origin {500 500}  If you now check, the origin will have been updated without the need for running the placeSdpGroup command:   > puts "[dbGet top.fplan.topSdps.pt]"  {500.28 497.84}
+.RE 
+.SH Related Information
+.RS  "*" 2 createSdpGroup  "*" 2 getSdpGroupAttribute  "*" 2 getSdpMode  "*" 2 placeSdpGroup  "*" 2 setSdpMode  "*" 2 sdpsdp object in Innovus Database Object Information  "*" 2 Using Structured Data Paths chapter of the User Guide  "*" 2 Floorplan Menu chapter of the Menu Reference 
+.RS  "*" 2 Structured Data Path
+.RE 
+.RE
+.P

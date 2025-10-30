@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH update_floorplan_for_macro_place  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBupdate_floorplan_for_macro_place\fR \-  Enables you to update the floorplan before defining constraints for macros with the set_macro_place_constraint command
+.SH Syntax \fBupdate_floorplan_for_macro_place\fR  [-help]   [-init_rows]   [-keep_fixed_insts {<inst1 inst2
+...>}]  [-remove {all route_blockage place_blockage relative_floorplan power_domain insts_place wire boundary_constraint physical_inst drc PG_pin}]
+.P Enables you to update the floorplan before defining constraints for macros with the set_macro_place_constraint command. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each update_floorplan_for_macro_place parameter. For a detailed description of the command and all of its parameters, use the man command:  man update_floorplan_for_macro_place  "\fB-init_rows\fR" Creates core rows.  Data_type: bool, optional  "\fB-keep_fixed_insts {<inst1 inst2
+...>}\fR" Keeps the specified instances in the floorplan. It sets the instances which are not unplaced.  Data_type: string, optional  "\fB-remove {all route_blockage place_blockage relative_floorplan power_domain insts_place wire boundary_constraint physical_inst drc PG_pin}\fR" Removes the specified objects from the floorplan.  Data_type: enum_list, optional 
+.SH Example
+.RS  "*" 2 The following command initializes the core rows and deletes the placement blockages from the floorplan:  update_floorplan_for_macro_place -init_rows -remove place_blockage
+.RE 
+.SH Related Information
+.RS  "*" 2 create_pg_model_for_macro_place  "*" 2 get_macro_place_constraint  "*" 2 reset_macro_place_constraint  "*" 2 set_macro_place_constraint  "*" 2 write_macro_place_constraint  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Using the Mixed Placer chapter in the Innovus User Guide 
+.RE
+.P

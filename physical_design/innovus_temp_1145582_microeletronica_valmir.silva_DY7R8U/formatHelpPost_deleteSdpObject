@@ -1,0 +1,28 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteSdpObject  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteSdpObject\fR
+.SH Syntax  \fBdeleteSdpObject\fR  [-help]   {-object <object_name_list> [-keepCellPlacement ] | -obstruct <group_name_list> | -emptyRow <instance_name> [-numRow <value>]} 
+.P Deletes one of the following:
+.RS  "*" 2 SDP group(s) or element(s)
+.RE
+.RS  "*" 2 A placement blockage associated with the specified SDP group(s)
+.RE
+.RS  "*" 2 Empty row(s) adjacent to the specified instance
+.RE
+.P Use the deleteSdpObject command to modify structure of existing data path(s) easily and to remove existing SDP groups or elements. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each deleteSdpObject parameter.  For a detailed description of the command and all of its parameters, use the man command: man deleteSdpObject.  "\fB-emptyRow  <instance_name>\fR" Deletes the empty row(s) adjacent to the specified instance based on the justifyBy constraint of the group to which the instance belongs. If the group is justified by SW/SE, the empty rows below the specified instance are deleted. If the group is justified by NW/NE, the empty rows above the specified instance are deleted.  Note:  If the rows adjacent to the specified instances are not empty, an error message is returned.  "\fB-keepCellPlacement\fR" Preserves the cell placement of remaining SDP members when an SDP object is deleted. If this parameter is not specified, deleteSdpObject unplaces all SDP members while deleting the specified SDPs. This option can be used only with  -object.   "\fB-numRow <value>\fR" Indicates the number of empty rows to be deleted.  Note:  If this parameter is not specified, one empty row is deleted by default.  "\fB-object <object_name_list>\fR" Deletes the specified SDP group or instance. If you want to delete more than one object, enclose the object names in {}.  "\fB-obstruct  <group_name_list>\fR" Deletes the placement blockage over the specified SDP group(s). 
+.SH Examples
+.RS  "*" 2 The following command deletes the SDP group TestGrp.   deleteSdpObject -object TestGrp 
+.RE
+.RS  "*" 2 The following command deletes a placement blockage over the SDP group sdpGrp1.   deleteSdpObject -obstruct sdpGrp1
+.RE
+.RS  "*" 2 The following command deletes two empty rows below the DTMF_INST/ROM_512x16_0_INST instance where the group to which ROM_512x16_0_INST belongs has justifyBy constraint set as SW.   deleteSdpObject -emptyRow DTMF_INST/ROM_512x16_0_INST -numRow 2
+.RE 
+.SH Related Information
+.RS  "*" 2 addSdpObject  "*" 2 createSdpGroup  "*" 2 flipSdpObject  "*" 2 moveSdpObject  "*" 2 setSdpObjectStatus  "*" 2 sdpsdp object in Innovus Database Object Information  "*" 2 Using Structured Data Paths chapter of the User Guide  "*" 2 Floorplan Menu chapter of the Menu Reference 
+.RS  "*" 2 Structured Data Path
+.RE 
+.RE
+.P

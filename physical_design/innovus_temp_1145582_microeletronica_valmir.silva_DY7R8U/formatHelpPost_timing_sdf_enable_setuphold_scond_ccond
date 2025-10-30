@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_sdf_enable_setuphold_scond_ccond  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_sdf_enable_setuphold_scond_ccond\fR
+.SH Syntax \fBtiming_sdf_enable_setuphold_scond_ccond\fR  {true | false}   Default: false
+.P When set to true, enables proper generation of SDF (Standard Delay Format) with scond and ccond qualifiers on SETUPHOLD and RECREM timing checks:
+.P Since some SDF readers do not accept scond and ccond qualifiers this global is set to false by default. 
+.P To set this global variable, use the set_global command.
+.P

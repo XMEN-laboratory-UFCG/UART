@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH colorize_cell_library  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcolorize_cell_library\fR \-  Colors each standard cell in the library, using the pre-color method
+.SH Syntax \fBcolorize_cell_library\fR  [-help]   [-cell <cell_name>]   [ [-reset ] | [-enforce ] ]
+.P Colors each standard cell in the library, using the pre-color method. 
+.SH Parameters   "\fB-cell <cell_name>\fR" Specifies the name of the cell to colorize. The colorize_cell_library command only targets the specified cell, irrespective of the cell type.  Data_type: (libCell/ptnCell)+, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each colorize_cell_library parameter.  For a detailed description of the command and all of its parameters, use the man command  man colorize_cell_library.  "\fB-enforce\fR" Specifies that re-colorization will be enforced. It colors the cell even if it is already colored.  Data_type: string, optional  "\fB-reset\fR" Resets the library cell color data. It cleans the color of every standard cell, except the LEF-color.  Data_type: bool, optional 
+.SH Example
+.RS  "*" 2 The following command resets the library cell color data.  colorize_cell_library -reset
+.RE 
+.SH Related Information
+.RS  "*" 2 setNanoRouteMode  "*" 2 Using the NanoRoute Router chapter in the Innovus User Guide
+.RE
+.P

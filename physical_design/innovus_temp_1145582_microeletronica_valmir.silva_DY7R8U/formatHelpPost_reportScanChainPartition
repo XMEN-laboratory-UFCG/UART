@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportScanChainPartition  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportScanChainPartition\fR \-  Generates a report that lists compatible scan chains in scan chain partitions
+.SH Syntax \fBreportScanChainPartition\fR  [-help] 
+.P Generates a report that lists compatible scan chains in scan chain partitions.
+.P Specify scan chain partitions with the following command: specifyScanChainPartition. 
+.SH Parameters
+.P None 
+.SH Example
+.P To see a list of the compatible scan chain groups in a design with one partition, clk1Domain, that has two compatible scan chains, type the following command:
+.P reportScanChainPartition
+.P The command outputs the following messages:
+.P Info: Scan Chain Partition Group set to:
+.P       Partition group: clk1Domain
+.P                 chain: chain1
+.P                 chain: chain2 
+.SH Related Information
+.RS  "*" 2 deleteScanChainPartition  "*" 2 specifyScanChainPartition  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RS  "*" 2 Optimizing and Reordering Scan Chains 
+.RE 
+.RE
+.P

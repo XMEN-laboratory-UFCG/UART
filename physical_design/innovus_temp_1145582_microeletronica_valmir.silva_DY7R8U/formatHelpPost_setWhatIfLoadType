@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setWhatIfLoadType  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetWhatIfLoadType\fR
+.SH Syntax  \fBsetWhatIfLoadType\fR  <blackBoxCellName>  [-port <inputPortName>]   [-lib <libName>]   -cell <libraryCellName>  [-inputPin <libraryInputPin>]   [-multiply_by <value>]  
+.P Specifies that the load on any input or any inout what-if port should be the same as that of the specified library input or inout pin. 
+.SH Parameters    "\fB<blackBoxCellName>\fR" Specifies the name of the blackbox or blackblob cell.  "\fB-cell library<CellName>\fR" Specifies the name of the cell from which the load value will be picked.  "\fB-inputPin <libraryInputPin>\fR" The library cell input or inout pin whose source arcs will be used for setting the load on the port.  Default: If this parameter is not specified, the software selects an input or inout pin automatically.  "\fB-lib <libName>\fR" Specifies the name of the timing library from which the specified cell will be picked.  Default: The library is selected automatically based on the current context.  "\fB-multiply_by <value>\fR" Specifies the load value multiplication factor. The applied load on the blackbox or blackblob is equal to the load of the specified cell pin multiplied by this factor.  This parameter takes an integer or floating point value.  <Default>: If no value is specified, the multiplication factor is set to 1.  "\fB-port <inputPortName>\fR" Specifies the input or inout port of the blackbox or blackblob.  Default: If no port is specified, the load is applied to all ports. 
+.SH Examples
+.P The following command sets the load on the input_Port1 of blackbox Blackbox1 to the same as that on input pin Pin_A1 of cell bufx1 of library library_DelayLogic.
+.P setWhatIfLoadType Blackbox1 -port input_Port1 -lib library_DelayLogic -cell bufx1 -inputPin Pin_A1 
+.SH Related Information
+.RS  "*" 2 setWhatIfTimingMode
+.RE
+.P

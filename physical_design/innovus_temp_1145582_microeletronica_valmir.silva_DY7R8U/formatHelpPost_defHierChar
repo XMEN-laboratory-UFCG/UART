@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH defHierChar  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefHierChar\fR
+.SH Syntax \fBdefHierChar\fR<delimiter> 
+.P Type: String
+.P Default: /
+.P Specifies the hierarchy delimiter character for the defOut and defOutBySection commands. For example, to set / as the delimiter, use the following code:
+.P set defHierChar /
+.P Note:
+.RS  "*" 2 You cannot unset this variable.  "*" 2 The defHierChar is for the defOut and defOutBySection commands only. It does not change the hierarchy delimiter character of Innovus.
+.RE
+.P The hierarchy delimiter used appears in the output DEF File as shown below.
+.P DIVIDERCHAR "/" ; 
+.SH Related Information
+.RS  "*" 2 defOut  "*" 2 defOutBySection
+.RE
+.P

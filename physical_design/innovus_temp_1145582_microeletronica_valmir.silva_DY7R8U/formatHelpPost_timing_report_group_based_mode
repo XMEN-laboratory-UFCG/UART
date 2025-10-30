@@ -1,0 +1,39 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_group_based_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_group_based_mode\fR
+.SH Syntax  \fBtiming_report_group_based_mode\fR  {true | false}  
+.P Default: false
+.P Groups paths by clock domain.
+.P When set to true, the behavior of the following reporting commands will change as follows: 
+.SH report_timing
+.P The behavior of the following report_timing parameters changes as follows:
+.RS  "*" 2 -max_points: In this mode you are not required to specify this parameter. If specified, the parameter is mapped to -max_paths option.
+.RE
+.RS  "*" 2 -max_paths M: Reports M paths per clock group.
+.RE
+.RS  "*" 2 -nworst N: Limits the number of paths per endpoint per clock group. By default, the value of -nworst is 1.
+.RE
+.P The report_timing command will have the following four types of groups (if design does not have user-defined path groups):
+.RS  "*" 2 Asynch group: Recovery/removal checks.
+.RE
+.RS  "*" 2 Clock gating group: Inferred and library clock gating checks.
+.RE
+.RS  "*" 2 Default group: Combinational max delay or min delay paths.
+.RE
+.RS  "*" 2 Clock Groups: Groups for all design clocks. For a design with three clocks, three groups will be reported, one group for each clock. Endpoints sharing the same reference clock will be part of the same group. If an endpoint belongs to multiple groups then it will be reported separately in each group.
+.RE
+.P Note: If user-defined path groups are specified, the software will override the path groups described above.   
+.SH report_min_pulse_width
+.P The report_min_pulse_width command reports pulse width slacks of all the clocks for a pin. In summary mode, the "clock" column will be displayed. In verbose mode (with path_type option), the behavior will be similar to the report_timing output in group-based mode. 
+.SH report_constraint
+.P The report_constraint command will perform the following checks:
+.RS  "*" 2 For max_delay/setup and min_delay/hold type checks paths will be reported for each clock group separately.
+.RE
+.RS  "*" 2 The behavior of pulse width check types will be the same as report_min_pulse_width command.
+.RE 
+.SH report_analysis_coverage
+.P The report_analysis_coverage command will report a check at end point for all the clocks. In verbose mode, the "clock" column will be displayed.
+.P To set this global variable, use the set_global command.
+.P

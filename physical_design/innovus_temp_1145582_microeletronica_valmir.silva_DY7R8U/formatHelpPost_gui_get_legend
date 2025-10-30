@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH gui_get_legend  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgui_get_legend\fR \-  Gets the current legend setting
+.SH Syntax \fBgui_get_legend\fR   [-help]  -type {inst_density pin_density metal_density route_congestion}   [-display_range | -value_range | -show_legend_on_layout | -legend_location | -enable_min_value | -enable_max_value] 
+.P Gets the current legend setting.
+.P You can use the gui_set_legend and gui_get_legend commands to get the snapshot of different density for analysis. 
+.SH Parameters   "\fB-help\fR" Prints a brief description of the command.  For a detailed description of the command, use the man command:   man gui_get_legend  "\fB-display_range \fR" Gets the display range  "\fB-enable_max_value\fR" Gets the state of the max value of display range.   "\fB-enable_min_value\fR" Gets the state of the min value of display range.   "\fB-legend_location\fR" Gets the location of legend.   "\fB-show_legend_on_layout\fR" Gets the state of legend on layout.   "\fB-type {inst_density pin_density metal_density route_congestion}\fR" Gets the setting for the specified legend type.   "\fB-value_range\fR" Gets the value range. 
+.SH Example
+.P The following command sets the legend for the inst_density legend type:
+.P > gui_set_legend -type inst_density -display_range {1 0.9} -show_legend_on_layout true
+.P The following command gets the current legend setting for the inst_density legend type.
+.P > gui_get_legend -type inst_density   {display_range {0.9 0.9}} {legend_location ne} {show_legend_on_layout true} {value_range {0.75 1}} 
+.SH Related Information
+.RS  "*" 2 gui_set_legend
+.RE
+.P

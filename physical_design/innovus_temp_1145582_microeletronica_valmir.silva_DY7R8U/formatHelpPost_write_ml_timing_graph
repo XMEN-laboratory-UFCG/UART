@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_ml_timing_graph  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_ml_timing_graph\fR \-  Writes timing-related data for JedAI to csv files
+.SH Syntax \fBwrite_ml_timing_graph\fR  [-help]    [-noedge]  -prefix <string>  [-register_only]   [-views <view_list>] 
+.P Writes timing-related data for JedAI to csv files. It includes data representing the complete timing graph for a given set of analysis views. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each write_ml_timing_graph parameter.  For a detailed description of the command and all of its parameters, use the man command  man write_ml_timing_graph.  "\fB-noedge\fR" Specifies that edge data should not be dumped. This option can be used to save time.  Data_type: int, optional  "\fB-prefix <string>\fR" Specifies the prefix for the output files.  Data_type: string, required  "\fB-register_only\fR" Specifies that only nodes for register should be dumped.  Data_type: bool, optional  "\fB-views <view_list>\fR" Dumps the data for the specified analysis view(s).  Data_type: tcl_obj, optional 
+.SH Example
+.RS  "*" 2 The following command writes the timing-related data for JedAI to csv files with the specified prefix:  write_ml_timing_graph -prefix out/ 
+.RE 
+.SH Related Information
+.RS  "*" 2 init_ml  "*" 2 write_ml_design  "*" 2 write_ml_library   "*" 2 write_ml_timing_path
+.RE
+.P

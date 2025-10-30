@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH delaycal_default_net_delay  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdelaycal_default_net_delay\fR
+.SH Syntax 
+.SH  \fBdelaycal_default_net_delay\fR <delay_value> 
+.P Type: String
+.P Default: 1000ps
+.P Sets the default net delay for delay calculation. The software uses this default value for nets that exceed 1,000 terminals. Delay calculation is performed for nets with fewer than 1,000 terminals. 
+.SH Example
+.RS  "*" 2 The following global variable sets the net delay to 3ns for nets that exceed 1,000 terminals:   set delaycal_default_net_delay 3ns  The software displays the following information:  Set Default Net Delay as 3000 ps.
+.RE 
+.SH Related Information
+.RS  "*" 2 "Base Delay Analysis" chapter in the Innovus System User Guide
+.RE 
+.SH Related Global Variables
+.RS  "*" 2 delaycal_default_net_load
+.RE
+.RS  "*" 2 delaycal_input_transition_delay
+.RE
+.RS  "*" 2 delaycal_use_default_delay_limit
+.RE
+.P

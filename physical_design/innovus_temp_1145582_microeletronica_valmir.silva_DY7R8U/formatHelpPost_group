@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH group  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgroup\fR \-  Creates a new module and hinst from a group of the specified hinsts or insts
+.SH Syntax \fBgroup\fR  [-help]  <inst>|<hInst>+  [[-module_name <module_name> -hinst_base_name <hinst_base_name> ]] 
+.P Creates a new module and hinst from a group of the specified hinsts or insts. You can only group hinsts and insts that belong to the same hierarchy (the same hinst parent). Returns the newly created hinst. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each group.  For a detailed description of the command and all of its parameters, use the man command:   man group  "\fB<inst>|<hInst>+\fR" Specifies the hinst(s) or inst(s), in the same hierarchy, to be grouped.  "\fB-hinst_base_name <hinst_base_name>\fR" Specifies the hinst base name of the new group instantiation.   "\fB-module_name <module_name>\fR" Specifies the module name of the new group. 
+.SH Example
+.P The following command groups two hinsts, h1 and h2, at the top-level into a new module named test.The new hinst is named testi by default.  >group -module_name test {DTMF_INST/TDSP_CORE_INST DTMF_INST/RESULTS_CONV_INST}
+.P Before:
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  After:  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 group_instance_suffix  "*" 2 ungroup 
+.RE
+.P

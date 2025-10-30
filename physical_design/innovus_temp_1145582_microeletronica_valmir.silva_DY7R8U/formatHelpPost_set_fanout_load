@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_fanout_load  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_fanout_load\fR \-  Specifies the fanout load on a set of ports
+.SH Syntax \fBset_fanout_load\fR  [-help]  <fanout_load>  <port_list> 
+.P Specifies the fanout load on a set of ports.
+.P The library instance pins can have fanout loads defined in the technology library. The fanout does not have specific units so it is assumed that a fanout as used by the constraints is consistent with the fanout defined in the technology libraries. If a pin or port has no fanout attribute, either from the constraints or from the technology library, then the fanout load will be zero. The fanout load is used only for design rule checking and does not impact the timing results. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB<fanout_load>\fR" Specifies the fanout load value for the port or ports.  "\fB<port_list>\fR" Specifies the list of ports for which the fanout load is applied. 
+.SH Examples
+.RS  "*" 2 The following command sets the fanout load of port out to 2: set_fanout_load 2 out
+.RE
+.RS  "*" 2 The following command sets the fanout load of ports in1 and in2 to 1: set_fanout_load 1 {in1 in2}
+.RE
+.RS  "*" 2 The following command sets the fanout load of element 3 of port out to 12: set_fanout_load 12 { out[3] }
+.RE
+.RS  "*" 2 The following command sets the fanout load of all the ports to 2: set_fanout_load 2 [get_ports *]
+.RE 
+.SH Related Information
+.RS  "*" 2 report_net  "*" 2 report_ports  "*" 2 set_max_fanout  "*" 2 report_constraint
+.RE
+.P

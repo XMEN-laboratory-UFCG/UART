@@ -1,0 +1,30 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH ecoDeleteRepeater  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBecoDeleteRepeater\fR \-  Deletes a buffer or pair of inverters connected back-to-back
+.SH Syntax \fBecoDeleteRepeater\fR  [-help][  -logicalChangeOnly]   { -inst {<list_of_instances>} | -invPair {{<inv1 inv2>} {<inv3 inv4>}
+...} } 
+.P Deletes a buffer or pair of inverters connected back-to-back. This command merges wires after ECO.
+.P This command does not modify dont_touch nets if setEcoMode -honorDontTouch is set to true.
+.P Notes: 
+.RS  "*" 2 The ecoDeleteRepeater command is simultaneous setup/hold and MMMC aware. To make the command simultaneous setup/hold aware, set the global variable set_global timing_enable_simultaneous_setup_hold_mode to true. The simultaneous setup/hold mode can only be used for timing analysis. It cannot be used for any physical implementation steps.  "*" 2 The ecoDeleteRepeater command cannot be used in the post-mask ECO. Please use loadECO <ecofile> -postMask to delete repeaters in the post-mask ECO.
+.RE 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each ecoDeleteRepeater.  For a detailed description of the command and all of its parameters, use the man command:   man ecoDeleteRepeater   "\fB<->inst<list_of_instances>\fR" Specifies a buffer or inverter to delete. If you specify an inverter, the command finds another inverter on the net and deletes the back-to-back pair in order to preserve the logical equivalence. Instances are deleted only if they are tied to each other.  To specify a pair of instances, enclose the instances in braces.  -inst {<inst1> <inst2>}  "\fB-invPair {<inv1 inv2>} {<inv3 inv4>}
+...\fR" Specifies pairs of inverters to be deleted/evaluated for deletion. You can specify a list of inverter pairs to be deleted.   "\fB-logicalChangeOnly\fR" Specifies that buffer/inverter deletion should be done in the logical-only mode.During buffering, this would be useful when the design is unplaced, the location of new buffer is not available, and all terms of the net-being-buffered are unplaced. If you specify -logicalChangeOnly option,  the tool will disable placement/legalization of the new buffer and proceed with buffering. During deletion, the tool will add a default resistance to replace the removed buffer/inverter, instead of calculating the accurate resistance based on locations.
+.P Note: You can specify the following using the setEcoMode command:
+.RS  "*" 2 setEcoMode -honorDontUse false to modify instances which have dontUse attribute on cells.
+.RE
+.RS  "*" 2 setEcoMode -honorDontTouch false to modify instance/nets which are marked dontTouch.
+.RE 
+.SH Examples
+.RS  "*" 2 The following command deletes the specified buffer, A/inst1:   ecoDeleteRepeater -inst A/inst1
+.RE
+.RS  "*" 2 The following command deletes a back-to-back inverter pair containing A/inv1:   ecoDeleteRepeater -inst A/inv1
+.RE
+.RS  "*" 2 The following command deletes instances DTMF_INST/RESULTS_CONV_INST/FE_PHC845_r1644_2_ and DTMF_INST/RESULTS_CONV_INST/FE_PHC845_r1643_3_:   ecoDeleteRepeater -inst {DTMF_INST/RESULTS_CONV_INST/FE_PHC845_r1644_2_ DTMF_INST/RESULTS_CONV_INST/FE_PHC845_r1643_3_}
+.RE 
+.SH Related Information
+.RS  "*" 2 ecoAddRepeater  "*" 2 loadECO  "*" 2 setEcoMode   "*" 2 timing_enable_simultaneous_setup_hold_mode
+.RE
+.P

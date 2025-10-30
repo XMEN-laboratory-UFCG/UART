@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_well_tap_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_well_tap_mode\fR \-  Returns the information about set_well_tap_mode parameters in the Innovus log file and in the Innovus console
+.SH Syntax \fBget_well_tap_mode\fR   [-help]   [-avoidAbutment]   [-block_boundary_only]   [-bottom_tap_cell]   [-bottom_termination_cell]   [-cell]   [-channel_offset]  [-check_channel]   [-column_cell]   [-inRowOffset]  [-insert_cells]  [-rule]   [-siteOffset]  [-tap_function_cells]  [-tap_termination_alignment]   [-termination_align]   [-termination_cell]   [-top_tap_cell]  [-top_termination_cell]  [-vertical_boundary_spacing]   [-well_cut_cell]  [-quiet]  [-nonDefault]
+.P Returns the information about set_well_tap_mode parameters in the Innovus log file and in the Innovus console. Returns the following information:
+.RS  "*" 2 Parameter name  "*" 2 Current value  "*" 2 Type (Boolean, string, and so on)  "*" 2 Whether the current value was set by user
+.RE
+.P If you do not specify a parameter, the software displays values for all of the set_well_tap_mode mode parameters. 
+.SH Related Information
+.RS  "*" 2 set_well_tap_mode
+.RE
+.P

@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH delete_ccopt_skew_groups  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdelete_ccopt_skew_groups\fR \-  This command deletes all skew groups matching the specified pattern
+.SH Syntax \fBdelete_ccopt_skew_groups\fR  [-help]  [-constrains cts | ccopt_initial | ccopt]  <pattern>  [-regexp] 
+.P This command deletes all skew groups matching the specified pattern. It makes no changes to the design. 
+.SH Parameters   "\fB-help      \fR" Outputs a brief description that includes type and default information for each delete_ccopt_skew_groups parameter. For a detailed description of the command and all of its parameters, use the man command:  man delete_ccopt_skew_groups.   "\fB-constrains cts | ccopt_initial | ccopt\fR" Specifies whether cts, ccopt_initial, or ccopt skew groups are to be deleted.  "\fB<pattern>\fR" Specifies the patterns for skew groups to delete. This parameter is required.   "\fB-regexp\fR" Specifies whether or not to use regular expression matching. 
+.SH Examples
+.RS  "*" 2 The following command deletes all skew groups associated with the clock, m_digit_clk:  delete_ccopt_skew_groups m_digit_clk*   "*" 2 The following command deletes all skew groups whose name contains the word "ram":  delete_ccopt_skew_groups ram -regexp
+.RE 
+.SH Related Information
+.RS  "*" 2 get_ccopt_property  "*" 2 get_ccopt_skew_groups  "*" 2 get_ccopt_skew_group_delay  "*" 2 get_ccopt_skew_group_path  "*" 2 create_ccopt_skew_group  "*" 2 modify_ccopt_skew_group  "*" 2 report_ccopt_skew_groups  "*" 2 set_ccopt_property
+.RE
+.RS  "*" 2 The following section in Clock Tree Synthesis chapter in the Innovus User Guide
+.RS  "*" 2 Clock Trees and Skew Groups
+.RE 
+.RE
+.P

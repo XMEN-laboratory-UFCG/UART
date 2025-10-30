@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH cutRow  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcutRow\fR \-  Cuts site rows within an area or that intersect with the selected object(s)
+.SH Syntax \fBcutRow\fR   [-help]  [-area <box>| -object <string>| -selected | -fromIo {<left bottom right top>}]  [-halo <float>| {-leftGap <float>| -rightGap <float>| -topGap <float>| -bottomGap <float>}]   [-site <name>]   [-keepCell]
+.P Cuts site rows within an area or that intersect with the selected object(s). Use this command after rows have been created.  Only insts, hinsts, place blockages, route blockages, power domains, groups, or bumps can participate in row splitting.
+.P Note: The default behavior is to cut rows that intersect with placement blockages and macros. 
+.SH Parameters   "\fB-area <box>\fR" Rows will be cut within the specified box. box is a tcl list containing 4 items. The items are, in order: LLX, LLY, URX, URY.  Note: The -halo parameter cannot be applied -area used.  Data_type: box, optional  "\fB-bottomGap <float>  \fR" Specifies the additional gap to be provided on the bottom side of the specified or selected object.  Data_type: float, optional  "\fB-fromIo {<left bottom right top>}\fR" Cuts core rows to keep them away from I/O cells in the minimum distance specified. Left means for IO cells on left side of die box, and so forth.  Data_type: box, optional  "\fB-halo <float>\fR" Specifies additional space to be provided on the top, bottom, left, and right sides of the objects causing rows to be cut. Rows are cut to the expanded boundary. The same value is used for all sides.  Data_type: float, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each cutRow parameter. For a detailed description of the command and all of its parameters, use the man command:  man cutRow  "\fB-keepCell\fR" Specifies that all cells that are placed inside the cut row area will not be unplaced.  Default: All cells inside the cut rows will be unplaced.  Data_type: bool, optional  "\fB-leftGap <float>\fR" Specifies the additional gap to be provided on the left side of the specified or selected object.  Data_type: float, optional  "\fB-object <string>\fR" Specifies the name of an intersecting object. Rows that intersect this object are cut. Only one name may be specified.  Data_type: string, optional  "\fB-rightGap <float>\fR" Specifies the additional gap to be provided on the right side of the specified or selected object.  Data_type: float, optional  "\fB-selected\fR" Specifies that the rows that intersect with the selected object(s) will be cut.  Note:  Only supports inst, hinst, power domain, group, place blockage, route_blockage, and bump as selected object(s).  Data_type: bool, optional   "\fB-site <name>\fR" Rows containing site name will be cut.  Default: All rows in the core box are cut.  Data_type: string, optional  "\fB-topGap <float>\fR" Specifies the additional gap to be provided on the top side of the specified or selected object.  Data_type: float, optional 
+.SH Example
+.RS  "*" 2 The following command cuts the rows containing sites of type SITE_FE283001 in the specified area:  cutRow -site SITE_FE283001 -area 124.975 138.123 237.378 223.38  "*" 2 The following command cuts the rows intersecting with selected objects, with a 0.5 micron halo:  cutRow -selected -halo 0.5  "*" 2 The following command cuts the rows intersecting with the object named fuu, with additional bottom gap of 0.5 microns:  cutRow -object fuu -bottomGap 0.5
+.RE 
+.SH Related Information
+.RS  "*" 2 deleteRow  "*" 2 select_row  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Creating and Editing Rows
+.RE 
+.RE
+.P

@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createShield  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateShield\fR \-  Creates shield wires for the NanoRoute router
+.SH Syntax \fBcreateShield\fR  [-help]  [-selected]   [-crosstie_only]   [-include_fixed]
+.P Creates shield wires for the NanoRoute router. After creating the shields, the router generates a report that includes shielding coverage statistics. 
+.SH Parameters   "\fB-crosstie_only\fR" Adds crosstie for coaxial shielding only.   Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each createShield parameter. For a detailed description of the command and all of its parameters, use the man command  man createShield  "\fB-include_fixed\fR" Includes fixed wires for shielding. The wire will not be changed but the electrical characteristics can be altered by adding shielding so that this option is required to include the fixed wire for shielding.  Data_type: bool, optional  "\fB-selected\fR" Creates shield wires for the selected nets. If you do not specify this option, all the clock nets will be shielding.  Data_type: bool, optional 
+.SH Example
+.RS  "*" 2 The following command creates shield wires for selected nets:  createShield -selected
+.RE 
+.SH Related Information
+.RS  "*" 2 deleteShield  "*" 2 reportShield  "*" 2 Using the NanoRoute Router chapter in the Innovus User Guide
+.RS  "*" 2 Performing Shielded Routing
+.RE 
+.RE
+.P

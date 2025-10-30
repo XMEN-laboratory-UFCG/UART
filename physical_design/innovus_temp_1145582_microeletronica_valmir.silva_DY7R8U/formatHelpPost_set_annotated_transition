@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_annotated_transition  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_annotated_transition\fR \-  Sets the transition time to be annotated on specified ports or pins in the current design
+.SH Syntax  \fBset_annotated_transition\fR  [-rise | -fall]   [-min | -max]   <slew_value>  <pin_list> 
+.P Sets the transition time to be annotated on specified ports or pins in the current design. The transition time that you specify using this command overrides the transition time calculated internally within the software. You can use this command to set the transition time of internal cell instance pins. 
+.SH Parameters    "\fB-min | -max\fR" Specifies whether the transition value is set for minimum or maximum transition time.  Default: Transition value is set for both transition times.  "\fB<pin_list>\fR" Specifies a list of pins or ports to be annotated with the transition time that you specify using the <slew_value> parameter.  "\fB-rise | -fall\fR" Specifies whether the transition value is set for rising or falling transition time.  Default: Transition value is set for both transitions.  "\fB<slew_value>\fR" Specifies the transition time to be annotated to the selected pins or ports. 
+.SH Examples
+.RS  "*" 2 The following command annotates a transition time value of 0.6 on port A:   set_annotated_transition 0.6 [get_ports A]
+.RE
+.RS  "*" 2 The following command annotates a transition time value of 0.7 on pin I2/A: set_annotated_transition 0.7 [get_pins I2/A]
+.RE
+.RS  "*" 2 The following command annotates a transition value of 0.7 on pin I2/A for rising transition time: set_annotated_transition -rise 0.7 [get_pins I2/A]
+.RE
+.RS  "*" 2 The following command annotates a transition value of 0.7 on pin I2/A for rising transition time and minimum pvt corner: set_annotated_transition -rise -min 0.7 [get_pins I2/A]
+.RE 
+.SH Related Information
+.RS  "*" 2 set_input_transition  "*" 2 set_interactive_constraint_modes 
+.RE
+.P

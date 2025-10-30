@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH verify_PG_short  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBverify_PG_short\fR \-  Checks for power and ground shorts between two geometries belonging to different nets
+.SH Syntax \fBverify_PG_short\fR  [-help]  [-area {<x1 y1 x2 y2>}]  [-net <net_name>]  [-no_cell_blkg]  [-no_routing_blkg]  [-report <filename>] 
+.P Checks for power and ground shorts between two geometries belonging to different nets. The command performs power and ground short check between the following:
+.RS  "*" 2 PG and PG nets
+.RE
+.RS  "*" 2 PG and signal nets
+.RE
+.RS  "*" 2 PG and other special net
+.RE
+.P This command enables you to check for power and ground shorts in the design before performing any kind of power-grid analysis. You can use this command after restoring the physical design (read_design -physical_data <design> or read_def <filename>). 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each verify_PG_short parameter.  For a detailed description of the command and all its parameters, use the man command:  man verify_PG_short  "\fB-area {x1 y1 x2 y2}\fR" Specifies the coordinates of the area to verify. For example, verify_PG_short -area {0 0 100 100}. The unit of coordinates is micron.   "\fB-net <net_name>\fR" Specifies the name of the power or ground net to be verified.   "\fB-no_cell_blkg\fR" Ignores cell blockages during power and ground short checking.   "\fB-no_routing_blkg\fR" Ignores routing blockages during during power and ground short checking.   "\fB-report <filename>\fR" Specifies the name of the report file that contains the violation information. 
+.SH Example
+.P The following command checks for power and ground shorts in the area specified and generates a detailed report named shorts.rpt.   verify_PG_short -area {0 0 1600 1600} -report shorts.rpt 
+.SH Related Information
+.P The Identifying and Viewing Violations chapter of User Guide.
+.P

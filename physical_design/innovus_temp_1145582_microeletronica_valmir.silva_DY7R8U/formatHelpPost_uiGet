@@ -1,0 +1,70 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH uiGet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBuiGet\fR \-  Retrieves the current value of the specified property of the element that is being queried
+.SH Syntax \fBuiGet\fR  [-help]   <name>  [-quiet]  [ -before | -checked | -children | -command     | -disabled | -dockwin | -enablevar | -foreground     | -geometry | -icon | -in | -label | -menu     | -message | -movable | -newline | -shortcut     | -statusbar | -title | -toolbar | -tooltip     | -type | -underline | -value | -variable     | -visible | -visiblevar ] 
+.P Retrieves the current value of the specified property of the element that is being queried. Using the uiGet command, you can query all the properties in the uiAdd command for each type. In addition, depending on the type, some special properties are supported too as described below:
+.RS  "*" 2 For elements of type menu/submenu/toolbar:
+.RE
+.RS
+.RS  "*" 2 uiGet <name> -children   Returns a list of all the child elements of the specified interface element.
+.RE 
+.RE
+.RS  "*" 2 For main (main window):
+.RE
+.RS
+.RS  "*" 2 uiGet main -menu  Returns a list of all the menus in the main window.
+.RE 
+.RE
+.RS
+.RS  "*" 2 uiGet main.layout -toolbar  Returns the list of all the toolbars in the main window.
+.RE 
+.RE
+.RS
+.RS  "*" 2 uiGet main -statusbar  Returns the status bar in the main window.
+.RE 
+.RE
+.RS
+.RS  "*" 2 uiGet main -geometry  Returns the geometry of the main window in the format <width>x<height>+<x>+<y>.
+.RE 
+.RE
+.RS
+.RS  "*" 2 uiGet main -title  Returns the title of the main window.
+.RE 
+.RE
+.RS
+.RS  "*" 2 uiGet main -closecmd  Returns the close confirmation command of the main window.
+.RE 
+.RE
+.RS
+.RS  "*" 2 uiGet main -visible  Returns the visibility status of the main window.
+.RE 
+.RE
+.RS  "*" 2 For statusbar:
+.RE
+.RS
+.RS  "*" 2 uiGet name -message  Returns the current message of the status bar.
+.RE 
+.RE
+.RS
+.RS  "*" 2 uiGet name -visible  Returns the visibility status of the status bar.
+.RE 
+.RE
+.RS
+.RS  "*" 2 uiGet name -in  Returns the parent element of the status bar.
+.RE 
+.RE
+.P  The statusbar also supports the -enablevar and -visiblevar parameters. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each uiGet parameter.  For a detailed description of the command and all of its parameters, use the man command:  man uiGet  "\fB<name>\fR" Specifies as a string the name of the interface element you want to query. If multiple widgets are found with the same <name>, the first matched widget is queried. Returns an error if there is no element with the specified name.  "\fB-before <name>\fR" When specified, returns the element that occurs before the element identified by <name>.  "\fB-checked\fR" Returns the on/off state of the specified check box or radio button. If the check box or radio button is selected, returns true. If it is deselected, returns false.  "\fB-children\fR" Returns child elements of specified interface element.  Note: You can use this parameter with elements of type menu, submenu, and toolbar.  "\fB-command\fR" Returns the Tcl command to be executed when the specified element you are adding is invoked.  Note: You can use the -command parameter only with elements of type command, check, radio or toolbutton.  "\fB-disabled\fR" When specified, returns whether the specified interface element is enabled (false) or disabled (true).  Note: You can use the -disabled parameter only with elements of type menu, submenu, command, check, radio or toolbutton. The parameter is NOT applicable for elements of type toolbar and separator.  "\fB-dockwin\fR" Returns the dockwidget.   "\fB-enablevar\fR" Represents the Tcl global variable for Enable status.  "\fB-foreground\fR" Returns the foreground color of the icon for the specified toolbutton.  Note: You can use the -foreground parameter only with elements of type toolbutton.  "\fB-geometry\fR" Returns the width, height, and coordinates of the main window.  Note: The -geometry parameter is applicable only for the main window, which is type main.  "\fB-icon\fR" Returns the file name of the specified toolbutton.  Note: The -icon parameter is applicable only for elements of type toolbutton.  "\fB-in\fR" Returns the name of the parent element.  "\fB-label\fR" Returns the label of the specified element.  Note: This parameter is NOT applicable for elements of type separator.  "\fB-menu\fR" Returns the names of the menus in the main window.  Note: This parameter is applicable only for the main window, which is type main.  "\fB-message\fR" Returns the message on the status bar.  Note: This parameter is applicable only for the status bar.  "\fB-movable\fR" Returns whether or not the specified toolbar is movable.  Note: The -movable parameter is applicable only for elements of type toolbar.  "\fB-newline\fR" Returns whether or not the specified toolbar starts in a new row.  Note: The -newline parameter is applicable only for elements of type toolbar.  "\fB-shortcut\fR" Returns the shortcut key for a command, check box, radio button, or toolbutton.  Note: You can use the -shortuct parameter only with elements of type command, check, radio, or toolbutton.  "\fB-statusbar\fR" Returns the name of the main window's status bar.  Note: This parameter is applicable only for the main window (main).  "\fB-title\fR" Returns the text on the main window's title bar.  Note: This parameter is applicable only for the main window (main).  "\fB-toolbar\fR" Returns the toolbars in the window.   "\fB-tooltip\fR" Returns the tooltip text for the specified toolbar or toolbutton.  Note: The -tooltip parameter is applicable only for elements of type toolbar and toolbutton.  "\fB-type\fR" Returns the type of the specified element.  "\fB-underline\fR" Returns the integer index of the underlined character in the element label.  Note: The -underline parameter is NOT applicable for elements of type toolbar, separator, and toolbutton.  "\fB-value\fR" Returns the value stored in the associated variable of the specified radio button.  Note: The -value parameter is applicable only for elements of type radio.  "\fB-variable\fR" Returns the Tcl global variable for the specified check box or radio button.  "\fB-visible\fR" Returns the visibility status of the element.  "\fB-visiblevar \fR" Represents the Tcl global variable for Visible status  "\fB-quiet\fR" Displays the current settings for the specified parameters in the Tcl list format. 
+.SH Examples
+.RS  "*" 2 The following command returns the label on element named verify:   uiGet verify -label  The software returns the following:  Verify  "*" 2 The following command returns the names of all the menus in the main window:   uiGet main -menu  The software returns the following:  file view edit partition fplan power place eco clock route timing verify pvs tools windows flow help   "*" 2 The following command returns the names of all the toolbars in the main layout:  uiGet main.layout -toolbar  The software returns the following:  tbFile tbEdit tbView tbTools tbReport tbToolBox we main.layout.selectbar  "*" 2  The following command returns whether the Select bar in the main layout is movable:  uiGet main.layout.selectbar -movable
+.RE 
+.SH Related Information
+.RS  "*" 2 uiAdd  "*" 2 uiDelete  "*" 2 uiFind  "*" 2 uiSet  "*" 2 Customizing the User Interface chapter in the User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2 Querying and Configuring Interface Elements
+.RE 
+.RE
+.P

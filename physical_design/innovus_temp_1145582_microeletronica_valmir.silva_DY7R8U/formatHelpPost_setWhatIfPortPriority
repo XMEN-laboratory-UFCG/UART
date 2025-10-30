@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setWhatIfPortPriority  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetWhatIfPortPriority\fR
+.SH Syntax  \fBsetWhatIfPortPriority\fR  [-driveCell | -portParam]     Note: Command setWhatIfPortPriority is obsolete and has been replaced by setWhatIfTimingMode.
+.P On output ports, parameters such as capacitance value, maximum capacitance values, maximum transition value, or the maximum fanout value can come from the driver (setWhatIfDriveType command) or they can be set through the setWhatIfPortParameters command.
+.P The setWhatIfPortPriority command defines which of these values will take precedence in case of a conflict.
+.P You can use this command after the module definition of the blackbox or the blackblob is available with the I/O's in the Verilog netlist.
+.P Note: This feature is available only in the CTE mode. 
+.SH Parameters    "\fB-driveCell\fR" Specifies that the values set through the setWhatIfDriveType command will take precedence  "\fB-portParam\fR" Specifies that the values set through the setWhatIfPortParameters command will take precedence.
+.P The default value is -portParam.

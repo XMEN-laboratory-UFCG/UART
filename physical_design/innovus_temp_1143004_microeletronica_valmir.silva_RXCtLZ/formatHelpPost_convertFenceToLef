@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH convertFenceToLef  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBconvertFenceToLef\fR \-  Converts a specified hierarchical instance or partition name to a LEF block. Use this command after floorplanning the design
+.SH Syntax \fBconvertFenceToLef\fR  [-help]  hinst  [<ptnName>] 
+.P Converts a specified hierarchical instance or partition name to a LEF block. Use this command after floorplanning the design.
+.P Note: This command runs the savePartition command for the specified partition as if it was at the top-level. This will overwrite any partition or hierarchical instance that is specified in the
+.lef file in the top partitioned subdirectory. In addition, the ptnname.def file will overwrite the partition's ptn.def subdirectory file. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each convertFenceToLef parameter.  For a detailed description of the command and all of its parameters, use the man command:   man convertFenceToLef  "\fB<hinst>\fR" Specifies the hierarchical instance cell name.  Data_type: string, required  "\fB<ptnName>\fR" Specifies the partition name. If this is not specified, the command uses the hierarchical instance cell name as the partition name.  Data_type: string, optional 
+.SH Example
+.P The following command converts the results_conv hierarchical instance to a LEF block.  convertFenceToLef results_conv 
+.SH Related Information
+.RS  "*" 2 savePartition  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

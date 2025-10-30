@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getDrawView  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetDrawView\fR \-  Returns the design view that was set with the setDrawView command. You can use this command after setDrawView
+.SH Syntax  \fBgetDrawView\fR  [-help] 
+.P Returns the design view that was set with the setDrawView command. You can use this command after setDrawView. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description of the getDrawViewcommand. For a detailed description of the command, use the man command:   man getDrawView 
+.SH Related Information
+.RS  "*" 2 setDrawView  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

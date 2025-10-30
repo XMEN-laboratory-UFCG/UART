@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH read_taf  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBread_taf\fR \-  Applies additional attribute data from Genus for the user-managed exchanges
+.SH Syntax \fBread_taf\fR  [-help]   [<filename> [-quiet]
+.P Applies additional attribute data from Genus for the user-managed exchanges. It is not needed for managed exchanges after iSpatial (syn_opt -spatial) from Genus to Innovus or when using common-DB between Genus and Innovus. The 'taf' format is a private format between Genus and Innovus. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each read_taf parameter.  "\fB<filename>\fR" Specifies the name of file to read.  Data_type: string, required  "\fB-quiet\fR" When -quite is specified, the tool does not give a summary.  Data_type: bool, optional
+.P

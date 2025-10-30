@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_drv_enable_slew_threshold_scaling  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_drv_enable_slew_threshold_scaling\fR
+.SH Syntax \fBtiming_report_drv_enable_slew_threshold_scaling\fR {true | false}  
+.P Default: false
+.P Enables the transition constraints scaling as per the slew threshold value.
+.P To set this global variable, use the set command.
+.P

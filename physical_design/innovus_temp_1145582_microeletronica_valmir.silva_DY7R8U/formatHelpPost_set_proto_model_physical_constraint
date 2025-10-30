@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_proto_model_physical_constraint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_proto_model_physical_constraint\fR \-  Sets FlexModels to specific physical constraints to guide placement
+.SH Syntax \fBset_proto_model_physical_constraint\fR  [-help]  -type {guide | fence | region | soft_guide | none}  [-model <string>]
+.P Sets FlexModels to specific physical constraints to guide placement. By default, all the FlexModels will be set to the specified type. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-modelstring\fR" Specifies a list of flexmodels.  Data_type: string, optional  "\fB-type {guide | fence | region | soft_guide | none}\fR" Specifies the constraint type. You can select one of the following options:
+.RS  "*" 2 guide  "*" 2 fence  "*" 2 region  "*" 2 soft_guide  "*" 2 none
+.RE   Data_type: enum, required 
+.SH Examples
+.P The following commands change physical constraint of all FlexModels to guide before running detailed placement:
+.P set_proto_model_physical_constraint -type guide   set_proto_mode -effort high  place_opt_design  earlyGlobalRoute  timeDesign -proto  load_timing_debug_report -proto 
+.SH Related Information
+.RS  "*" 2  set_proto_model  "*" 2  Prototyping Methodologies chapter in the Innovus User Guide
+.RE
+.P

@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH cutPowerDomainByOverlaps  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcutPowerDomainByOverlaps\fR \-  When you floorplan one power domain (inner domain) completely inside the other power domain (outer domain), use this command to cut the outer domain as a hollow or donut shape
+.SH Syntax \fBcutPowerDomainByOverlaps\fR  <powerDomainName>  [-help] 
+.P When you floorplan one power domain (inner domain) completely inside the other power domain (outer domain), use this command to cut the outer domain as a hollow or donut shape. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each cutPowerDomainByOverlaps parameter.  For a detailed description of the command and all its parameters, use the man command:   man cutPowerDomainByOverlaps.  "\fB<powerDomainName>\fR" Specifies the outer power domain where the nested power domain will reside. 
+.SH Examples
+.P Here is an example of using this command. In this example, the power domains, PD1 and PD2, are defined in the power intent file, and then the bounding box for each domain is specified:
+.P modifyPowerDomainAttr PD1 -box llx lly urx usy   modifyPowerDomainAttr PD2 -box llx lly urs usy  
+....
+.P Note: The bounding box for PD2 must lie completely within the PD1 bounding box.
+.P Designate PD1 as the hollow power domain:
+.P cutPowerDomainByOverlaps PD1
+.P Instances in PD1 will not be placed within PD2.
+.P The following figure shows the resulting power domains.
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 cutBoxListFromPowerDomain  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_drv_reports_on_constant_nets  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_drv_reports_on_constant_nets\fR
+.SH Syntax \fBtiming_disable_drv_reports_on_constant_nets\fR  {true | false} 
+.P Default: false
+.P Disables DRV checks for nets that are disabled by constant propagation.
+.P When set to true, the report_constraint command does not report DRV violations for constant nets.
+.P To set this global variable, use the set command.
+.P

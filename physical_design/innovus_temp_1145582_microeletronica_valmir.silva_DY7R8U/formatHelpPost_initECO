@@ -1,0 +1,2 @@
+ "\fB-help\fR" Outputs a brief description that includes type and default information for each initECO parameter
+.SH Syntax \fBinitECO\fR  [-help]   <ecoFileName>

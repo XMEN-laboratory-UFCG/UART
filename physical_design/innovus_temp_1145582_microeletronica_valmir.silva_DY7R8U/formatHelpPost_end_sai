@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH end_sai  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBend_sai\fR \-  Disables the SoC Architecture Information (SAI) mode
+.SH Syntax \fBend_sai\fR  [-help] 
+.P Disables the SoC Architecture Information (SAI) mode. 
+.SH Parameters   "\fB-help\fR" Prints the command usage. 
+.SH Related Information
+.RS  "*" 2 read_sai  "*" 2 Prototyping Methodologies chapter in the Innovus User Guide  "*" 2 Syntax and Scripts chapter in the Innovus User Guide
+.RS  "*" 2 Supported SAI Commands
+.RE 
+.RE
+.P

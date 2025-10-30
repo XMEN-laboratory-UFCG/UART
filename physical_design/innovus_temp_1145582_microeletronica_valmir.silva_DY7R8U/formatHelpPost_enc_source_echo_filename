@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH enc_source_echo_filename  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBenc_source_echo_filename\fR
+.SH Syntax \fBenc_source_echo_filename\fR <value>
+.P Type: Boolean
+.P Default: 0
+.P When this setting is enabled, the log file will display the file name being sourced before the actually sourcing the file. By default, name of the file being sourced is not displayed in the log file.  
+.SH Related Information
+.RS  "*" 2 source
+.RE
+.P

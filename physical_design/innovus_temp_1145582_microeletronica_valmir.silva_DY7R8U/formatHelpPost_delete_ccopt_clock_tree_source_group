@@ -1,0 +1,2 @@
+ "\fB-help      \fR" Outputs a brief description that includes type and default information for each delete_ccopt_clock_tree_source_group parameter
+.SH Syntax \fBdelete_ccopt_clock_tree_source_group\fR  [-help]  pattern  [-regexp]

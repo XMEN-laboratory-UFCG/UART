@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_power_output_dir  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_power_output_dir\fR \-  Specifies the name of the directory that power information will be output to
+.SH Syntax \fBset_power_output_dir\fR <dir>  [-reset] 
+.P Specifies the name of the directory that power information will be output to. 
+.SH Parameters    "\fB<dir>\fR" Specifies the name of the directory in which power analysis output information is written.  "\fB-reset\fR" Resets all options back to default values. 
+.SH Examples
+.RS  "*" 2 The following command specifies the output directory called static_power_AvallOn in which the power information is written.   set_power_output_dir static_power_AVallOn
+.RE 
+.SH Related Information
+.RS  "*" 2 set_power_analysis_mode   "*" 2 "Static Power, IRdrop and EM Analysis" in the Voltus IC Power Integrity Solution User Guide  "*" 2 "Dynamic Power and IRDrop Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

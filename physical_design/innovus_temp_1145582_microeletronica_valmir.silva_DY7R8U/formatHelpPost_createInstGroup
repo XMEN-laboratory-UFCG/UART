@@ -1,0 +1,31 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createInstGroup  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateInstGroup\fR \-  Creates a new instance group, even outside the core boundary. Use this command after importing the design
+.SH Syntax \fBcreateInstGroup\fR   [-help]  <group_name>   [-isPhyHier]  [-guide <box>| -region <box> | -fence <box> | -softGuide ]   [[-ar <num>] -density <num> ]   [-softGuide ]   [-floating | -softGuide ]   [-floating | -guide <box>]
+.P Creates a new instance group, even outside the core boundary. Use this command after importing the design.
+.P Note: Instance groups are used to create a new logical hierarchy unit, and normally all power domains will associate with an instance group which always have a constraint fence. The constraint fence means standard cell belonging to this group cannot be placed outside and only standard cell belong to this group can be placed inside. Cadence recommends that this physical-logical coherence should not be violated. The coherence requirement does not only apply for instance groups, but also pertains to all hinsts and instance groups as long as they have constraint fence.  In other words, if fence A  belongs to fence B in logical, then fence A must be placed inside fence B. 
+.SH Parameters   "\fB-ar <num>\fR" Specifies the aspect ratio. If this is not specified, 1 is the default.  Data_type: float, optional  "\fB-density <num>\fR" Specifies a placement density percentage. Use the decimal format, where 0.75 is for 75% density.  Data_type: float, optional  "\fB-fence <box>\fR" Specifies the coordinates of the box (x1 y1 x2 y2) for a fence.
+.RS  "*" 2 x1: Specifies the lower left x coordinate of the box.  "*" 2 y1: Specifies the lower left y coordinate of the box.  "*" 2 x2: Specifies the upper right x coordinate of the box.  "*" 2 y2: Specifies the upper right y coordinate of the box.
+.RE   Note: Since a fence should not cross multiple power domains, the createInstGroup command should only be used to group objects in the same power domain (otherwise the design may become unplaceable).  Data_type: box, optional  "\fB-floating\fR" Creates a floating instance group.  Note: It does not support rectilinear shapes.  Note: You can use the -floating parameter with the -fence or -region parameters only.   Data_type: bool, optional  "\fB<group_name>\fR" Specifies the name of the created group. A group is a user-defined group name and is created to contain hierarchical instances, instances (leaf instances), or other groups.  Note: In the nested partitions scenario, to add a module to be within a module, you must include the hinst name of the module in which you want the new module to be in, within the group name.  For example,  createInstGroup i_a/bc  addInstToInstGroup i_a/bc i_a/b  addInstToInstGroup i_a/bc i_a/c  Note: Incorrect groupings can cause violations.  Data_type: string, required  "\fB-guide <box>\fR" Specifies the coordinates of the box (x1 y1 x2 y2) for a guide.
+.RS  "*" 2 x1: Specifies the lower left x coordinate of the box.  "*" 2 y1: Specifies the lower left y coordinate of the box.  "*" 2 x2: Specifies the upper right x coordinate of the box.  "*" 2 y2: Specifies the upper right y coordinate of the box.
+.RE   Data_type: box, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each createInstGroup parameter. For a detailed description of the command and all of its parameters, use the man command:  man createInstGroup  "\fB-isPhyHier\fR" Specifies that the created group is a physical hierarchy. By default, the created group is not saved back to the netlist.  Data_type: bool, optional  "\fB -region <box>\fR" Specifies the coordinates of the box (x1 y1 x2 y2) for a region.
+.RS  "*" 2 x1: Specifies the lower left x coordinate of the box.  "*" 2 y1: Specifies the lower left y coordinate of the box.  "*" 2 x2: Specifies the upper right x coordinate of the box.  "*" 2 y2: Specifies the upper right y coordinate of the box.
+.RE   Note: Since a fence should not cross multiple power domains, the createInstGroup command should only be used to group objects in the same power domain (otherwise the design may become unplaceable).  Data_type: box, optional  "\fB-softGuide\fR" Specifies that the created group is a soft guide constraint.   Data_type: bool, required 
+.SH Examples
+.RS  "*" 2 The following command creates group adder1:   createInstGroup adder1
+.RE
+.RS  "*" 2 The following command creates group gusher_4 and its placement guide at the above area location:   createInstGroup gusher_4 -guide 2345.3 9962.1 4930.0 18244.8
+.RE
+.RS  "*" 2 The following command creates group adder2 with 80% of the area occupied by the instance area with an aspect ratio of 2:   createInstGroup adder2 -density
+.8 -AR 2
+.RE 
+.SH Related Information
+.RS  "*" 2 addInstToInstGroup  "*" 2 deleteAllInstGroups  "*" 2 deleteInstFromInstGroup  "*" 2 deleteInstGroup  "*" 2 setInstGroupPhyHier  "*" 2 createExclusiveGroups
+.RE
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Grouping Instances
+.RE 
+.RE
+.P

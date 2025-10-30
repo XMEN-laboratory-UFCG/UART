@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH check_power_intent  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheck_power_intent\fR \-  Checks the IEEE1801 power intent coding style for the IEEE1801 partitioning
+.SH Syntax \fBcheck_power_intent\fR  [-help]  -1801  -hierarchical  [-outfile <string>]  [-verbose]
+.P Checks the IEEE1801 power intent coding style for the IEEE1801 partitioning. This command also reports potential IEEE1801 coding style, which is unsuitable for partitioning. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each check_power_intent parameter.  For a detailed description of the command and all its parameters, use the man command:  man check_power_intent  "\fB-1801\fR" Specifies that the power intent is IEEE 1801.   "\fB-hierarchical\fR" Specifies the input power intent style.  "\fB-outfile <string>\fR" Specifies the output filename.   "\fB-verbose\fR" Prints the detailed information related to the check_power_intent command. 
+.SH Related Information
+.RS  "*" 2 commit_power_intent  "*" 2 free_power_intent  "*" 2 read_power_intent  "*" 2 write_power_intent  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

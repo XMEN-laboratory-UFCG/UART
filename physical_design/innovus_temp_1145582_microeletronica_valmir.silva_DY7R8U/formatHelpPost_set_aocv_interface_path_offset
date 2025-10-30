@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_aocv_interface_path_offset  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_aocv_interface_path_offset\fR \-  You can perform path-based inter power domain (IPD) timing analysis by specifying derate offset value for an entire power domain(s) and specific library cell(s) on paths crossing multiple power domains
+.SH Syntax \fBset_aocv_interface_path_offset\fR  <derateOffsetVal>  [<lib_cells>]  [-view <view_name>]  [-delay_corner <dc_corner_name>]  [-cell]  [-net]  -power_domain <power_domain_name_list> 
+.P You can perform path-based inter power domain (IPD) timing analysis by specifying derate offset value for an entire power domain(s) and specific library cell(s) on paths crossing multiple power domains. This feature is supported for path-based analysis (PBA) mode only.
+.P The set_aocv_interface_path_offset command allows you to specify the derate offset value for path segments crossing multiple power domains. The software adds the derate offset value to the AOCV derate value if the combined (AOCV + IPD offset) derate number causes pessimistic PBA timing slack value. 
+.SH Parameters    "\fB-cell\fR" It is a boolean option. When the -cell option is specified, intent is to apply derate offset only for that cell objects.  In absence of these options, derate offset value will be applied to both cell and net type of objects  "\fB-delay_corner <dc_corner_name>\fR" Specifies a list of delay corners.  "\fB<derateOffsetVal>\fR" Specifies value of derate offset.  "\fB<lib_cells>\fR" Specifies a list of library cells for a specific interface.  "\fB-net\fR" It is a boolean option. When the -net option is specified, intent is to apply derate offset only for that net objects.
+.P In absence of these options, derate offset value will be applied to both cell and net type of objects   "\fB-power_domain <power_domain_name_list>\fR" Specifies a list of power domains.  "\fB-view<view_name>\fR" Specifies a list of views. 
+.SH Examples
+.RS  "*" 2 The following example specifies the offset derate value of -0.6 for the power domain {PD3 PD4}:   set_aocv_interface_path_offset -0.6 -power_domain {PD3 PD4} -delay_corner V1_PM1_dc 
+.RE
+.P

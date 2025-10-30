@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_context_clock_mapping_check_waveform  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_context_clock_mapping_check_waveform\fR
+.SH Syntax \fBtiming_context_clock_mapping_check_waveform\fR   {true | false}
+.P Default : true
+.P Controls the waveform checking. 
+.P To set this global variable, use the set command.
+.P

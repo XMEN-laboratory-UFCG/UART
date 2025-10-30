@@ -1,0 +1,2 @@
+ "\fB-checkOnly\fR" When specified, the tool check if the master and clone partitions are out of sync or not
+.SH Syntax \fBclonePtnObj\fR  [-help]   [-checkOnly]   [-objs {all placeBlockage routeBlockage pinBlockage macros fences busGuides}]   [-redo]   [-refHinsts <list_of_hinst_names>]   [-sync]  [-targetHinsts <list_of_hinst_names>]   [-undo]

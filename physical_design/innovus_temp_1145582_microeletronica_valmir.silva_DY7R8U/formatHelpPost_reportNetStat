@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportNetStat  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportNetStat\fR \-  Reports statistical data of the design netlist such as number of cells, number of nets (including tri-nets and degen nets), number of pins, and number of IOs in the design and number nets with different number of terms. The primitives used in the design are also listed
+.SH Syntax \fBreportNetStat\fR
+.P Reports statistical data of the design netlist such as number of cells, number of nets (including tri-nets and degen nets), number of pins, and number of IOs in the design and number nets with different number of terms. The primitives used in the design are also listed.
+.P Example
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P

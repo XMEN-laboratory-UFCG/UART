@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH flipSdpObject  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBflipSdpObject\fR \-  Flips an SDP group on X or Y axis along with its elements
+.SH Syntax \fBflipSdpObject\fR  [-help]   -object <object_name_list>  [-x | -y ] 
+.P Flips an SDP group on X or Y axis along with its elements. The alignment information (justifyBy) is adjusted accordingly.
+.P Use the flipSdpObject command when flipping can reduce wire length. In the traditional SDP flow, this command can be used while defining SDP constraints or while analyzing SDP alignment. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each flipSdpObject parameter.  For a detailed description of the command and all of its parameters, use the man command: man flipSdpObject.  "\fB-object <object_name_list>\fR" Specifies the names of the SDP groups to be flipped.  "\fB-x | -y\fR" Specifies the axis on which the specified group (along with its elements) should be flipped.  Default: -y  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Examples
+.RS  "*" 2 The following command flips the SDP group sdpGrp1 on Y axis.   flipSdpObject -object sdpGrp1
+.RE 
+.SH Related Information
+.RS  "*" 2 addSdpObject  "*" 2 checkSdpGroup  "*" 2 createSdpGroup  "*" 2 deleteSdpObject  "*" 2 moveSdpObject  "*" 2 setSdpObjectStatus
+.RE
+.RS  "*" 2 sdpsdp object in Innovus Database Object Information  "*" 2 Using Structured Data Paths chapter of the User Guide  "*" 2 Floorplan Menu chapter of the Menu Reference 
+.RS  "*" 2 Structured Data Path
+.RE 
+.RE
+.P

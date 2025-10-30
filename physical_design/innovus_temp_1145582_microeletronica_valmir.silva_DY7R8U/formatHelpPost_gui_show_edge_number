@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH gui_show_edge_number  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgui_show_edge_number\fR \-  Displays edge numbers on the sides of the selected or specified objects in the GUI. Currently, you can display edge numbers on partitions and blocks. This feature is useful if you need to indicate the partition or block edge number in your script
+.SH Syntax \fBgui_show_edge_number\fR [-help]  [-objects <string>]  [-reset]
+.P Displays edge numbers on the sides of the selected or specified objects in the GUI. Currently, you can display edge numbers on partitions and blocks. This feature is useful if you need to indicate the partition or block edge number in your script. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each gui_show_edge_number parameter.  For a detailed description of the command and all of its parameters, use the man command:   man gui_show_edge_number  "\fB-objects <string>\fR" Specifies the name of the object for which the edge numbers should be displayed. If you want to specify multiple object names, enclose them in braces or double quotation marks.  Currently, you can display the edge numbers for partitions and blocks.  "\fB-reset\fR" Clears the edge numbers from the specified or selected objects on the GUI. If you want to clear the edge numbers for all objects, use the -reset parameter with  -objects *. 
+.SH Examples
+.RS  "*" 2 The following command displays the edge numbers on the DTMF_INST/PLLCLK_INST block in the GUI:  gui_show_edge_number -objects DTMF_INST/PLLCLK_INST  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command clears the edge numbers from all blocks:  gui_show_edge_number -objects * -reset
+.RE 
+.SH Related Information
+.RS  "*" 2 gui_select  "*" 2 lineSelect  "*" 2 windowSelect
+.RE
+.P

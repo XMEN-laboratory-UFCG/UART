@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unfixAllIos  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunfixAllIos\fR \-  Changes the status of all I/Os from FIXED to PLACED
+.SH Syntax \fBunfixAllIos\fR   [-help]  [-incAreaIo]
+.P Changes the status of all I/Os from FIXED to PLACED. If any I/O has a status other than fixed prior to running this command, that status will be retained. You can use this command after importing the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each unfixAllIos parameter. For a detailed description of the command and all of its parameters, use the man command:   man unfixAllIos  "\fB-incAreaIo\fR" Changes the status of all CLASS PAD AREAIO cells from a FIXED state to a PLACED state.  Data_type: bool, optional 
+.SH Examples
+.RS  "*" 2 The following command changes the status of all I/O pins and I/O cells from a FIXED state to a PLACED state:   unfixAllIos
+.RE
+.RS  "*" 2 The following command changes the status of all I/O pins, I/O cells, and all CLASS PAD AREAIO cells from a FIXED state to a PLACED state:   unfixAllIos -incAreaIo
+.RE 
+.SH Related Information
+.RS  "*" 2 fixAllIos  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Data Preparation chapter in the Innovus User Guide
+.RS  "*" 2 Performing Area I/O Placement
+.RE 
+.RE
+.P

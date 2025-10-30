@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH foreach_in_collection  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBforeach_in_collection\fR
+.SH Syntax \fBforeach_in_collection\fR  [-help]  <var_name> <collection> <body> 
+.P Iterates through all objects in the specified collection and executes the commands in the specified script. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB<body>\fR" Specifies the script of commands to execute during each iteration.  "\fB<collection>\fR" Specifies the collection of objects through which to iterate.  "\fB<var_name>\fR" Specifies the iterator variable. During each iteration, <var_name> is set to a collection of exactly one object. Any command that accepts collections can accept <var_name> as a value. 
+.SH Examples
+.RS  "*" 2 A script with the following commands would print out the hierarchical names of all of the cells in the design:  foreach_in_collection iCell [get_cells *] {  puts "Cell = [get_property $iCell hierarchical_name]"
+.RE
+.P          }           Cell = ck_0           Cell = ck_1           Cell = ck_2           Cell = ck_4
+.RS  "*" 2 The following example shows a more complex use of the foreach_in_collection command.  set cellCollection [get_cells temp1_reg]  set libCellCollection [get_lib_cells -of_objects $cellCollection]  set libArc [get_lib_arcs -of_objects $libCellCollection]  foreach_in_collection arc $libArc {  set fpin [get_property $arc from_lib_pin]  set tpin [get_property $arc to_lib_pin]  set sense [get_property $arc timing_type]  set from_pin_name [get_property $fpin name]  set to_pin_name [get_property $tpin name]  puts [format "%25s -> %25s %-20s" $from_pin_name $to_pin_name $sense]  }  CK -> D           setup_rising  CK -> D           hold_rising  CK -> CK          minimum_period  CK -> CK          minimum_period  CK -> CK          min_pulse_width  foreach_in_collection.txt  CK -> CK          min_pulse_width  RN -> RN          min_pulse_width  CK -> RN          recovery_rising  CK -> RN          removal_rising  CK -> Q           falling_edge  RN -> Q           clear
+.RE 
+.SH Related Information
+.RS  "*" 2 add_to_collection
+.RE
+.RS  "*" 2 compare_collections  "*" 2 copy_collection  "*" 2 filter_collection 
+.RE
+.P

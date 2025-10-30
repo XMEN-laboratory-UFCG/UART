@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH route_ccopt_clock_tree_nets  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBroute_ccopt_clock_tree_nets\fR \-  Performs routing of CCOpt clock tree nets using the CCOpt route guides
+.SH Syntax \fBroute_ccopt_clock_tree_nets\fR  [-help]   [-mesh]
+.P Performs routing of CCOpt clock tree nets using the CCOpt route guides. Use this command after running ccopt_design.  
+.P CCOpt uses internal clock routes during the early stages of CTS. It then generates route guides that are passed to NanoRoute for final clock tree routing. This is done by default for full CTS runs. If, for some reason, you have disabled final clock tree routing in CCOpt, then this command can be used to complete the clock tree routing based on the CCOpt route guides. When the -mesh parameter is specified, the command only routes the mesh nets.
+.P Note: Before running this command, ensure that the CCOpt data structures are in place. 
+.SH Parameters   "\fB-help     \fR" Outputs a brief description for route_ccopt_clock_tree_nets parameter.   "\fB-mesh\fR" Specifies that only mesh nets should be routed. 
+.SH Related Command
+.RS  "*" 2 ccopt_design
+.RE
+.P

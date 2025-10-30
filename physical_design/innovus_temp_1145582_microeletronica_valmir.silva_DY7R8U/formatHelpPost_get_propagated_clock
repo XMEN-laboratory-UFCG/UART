@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_propagated_clock  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_propagated_clock\fR
+.SH Syntax \fBget_propagated_clock\fR  [-clock <clock_list>] [-pin <pin_list>]  [> <filename>]  
+.P Returns the clock propagation mode, either ideal or propagated, for the specified clocks or pins. 
+.SH Parameters    "\fB> <filename>\fR" Specifies the name of a file in which to save the report.  You can add the
+.gz extension to the file name to generate a compressed report.  Note: The file name must be the last argument in the list.  "\fB-clock <clock_list>\fR" Specifies one or more clock waveforms for which you want to retrieve the clock propagation mode information.  "\fB-pin <pin_list>\fR" Specifies one or more pins or ports for which you want to retrieve the clock propagation mode information. You cannot specify hierarchical pins. 
+.SH Example
+.RS  "*" 2 The following command gets the clock propagation mode information for all clock waveforms:   get_propagated_clock -clock {*}
+.RE 
+.SH Related Information
+.RS  "*" 2 set_propagated_clock  "*" 2 reset_propagated_clockreset_propagated_clock
+.RE
+.P

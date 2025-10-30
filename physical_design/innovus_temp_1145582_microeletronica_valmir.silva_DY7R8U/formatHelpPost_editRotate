@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editRotate  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditRotate\fR \-  Flips or rotates selected wires and vias
+.SH Syntax \fBeditRotate\fR  [-help]   [-mode {group | single}]  [-rotate_point {<x y>}]  {-flip {MX MY} | -rotate {R90 R180 R270}} 
+.P Flips or rotates selected wires and vias. Use this command for more flexible custom routing and fixing DRC violations using existing wires. Using the editRotate command, you can:
+.RS  "*" 2 Flip selected wires or vias on the X or Y axis (MX or MY)   "*" 2 Rotate the selected wires or vias by 90, 180, or 270 degrees (R90, R180, or R270). 
+.RE
+.P The selected object is rotated or flipped based on current orientation, and the lower-left coordinate of the wire/via remains the same after rotation or flip.
+.P You can also flip or rotate multiple objects simultaneously as one group.  
+.SH Parameters   "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man editRotate  "\fB-flip {MX MY}    \fR" Flips a wire or via. If you specify MX, the selected object is flipped on the X axis. If you specify MY, the object is flipped on the Y axis.  "\fB-mode {group single}\fR" Rotates multiple selected wires and vias at the same time using the specified mode:
+.RS  "*" 2 group - Flips or rotates the selected objects as a group. This is the default mode when multiple objects are selected.   In this mode, the tool flips or rotates the bounding box which encloses all the selected objects.  "*" 2 single - Flips or rotates the selected objects individually.
+.RE   "\fB-rotate {R90 R180 R270}\fR" Rotates wires or vias by 90, 180, or 270 degrees, as specified.   "\fB-rotate_point {x y}\fR" Specifies the point around which the wire should be rotated. If this option is not specified, the selected wires/vias are rotated around the lower-left corner of bounding box of wires/vias. 
+.SH Examples
+.RS  "*" 2 The following command rotates the selected wire by 90 degrees:  editRotate -rotate R90  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command rotates the selected object, which originally has R90 as its original orientation by 90 degrees:  editRotate -rotate R90  The final orientation of the object will be R180 as shown below:   (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command rotates the bounding box of the selected wires by 90 degrees to rotate the wires as one group:   editRotate -rotate R90 -mode group  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command rotates the selected wires individually by 90 degrees:  editRotate -rotate R90 -mode single  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2  The following commands rotate the selected wire by 90 and 180 degrees, respectively, around the specified rotation point, x y:  editRotate -rotate R90 -rotate_point x y  editRotate -rotate R180 -rotate_point x y  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2  The following commands rotate the selected group of wires by 90 and 180 degrees, respectively, around the specified rotation point, x y:  editRotate -rotate R90 -mode group -rotate_point x y  editRotate -rotate R180 -mode group -rotate_point x y  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 editAddRoute  "*" 2 editAdjust   "*" 2 editCommitRoute   "*" 2 editCutWire  "*" 2 editDelete   "*" 2 editDuplicate   "*" 2 editMerge   "*" 2 editMove  "*" 2 editResize   "*" 2 editSplit  "*" 2 editTrim   "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

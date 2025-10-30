@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_path_based_enable_report_launch_clock_path  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_path_based_enable_report_launch_clock_path\fR
+.SH Syntax \fBtiming_path_based_enable_report_launch_clock_path\fR {true | false}
+.P Default: true
+.P Allows the reporting launch clock path in path-based analysis (PBA) path type full report.
+.P When set to false, the software does not report these paths in the timing reports.
+.P To set this global variable, use the set command.
+.P

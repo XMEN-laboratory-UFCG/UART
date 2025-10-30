@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_skip_constraint_loop_check  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_skip_constraint_loop_check\fR
+.SH Syntax \fBtiming_report_skip_constraint_loop_check\fR   {true | false} 
+.P Default: false
+.P Allows you to skip loop checking when the check_timing command is used. 
+.P When set to true, the software skips reporting of loops in case the timing graph inside a loop is broken. This may happen if some of the commands, such as, create_clock, set_input_delay, or set_output_delay are defined inside a loop.
+.P Note: When this global variable is set to true, the check_timing command will report lesser loops than the ones reported in the CTE_loops.rpt report - which reports all the loops.
+.P To set this global variable, use the set command.
+.P

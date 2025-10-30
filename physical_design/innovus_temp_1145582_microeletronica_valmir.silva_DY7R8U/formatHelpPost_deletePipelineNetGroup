@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deletePipelineNetGroup  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeletePipelineNetGroup\fR \-  Deletes pipeline net groups including the subgroups created inside the net groups
+.SH Syntax \fBdeletePipelineNetGroup\fR  [-help]  netGroupName 
+.P Deletes pipeline net groups including the subgroups created inside the net groups. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each deletePipelineNetGroup parameter.  For a detailed description of the command and all of its parameters, use the man command: man deletePipelineNetGroup.  "\fB<netGroupName>\fR" Specifies the name of the net group. 
+.SH Example
+.RS  "*" 2 The following command deletes a net group named `netGroup1':   deletePipelineNetGroup netGroup1
+.RE 
+.SH Related Information
+.RS  "*" 2 createPipelineNetGroup  "*" 2 modifyPipelineNetGroup  "*" 2 reportPipeline
+.RE
+.P

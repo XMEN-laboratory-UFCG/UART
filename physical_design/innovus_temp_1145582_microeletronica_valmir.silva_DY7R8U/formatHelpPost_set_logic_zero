@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_logic_zero  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_logic_zero\fR \-  Sets ports or pins to logic 0 in the design
+.SH Syntax \fBset_logic_zero\fR  -help   <ports_pins> 
+.P Sets ports or pins to logic 0 in the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each set_logic_zero parameter. For a detailed description of the command and all of its parameters, use the man command: man set_logic_zero.  "\fB<ports_pins>\fR" Specifies the list of the ports or pins that are to be set to logic 0. 
+.SH Examples
+.RS  "*" 2 The following command sets the specified port to logic 0:   set_logic_zero [get_ports {din[0]}]
+.RE 
+.SH Related Information
+.RS  "*" 2 get_ports
+.RE
+.P

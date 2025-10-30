@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_advanced_package_options  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_advanced_package_options\fR
+.SH Syntax  \fBset_advanced_package_options\fR  [-help]  -reset  |   {[-tool_path <<binary_path>>] [-net_mapping_file <<filename>>]} 
+.P Specifies the path to the bin folder of package extraction and analysis tools. Also, a net mapping file needs to be specified. The mapping file is a simple two column format containing the die net name and the corresponding package net names. After running this command, use the extract_package command to start package model extraction.
+.P 
+.SH Parameters   "\fB-help\fR" Outputs the command usage and a brief description about the command parameters.  "\fB-tool_path <<binary_path>> \fR" Specifies the full path to the bin folder of the package extraction and analysis tools (XtractIM and PowerDC).  "\fB-net_mapping_file <<filename>>\fR" Specifies the name of the two column mapping file that contains the mapping between the net names of package with the net names of die.   "\fB-reset\fR" Resets all specified options back to default values. 
+.SH Example
+.RS  "*" 2 The following example specifies the path to the bin folder of package extraction and analysis tools:   set_advanced_package_options \\     -tool_path /home/sigrity/tools/bin/ \\     -net_mapping_file net_mapping.txt
+.RE 
+.SH Related Information
+.RS  "*" 2 extract_package  "*" 2 "Package Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH close_ctd_win  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBclose_ctd_win\fR \-  Closes open CTD windows
+.SH Syntax \fBclose_ctd_win\fR  [-help]  [-all | -id <WindowIDName>]
+.P Closes open CTD windows. When no parameter is specified, the command closes the current active CTD window. 
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each close_ctd_win parameter. For a detailed description of the command and all of its parameters, use the man command:  man close_ctd_win.   "\fB-all   \fR" Closes all open CTD windows.  "\fB-id <WindowIDName>\fR" Closes the CTD window with the specified window ID.   Note: The parameters, -all and -id are mutually exclusive. 
+.SH Examples
+.RS  "*" 2 The following command closes all CTD windows in the current session:
+.RE
+.P close_ctd_win -all 
+.RS  "*" 2 The following command closes the CTD window with the ID, user_id2:
+.RE
+.P close_ctd_win -id user_id2 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree_spec  "*" 2 ctd_trace  "*" 2 ctd_win  "*" 2 get_ctd_win_id  "*" 2 get_ctd_win_title  "*" 2 gui_zoom_ctd
+.RE
+.RS  "*" 2 Clock Menu chapter in the Innovus Menu Reference.
+.RE
+.P

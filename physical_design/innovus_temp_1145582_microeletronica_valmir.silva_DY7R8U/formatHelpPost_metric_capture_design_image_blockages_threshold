@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_capture_design_image_blockages_threshold  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_capture_design_image_blockages_threshold\fR
+.SH Syntax \fBmetric_capture_design_image_blockages_threshold\fR <threshholdValue> 
+.P Type: Integer
+.P Default: 100
+.P Threshold for capturing blockages in metric image.
+.P

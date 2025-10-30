@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH ctd_save_histogram  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBctd_save_histogram\fR \-  Saves the CTD histogram to a file
+.SH Syntax \fBctd_save_histogram\fR  [-help]  [-csv]  -file <fileName>[-id <windowID>]
+.P Saves the CTD histogram to a file. By default, the file type is PNG. You can also specify that the file be saved in the CSV format.
+.P Before using this command to save the histogram view, first open and configure the histogram in the GUI, including skew group and delay corners. 
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each ctd_save_histogram parameter. For a detailed description of the command and all of its parameters, use the man command: man   ctd_save_histogram.   "\fB-csv\fR" Saves the histogram in CSV format. This parameter is optional. By default, the histogram is saved as a PNG file.   "\fB-file <fileName>\fR" Specifies the name of the file where you want to save the histogram. This parameter is required.   "\fB-id <windowIDName>   \fR" Specifies the ID of the active CTD window.  The default value is the ID of the current active window. 
+.SH Example
+.P The following command saves the histogram in the histogram1.csv file.
+.P ctd_save_histogram -file histogram1 -csv 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree_spec  "*" 2 close_ctd_win  "*" 2 ctd_win  "*" 2 get_ctd_win_id  "*" 2 get_ctd_win_title  "*" 2 gui_zoom_ctd  "*" 2 set_ctd_win_title
+.RE
+.RS  "*" 2 Clock Menu chapter of the Innovus Menu Reference.
+.RE
+.P

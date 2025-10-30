@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addSizeBlockage  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddSizeBlockage\fR \-  Adds a size blockage object that controls the behavior of the resize line under a covered area
+.SH Syntax \fBaddSizeBlockage\fR   [-help]  [-name <blockageName>]  [-isResizeable]  -box <x1 y1 x2 y2>
+.P Adds a size blockage object that controls the behavior of the resize line under a covered area. The object area prevents floorplan objects in this area from being resized and maintains the alignment and minimum space between these objects during floorplan resize. Size blockage is special kind of blockage that is only honored by the resizeFloorplan command. By default resize line can not go through size blockage, which means, objects under size blockage stay fixed after floorplan resize. You can use this command before using the resizeFloorplan command. 
+.SH Parameters   "\fB-box <x1 y1 x2 y2>\fR" Specifies the lower left x coordinate, lower left y coordinate, upper right x coordinate, and upper right y coordinate respectively of the size blockage area.  Data_type: box, required  "\fB-help\fR" Outputs a brief description that includes type and default information for each addSizeBlockage parameter. For a detailed description of the command and all of its parameters, use the man command:  man addSizeBlockage  "\fB-isResizeable\fR" Specifies that the size blockage can be resized, however alignment and the minimum space between the objects in the blockage area will be maintained during floorplan resize. When this options is specified, the resize line can go through size blockage. But it can not turn direction inside blockage. The benefit of using this option is if objects (for example, macros) under size blockage are aligned before calling resizeFloorplan, they will stay aligned after the command.  Data_type: bool, optional  "\fB-name <blockageName>\fR" Specifies the name of the size blockage.  Data_type: string, optional 
+.SH Example
+.P The following command creates a size blockage.  addSizeBlockage -name sizeBlkg1 -box 400 400 500 500 
+.SH Related Information
+.RS  "*" 2 deleteSizeBlockage  "*" 2 getResizeFPlanMode  "*" 2 resizeFloorplan  "*" 2 setResizeFPlanMode  "*" 2 setResizeLine  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Resizing the Floorplan 
+.RE 
+.RE
+.P

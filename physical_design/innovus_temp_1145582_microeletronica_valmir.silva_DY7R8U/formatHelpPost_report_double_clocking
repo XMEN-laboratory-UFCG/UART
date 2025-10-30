@@ -1,0 +1,34 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_double_clocking  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_double_clocking\fR \-  Reports noise impact on clock nets by generating information on the double clocking, transition type, and reverse slope
+.SH Syntax \fBreport_double_clocking\fR     [-help]   [-file <string>]   [-max_delta_delay <float>]  [-nworst <integer>]  [-reverse_slope_limit <float>]  [-reverse_voltage_change_threshold <float>]  [-view <string>]
+.P Reports noise impact on clock nets by generating information on the double clocking, transition type, and reverse slope.
+.P The report output displays violations in sorted order - based on the absolute value of the slope, a negative value indicates a reverse slope.
+.P Note: The report_double_clocking command requires that clocks have been defined and applied prior to timing analysis with SI (update_timing or report_timing).  The report_double_clocking command does not work with the glitch-only flow (update_glitch).
+.P Double clocking occurs when the noise glitch attacks a transitioning signal. The multiple transition or double clocking check supplements the transition time check performed in static timing analysis. Transition time is defined as the duration of time that a signal takes to make the transition between two threshold points. However, transition time does not account for the waveform shape between the voltage thresholds.
+.P For special signals such as clocks it is important to analyze the waveform shape between the voltage threshold in case the signal transitions slowly or in the opposite direction (even for a short duration of time) causing multiple clock edges. This command enables you to report the worst-case slope (dV/dtfor rising signal and -dV/dt for falling signal) of a signal transitioning between the voltage thresholds. The slope derivative is measured in units of volts per nanosecond (V/ns). This value can be positive if the signal does not change direction, 0 if the signal is flat, and negative if the signal changes direction even for a short duration of time.
+.P The following figure shows two falling signal transitions:
+.P Figure: Negative Worst-Slope Derivative
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P In the above figure, the falling signal transitions have identical transition times. However, the worst-case slope derivatives for the two falling waveforms are different. If a clock signal exhibits a negative slope derivative, there is a possibility of a double clocking functional failure. A higher reverse slope results in a higher possibility of a double clocking functional failure.
+.P The double clocking report contains the following sections and their corresponding fields:
+.RS  "*" 2 Double Clocking
+.RS  "*" 2 Rise Slope (V/ns): Specifies the worst reverse slope of the rising clock signal as a measure of volt per nano-second.  "*" 2 Fall Slope (V/ns): Specifies the worst reverse slope for the falling clock signal as a measure of volt per nano-second.  "*" 2 VictimNet: Specifies the name of the victim net.
+.RE 
+.RE
+.RS  "*" 2 Instance Pin: Displays the name of the instance pin.
+.RE
+.RS  "*" 2 Transition Type: Indicates the type of transition the net is undergoing - R for rising, F for falling.     "*" 2 Reverse Slope: Indicates the slope that is opposite to the transition type and the value reported is the worst reverse slope.
+.RE
+.P Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-file <<string>>\fR" Specifies the output filename.  Default: {$parm_filename_prefix}_clock.text  "\fB-max_delta_delay <float>\fR" Reports clock nets, for which the delay change caused due to noise, exceeds the specified number.  Default: 0  "\fB-max_slew <float>\fR" Reports clock nets for which the transition time, including SI, exceeds the specified number.  Default: 0  "\fB-nworst <integer>\fR" Specifies the number of clock nets to report in each category.  Default: 1  "\fB-reverse_slope_limit <float>\fR" Reports the clock nets for which the slope is below the specified number.  Default: 0  "\fB-reverse_voltage_change_threshold <float>\fR" Controls the reverse slope failure criteria by allowing you to supply a minimum voltage change as a percentage of VDD. The reverse slope must be sustained in order for it to be considered as failing.  Default:0.1  "\fB-view <string>\fR" Specifies the view name for which the report to be generated.
+.P Examples
+.RS  "*" 2 The following command reports clock nets that have a reverse slope less than -1:  report_double_clocking -reverse_slope_limit -1   "*" 2 The following command reports 100 clock net violations of each category:   report_double_clocking -nworst 100
+.RE
+.RS  "*" 2 The following command shows the double clocking report for default_emulate_view view:  report_double_clocking -view default_emulate_view  ********************************************************************************    Double Clocking Report For View: default_emulate_view    Generated: Thu Mar 12 08:43:01 2015    ********************************************************************************    Instance Pin                                        Transition Type Reverse Slope  DTMF_INST/TDSP_CORE_INST/EXECUTE_INST/acc_reg_13/CK    R               -0.32465    DTMF_INST/TDSP_CORE_INST/EXECUTE_INST/acc_reg_13/CK    R               -0.32465
+.RE 
+.SH Related Information
+.RS  "*" 2  report_timing  "*" 2  report_noise
+.RE
+.P

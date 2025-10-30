@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_derate_incremental_adjust_additive_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_derate_incremental_adjust_additive_mode\fR
+.SH Syntax \fBtiming_derate_incremental_adjust_additive_mode\fR   {true | false} 
+.P Default: false
+.P Allows the software to accumulate incremental derate values instead of overwriting them.
+.P When set to false, the successive application of incremental derating will overwrite any existing derate value with the new value.
+.P When set to true, the successive application of the incremental derates will be accumulated into a final derate value.
+.P To set this global variable, use the set command.
+.P

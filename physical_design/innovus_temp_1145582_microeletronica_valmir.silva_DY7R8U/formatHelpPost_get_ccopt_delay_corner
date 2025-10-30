@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_ccopt_delay_corner  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_ccopt_delay_corner\fR \-  This command returns the name of the CCOpt primary-half delay corner, which is the main corner that CTS uses for balancing clock trees
+.SH Syntax \fBget_ccopt_delay_corner\fR  [-help]
+.P This command returns the name of the CCOpt primary-half delay corner, which is the main corner that CTS uses for balancing clock trees. This delay corner is usually the first setup corner. This command is useful if you are trying to determine why the balancing constraints have not been met.
+.P The primary delay corner can be set using the primary_delay_corner property. However, if you set this property to {}, which is the default value, then you can use the get_ccopt_delay_corner command to retrieve the name of the corner that was picked by default. 
+.SH Parameter   "\fB-help     \fR" Outputs a brief description of get_ccopt_delay_corner parameter. 
+.SH Example
+.RS  "*" 2 The following command returns the name of the CCOpt primary-half corner:    get_ccopt_delay_cornerAV_HL_FUNC_MAX_RC1_dc:setup
+.RE 
+.SH Related Information
+.RS  "*" 2 set_ccopt_property  "*" 2 The following topic in the Innovus User Guide.
+.RS  "*" 2 Generating Reports in Clock Tree Synthesis
+.RE 
+.RE
+.RS  "*" 2 The following property:  primary_delay_corner  For details, see the CCOpt Properties chapter in the Innovus User Guide.
+.RE
+.P

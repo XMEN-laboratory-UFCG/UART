@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_case_analysis  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_case_analysis\fR \-  Removes the assertions set by the set_case_analysis command
+.SH Syntax  \fBreset_case_analysis\fR  <list_of_ports_or_pins> 
+.P Removes the assertions set by the set_case_analysis command. 
+.SH Parameters    "\fB<list_of_ports_or_pins>\fR" Specifies the list of ports or pins for which the assertions are to be removed. 
+.SH Examples
+.RS  "*" 2 The following commands sets the assertion to 0 and then resets them:   set_case_analysis 0 CM1/S0  get_property [get_pins CM1/S0] constant_value  # Returns a value of 0  reset_case_analysis [get_pins CM1/S0]  get_property [get_pins CM1/S0] constant_value  # Returns a value of NA
+.RE
+.P 
+.SH Related Information
+.RS  "*" 2 set_case_analysis
+.RE
+.P

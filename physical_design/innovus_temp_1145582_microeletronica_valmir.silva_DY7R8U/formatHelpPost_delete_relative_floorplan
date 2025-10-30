@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH delete_relative_floorplan  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdelete_relative_floorplan\fR \-  Removes the relative floorplan information from the database
+.SH Syntax \fBdelete_relative_floorplan\fR   [-help]  {<obj_name_list>| -all}
+.P Removes the relative floorplan information from the database. It deletes all relative floorplan constraints, all relative constraints for the specified object(s), or removes the last executed relative floorplan action from the database. Use this command after running create_relative_floorplan.
+.P Notes:
+.RS  "*" 2 The arrows showing relative constraints for the specified objects are removed from the floorplan display.  "*" 2 The delete_relative_floorplan command accepts an array of objects. 
+.RE 
+.SH Parameters   "\fB-all\fR" Delete all relative floorplan constraints.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes type and default information for each delete_relative_floorplan parameter.  For a detailed description of the command and all of its parameters, use the man command:   man delete_relative_floorplan  "\fB<obj_name_list>\fR" Deletes all relative constraints for the specified object(s).  Note: If you do not specify <obj_name_list>, this command removes the last executed relative floorplan action from the database.  Data_type: string, optional 
+.SH Example
+.RS  "*" 2 The following command deletes obj1, obj2, and obj3 from the database:  delete_relative_floorplan {obj1 obj2 obj3}
+.RE 
+.SH Related Information
+.RS  "*" 2 create_relative_floorplan  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

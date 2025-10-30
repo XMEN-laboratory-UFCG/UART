@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_cdb_binding  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_cdb_binding\fR \-  Provides an overriding mechanism that allows overriding a UDN to Liberty mapping at the Tempus command file level
+.SH Syntax \fBset_cdb_binding\fR   [-help]  -from <<string>>  -to <<string>>
+.P Provides an overriding mechanism that allows overriding a UDN to Liberty mapping at the Tempus command file level.
+.P This command helps to correct any mismapped cases by enabling the software to select a user-specified cdB to Liberty mapping. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-from <<string>>\fR" Specifies the CDB file name and cell name.   "\fB-to <<string>>\fR" Specifies the library file name. 
+.SH Examples
+.P When loading multiple cdB's with the same PVT, but different secondary voltages, you can use the set_cdb_binding command to ensure that they get bound correctly, as shown below:  set_cdb_binding -from pvt1_1.cdb -to pvt1_1.lib  set_cdb_binding -from pvt1_2.cdb -to pvt1_2.lib
+.P

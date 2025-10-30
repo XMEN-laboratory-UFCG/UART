@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unplaceJtag  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunplaceJtag\fR \-  Changes the placement status of JTAG inst from FIXED to PLACED
+.SH Syntax \fBunplaceJtag\fR  
+.P Changes the placement status of JTAG inst from FIXED to PLACED. This command can be used after the placeJtag command. 
+.SH Parameters
+.P None 
+.SH Examples
+.P The following set of commands places all Jtag instances of cell INVX1 as FIXED, and then using unplaceJtag to change their status to PLACED:
+.P specifyJtag -cell INVX1   placeJtag   unplaceJtag  
+.SH Related Information
+.RS  "*" 2 placeJtag  "*" 2 specifyJtag  "*" 2 reportJtagInst   "*" 2 specifyJtag  "*" 2  traceJtag  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RS  "*" 2 Specifying and Placing JTAG and Other Cells Close to the I/Os 
+.RE 
+.RE
+.P

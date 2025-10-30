@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_ccopt_flexible_htrees  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_ccopt_flexible_htrees\fR \-  This command returns the names of the flexible H-trees whose names match the specified pattern
+.SH Syntax \fBget_ccopt_flexible_htrees\fR  [-help]  <pattern>   [-regexp]
+.P This command returns the names of the flexible H-trees whose names match the specified pattern. 
+.SH Parameters   "\fB-help     \fR" Outputs a brief description that includes type and default information for each get_ccopt_flexible_htrees parameter. For a detailed description of the command and all of its parameters, use the man command:  man get_ccopt_flexible_htrees.   "\fB<pattern>\fR" Returns a list of flexible H-trees that match this pattern. It is a required parameter.   "\fB-regexp\fR" When specified, treats all patterns as full Tcl regular expressions. If not specified, pattern is treated as a wildcard pattern.  
+.SH Example
+.RS  "*" 2 The following command returns the list of all flexible H- trees that contain the word htree, which is a Tcl pattern match:   get_ccopt_flexible_htrees htree -regexp   htreeA htreeB
+.RE 
+.SH Related Information
+.RS  "*" 2 create_ccopt_flexible_htree  "*" 2 delete_ccopt_flexible_htrees  "*" 2 get_ccopt_property  "*" 2 synthesize_ccopt_flexible_htrees  "*" 2 set_ccopt_property
+.RE
+.P

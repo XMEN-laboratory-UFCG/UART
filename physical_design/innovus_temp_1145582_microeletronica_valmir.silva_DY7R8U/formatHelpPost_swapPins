@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH swapPins  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBswapPins\fR \-  Switches the locations of two pins. You can use this command after selecting two pins in the same module in the design display area
+.SH Syntax \fBswapPins\fR  [-help]
+.P Switches the locations of two pins. You can use this command after selecting two pins in the same module in the design display area. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description of the swapPins command. For a detailed description of the command, use the man command:  man swapPins 
+.SH Example
+.RS  "*" 2 The following commands show the method to swap two pins in command line:  deselectAll  selectPin pin1  selectPin pin2  swapPins
+.RE 
+.SH Related Information
+.RS  "*" 2 deselectAll  "*" 2 selectPin   "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Editing Pins
+.RE 
+.RE
+.P

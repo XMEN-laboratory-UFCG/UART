@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH refinePlace  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBrefinePlace\fR \-  Corrects flawed cell locations and reports corrections or instance overlap problems
+.SH Syntax \fBrefinePlace\fR  [-help]  [-area {lx ly ux uy}]   [-eco {true|false}]   [-inst <list_of_instances>]                  
+.P Corrects flawed cell locations and reports corrections or instance overlap problems. You do not need a fully placed design to run refinePlace. The refinePlace command only makes changes if the placement is not legal, such as for instance overlap, incorrect orientation, constraint violations, and placement/routing blockage violations. You can use the checkPlace command to highlight placement violations in the design. The refinePlace command is called automatically at the end of each major super command such as place_opt_design, optDesign, and ccopt_design to ensure that the final placement is violation-free. If any instances are moved manually, refinePlace can be run to legalize any cell placements that may have resulted in violations due to this manual movement. 
+.P To place unplaced instances, use the ecoPlace command.
+.P refinePlace only operates on the cells which have the 'placed' placement status.
+.P Note: You can also use setPlaceMode to specify parameters for this command. If you use setPlaceMode, the parameters apply every time you run refinePlace in the current session, unless they are overwritten by the refinePlace settings.
+.P Note: refinePlace and other commands using refinePlace API honor instance padding constraint as a hard rule if setPlaceMode -place_detail_honor_inst_pad is set to true. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each refinePlace parameter.  For a detailed description of the command and all of its parameters, use the man command:   man refinePlace  "\fB-area {llx lly urx ury}\fR" Specifies refinePlace area.
+.RS  "*" 2 llx: Specifies the area's lower left x coordinate.  "*" 2 lly: Specifies the area's lower left y coordinate.  "*" 2 urx: Specifies the area's upper right x coordinate.  "*" 2 ury: Specifies the area's upper right y coordinate.
+.RE   Note: The coordinates for the -area option should be provided in brackets, else the tool will report an error.  "\fB-eco {true|false}\fR" Activates ECO mode for the post-route design.  Default: false  Note: This option is controlled by setPlaceMode -place_detail_eco_max_distance.  "\fB-inst <list_of_instances>\fR" Legalizes the list of instances provided by the user. All other instances are treated as fixed.  Note: This option is controlled by setPlaceMode -place_detail_eco_max_distance. 
+.SH Command Order
+.P Use this command after finding an error with the checkPlace command. 
+.SH Example
+.RS  "*" 2 The following command refines the placement in the specified area:  refinePlace -area {7.925 29.762 11.702 27.531}  *** Starting refinePlace (0:04:48 mem=991.9M) ***  Move report: Detail placement moves 0 insts, mean move: 0.00 um, max move: 0.00 um          Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 991.9MB  Summary Report:  Instances move: 0 (out of 6 movable)  Mean displacement: 0.00 um  Max displacement: 0.00 um  Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 991.9MB  *** Finished refinePlace (0:04:48 mem=991.9M) *** 
+.RE 
+.SH Related Information
+.RS  "*" 2 checkPlace  "*" 2 ecoPlace  "*" 2 setPlaceMode
+.RE
+.P

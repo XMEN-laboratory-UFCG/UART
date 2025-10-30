@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH edit_bump_name  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBedit_bump_name\fR \-  Modifies the names of selected or specified bumps according to the specified pattern
+.SH Syntax \fBedit_bump_name\fR  [-help]   -from <current_pattern>  [-selected]   -to <new_pattern>
+.P Modifies the names of selected or specified bumps according to the specified pattern. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each edit_bump_name parameter.  For a detailed description of the command and all of its parameters, use the man command:  man edit_bump_name  "\fB-from <current_pattern>\fR" Specifies the name of a single bump or a pattern for the names of the bumps to be edited. The pattern is a regular expression, such as {Bump_\\d+} or  {Bump_(\\d)(\\w+)}, which can be referred in TCL. When specifying a pattern, the opening and closing braces are required.   "\fB-selected\fR" Modifies the names of selected bumps.   "\fB-to <new_pattern>\fR" Specifies the new name or name format for target bumps. When specifying a name format, the opening and closing braces are required. 
+.SH Examples
+.RS  "*" 2 The following command modifies the names of all bumps that have the pattern Bump_\\d+, such as Bump_1 and Bump_12,  to bumps with pattern signal_\\d+, such as signal_1 and signal_12:  edit_bump_name -from {Bump_} -to {signal_}   "*" 2 The following command modifies the name of the Bump_1_1_1 bump to signal_bump:  edit_bump_name -from {Bump_1_1_1} -to {signal_bump}   "*" 2 The following command modifies the names of all bumps that have the pattern Bump_(\\d)_(\\d)_(\\d) to bumps named 1_1_1_signal, 1_1_2_signal, and so on:   edit_bump_name -from {Bump_(\\d)_(\\d)_(\\d)} -to {\\1_\\2_\\3_signal}
+.RE 
+.SH Related Information
+.RS  "*" 2 changeBumpMaster  "*" 2 copy_bump  "*" 2 create_bump  "*" 2 deleteBumps  "*" 2 deselect_bump  "*" 2 select_bump
+.RE
+.P

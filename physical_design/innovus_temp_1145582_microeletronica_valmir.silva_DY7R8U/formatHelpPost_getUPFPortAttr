@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getUPFPortAttr  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetUPFPortAttr\fR \-  Returns UPF port attributes from UPF or for the specified values
+.SH Syntax \fBgetUPFPortAttr\fR  [-help]  <hport_name> 
+.P Returns UPF port attributes from UPF or for the specified values. Run this command before design partitioning. Following is the output format of this command:
+.P list of {attr_name val} 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each getUPFPortAttr parameter. For a detailed description of the command and all its parameters, use the man command:  man getUPFPortAttr  "\fB<hport_name>\fR" Specifies the module term name for which UPF port attributes need to be returned. 
+.SH Example
+.P The following command returns UPF port attributes for the iC/in hport:  getUPFPortAttr iC/in  Following is the output of the above command:  {-driver_supply supplySetName} {attr_name value2} {is_analog FALSE}
+... 
+.SH Related Information
+.P Low Power Design chapter in the Innovus User Guide
+.P

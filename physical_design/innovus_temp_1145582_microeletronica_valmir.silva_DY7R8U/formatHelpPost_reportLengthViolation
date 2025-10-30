@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportLengthViolation  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportLengthViolation\fR \-  Runs timing analysis and reports nets that exceed the maximum length constraint set by setOptMode -opt_max_length parameter
+.SH Syntax \fBreportLengthViolation\fR  [-help]  [-all | -noGlobalNets]  [-selNetFile <selNetFileName>]  [-excNetFile <excNetFileName>]  [-histogram]  [-outfile <fileName>]  [-significant_digits <integer>] 
+.P Runs timing analysis and reports nets that exceed the maximum length constraint set by setOptMode -opt_max_length parameter. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each reportLengthViolation parameter.  For a detailed description of the command and all of its parameters, use the man command: man reportLengthViolation  "\fB-all\fR" Reports violations on all nets.   "\fB-noGlobalNets\fR" Reports violations on all nets except for power, ground, and clock nets.  Note: The parameters, -all and -noGlobalNets are mutually exclusive.  "\fB-excNetFile <excNetFileName>\fR" Specifies a file that lists the names of hierarchical nets that are to be excluded from the report.   "\fB-outfile <fileName>\fR" Specifies the report file name.   "\fB-selNetFile <selNetFileName>\fR" Specifies a file that lists the names of hierarchical nets to consider in the report. Only violations on the nets listed in the file are considered in the report.  Note: The parameters, -selNetFile and -excNetFile are not mutually exclusive. If both parameters are specified, the -excNetFile parameter overides the -selNetFile parameter.  "\fB-histogram\fR" Generates a histogram in addition to the default reporting.   "\fB-significant_digits <integer>\fR" Allows you to specify the number of significant digits.   Default: 3 
+.SH Related Information
+.RS  "*" 2 optDesign  "*" 2 reportFanoutViolation  "*" 2 reportCapViolation  "*" 2 reportTranViolation  "*" 2 setOptMode
+.RE
+.P

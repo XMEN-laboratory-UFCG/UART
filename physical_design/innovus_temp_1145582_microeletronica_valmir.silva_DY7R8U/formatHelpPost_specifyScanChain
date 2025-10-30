@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH specifyScanChain  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBspecifyScanChain\fR \-  Specifies a scan chain or group in a design
+.SH Syntax \fBspecifyScanChain\fR   [-help]  [<scanChainName>]   [-start {<ftname> | <instPinName>}]  [-stop {<ftname>| <instPinName>}]  
+.P Specifies a scan chain or group in a design. The actual tracing of the scan chain is performed by the scanTrace or scanReorder command. If scan chain specification fails, use the scanTrace -verbose command to see where the scan chain stops.
+.P Note: Scan groups are sometimes called scan partitions.     Note: This command is not necessary for scan chains that are already specified in DEF or TDF files.
+.P 
+.SH Parameters    "\fB<scanChainName>\fR" Specifies a scan chain or scan group in a design.   "\fB-start {<ftname> | <instPinName>}\fR" Specifies the starting scan pin name for the scan chain or scan group.  Specifies the design input pin name.  Specifies the instance output pin name.  "\fB-stop {<ftname> | <instPinName>}\fR" Specifies the stopping scan pin name for the scan chain or scan group.  Specifies the design output pin name.  Specifies the instance input pin name. 
+.SH Example
+.P The following command sets scan chain test_si with a starting I/O pin name and a stopping pin name:
+.P specifyScanChain test_si -start test23 -stop test_so 
+.SH Related Information
+.RS  "*" 2 deleteScanChain  "*" 2 displayScanChain   "*" 2 report_scan_chain  "*" 2 scanTrace   "*" 2 scanReorder  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RS  "*" 2 Optimizing and Reordering Scan Chains
+.RE 
+.RE
+.P

@@ -1,0 +1,5 @@
+ "*" 2 cell_halo_x / cell_halo_y   "*" 2 cell_density / adjacent_rows_legal  "*" 2 cell_halo_sites / cell_halo_rows
+.RE
+.P  The report can be viewed as a text file and in the Violation Browser within the Innovus GUI.   
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each report_ccopt_cell_halo_violations parameter
+.SH Syntax \fBreport_ccopt_cell_halo_violations\fR  [-help]  [-add_markers | -clear_markers]  [-file <fileName>]  [-num <number>]  [-summary]

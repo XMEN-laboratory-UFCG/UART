@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_self_loop_paths_no_skew_max_slack  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_self_loop_paths_no_skew_max_slack\fR \-  Identifies self-loop paths at the specified threshold
+.SH Syntax \fBtiming_self_loop_paths_no_skew_max_slack\fR <value>  Default: 0
+.P Identifies self-loop paths at the specified threshold. 
+.P To set this global variable, use the set_global command. 
+.P For example:
+.P         set_global timing_self_loop_paths_no_skew_max_slack 1.0      
+.P In this case, all timing endpoints with a worst slack less than 1.0 are considered for self loop skew removal.

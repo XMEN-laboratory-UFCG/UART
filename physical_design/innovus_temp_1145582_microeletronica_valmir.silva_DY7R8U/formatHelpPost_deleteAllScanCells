@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteAllScanCells  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteAllScanCells\fR \-  Unassigns all assigned scan cells
+.SH Syntax \fBdeleteAllScanCells\fR  [-help] 
+.P Unassigns all assigned scan cells. This command can be called after importing the design if there are scan cell specifications in library; or else it can be used after the specifyScanCell command. 
+.SH Parameters
+.P None 
+.SH Example
+.P The following set of commands deletes all scan cells after loading design:
+.P restoreDesign init.enc.dat top   deleteAllScanCells  
+.SH Related Information
+.RS  "*" 2 Placing the Design chapter in the Innovus User Guide 
+.RS  "*" 2 Optimizing and Reordering Scan Chains
+.RE 
+.RE
+.P

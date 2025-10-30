@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_capture_max_drc_markers  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_capture_max_drc_markers\fR
+.SH Syntax \fBmetric_capture_max_drc_markers\fR <max_number> 
+.P Default: 100000
+.P Specifies the maximum number of DRC markers to include in metric image.
+.P

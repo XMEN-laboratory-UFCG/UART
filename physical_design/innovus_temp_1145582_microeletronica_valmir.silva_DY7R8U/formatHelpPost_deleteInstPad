@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteInstPad  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteInstPad\fR \-  Deletes the padding for the specified instances, or all instance-based padding, in the design
+.SH Syntax \fBdeleteInstPad\fR  [<instName>| -all]  -suppress
+.P Deletes the padding for the specified instances, or all instance-based padding, in the design. 
+.SH Parameters   "\fB<instName>\fR" Deletes the padding on the specified instance.  "\fB-all\fR" Deletes all instance-based padding.  "\fB-suppress\fR" Suppresses verbose messages. The option is of type boolean and is optional. 
+.SH Examples
+.RS  "*" 2 The following command deletes padding for all instances in the design:   deleteInstPad -all  It outputs following: 
+...  Delete Padding for Instant [U27312].  Delete Padding for Instant [U27313].  Delete Padding for Instant [U27314].  Delete Padding for Instant [U27315].  16432
+.RE
+.RS  "*" 2 The following command deletes padding for one instances named U27316:   deleteInstPad U27316  It outputs following:  Delete Padding for Instant [U27316].
+.RE
+.P Note:  deleteInstPad deletes padding for either all instances or single instance. Wildcard is not supported yet. 
+.SH Related Information
+.RS  "*" 2 reportInstPad
+.RE
+.RS  "*" 2 specifyInstPad 
+.RE
+.RS  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RS  "*" 2 Adding Padding 
+.RE 
+.RE
+.P

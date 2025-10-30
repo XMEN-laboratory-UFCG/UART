@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH writeSdpFile  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwriteSdpFile\fR \-  Saves the current SDP relative placement information into a file
+.SH Syntax \fBwriteSdpFile\fR  [-help]   -file <file_name>  [-template | -topGroup <group_name>]   [-template | -command]  [-template  | [-updateRelativePlaceConstraint | -updateOrientation]]
+.P Saves the current SDP relative placement information into a file. By default, the output is in
+.sdp format. writeSdpFile enables you to save SDP relative information so it can be reloaded in another Innovus session.
+.P The writeSdpFile command can be run any time after SDPs have been defined. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each writeSdpFile parameter.  For a detailed description of the command and all of its parameters, use the man command: man writeSdpFile.  "\fB-command\fR" Specifies that the relative placement information should be saved in TCL commands format instead of
+.sdp format.  "\fB-file <file_name>\fR" Specifies the name of the output file containing SDP relative information.  "\fB-template\fR" Specifies that the file should be saved as a template in
+.sdp format.  Note: This parameter cannot be used with -command or -topGroup.  "\fB-topGroup <group_name>\fR" Indicates that the relative placement information of only the specified SDP group should be written.  "\fB-updateOrientation\fR" Updates the orientation of SDP instances before writing them to the SDP file.  "\fB-updateRelativePlaceConstraint\fR" Updates relative placement constraints of SDPs before writing out the SDP file. Use this parameter to write out the updated SDP/TCL file after any change in SDP relative placement due to placeDesign or manual changes. The -updateRelativePlaceConstraint option can be used with the -command and -topGroup options as well.  
+.SH Examples
+.RS  "*" 2 The following command writes the current SDP information in SDP format in a file named test.sdp:   writeSdpFile -file test
+.RE
+.RS  "*" 2 The following command writes the SDP information for the sdpGrpA group in the SDP TCL command format to the output file output.sdp.   writeSdpFile -file output.sdp -command -topGroup sdpGrpA
+.RE 
+.SH Related Information
+.RS  "*" 2 placeSdpGroup  "*" 2 readSdpFile
+.RE
+.RS  "*" 2 sdpsdp object in Innovus Database Object Information  "*" 2 Using Structured Data Paths chapter of the User Guide  "*" 2 Floorplan Menu chapter of the Menu Reference 
+.RS  "*" 2 Structured Data Path
+.RE 
+.RE

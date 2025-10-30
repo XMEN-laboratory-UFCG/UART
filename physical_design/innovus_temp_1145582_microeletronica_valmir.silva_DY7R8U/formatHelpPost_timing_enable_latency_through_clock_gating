@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_latency_through_clock_gating  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_latency_through_clock_gating\fR
+.SH Syntax \fBtiming_enable_latency_through_clock_gating\fR    {true | false}
+.P Default: true
+.P Allows propagation of latency phases across clock gating elements. 
+.P When set to true, the software allows propagation of clock latency phase across clock gating elements. 
+.P When set to false, the software suppresses propagation of clock latency across clock gating elements from the enable pin. The enable pin of the clock gating element should not be in the clock network for any other clocks. This is not recommended because the enable path (through the 'inferred' clock gates, such as, AND, NAND, OR) is either for clock latency or data paths. If the gated clock check is met, then the enable should not pass through to the output.
+.P In case of ICGs, there is no arc from the EN to the CLKOUT on ICGs that have an incoming enable signal latched. In case of ICG/AND, using the enable path may not be correct for determining latency paths. If no latency paths are found, then the generated clocks definition will need to be re-checked.
+.P To set this global variable, use the set command.
+.P

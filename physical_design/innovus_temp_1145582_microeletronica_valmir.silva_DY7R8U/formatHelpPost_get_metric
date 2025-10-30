@@ -1,0 +1,2 @@
+ "\fB-help\fR" Outputs a brief description that includes type and default information for each get_metric parameter
+.SH Syntax \fBget_metric\fR   -help  [-branch <list_of_patterns>]  [-exclude_inherited]  [-id <id_name>]   [-names <label_name>]   <pattern_name>[-pending]   [-raw]

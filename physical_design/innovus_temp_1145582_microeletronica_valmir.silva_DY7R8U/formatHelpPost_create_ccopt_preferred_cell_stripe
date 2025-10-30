@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_ccopt_preferred_cell_stripe  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_ccopt_preferred_cell_stripe\fR \-  This command creates an object that corresponds to a single preferred_cell_stripe.  The object represents a constraint where CCOpt tries to place instances of the specified cells within the specified bounding box of the stripe. When several of these objects are created, CTS tries to place instances within the bounding boxes of the stripes, choosing the stripe that yields the best quality of result
+.SH Syntax \fBcreate_ccopt_preferred_cell_stripe\fR  [-help]  -bbox {xmin xmax ymin ymax}  -cells <list_of_cells>  -name <name>
+.P This command creates an object that corresponds to a single preferred_cell_stripe.  The object represents a constraint where CCOpt tries to place instances of the specified cells within the specified bounding box of the stripe. When several of these objects are created, CTS tries to place instances within the bounding boxes of the stripes, choosing the stripe that yields the best quality of result.
+.P The object must be created before running ccopt_design. This command is used when you want to place large CTS cells, which induce a large IR drop, close to the power switches that are often arranged in repeated vertical columns on the chip. 
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each create_ccopt_preferred_cell_stripe parameter. For a detailed description of the command and all of its parameters, use the man command:  man create_ccopt_preferred_cell_stripe.   "\fB-bbox <bbox>\fR" Specifies the area of the bounding box. Cell instances within this box will be preferentially placed on the stripes, if their library cell appears in the cell list associated with the stripes instance.   "\fB-cells <list_of_cells>\fR" Specifies the list of library cells that should be placed on preferred cell stripes.  "\fB-name <name>\fR" Specifies the user-defined identifier for these preferred cell stripes. 
+.SH Related Information
+.RS  "*" 2 ccopt_design  "*" 2 delete_ccopt_preferred_cell_stripe  "*" 2 get_ccopt_preferred_cell_stripe  "*" 2 The following properties are related to the cell preferred stripes feature. For detailed information about these properties, see the CCOpt Properties chapter in the Innovus User Guide.
+.RS  "*" 2 stripe_bbox  "*" 2 stripe_cells
+.RE 
+.RE
+.P

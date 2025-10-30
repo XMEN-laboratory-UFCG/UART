@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH partitionPushSpecialWires  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBpartitionPushSpecialWires\fR \-  Creates Verilog ports (connections) in partitions for nets whose special wires overlap a partition, so that the special wire of the net gets pushed down when the partition command is used
+.SH Syntax \fBpartitionPushSpecialWires\fR  [-help]   [-checkOnly]   [-nets <list_of_net_names>] 
+.P Creates Verilog ports (connections) in partitions for nets whose special wires overlap a partition, so that the special wire of the net gets pushed down when the partition command is used.
+.P Note: For pushdown of special wires in master and clone partitions, it checks for the symmetry of the special wire shapes. For symmetrical shapes only, the partitionPushSpecialWires command creates one port in the Verilog module and establishes a logical connection between the new port and the net of special wire over all master and clone hinsts (reuse of logical port in master and clones).
+.P Note: If the original net was connected to a partition port of type inout, then an inout port is created inside the overlapping partition else only an input port is created.   
+.SH Parameters    "\fB-checkOnly\fR" When specified, the tool checks if the selected nets special-wires are symmetric over all hints of overlapping master clone cells or not. In master and clone partitions, it checks for the symmetry of nets and reports asymmetrical nets.  When the -checkOnly parameter is not specified, the tool check the nets specified and creates logical ports only on valid nets.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each partitionPushSpecialWires parameter.  For a detailed description of the command and all of its parameters, use the man command:   man partitionPushSpecialWires  "\fB-nets <list_of_net_names>\fR" Specifies the list of nets (Verilog nets) which have special wires to be pushed into blocks.  Data_type: string, required 
+.SH Example
+.RS  "*" 2 The following command checks the special wires of specified Verilog nets n1 and creates ports on valid nets.   partitionPushSpecialWires -nets {n1}  "*" 2 The following command checks if the special-wires of the specified nets are symmetric over all hints of overlapping master clone cells or not.  partitionPushSpecialWires -nets {n1 n2} -checkOnly  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  Report: C (mim-1) net n1 box missing in C mim-2  Report: C (mim-1) net n1 box missing in C mim-3  Report: C (mim-2) net n2 box missing in C mim-1  Report: C (mim-2) net n2 box missing in C mim-3  For pushdown, you must fix the wire asymmetry.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  After the symmetry is fixed, the following command pushes down symmetrical nets:  partitionPushSpecialWires -nets {n1 n2}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  Report: user Net n1, n2 and derived nets n3 pushdown, with one logical port
+.RE 
+.SH Related Information
+.RS  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

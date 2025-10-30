@@ -1,0 +1,54 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH violationBrowser  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBviolationBrowser\fR \-  Displays a list of violations in the design database
+.SH Syntax \fBviolationBrowser\fR  [-help]   [-aclimit]   [-all]   [-area {<x1 y1 x2 y2>}]   [-connectivity]   [-density]   [-displayByLayer]  [-geometry]  [-max_error_per_type <value>]   [-no_display_false]   [-overlap]   [-process_antenna]   [-search_desc]  [-short]   [-filter_query <LO_formula> | {-filter <filterString> -filter_mode {AND | OR | NOT}}] 
+.P Displays a list of violations in the design database. The software generates markers for the violations after you use one or more verification commands. 
+.SH Geometry or Metal Density Violations
+.P Updates geometry and metal density violation markers incrementally during an Innovus session--that is, it displays the markers generated the first time you run the verify_drcverify_drc or verifyMetalDensity command and adds new markers, or deletes markers, on subsequent runs during the same session. If the software finds violations during a subsequent run that were already found previously, the browser display does not change, as there is no incremental update.
+.P The browser can make incremental changes because verify_drc and verifyMetalDensity can check a small area of the design and update the database. As a result of this behavior, the Innovus software saves the information from the first verification run. 
+.SH Connectivity, Process Antennas, or AC Limit Violations
+.P Overwrites connectivity, process antenna, and AC limit violation markers if the verifyConnectivity, verify_antenna, or verifyACLimit commands are run more than once during an Innovus session. These commands are net-based, not area-based, so the browser does not make incremental updates for them. As a result of this behavior, the Innovus software does not keep the information from the first verification run. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each violationBrowser parameter.  For a detailed description of the command and all its parameters, use the man command:   man violationBrowser  "\fB-aclimit\fR" Displays AC limit violations.  "\fB-all\fR" Displays all the violations that are present in the design. This is the default behavior.  "\fB-area {<x1 y1 x2 y2>}  \fR" Specifies the coordinates of the area whose violations to display. For example, violationBrowser -area {0 0 100 100}.  "\fB-connectivity\fR" Displays connectivity violations.  "\fB-density\fR" Displays metal density violations.  "\fB-displayByLayer\fR" Displays the list of violations by the layer instead of route type.   "\fB-filter <filterString>  \fR" Specifies a text string in the violation message. Violation Browser searches the message of each violation and displays only the violations whose messages match the search conditions.  To specify a list of strings, separate each string with a space.  To specify a literal string with space in it, enclose the string in double quotation marks.  For example, you can specify strings such as the following:
+.RS  "*" 2 METAL5
+.RE
+.RS  "*" 2 {"(600, 500)"}
+.RE
+.RS  "*" 2 {METAL3 "(700, 400)"}
+.RE
+.RS  "*" 2 "Pin of Net"
+.RE   "\fB-filter_mode {AND | OR | NOT}  \fR" Specifies the condition for searching multiple strings in the violation browser. You cannot filter complex expressions because the AND, OR, and NOT parameters are mutually exclusive.
+.RS  "*" 2 The AND and OR conditions work on single strings or multiple strings.
+.RE
+.RS  "*" 2 The NOT condition works only on a single string.
+.RE   "\fB-filter_query <LO_formula>\fR" Specifies a complex logical expression for filtering violations. This option cannot be used along with -filter or -filter_mode. You can specify the AND, OR, and NOT conditions in the search expression. Use:
+.RS  "*" 2 && between strings in the expression to specify the AND condition.  "*" 2 || between strings in the expression to specify the OR condition.  "*" 2 ! before a string to specify the NOT condition. Note that ! is an one's complement operator. So for example, !{object(net1) && layer(m2)} is not allowed.
+.RE   The -filter_query parameter supports searches in the object, layer, and description areas. The area can be specified using the object, layer, and desc keywords. For example:  object(net1) || layer(m2) && desc(xxx)  You can also use the wildcards * and ? in the search expression. For example:  !object(clk*) && layer(m?)  To specify a literal string with space in it, enclose the string in double quotation marks. For example:  !object(clk*) && desc("prl spacing")  "\fB-geometry\fR" Displays geometry violations.  "\fB-max_error_per_type <value>\fR" Specifies a limit for the number of violations parsed for each violation type. For example, if you set violationBrowser -max_error_per_type 500, the Violation Browser parses and displays only 500 markers per error type. Use this parameter if you are loading a large DRC file with millions of violations to prevent the databse from becoming slow while loading the file and to limit the number of violations you review in the browser.  By default, the Violation Browser displays all markers.  "\fB-no_display_false\fR" Prevents the Innovus software from displaying false violations.  "\fB-overlap\fR" Displays overlaps in the design.  "\fB-process_antenna\fR" Displays process antenna violations.  "\fB-search_desc\fR" Searches for text in the violation message and the violation description.  "\fB-short\fR" Displays short violations. 
+.SH Examples
+.RS  "*" 2 The following command displays all violations whose marker title contains METAL3:
+.RE
+.P violationBrowser -all -filter METAL3 -filter_mode OR
+.RS  "*" 2 The following command displays geometry violations whose marker title contains METAL3 and tdsp:
+.RE
+.P violationBrowser -geometry -filter {METAL3 tdsp} -filter_mode AND
+.RS  "*" 2 The following command displays geometry violations whose marker title or marker description field contains Min and 0.24 and METAL3:
+.RE
+.P violationBrowser -geometry -filter {Min 0.24 METAL3} -filter_mode AND -search_desc
+.RS  "*" 2 The following command displays violations occuring on Metal4 or Metal5 layers but excludes short violations:
+.RE
+.P violationBrowser -filter_query {!Short && (metal4 || metal5)} 
+.SH Related Information
+.RS  "*" 2 The following section in the Identifying and Viewing Violations chapter of User Guide.
+.RE
+.RS
+.RS  "*" 2 Viewing Violations With the Violation Browser
+.RE 
+.RE
+.RS
+.RS  "*" 2 Clearing Violations
+.RE 
+.RE
+.RS  "*" 2 "Evaluating Violations" in the Using the NanoRoute Router chapter of User Guide.
+.RE
+.P

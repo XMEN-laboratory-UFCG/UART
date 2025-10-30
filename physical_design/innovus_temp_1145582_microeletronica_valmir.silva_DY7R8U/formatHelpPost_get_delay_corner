@@ -1,0 +1,28 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_delay_corner  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_delay_corner\fR \-  Returns attribute information for the specified delay calculation corner object, or for one of its power domains
+.SH Syntax  \fBget_delay_corner\fR  [-help]  <delayCornerName>[-early_irdrop_data]  [-early_irdrop_file]  [-early_library_set]  [-early_opcond]  [-early_opcond_library]  [-early_rc_corner]  [-early_temp_file]  [-irdrop_data]  [-irdrop_file]  [-late_irdrop_data]  [-late_irdrop_file]  [-late_library_set]  [-late_opcond]  [-late_opcond_library]  [-late_rc_corner]  [-late_temp_file]  [-library_set]  [-opcond]  [-opcond_library]  [-power_domain <powerDomainName>]  [-power_domain_list]  [-rc_corner]  [-si_enabled]  [-supply_set <supplySetName>]  [-supply_set_list]  [-temp_file] 
+.P Returns attribute information for the specified delay calculation corner object, or for one of its power domains.
+.P Use this command after creating at least one delay calculation corner object (create_delay_corner). The delay calculation corner must include a power domain definition in order to query power domain information (update_delay_corner). 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each get_delay_corner parameter.  For a detailed description of the command and all of its parameters, use the man command: man get_delay_corner.  "\fB<parameter_names>\fR" See create_delay_corner for descriptions of the parameters that you can specify. 
+.SH   Examples
+.RS  "*" 2 The following command creates the delay calculation corner dc1:
+.RE
+.P create_delay_corner -name dc1     -library_set libs-2volt 
+.P  -opcond_library delayvolt_2V     -opcond slow_2V     -rc_corner rc-cworst
+.RS  "*" 2 The following command returns the operating condition for the delay calculation corner dc1:   get_delay_corner dc1 -opcond  The software returns the following results:  slow_2V
+.RE
+.RS  "*" 2 The following commands add definitions for power domains domain-3V and domain-5V to the delay calculation corner dc1: 
+.RE
+.P update_delay_corner -name dc1     -power_domain domain-3V 
+.P  -library_set libs-3volt    -opcond_library delayvolt_3V    -opcond slow_3V    update_delay_corner -name dc1     -power_domain domain-5V     -library_set libs-5volt     -opcond_library delayvolt_5V     -opcond slow_5V
+.RS  "*" 2 The following command returns a list of all the power domains associated with the delay calculation corner dc1:   get_delay_corner dc1 -power_domain_list  The software returns the following results:  {domain-3V domain-5V}
+.RE
+.RS  "*" 2 The following command returns the name of the library set associated with the power domain domain-5V:   get_delay_corner dc1 -power_domain domain-5V -library_set  The software returns the following results:  libs-5volt 
+.RE 
+.SH Related Information
+.RS  "*" 2 create_delay_corner  "*" 2 update_delay_corner
+.RE
+.P

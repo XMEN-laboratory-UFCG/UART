@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editAddFillet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditAddFillet\fR \-  Adds a tear-drop fillet between a wire and bump connection
+.SH Syntax \fBeditAddFillet\fR [-help] 
+.P Adds a tear-drop fillet between a wire and bump connection. A teardrop fillet is used to reinforce the mechanical strength of the connection to the bump. This applies to all bumps in the design. If the connected wire is too short to create the fillet, a marker is created to indicate the failure. 
+.SH Parameters   "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man editAddFillet 
+.SH Related Information
+.RS  "*" 2 editDeleteFillet  "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

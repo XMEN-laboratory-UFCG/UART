@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteBufferTree  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteBufferTree\fR \-  Removes all buffers (except clock path buffers) and inverter pairs, of all footprint types, on all nets in the design
+.SH Syntax \fBdeleteBufferTree\fR  [-help]   [-excNetFile <excFileName>]  [-footprint <footPrintName>]  [-preserveRoute]  [-selNetFile <selF> <ileName |>-net<list_of_nets>]  [-verbose] 
+.P Removes all buffers (except clock path buffers) and inverter pairs, of all footprint types, on all nets in the design. With specific settings, this command can remove buffers and inverter pairs of the specified footprint type, or on specified nets only.  Note: 
+.RS  "*" 2 place_opt_design will automatically call deleteBufferTree in the beginning, before global placement.  "*" 2 If you want to have a clean design with reduced density, or just clear all buffers and inverter pairs of a certain list of nets, it is recommended to call this command. This may allow you to do ECO on those nets.
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each deleteBufferTree parameter. For a detailed description of the command and all of its parameters, use the man command:  man deleteBufferTree  "\fB-excNetFile <excFileName>\fR" Specifies the input file that contains the names of nets to exclude from buffer removal. If a net appears in the files specified by both -excNetFile and -selNetFile, it is excluded.  "\fB-footprint <footprintName>\fR" Specifies the footprint of buffers to remove. If you do not specify this parameter, the Innovus software removes buffer instances with one input and one output terminal, and whose timing arc is not SPECIAL.  "\fB-net <list_of_nets>\fR" Specifies the hierarchical nets to include during buffer removal.  Note: The -net and -selNetFile parameters are mutually exclusive.  "\fB-preserveRoute\fR" Specifies that nets not impacted by the buffer/inverter deletion process must have their routing unchanged. By default, the tool removes all the routes after running this command.  "\fB-selNetFile <selF> <ileName>\fR" Specifies the file that contains the names of hierarchical nets to include during buffer removal. The software excludes all other nets. If a net appears in the files specified by both -excNetFile and -selNetFile, it is excluded.  Note: The -net and -selNetFile parameters are mutually exclusive.  "\fB-verbose\fR" When specified, displays additional debug messages in log file. For example, the failure reason for deletion of buffer and inverter pairs. 
+.SH Examples
+.RS  "*" 2 The following command removes all buffers and inverter pairs, of all footprint types:   deleteBufferTree  *** Start deleteBufferTree ***  Info: Detect buffers to remove automatically.  Analyzing netlist
+...  Updating netlist  *summary: 79 instances (buffers/inverters) removed  *** Finish deleteBufferTree (0:00:09.6) ***
+.RE
+.RS  "*" 2 The following command removes all buffers of footprint type B_1P:   deleteBufferTree -footprint B_1P
+.RE
+.P

@@ -1,0 +1,29 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH undo  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBundo\fR \-  Undoes the previous edit made with any bump placement, floorplanning, power planning, or wire edit commands listed below
+.SH Syntax \fBundo\fR [-help] 
+.P Undoes the previous edit made with any bump placement, floorplanning, power planning, or wire edit commands listed below.
+.RS  "*" 2 Selected bump placement commands: 
+.RS  "*" 2 create_bump  "*" 2 deleteBumps
+.RE  "*" 2 Selected floorplanning commands:
+.RS  "*" 2 alignObject  "*" 2 flipOrRotateObject  "*" 2 setObjFPlanBox  "*" 2 setObjFPlanBoxList  "*" 2 setObjFPlanPolygon  "*" 2 snapFPlan  "*" 2 snapFPlanIO  "*" 2 spaceObject
+.RE  "*" 2 Selected power planning commands:
+.RS  "*" 2 addRing  "*" 2 addStripe  "*" 2 editPowerVia  "*" 2 sroute
+.RE  "*" 2  All wire editor commands: 
+.RS  "*" 2  editAddFillet  "*" 2 editAddPoly  "*" 2  editAddRoute  "*" 2  editAddTrimMetal
+.RE 
+.RE
+.RS  "*" 2
+.RS  "*" 2 editAddVia  "*" 2 editChangeLayer  "*" 2 editChangeNet  "*" 2 editChangeRule  "*" 2 editChangeStatus  "*" 2 editChangeVia  "*" 2 editCommitPoly  "*" 2 editCommitRoute  "*" 2 editCutWire  "*" 2 editDelete  "*" 2 editDeleteFillet  "*" 2 editDeselect  "*" 2 editDuplicate  "*" 2 editFixWideWires  "*" 2 editMerge  "*" 2 editMove  "*" 2 editRotate  "*" 2 editSelect  "*" 2 editSplit  "*" 2 editResize  "*" 2 editTrim  "*" 2 prepareForEcoRoute
+.RE 
+.RE
+.P You can use the redo command to redo an edit that was reversed with undo.  
+.SH Parameters    "\fB-help\fR" Prints a brief description of the undo command.  For a detailed description of the command, use the man command:   man undo 
+.SH Related Information
+.RS  "*" 2 redo  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Undo  "*" 2 Redo
+.RE 
+.RE
+.P

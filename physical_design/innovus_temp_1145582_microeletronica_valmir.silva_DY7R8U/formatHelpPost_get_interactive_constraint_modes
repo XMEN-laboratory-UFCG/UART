@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_interactive_constraint_modes  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_interactive_constraint_modes\fR \-  Returns a list of the multi-mode multi-corner constraint modes that are in interactive constraint entry mode
+.SH Syntax \fBget_interactive_constraint_modes\fR  [-help]  
+.P Returns a list of the multi-mode multi-corner constraint modes that are in interactive constraint entry mode.
+.P When the software is in interactive constraint entry mode (set_interactive_constraint_modes), any timing constraints you specify take effect immediately on all active analysis views that are associated with these constraint modes.
+.P Note: Interactive constraint mode only works when the software is in multi-mode multi-corner timing analysis mode. 
+.SH Related Information
+.RS  "*" 2 set_interactive_constraint_modes
+.RE
+.P

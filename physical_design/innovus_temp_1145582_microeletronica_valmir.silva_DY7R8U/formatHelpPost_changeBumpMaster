@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH changeBumpMaster  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBchangeBumpMaster\fR \-  Enables you to replace the cell master for specified bumps
+.SH Syntax \fBchangeBumpMaster\fR  [-help]   -bumpMasterName <bumpMasterName>   [-fromBumpMasterName <bumpMasterName>]  [-location_type {cell_center cell_lowerleft geometry_center geometry_lowerleft}]   {-netName <netName> | -allBumps | -bump_name <bump_list> | -selected} 
+.P Enables you to replace the cell master for specified bumps. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each changeBumpMaster parameter.  For a detailed description of the command and all of its parameters, use the man command:  man changeBumpMaster  "\fB-allBumps\fR" Specifies that all bumps will use the new cell master specified using the -bumpMasterName parameter.   "\fB-bumpMasterName  <bumpMasterName>  \fR" Specifies the name of the new cell master.   "\fB-bump_name <bump_list>  \fR" Specifies the list of bumps for which you want to change the bump master. Use this parameter if you want to change the cell master of specific bumps, which may or may not have the same cell master originally.   "\fB-fromBumpMasterName <bumpMasterName>\fR" Specifies the name of the old cell master. Use this parameter to replace the cell master of bumps using a specific bump master.   "\fB-location_type {cell_center cell_lowerleft geometry_center geometry_lowerleft}\fR" Specifies the location type.  Default: cell_lowerleft  "\fB-netName <netName>  \fR" Specifies that all bumps connected to the specified net will use the new cell master. For example, if the netName is VDD, all connected bumps will use the cell master specified using the -bumpMasterName parameter.   "\fB-selected\fR" Changes the bump master of selected bumps to the new cell master as specified using the -bumpMasterName parameter. 
+.SH Examples
+.RS  "*" 2 The following command changes the cell master of selected bumps from BUMPCELL to BGA_PAD:  changeBumpMaster -bumpMasterName BGA_PAD -selected -fromBumpMasterName BUMPCELL  Note: The change happens only for those of the selected bumps that originally belonged to BUMPCELL. If a selected bump belongs to a cell master other than BUMPCELL, its cell master is not changed.  "*" 2  The following command changes the cell master of all the bumps connected to the net int to BUMP_PWR:  changeBumpMaster -bumpMasterName BUMP_PWR -netName int  "*" 2  The following command changes the cell master of all the bumps in the design to BUMP_PWR:  changeBumpMaster -bumpMasterName BUMP_PWR -allBumps  "*" 2 The following command changes the the cell master of all the bumps connected to the net int to BUMP_PWR and specifies their location type as geometry_center:  changeBumpMaster -bumpMasterName BUMP_PWR -netName int -location_type geometry_center
+.RE 
+.SH Related Information
+.RS  "*" 2 Flip Chip Methodologies chapter in the User Guide
+.RE
+.P

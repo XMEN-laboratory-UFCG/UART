@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_add_target_pg_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_add_target_pg_mode\fR \-  Returns the information for the specified parameter
+.SH Syntax \fBget_add_target_pg_mode\fR  [-help]   [-allow_weak_connect]  [-max_extension_distance]   [-pins]   [-pins_group_distance]   [-respect_routes]   [-share_resource]   [-quiet]   [-nonDefault]
+.P Returns the information for the specified parameter. Note that you can specify one or more parameter. When you invoke this command without any argument, the software prints the current values stored in the database for all the options. If you provide an option, then the software prints the value currently stored in the database. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each get_add_target_pg_mode parameter.  For a detailed description of the command and all its parameters, use the man command:   man get_add_target_pg_mode  "\fB-parameter_names \fR" Returns the information about the specified parameters. You can specify one or more parameters. See set_add_target_pg_mode for the description of the get_add_target_pg_mode parameters.  "\fB-quiet\fR" Returns the current settings for the specified parameters only in the Tcl list format. If you specify -quiet without any parameters, the software returns the current settings of all the set_add_target_pg_mode parameters in Tcl list format. 
+.SH Related Information
+.RS  "*" 2 add_target_pg   "*" 2 set_add_target_pg_mode
+.RE
+.P

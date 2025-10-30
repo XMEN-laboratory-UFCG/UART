@@ -1,0 +1,29 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH fixOpenFill  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBfixOpenFill\fR \-  Fixes any isolated power/ground (PG) fills
+.SH Syntax \fBfixOpenFill\fR  [-help]   [-net <list_of_net_names>]   [-area <x1 y1 x2 y2>]   [-remove]  
+.P Fixes any isolated power/ground (PG) fills. Isolated PG fills are FILL shapes attached to a power-ground (PG) net that are not connected to at least one non-FILL shape.
+.P In designs with floating fill, the trimMetalFill command is used after routing signal nets to trim fill that causes DRC violations. In designs with tied fill, i.e. metal or via fill connected to special nets, trimMetalFill causes isolated fills to appear. In such cases, use the fixOpenFill command after trimMetalFill to either change the isolated fills to floating fills or to remove them from the design.
+.P If you choose to remove the isolated fills with fixOpenFill -remove, you can then run incremental addMetalFill to see if any of those islands can be tied, either to the same or to another PG rail.
+.P If you run the fixOpenFill command without specifying any parameters, it changes all isolated fills in the design to floating fills. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each fixOpenFill parameter.  For a detailed description of the command and all its parameters, use the man command:  man fixOpenFill  "\fB-area <x1 y1 x2 y2>\fR" Specifies a set of coordinates within which to fix open fill issues.  Default: If you do not specify this parameter, fixes open fills in the entire design area.  "\fB-net <list_of_net_names>\fR" Specifies a list of special net names to fix.  "\fB-remove \fR" Specifies whether to remove the open fills. If this option is not specified, fixOpenFill changes isolated PG fills to floating fills. 
+.SH Example
+.P The following command removes all isolated PG fills from the design:   fixOpenFill -remove 
+.SH Related Information
+.RS  "*" 2 The following sections in the Optimizing Metal Density chapter of User Guide.
+.RE
+.RS
+.RS  "*" 2 "Overview"
+.RE 
+.RE
+.RS
+.RS  "*" 2 "Connected and Floating Metal Fill"
+.RE 
+.RE
+.RS
+.RS  "*" 2 "Trimming Metal Fill"
+.RE 
+.RE
+.P

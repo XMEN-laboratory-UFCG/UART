@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_analysis_view  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_analysis_view\fR \-  Returns the constraint mode or delay calculation corner associated with the specified analysis view
+.SH Syntax  \fBget_analysis_view\fR  <viewName>  {-constraint_mode | -delay_corner} 
+.P Returns the constraint mode or delay calculation corner associated with the specified analysis view.
+.P Use this command after creating at least one analysis view (create_analysis_view). 
+.SH Parameters    "\fB-constraint_mode\fR" Returns the constraint mode associated with the specified analysis view.  "\fB-delay_corner\fR" Returns the delay calculation corner associated with the specified analysis view.  "\fB<viewName>\fR" Specifies the name of the analysis view to query. 
+.SH Examples
+.RS  "*" 2 The following command creates the analysis view missionSlow: 
+.RE
+.P create_analysis_view
+.P  -name missionSlow 
+.P  -constraint_mode missionSetup    -delay_corner dcWCCOM
+.RS  "*" 2 The following command returns the delay calculation corner associated with the missionSlow analysis view:   get_analysis_view missionSlow -delay_corner  The software returns the following result:  dcBCCOM
+.RE 
+.SH Related Information
+.RS  "*" 2 setAnalysisMode
+.RE
+.P

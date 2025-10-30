@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editDeleteFillet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditDeleteFillet\fR \-  Deletes the tear-drop fillet that was added between a wire and bump connection with the editAddFillet command
+.SH Syntax \fBeditDeleteFillet\fR [-help] 
+.P Deletes the tear-drop fillet that was added between a wire and bump connection with the editAddFillet command. 
+.SH Parameters   "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man editDeleteFillet 
+.SH Related Information
+.RS  "*" 2 editAddFillet  "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

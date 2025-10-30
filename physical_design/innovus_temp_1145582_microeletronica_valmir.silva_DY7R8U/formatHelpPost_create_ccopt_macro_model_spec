@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_ccopt_macro_model_spec  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_ccopt_macro_model_spec\fR \-  This command is used to view, or edit, the pin insertion delays for CCOpt derived from the macro model specification
+.SH Syntax \fBcreate_ccopt_macro_model_spec\fR  [-help]  [-ckSpec]  [-ediCtsSpecForMacroModels <fileName>]  [-file <filename>]
+.P This command is used to view, or edit, the pin insertion delays for CCOpt derived from the macro model specification. The macro model information for CCOpt can be retrieved by providing the name of the specification file that contains the macro model information
+.This command allows the macro model to CCOpt pin insertion delay conversion in a way that gives you the pin insertion delay in a TCL format that you can edit and then integrate into your scripts. 
+.P Note: To run this command, ensure that the design is loaded and the specification file is available. Once the macro model specification file is created, to use this file, you only need to source it after the running the create_ccopt_clock_tree_spec command. 
+.SH Parameters   "\fB-help  \fR" Outputs a brief description that includes type and default information for each create_ccopt_macro_model_spec parameter. For a detailed description of the command and all of its parameters, use the man command:  man create_ccopt_macro_model_spec.   "\fB-ckSpec\fR" Uses the CCOpt CTS specification file for macro model information.     "\fB-ediCtsSpecForMacroModels <fileName>\fR" Specifies the legacy FE-CTS specification file for macro model information.   "\fB-file <filename>\fR" Exports the CCOpt macro model spec to the specified file. 
+.SH Example
+.RS  "*" 2 The following command is used to create the macro model specification file, CCOPT_MM, using the legacy FE-CTS specification file, CTSSPEC, in the CCOpt-CTS and CCOpt flow:  create_ccopt_macro_model_spec -ediCtsSpecForMacroModels CTSSPEC -file CCOPT_MM   "*" 2 The following command is used to create the  macro model specification file, CCOPT_MM, in the CCOpt-CTS flow driven directly by the legacy FE-CTS specification file (CTSSPEC):  create_ccopt_macro_model_spec -ediCtsSpecForMacroModels CTSSPEC -file CCOPT_MM -ckSpec
+.RE 
+.SH Related Information
+.RS  "*" 2 ccopt_design  "*" 2 create_ccopt_clock_tree_spec
+.RE
+.P

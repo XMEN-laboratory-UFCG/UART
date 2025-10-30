@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setHierMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetHierMode\fR \-  Sets global parameters for hierarchy  aware  optimization
+.SH Syntax \fBsetHierMode\fR  [-help]  [-reset]  [-addAntennaCell {true | false}]  [-optStage {preCTS | postCTS | unset}] 
+.P Sets global parameters for hierarchy  aware  optimization. Parameters that are specified with setHierMode are used automatically when optimization is invoked by optDesign command.
+.P To see the current settings for the setHierMode command, see getHierMode. 
+.SH Parameters   "\fB-addAntennaCell {true | false}\fR" Adds antenna cells to the interface nets crossing partition boundaries. The antenna violations could not be created due to the partition boundary nets. These violations are seen only when the full design is assembled. Therefore, when this parameter is set to true, it will add antenna cells to fix these violations.  Default: false  "\fB-help\fR" Outputs a brief description that includes type and default information for each setHierMode parameter.  For a detailed description of the command and all of its parameters, use the man command: man setHierMode.  "\fB-reset\fR" Resets parameters to their default values. The -reset parameter must be the first parameter specified. If you specify -reset by itself, the software resets all setHierMode parameters to their default values.  Any values that do not already match the default value and are reset will be reported.  "\fB-optStage {preCTS | postCTS | unset}\fR" Ensures proper settings are turned on for corresponding optDesign stages. -optStage should be set before optDesign, and in cases where module view types are defined, -optStage should be defined after module view types for all partitions (including FlexILMs) are defined.  For example, setHierMode -optStage preCTS ensures that optDesign -preCTS honors fence, keep partition boundary port, etc. 
+.SH Examples
+.RS  "*" 2 The following example adds antenna cells to the top/partition boundary nets incase antenna violations are created:   setHierMode -addAntennaCell true 
+.RE 
+.SH Related Information
+.RS  "*" 2 optDesign  "*" 2 getHierMode  "*" 2 Partitioning the Design chapter in the Innovus User Guide  "*" 2 Top-level Timing Closure Methodologies chapter of the Innovus User Guide
+.RE
+.P

@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH checkUnique  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheckUnique\fR \-  Checks the uniqueness of the netlist
+.SH Syntax \fBcheckUnique\fR  [-help]  [-verbose] 
+.P Checks the uniqueness of the netlist. Certain features, such as clock tree synthesis and IPO, require a module (a non-leaf cell) to be instantiated only once. If the netlist is unique, the result is 1; otherwise, the result is 0.
+.P You can use the checkUnique command after importing a design. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each checkUnique parameter.  For a detailed description of the command and all of its parameters, use the man command:   man checkUnique.  "\fB-verbose\fR" Displays the names of modules instantiated more than once. 
+.SH Example
+.P The following command checks the uniqueness of the netlist and displays the names of any modules instantiate more than once:
+.P innovus 4> checkUnique -verbose
+.P The sample output is as shown below:
+.P Non-leaf cell A instantiated 2 times.  0

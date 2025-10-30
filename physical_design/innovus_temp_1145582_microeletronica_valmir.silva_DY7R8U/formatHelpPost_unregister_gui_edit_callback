@@ -1,0 +1,37 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unregister_gui_edit_callback  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunregister_gui_edit_callback\fR \-  Removes the callback function from the specified move action
+.SH Syntax \fBunregister_gui_edit_callback\fR  [-help]   -command <string>   -edit_type {selection pre-move post-move}
+.P Removes the callback function from the specified move action. In GUI, the move action involves the following three steps:
+.RS  "*" 2 Click an object.  "*" 2 Move the object to the new location.   "*" 2 Click to place the object at the new location and complete the move.
+.RE
+.P The callback function is implemented based on the move action specified with the -edit_type parameter. 
+.SH Parameters   "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man unregister_gui_edit_callback  "\fB-command <string>\fR" Specifies the name of the callback function.   "\fB-edit_type {selection pre-move post-move}\fR" Specifies the GUI edit function:
+.RS  "*" 2 selection - Implements the callback function when an object is selected (after Step 1).  "*" 2 pre-move - Implements the callback function just before the object is placed at the new location (after Step 2, just before you change the coordinates in Step 3).  "*" 2 post-move - Implements the callback function after an object is moved (after Step 3, when the tool updates the DB records).
+.RE 
+.SH Example
+.P Consider the following proc definition:
+.P proc move_event_callback {
+.P      set objList [dbGet selected]
+.P      foreach obj $objList {
+.P            set type [dbGet $obj.objType]
+.P            if {$type == "sdp"} {
+.P                 custom_snap_sdp $obj
+.P            } elseif {$type == "inst"} {
+.P                 set cellName [dbGet $obj.cell.name]
+.P                 if {[regexp grf $cellName]} {
+.P                      custom_snap_grf $obj
+.P                 }
+.P            }
+.P }
+.P }
+.P The following command triggers the move_event_callback function on the selected object just before the move is completed:
+.P register_gui_edit_callback -edit_type pre_move -command move_event_callback
+.P The following command removes the callback to the move_event_callback function:
+.P unregister_gui_edit_callback -edit_type pre_move -command move_event_callback 
+.SH Related Information
+.RS  "*" 2 register_gui_edit_callback  "*" 2 report_gui_edit_callback
+.RE
+.P

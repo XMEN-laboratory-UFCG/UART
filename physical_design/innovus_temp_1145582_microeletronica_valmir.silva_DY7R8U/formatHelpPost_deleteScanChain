@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteScanChain  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteScanChain\fR \-  Removes a scan chain specification from the design
+.SH Syntax \fBdeleteScanChain\fR  [-help]  <[> <chainName>] 
+.P Removes a scan chain specification from the design. Use this command if there is scan chain specified or traced.
+.P When you are debugging a new scan chain specification, it is useful to delete all scan chains and start over.
+.P 
+.SH Parameters    "\fB<chainName>\fR" Specifies the name of the scan chain to remove from the design. If you do not specify a scan chain name, the command deletes all scan chains. 
+.SH Example
+.P The following commands load the scan information from a DEF file, remove the scan chain ABC, and output the scan information to a DEF file:
+.P defIn -scanChain  deleteScanChain ABC  defOut -scanChain 
+.SH Related Information
+.RS  "*" 2 defIn   "*" 2 defOut    "*" 2 displayScanChain   "*" 2 specifyScanChain   "*" 2 report_scan_chain   "*" 2 Placing the Design chapter in the Innovus User Guide
+.RS  "*" 2 Optimizing and Reordering Scan Chains 
+.RE 
+.RE
+.P

@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getPGPinUseSignalRoute  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetPGPinUseSignalRoute\fR \-  Returns all the existing MSV settings that were set by the setPGPinUseSignalRoute command in the current database
+.SH Syntax \fBgetPGPinUseSignalRoute\fR  [-help] 
+.P Returns all the existing MSV settings that were set by the setPGPinUseSignalRoute command in the current database. Use this command to identify the cell PG pins, which are routed by the signal router. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage. For a detailed description of the command and all its parameters, use the man command:  man getPGPinUseSignalRoute 
+.SH Related Information
+.RS  "*" 2 setPGPinUseSignalRoute  "*" 2 routePGPinUseSignalRoute  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

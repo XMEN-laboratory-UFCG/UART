@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_max_capacitance  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_max_capacitance\fR \-  Sets the maximum capacitance limit on the specified instance pin, ports of the top cell, the specified modules, and/or clock waveforms
+.SH Syntax \fBset_max_capacitance\fR  [-help]  <capacitance_limit>  <object_list>  [-clock_path]  [-data_path]  [-fall]  [-override]  [-rise]
+.P Sets the maximum capacitance limit on the specified instance pin, ports of the top cell, the specified modules, and/or clock waveforms. The pins of cell instances of timing libraries will have their own maximum constraint. The software will pick the more aggressive value of the two.
+.P When set on a port, the total capacitance of the net connected to that port must be less than or equal to the specified limit. Maximum capacitance limits also come from library objects, which is the default maximum capacitance limit of libraries and the maximum capacitance limit on library cell pins. Pins in the design inherit the limits from libraries.
+.P Note: The limit set on the top cell applies to its ports. Thus, if maximum capacitance limits are set on the top cell and its ports, the most constraining limit will apply to the ports.
+.P When limits are set on a clock waveform, you can use -clock_path, -data_path, -rise, and -fall parameters to provide more specifications.
+.P The set_max_capacitance constraint on clock objects will be honored only by the report_constraint command for DRV violations. The constraint will not be used in optimizations. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-clock_path\fR" Applies the max capacitance constraint only to pins in the clock network of the clocks defined in the object list.  "\fB-data_path\fR" Applies the max capacitance constraint only to data path pins, where the path is launched by the clocks defined in the object list.  "\fB-fall\fR" Applies the max capacitance constraint only to falling capacitance.  "\fB-rise\fR" Applies the max capacitance constraint only to rising capacitance.  "\fB<capacitance_limit>\fR" Specifies the value for the minimum capacitance limit. The limit must be greater than or equal to zero. The limit is in capacitance units from the target technology library.  "\fB<object_list>\fR" Specifies a list of objects - ports, instance pins, library cell pins, modules, and/or clock waveforms.  "\fB-override\fR" Overrides the maximum capacitance limit from other sources, such as, library or constraints.  This parameter can be used to force a specific constraint value for a specified list of instance pins/port/library cell pins - this overrides the maximum/minimum values set prior to this setting.  To enable this feature, make the following setting:  set timing_constraint_enable_drv_limit_override true 
+.SH Examples
+.RS  "*" 2 The following example sets a maximum capacitance limit of 1.2 units on all the ports of the top cell and a maximum capacitance limit of 0.5 units on the port named d_out:  set_max_capacitance 1.2 [get_ports *]  set_max_capacitance 0.5 d_out
+.RE
+.RS  "*" 2 The following example uses the report_ports command to show the maximum capacitance limit set on ports, as shown in the example below:  set_max_capacitance 0.9 [get_ports *] report_ports -type port_cap_limit -pin [get_ports *]  Example:  Maximum Capacitance Limit Set on Ports Report  > report_ports -type port_cap_limit -pin [get_ports *]  ----------------------------------------  Pin    Dir  Assertion       Value  Name  ----------------------------------------  CLK2   IN   port_cap_limit  ( : 0.900 )  CLK1   IN   port_cap_limit  ( : 0.900 )  in2    IN   port_cap_limit  ( : 0.900 )  in1    IN   port_cap_limit  ( : 0.900 )  out2   OUT  port_cap_limit  ( : 0.900 )  out1   OUT  port_cap_limit  ( : 0.900 )  ----------------------------------------
+.RE 
+.SH Related Information
+.RS  "*" 2 get_ports  "*" 2 report_ports  "*" 2 set_max_transition  "*" 2 set_max_fanout  "*" 2 report_constraint
+.RE
+.P

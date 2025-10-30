@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH analyze_paths_by_hier_port  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBanalyze_paths_by_hier_port\fR \-  Helps you to automatically group paths based on each hierarchical port of a given instance
+.SH Syntax \fBanalyze_paths_by_hier_port\fR  [-help]  {{-gen_hier_file <string> [-out_file <string>]} | {-load_hier_file <string>}}  [-master <string>]  
+.P Helps you to automatically group paths based on each hierarchical port of a given instance. You can use this command to perform the timing results analysis of a hierarchical design. For example, while looking at the setup/hold time at the same time of each port.
+.P The command can be applied wherever the user loads the machine readable timing report. To delete the path categories created by this command, use delete_path_category. For more information on creating path categories, see "Creating Path Categories" in the Debugging Timing Results chapter of Innovus User Guide. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each analyze_paths_by_hier_port parameter.  For a detailed description of the command and all its parameters, use the man command:   man analyze_paths_by_hier_port  "\fB-gen_hier_file <string>\fR" Generates hier ports fanin/fanout file when the database is available based on the given InstanceName_list. Then uses that file to create the categories.  "\fB-load_hier_file <string>\fR" Uses a previously saved hier ports fanin/fanout file when the database is not available.  "\fB-master <string>\fR" Specifies that the timing paths should be categorized only for the specified master category.   "\fB-out_file <string>\fR" Specifies the generated hier ports fanin/fanout file name. 
+.SH Example
+.P The following command categorizes paths based on hierarchical port of the instance DTMF_INST/TDSP_CORE_INST:
+.P analyze_paths_by_hier_port -gen_hier_file DTMF_INST/TDSP_CORE_INST 
+.SH Related Information
+.P The Debugging Timing Results chapter of the Innovus User Guide document.
+.P

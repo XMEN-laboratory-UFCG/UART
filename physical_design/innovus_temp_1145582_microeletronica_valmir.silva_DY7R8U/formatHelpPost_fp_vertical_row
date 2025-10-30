@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH fp_vertical_row  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBfp_vertical_row\fR
+.SH Syntax  \fBfp_vertical_row\fR {0 | 1} 
+.P Type: Integer
+.P Default: 0
+.P Specifies whether the rows in the floorplan are vertical or horizontal. By default, the rows in the floorplan are horizontal. Set this variable to 1 to enable vertical rows. 
+.SH Example
+.RS  "*" 2 The following command sets the rows in the floorplan to vertical.   set fp_vertical_row 1
+.RE 
+.SH Related Information
+.RS  "*" 2 init_design
+.RE
+.P

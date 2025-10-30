@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_apply_default_primary_input_assertion  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_apply_default_primary_input_assertion\fR \-  When set to true, primary input and bidirectional ports that do not have an explicit arrival time specified (through the set_input_delay constraint), are provided a default arrival time
+.SH Syntax \fBtiming_apply_default_primary_input_assertion\fR  {true | false}  Default: true 
+.P When set to true, primary input and bidirectional ports that do not have an explicit arrival time specified (through the set_input_delay constraint), are provided a default arrival time. The arrival is referenced to an internal default clock that is indicated by the @ sign in various timing reports.
+.P If a set_input_delay constraint is assigned to the input port, but the -clock parameter was not specified, the software assumes the constraint to be with reference to the default clock.
+.P When set to false, inputs ports with no explicit set_input_delay are unconstrained for sequential timing analysis.
+.P To set this global variable, use the set_global command.

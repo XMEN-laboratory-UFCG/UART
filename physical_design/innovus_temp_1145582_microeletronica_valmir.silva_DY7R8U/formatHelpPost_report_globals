@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_globals  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_globals\fR \-  Generates a list of the officially supported global variables, with their current and default values
+.SH Syntax \fBreport_globals\fR  [-help]  [<pattern>]   [-add <global_name_list>] 
+.P Generates a list of the officially supported global variables, with their current and default values.
+.P Note: The report_globals command is now obsolete. This command will continue to be supported in the current release, but will be removed in the next major release of the software. To search for global variables, you can use the find_global command. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-add <global_name_list>\fR" Adds the specified global variables to the generated list of supported global variables.  When you use this parameter, the global variables will be included in the generated list along with their registered and current values.  "\fB<pattern>\fR" Reports the global variables that match the specified pattern. Pattern matching can be used for application as well as user-specified global variables (registered using the report_globals -add parameter).
+.P

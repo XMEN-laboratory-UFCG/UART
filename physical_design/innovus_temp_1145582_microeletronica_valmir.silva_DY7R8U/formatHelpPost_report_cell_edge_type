@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_cell_edge_type  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_cell_edge_type\fR \-  Reports the edge type of the specified cell
+.SH Syntax \fBreport_cell_edge_type\fR  [-help]   [-cell <cellName>]   [-file <fileName>] 
+.P Reports the edge type of the specified cell. 
+.SH Parameters    "\fB-cell <cellName>\fR" Specifies the cell name for which edge type is to be reported.  If the cell name is not specified, all the cell edge types are reported in the edge_type.rpt file report file.  "\fB-file <fileName>\fR" Specifies the report file name.  If no file name is specified, the edge_type.rpt file is used to generate the report.  "\fB-help\fR" Outputs a brief description that includes type and default information for each report_cell_edge_type parameter.  For a detailed description of the command and all of its parameters, use the man command: man report_cell_edge_type. 
+.SH Related Information
+.RS  "*" 2 specifyCellEdgeType  "*" 2 deleteCellEdgeType
+.RE
+.P

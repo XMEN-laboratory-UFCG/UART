@@ -1,0 +1,37 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setExportMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetExportMode\fR \-  Controls certain aspects of how the software writes out a Verilog netlist
+.SH Syntax \fBsetExportMode\fR  [-help]  [-reset]   [-fullPinout {true | false}]   [-implicitPortMapping {true | false}]  
+.P Controls certain aspects of how the software writes out a Verilog netlist.
+.P Use the getExportMode command to return the current settings for the setExportMode command. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each setExportMode parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setExportMode.  "\fB-fullPinout {true | false}\fR" Writes out all connected and unconnected pins in the netlist.  Default: false  "\fB-implicitPortMapping {true | false}\fR" Writes out the netlist with implicit port mapping (that is, ordered port connections or position-based port connections) for hierarchical instances.  Default: false  "\fB-reset\fR" Resets parameters to their default values. The -reset parameter must be the first parameter specified. If you specify -reset by itself, the software resets all setExportMode parameters to their default values. If you specify parameters after -reset, the software resets only those parameters to their default values.  Any values that do not already match the default value and are reset will be reported. 
+.SH Examples
+.P Assume the following hierarchical module:
+.P module  block (out1, out2, out3, A, B, C); 
+. 
+. 
+.  endmodule
+.RS  "*" 2 The following example shows how the saveNetlist command writes out an instance of the module block in the netlist by default:   block i1(.out2(Y),
+.A(n1),
+.B(n2),
+.C(n3));  
+.RE
+.RS  "*" 2 The following command instructs the saveNetlist command to write out all connected and unconnected pins when it saves the netlist:   setExportMode -fullPinout true  The instance of module block is written in the saved netlist as follows:  block i1(.out1(),
+.out2(Y),
+.out3(),
+.A(n1),
+.B(n2),
+.C(n3));  
+.RE
+.RS  "*" 2 The following command instructs the saveNetlist command to write out the netlist with implicit port mapping for hierarchical instances when it saves the netlist:   setExportMode -implicitPortMapping true  The instance of the module block is written in the saved netlist as follows:  block i1( , Y, , n1, n2, n3);  
+.RE
+.RS  "*" 2 The following command resets the -fullPinout parameter to its default value:   setExportMode -reset -fullPinout  
+.RE
+.RS  "*" 2 The following command resets all setExportMode parameters to their default values:   setExportMode -reset
+.RE 
+.SH Related Information
+.RS  "*" 2 getExportMode  "*" 2 saveNetlist
+.RE
+.P

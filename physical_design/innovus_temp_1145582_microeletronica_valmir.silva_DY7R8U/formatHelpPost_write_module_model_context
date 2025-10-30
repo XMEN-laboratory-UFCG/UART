@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_module_model_context  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_module_model_context\fR \-  Creates a context model for a specific cell or a master/clone instance
+.SH Syntax \fBwrite_module_model_context\fR  [-help]   {-cell <cellName> | -master_clone_inst <master_clone_inst>}  [-tag t<ag_name>]  [-type {extraction_context timing_context}]   [-type_specific_options <type_specific_options>]  
+.P Creates a context model for a specific cell or a master/clone instance. This context model can be loaded additionally with its design later in the flow. 
+.SH Parameters    "\fB-cell <cellName>\fR" Specifies the cell name(s) to be loaded. You can specify a list of cell names.  Data_type: string, required  "\fB-help\fR" Outputs a brief description that includes the type and default information for each write_module_model_context parameter. For a detailed description of the command and all of its parameters, use the man command:   man write_module_model_context  "\fB-master_clone_inst <instance_name>\fR" Specifies the instance name of a master/clone module. Use this option if the instance has clone(s).  Data_type: string, optional  "\fB-tag <tag_name>\fR" Specifies the output tag name.  Default: latest  Data_type: string, optional   "\fB-type {extraction_context timing_context}  \fR" Specifies the type of the generated context model. 
+.RS  "*" 2 extraction_context:  Writes the extraction context information of specified modules/instances.   "*" 2 timing_context: Writes the timing context information of specified modules/instances. 
+.RE   Data_type: enum, optional   "\fB-type_specific_options\fR" Specifies the options of the type model. 
+.RS  "*" 2 For extraction_context type of model, the type specific options available are:   {-extension <distance> | -surrounding_tag <name> | -ground <name>}
+.RS  "*" 2 -extension <distance>  Specifies the block halo distance (in microns) where routing data will be included in an output DEF file.   Default: 10  "*" 2 -surrounding_tag name  Specifies the surrounding object tag name.  Default: Tag name of the current loaded design.  "*" 2 -ground name  Specifies the ground net that the surrounding nets will be tied to. 
+.RE  "*" 2 For timing_context type of model, the type specific options available are:   {-skip_interface_paths | -overwrite | -with_constraints}
+.RS  "*" 2 -skip_interface_paths  Specify this option if the module is instantiated many times at the full-chip top design. It preserves the context data impacting only internal reg-reg paths. During analysis with this context data, interface paths will be unconstrained.  "*" 2 -overwrite              Specify this option to overwrite the existing timing_context model. It overwrites the existing context data.  "*" 2  -with_constraints  Specify this option to write the SDC file of each of the specified module inside the corresponding sub directories. This option is supported only in SMSC flow and for single instantiated modules. 
+.RE 
+.RE   Data_type: string, optional 
+.SH Example
+.RS  "*" 2 The following command creates an extraction context model for cell ptn_wrapper with routing data within 50 micron halo distance from ptn_wrapper LEF boundary:  restore_module_model dtmf_recvr_core -tag init -noTiming  # Ensure that routing to be cut around specified object should be a LEF  set_module_model -cell ptn_wrapper -type lef -tag my_extract_v1  commit_module_model -mmmc_file design/dtmf_recvr_core.enc.dat/viewDefinition.tcl  earlyGlobalRoute  write_module_model_context -cell ptn_wrapper -tag my_extract_v1 -type_specific_options {-extension 50 -ground vss1 init} -type extraction_context
+.RE 
+.SH Related Information
+.RS  "*" 2 check_module_model  "*" 2 commit_module_model  "*" 2 create_module_model  "*" 2 report_module_model  "*" 2 restore_module_model  "*" 2 savePartition  "*" 2 set_module_model  "*" 2 update_module_model  "*" 2 Hierarchical and Prototyping Flow chapter in the Innovus User Guide
+.RS  "*" 2  Integrated Hierarchical Database Flow
+.RE 
+.RE
+.P

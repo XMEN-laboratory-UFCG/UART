@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_power_intent  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_power_intent\fR \-  Writes the CPF/IEEE1801 file. The command options help to write the file for CPF as well as for the IEEE1801 standard
+.SH Syntax \fBwrite_power_intent\fR  [-help]  <fileName>{-cpf [[-hierInst -topHier] | [-inst]] | -1801 | -incremental_1801}  [-no_extra_connects] 
+.P Writes the CPF/IEEE1801 file. The command options help to write the file for CPF as well as for the IEEE1801 standard. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each write_power_intent parameter.  For a detailed description of the command and all its parameters, use the man command:  man write_power_intent  "\fB<fileName> \fR" Specifies name of the IEEE1801 input file.  "\fBFor CPF\fR"  "\fB-cpf\fR" When specified, Innovus writes out the CPF file.  "\fB-inst\fR" Specifies the hierarchical instance name. Writes (partitions) the CPF for the hierarchical instance specified in this option.  Note: Must be used along with -cpf option.  "\fB-hierInst\fR" Writes top-level CPF where the hierarchical instances specified in -hierInst option are hard blocks when specified together with -topHier -cpf.  "\fB-topHier\fR" Writes top-level CPF when specified together with -hierInst and  -cpf.   "\fBFor IEEE1801\fR"  "\fB-1801\fR" Writes the IEEE1801 file from the low-power database. It filters out the non-existing instances from the original IEEE1801 file and appends to it the following:
+.RS  "*" 2  PG connection for the newly-inserted always-on buffers  "*" 2  Nwell/Pwell connections for the low-power cells  "*" 2 -no_isolation/shifter for the isolation/level shifter strategies for the newly-created ports along the power domain boundary
+.RE   "\fB-incremental_1801\fR" Specifies the incremental IEEE1801 power intent.   "\fB-no_extra_connects\fR" If this parameter is specified, write_power_intent -1801 does not write out any extra connect_supply_net (PG connection). For example:  write_power_intent -1801 -no_extra_connects out.upf  Note: Extra connects means that the extra connect_supply_net commands appended by the tool, which are not included in the original UPF. 
+.SH Related Information
+.RS  "*" 2 commit_power_intent  "*" 2 free_power_intent  "*" 2 read_power_intent  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

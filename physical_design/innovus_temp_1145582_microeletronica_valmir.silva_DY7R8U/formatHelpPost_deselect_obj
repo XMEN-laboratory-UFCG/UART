@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deselect_obj  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeselect_obj\fR \-  Deselects the specified object or the list of objects from the Viewer. The object type can be any object type drawn on GUI such as instance wire, via instance
+.SH Syntax \fBdeselect_obj\fR  [-help]  {[-all ] | [<obj_list>]}
+.P Deselects the specified object or the list of objects from the Viewer. The object type can be any object type drawn on GUI such as instance wire, via instance. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each deselect_obj parameter.  For a detailed description of the command and all of its parameters, use the man command:  man deselect_obj  "\fB-all\fR" Deselects all objects.  Data_type: bool, optional  "\fB<obj_list>\fR" Specifies the list of objects to be deselected.  Data_type: (any_object)+, optional 
+.SH Example
+.P The following command deselects the instance name i1.
+.P deselect_obj [dbGet top.insts.name i1 -p] 
+.SH Related Information
+.RS  "*" 2 select_obj
+.RE
+.P

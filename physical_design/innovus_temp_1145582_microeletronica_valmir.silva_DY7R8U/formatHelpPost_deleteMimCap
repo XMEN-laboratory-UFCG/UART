@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteMimCap  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteMimCap\fR \-  Deletes the mim caps from the design based on cell type or prefix
+.SH Syntax \fBdeleteMimCap\fR  [-help]  [{[-cell <cellName>] [-prefix <prefixName>]} [-area llx lly urx ury]] 
+.P Deletes the mim caps from the design based on cell type or prefix. This command can be used after addMimCap.  
+.SH Parameters    "\fB-area llx lly urx ury\fR" Deletes only the Mim caps that are in the specified box. The -cell or -prefix options are required when this option is specified.  "\fB-cell <cellType>\fR" Deletes the mim caps by cell type.   "\fB-help\fR" Outputs a brief description that includes type and default information for each deleteMimCap parameter.  For a detailed description of the command and all of its parameters, use the man command: man deleteMimCap.  "\fB-prefix <prefixName>\fR" Deletes the mim caps by prefix. 
+.SH Examples
+.RS  "*" 2 The following command deletes the mim cap cell mim_cell1:   deleteMimCap -cell mim_cell1
+.RE 
+.SH Related Information
+.RS  "*" 2 addMimCap
+.RE
+.P

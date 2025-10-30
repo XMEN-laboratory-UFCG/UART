@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH place_cells_at_center_for_feedthrus  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBplace_cells_at_center_for_feedthrus\fR \-  Places all the instances corresponding to a given partition at its center to facilitate feed-through insertion in the flow during the floorplanning stage
+.SH Syntax \fBplace_cells_at_center_for_feedthrus\fR  [-help]  [-insts <list_of_selected_insts>] 
+.P Places all the instances corresponding to a given partition at its center to facilitate feed-through insertion in the flow during the floorplanning stage.  It quickly changes the design status to placed by placing all unplaced cells in the middle of the partition, so that feedthrough can be run.
+.P Note: It places all the cells on the same location (overlapping). 
+.P Note: It can handle rectilinear partition fences and nested designs. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each place_cells_at_center_for_feedthrus parameter.  For a detailed description of the command and all of its parameters, use the man command:   man place_cells_at_center_for_feedthrus  "\fB-insts <list_of_selected_insts>\fR" Specifies the name of the instances that will be placed at the center of the partition.  You can use wildcards (*?) with this parameter.   For example, the following command places all unplaced cells that have ECO in their name to the  center of the partition:  place_cells_at_center_for_feedthrus -insts *ECO*  Data_type: string, optional 
+.SH Example
+.P The following command changes the design status to placed by placing all unplaced cells in the middle of the partition, so that feedthrough can be run.
+.P place_cells_at_center_for_feedthrus 
+.SH Related Information
+.RS  "*" 2 insertPtnFeedthrough  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RS  "*" 2 Inserting Feedthroughs
+.RE 
+.RE
+.P

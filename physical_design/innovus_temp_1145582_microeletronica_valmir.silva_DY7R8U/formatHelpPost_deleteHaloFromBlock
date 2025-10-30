@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteHaloFromBlock  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteHaloFromBlock\fR \-  Removes block halo values for specific blocks or for all blocks. Use this command after running addHaloToBlock
+.SH Syntax \fBdeleteHaloFromBlock\fR   [-help]  [<inst_name> | -allMacro | -allBlackBox | -allCommitPtn  | -allBlock | -allIOPad | -cell <name>]
+.P Removes block halo values for specific blocks or for all blocks. Use this command after running addHaloToBlock. 
+.SH Parameters   "\fB-allBlackBox\fR" Specifies the removal of halo values for all black boxes.  Data_type: bool, optional  "\fB-allBlock\fR" Specifies the removal of halo values for all blocks.  Data_type: bool, optional  "\fB-allCommitPtn\fR" Specifies the removal of halo values for all committed partitions.  Data_type: bool, optional  "\fB-allIOPad\fR" Specifies the removal of halo values for all IO pads.  Data_type: bool, optional  "\fB-allMacro\fR" Specifies the removal of halo values for all hard macros.  Data_type: bool, optional  "\fB-cell <name>\fR" Specifies the removal of halo values for all instances of a cell.  Data_type: string, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each deleteHaloFromBlock parameter. For a detailed description of the command and all of its parameters, use the man command:   man deleteHaloFromBlock  "\fB<inst_name>\fR" Specifies the block where the halo is to be deleted. You can use wildcards (* or ?) for specifying instance names.  Data_type: string, optional 
+.SH Example
+.P The following command removes block halo values from a hard macro named cube32:  deleteHaloFromBlock cube32 
+.SH Related Information
+.RS  "*" 2 addHaloToBlock  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference
+.RS  "*" 2  Edit Halo
+.RE 
+.RE
+.P

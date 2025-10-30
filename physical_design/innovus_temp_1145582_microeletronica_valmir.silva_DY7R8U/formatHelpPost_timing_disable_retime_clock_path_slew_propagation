@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_retime_clock_path_slew_propagation  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_retime_clock_path_slew_propagation\fR
+.SH Syntax \fBtiming_disable_retime_clock_path_slew_propagation\fR  {true | false} 
+.P Default: true
+.P When set to true, path based analysis is performed on data paths only and the clock segments are not considered.
+.P When set to false, analysis is performed on both data and clock paths.
+.P To set this global variable, use the set command.
+.P

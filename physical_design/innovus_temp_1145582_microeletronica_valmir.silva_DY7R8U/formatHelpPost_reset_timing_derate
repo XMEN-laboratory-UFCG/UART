@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_timing_derate  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_timing_derate\fR \-  Resets derate factors specified on a design or a list of instances (cells, net, or library cells)
+.SH Syntax \fBreset_timing_derate\fR  [-delay_corner <delayCornerName>]  [-increment]   [<object_list>] 
+.P Resets derate factors specified on a design or a list of instances (cells, net, or library cells). All the derating factors that are set globally or on specific instances are reset to a default value of 1.0.
+.P The derating factors for early or late paths in the design are set using the set_timing_derate command. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-delay_corner <delayCornerName>\fR" Specifies the delay corner or a list of delay corners on which reset derating is to be applied.    "\fB-increment\fR" Incrementally adds the derate value to the total derate value in all the modes - OCV, AOCV, and SOCV mode.   "\fB<object_list>\fR" Specifies the list of cells, nets, or library cells to reset.  If the <object_list> contains hierarchical cells then all cells within the hierarchical cells and across lower hierarchies have reset derate factors. 
+.SH Examples
+.RS  "*" 2 The following example resets all the object-specific and global derating factors:   reset_timing_derate *
+.RE
+.RS  "*" 2 The following example resets only global derating factors:   reset_timing_derate [current_design]
+.RE
+.RS  "*" 2 The following example resets derating factor values for the specified delay corner:   reset_timing_derate -delay_corner<delayCornerName>
+.RE
+.RS  "*" 2 The following example resets the global derating values for the specified delay corner:   reset_timing_derate -delay_corner<delayCornerName> [current_design]
+.RE
+.RS  "*" 2 The following example resets timing derate on instance u1:   reset_timing_derate [get_cells u1]
+.RE 
+.SH Related Information
+.RS  "*" 2 set_timing_derate
+.RE
+.P

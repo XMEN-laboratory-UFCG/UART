@@ -1,0 +1,26 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_constraint_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_constraint_mode\fR
+.SH Syntax  \fBcreate_constraint_mode\fR  -name <modeName>  -sdc_files {<file1>.sdc <file2>.sdc
+...}   [-ilm_sdc_files {<file1>.sdc <file2>.sdc
+...}]  [-tcl_vars {{<var_name1> <value1>} {<var_name2> <value2>} {<var_name3> <value3>}
+...}]
+.P Associates a list of SDC constraint files with a specified constraint mode name, for multi-mode multi-corner analysis. This constraint mode name can be referred to later when creating analysis views. A constraint mode defines one of possibly many different functional, test, or Dynamic Voltage and Frequency Scaling (DVFS) modes of a design. SDC files can be shared by many different constraint modes, and the same constraint mode can be associated with multiple analysis views.
+.P SDC files typically contain timing analysis information, such as the clock specifications, case analysis constraints, I/O timings, and path exceptions that make each mode unique. If the ILM is being used, the timing system utilizes the files specified with -ilm_sdc_files during the flatten ILM mode (flattenIlm); otherwise, the system uses the files specified with -sdc_files. 
+.SH Parameters   "\fB-ilm_sdc_files {<file1>.sdc <file2>.sdc
+...}\fR" Specifies a Tcl list of ILM SDC files to be included in the constraint mode.  "\fB-name <modeName>\fR" Specifies the name of the constraint mode to be created.  "\fB-sdc_files {<file1>.sdc <file2>.sdc
+...}\fR" Specifies a Tcl list of SDC files to be included in the constraint mode.  "\fB-tcl_vars {{<var_name1> <value1>} {<var_name2> <value2>} {<var_name3> <value3>}
+...}  \fR" Specifies a list of tcl variables and values to be used in the constraint mode. 
+.SH Examples
+.RS  "*" 2 The following command groups the SDC files io.sdc, mission1-clks.sdc, and mission1-except.sdc to create a mode object named missionSetup:   create_constraint_mode -name missionSetup    -sdc_files [list io.sdc mission1-clks.sdc mission1-except.sdc]
+.RE
+.RS  "*" 2 The following command groups the SDC files io.sdc, mission1-clks.sdc, mission1-except.sdc, and dont_use.sdc to create a mode object named missionHold:   create_constraint_mode -name missionHold    -sdc_files [list io.sdc mission1-clks.sdc mission1-except.sdc      dont_use.sdc]
+.RE
+.RS  "*" 2 The following command groups the SDC files test-io.sdc, test-clks.sdc, and test-except.sdc to create a mode object named testHold:   create_constraint_mode -name testHold    -sdc_files [list test-io.sdc test-clks.sdc test-except.sdc]
+.RE 
+.SH Related Information
+.RS  "*" 2 update_constraint_mode  "*" 2 create_analysis_view
+.RE
+.P

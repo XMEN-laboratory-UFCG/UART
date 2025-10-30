@@ -1,0 +1,29 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addDeCap  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddDeCap\fR \-  Adds the specified total decoupling capacitance to the design
+.SH Syntax  \fBaddDeCap\fR  [-help]  -totCap <total_cap_in_fF> <>  [-cells <cellName>]  [-addFixAttr]  [-area <x1 y1 x2 y2> <|>-exclude {{<x1 y1 x2 y2>}
+...}]  [-effort [low | high]]  [-prefix <prefixName>]  [-noFixDRC]  [-log <logName>]  [-maxNrIter <number>]  [-fromFile <fileName>]  [-pgNet <netName>]  
+.P Adds the specified total decoupling capacitance to the design. The software chooses from the available decoupling capacitance cell candidates, and adds enough cells until their combined total capacitance value equals the user-specified value. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each addDeCap parameter. For a detailed description of the command and all of its parameters, use the man command: man addDeCap.  "\fB-addFixAttr \fR" Specifies that the decap cell being placed is Fixed. Use this parameter after inserting decoupling capacitance.  "\fB-area <x1 y1 x2 y2>\fR" Defines an area within the design in which to add the decoupling capacitance.  Default: Entire design area  x1: Specifies the area's lower left point on the x axis.  y1: Specifies the area's lower left point on the y axis.  x2: Specifies the area's upper right point on the x axis.  y2: Specifies the area's upper right point on the y axis.  "\fB-cells <cellName>
+...\fR" Specifies the cells to use for decoupling capacitance insertion. The specified cells must first be defined using the addDeCapCellCandidates command.  Default: Any cell previously defined with the addDeCapCellCandidates command.  Note: The -cells parameter is order dependent.  "\fB-effort [low | high]\fR" Specifies the approach to use when inserting decoupling capacitance.   Default: low  Specify one of the following:  Uses a homogeneous approach to add the decoupling capacitance. That is, the software treats all areas the same when adding decoupling capacitance cells.  Analyzes the peak current of the instances and tries to add more cells to the areas with high peak current density.  "\fB-exclude {<x1 y1 x2 y2>}
+...\fR" Defines a blockage area within which decoupling capacitance cannot be inserted. You can specify one or more blockage areas.  Note: The parameters -exclude and -area are mutually exclusive. When both parameters are specified on the command line, the tool throws an error.  "\fB-noFixDRC\fR" Disables correction of DRC errors.  "\fB-fromFile <fileName>\fR" Performs decoupling capacitance insertion using the information in the specified log file (created from a previous addDeCap session).  This file can contain information for adding decoupling capacitance cells and for deleting existing decoupling capacitance cells.  "\fB-log <logName>\fR" Outputs a log file with the specified name that contains information on where the decoupling capacitance cells were added. It can also contain information on where cells were deleted due to DRC violations.  The log file can be used for tracking the location of decoupling capacitance and for debugging purposes. It can also be used to insert decoupling capacitance cells in a different session.  The log file is output in the following format:  ADD <cellName> <locationX> <locationY> [<orientation>] [<instanceName>]  DEL <instanceName>  It contains the cell name and the location where an instance of it was placed. It can also contain the orientation of the instance, and a name for the instance, if that name has not been used already.  For example, the following line shows that a new instance of CELL_8 with the name Instance100 was added at the location 100 200, with an orientation of R0:  ADD CELL_8 100 200 R0 Instance100   "\fB-maxNrIter <number>\fR" Specifies the iteration for inserting decap if there is DRC.  Default: 10  "\fB-prefix <prefixName>\fR" Defines the prefix to use for the decoupling capacitance cells.   Default: DECAP  "\fB-pgNet <netName>\fR" Adds decap cells on the specified power rail.  Default: Add decap cells irrespective of power nets.  "\fB-totCap <total_cap_in_fF>\fR" Specifies the total decoupling capacitance to add to the design, in femtofarads (fF). The software uses the specified decoupling cell candidates and adds cells until their combined capacitance value equals <capacitance>. 
+.SH Command Order
+.P Use this command after defining decoupling capacitance cell candidates with the addDecapCellCandidates command. 
+.SH Examples
+.RS  "*" 2 The following command adds 1000 fF of capacitance to the design using DECAP10 and DECAP8 cells, in that order:   addDeCap -totCap 1000 -cells DECAP10 DECAP8 
+.RE
+.RS  "*" 2 The following command adds 6367.341 fF of capacitance to the specified area within the design, and marks the placement status of all instances as Fixed:   addDeCap -totCap 6367.341 -area 600 600 900 900 -addFixAttr
+.RE 
+.SH Related Information
+.RS  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Adding Decoupling Capacitance
+.RE 
+.RE 
+.SH Related Information
+.RS  "*" 2 deleteDeCap  "*" 2 reportDeCap 
+.RE
+.P

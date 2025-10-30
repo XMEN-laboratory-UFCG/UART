@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH read_power_intent  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBread_power_intent\fR \-  Reads-in power intent file and do syntax check
+.SH Syntax \fBread_power_intent\fR  [-help]   <fileName>  {-cpf | -1801 | -msvDB }
+.P Reads-in power intent file and do syntax check. The method supports incremental refinement of power intent specifications required for IP-based design flows. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each read_power_intent parameter.  For a detailed description of the command and all its parameters, use the man command:  man read_power_intent  "\fB<fileName> \fR" Specifies the name of the power intent file to be read.  "\fB-cpf\fR" Specifies that the CPF format power intent file will be used.  "\fB-1801\fR" Specifies that the IEEE1801 format power intent file will be used.  "\fB-msvDB\fR" Specifies that the IEEE1801 data format (.cpfdb) power intent file will be used.  Note: -msvDB is for partition flow and must be read for power intent in partition implementation. 
+.SH Related Information
+.RS  "*" 2 commit_power_intent  "*" 2 free_power_intent  "*" 2 write_power_intent  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

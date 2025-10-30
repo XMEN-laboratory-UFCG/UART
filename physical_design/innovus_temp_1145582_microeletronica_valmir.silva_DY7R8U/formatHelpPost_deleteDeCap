@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteDeCap  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteDeCap\fR \-  Deletes all decoupling capacitance cells
+.SH Syntax \fBdeleteDeCap\fR  [-help] 
+.P Deletes all decoupling capacitance cells. You can use this command to delete decoupling capacitance cells that you added using the addDeCap command. 
+.SH Parameter   "\fB-help \fR" Outputs a brief description of the deleteDeCap command. For a detailed description of the command, use the man command:  man deleteDeCap. 
+.SH   Example
+.P The following command deletes all of the decoupling capacitance cells in a design:
+.P deleteDeCap 
+.SH Related Information
+.RS  "*" 2 Placing the Design chapter in the Innovus System User Guide
+.RE
+.RS
+.RS  "*" 2 Adding Decoupling Capacitance
+.RE 
+.RE
+.RS  "*" 2 addDeCap  "*" 2 reportDeCap
+.RE
+.P

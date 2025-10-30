@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH modifyPipelineNetGroup  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmodifyPipelineNetGroup\fR \-  Modifies the existing net group attributes or converts an existing net group added during floorplanning to be of type pipeline
+.SH Syntax \fBmodifyPipelineNetGroup\fR  netGroupName  [{-inst <instNameListOrRegularExp> |        -startTerm <termList> -endTerm <termList> |        -net <listOfNetnamesOrRegularExp> }]  [-startReserve <distInMicrons>] [-endReserve <distInMicrons>] 
+.P Modifies the existing net group attributes or converts an existing net group added during floorplanning to be of type pipeline. This command can be used if there are existing pipe line net groups in the design. 
+.SH Parameters   "\fB-endReserve <ReserveDistanceInMicrons>\fR" Specifies a distance value from the end points on block boundary to the internal connection inside the block that needs to be added to the last stage distance, to achieve equidistant spacing. The unit is in micron.  "\fB-inst <instNameListOrRegularExp>\fR" Modifies net group to add all nets connected to the given instances. The instances must all be flip-flops or latches. All the nets attached to the D and Q pins are put into the PFF net group.  "\fB-net <listOfNetNamesOrRegularExp>\fR" Creates net group of all given nets.  "\fB-startReserve <ReserveDistanceInMicrons>\fR" Specifies a distance budget from internal connections inside block to the start point of the PFF net. This value is added to the first stage distance when calculating equidistant spacing for each stage. The unit is in micron.  "\fB-startTerm <termList>\fR" Modifies net group to add all data nets between the given end points. The PFF-chain is traced from the startTerm, through D and Q terminals of PFF(s) until an endTerm is matched.  "\fB-endTerm <termList>\fR" Modifies net group to add all data nets between the given end points. The PFF-chain is traced from the startTerm, through D and Q terminals of PFF(s) until an endTerm is matched.  "\fBnetGroupName\fR" Specifies the name of net group.  
+.SH Example
+.P The following command modifies the existing net group named netGroup1 between blockA/DATA_OUT*  and blockB/DATA_IN* with a budget distance 10 microns from internal connections inside the blockA to the start point of DATA_OUT* :
+.P modifyPipelineNetGroup netGroup1 -startTerm blockA/DATA_OUT* -endTerm blockB/DATA_IN* -startReserve 10  
+.SH Related Information
+.RS  "*" 2 createPipelineNetGroup  "*" 2 deletePipelineNetGroup  "*" 2 reportPipeline
+.RE
+.P

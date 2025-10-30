@@ -1,0 +1,29 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH routePointToPoint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBroutePointToPoint\fR \-  Specifies routing constraints to perform point-to-point routing between I/O pad pins and bumps, and wires and bumps for SPECIALNETS (only) that are defined in the DEF file
+.SH Syntax \fBroutePointToPoint\fR  [-help]   [-constraintFile <filename>]   [-drop_via_in_trace]  [-net {[<netName> | -1] [<layerName> | -1] [(<x> <y>)]}]   [-pin {[<instName> | -1] [<pinName> | -1] [(<x> <y>)]}]   [-routeLayer {bot[:top[:step]] [,bot[:top[:step]]]}]   [-routeStyle {manhattan | doubleBend | diagonal}]   [-spacing <spacingValue>]   [-split {<layerBase> maxWidth:<value> [gap:<value>] [style:RIVER|MESH]}]  [-subclass <subclass_name>]    [-width <widthValue>]   [{[-useExactLoc] [-guidePoint {{<x1> <y1>} {<x2> <y2>}...} [-keep_partial]]} [-offset {<x> <y>}]] 
+.P Specifies routing constraints to perform point-to-point routing between I/O pad pins and bumps, and wires and bumps for SPECIALNETS (only) that are defined in the DEF file. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each routePointToPoint parameter.  For a detailed description of the command and all of its parameters, use the man command:  man routePointToPoint  "\fB-constraintFile <fileName>\fR" Specifies the name of the file that contains the nets defined in the DEF file.  "\fB-drop_via_in_trace\fR" Drops all possible vias in the trace.  "\fB-guidePoint {{<x1 y1>} {<x2 y2>}...}  \fR" Specifies guiding points for routing. <x> and  <y> values are real values in micron. You can specify up to 256 guiding points. The P2P router routes through all the usable guiding points in an order of distance to/from target. This feature allows you to control P2P router more precisely on pin selection.   "\fB-keep_partial \fR" Keeps routed segments when routing with guide points fails partially.  Note: This parameter can be used only with -guidePoint.  "\fB-net <{netName> | -1 <[layerName> | -1] (<x> <y>)}\fR" Specifies net options, such as net name, net layer, and location coordinates. The <layerName> can now also be the TSV layer name.   "\fB-offset {<x> <y>}\fR" Defines the maximum search offset from the original user click location.  Note: This parameter can be used only with -useExactLoc.  "\fB-pin <{[instName> | -1] <[pinName> | -1] [(<x y>)]}\fR" Specifies the pin options, such as the instance name, the pin name, or the location coordinates.   "\fB-routeLayer {bot[:top[:step]] [,bot[:top[:step]]]}\fR" Specifies the route layer.   "\fB-routeStyle [manhattan | doubleBend | diagonal]\fR" Specifies the routing style options for performing the point-to-point routing.
+.RS  "*" 2 diagonal
+.RE   (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.RS  "*" 2 manhattan
+.RE   (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.RS  "*" 2 doubleBend
+.RE   (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   "\fB-spacing <spacingValue>\fR" Specifies the route spacing, in micrometers.  "\fB-split {layerBase maxWidth:<value> [gap:<value>] [style:RIVER|MESH]}\fR" Splits the wire segment based on the maximum width and splitting style.  The router gets the maximum width value from the layer information; the router does not split the wire segment when the wire width does not exceed the layer's maximum width. 
+.RS  "*" 2 maxWidth:<value>: Specifies the maximum width for splitting.   "*" 2 gap:<value>: Specifies the splitting gap.   "*" 2 style:RIVER|MESH:Specifies the splitting style:
+.RS  "*" 2 RIVER: Allows only one crossing of the split wire.  "*" 2 MASH: Allows crossing of all of split wires and also drops all the crossing sections.
+.RE 
+.RE   "\fB-subclass <subclass_name>\fR" Assigns the specified string as a subclass name to the wires and vias created.   "\fB-useExactLoc\fR" Uses the exact location that you click to perform routing. You can use the optional -offset parameter to define the maximum search offset from the original user click location. If the location does not fulfill the pin access requirements, P2P router performs an auto search to find a new access point.  Note: If the -useExactLoc parameter is not specified, P2P finds the start end locations on the user-clicked object on its own.  "\fB-width <widthValue>\fR" Specifies the route width, in micrometers. 
+.SH Examples
+.P The following command performs diagonal style point-to-point routing between the I/O pad pin newIo_2 and bump Bump_41_0_4 on route layer M8, having a default route width of 0.44 micrometers, and a spacing of 0.46 micrometers:
+.P routePointToPoint -routeLayer M8:M8 -width 0.44 -spacing 0.46 -routeStyle diagonal -pin {newIo_2 -1 (-21.3115 535.932)} -pin {Bump_41_0_4 port_pad_data_in[10] (76.507 482.032)} 
+.SH Related Information
+.RS  "*" 2 fcroute  "*" 2 Flip Chip Methodologies chapter in the User Guide
+.RS  "*" 2 P2P Router 
+.RE  "*" 2 Tools Menu chapter in the Menu Reference 
+.RS  "*" 2 TSV 
+.RE 
+.RE
+.P

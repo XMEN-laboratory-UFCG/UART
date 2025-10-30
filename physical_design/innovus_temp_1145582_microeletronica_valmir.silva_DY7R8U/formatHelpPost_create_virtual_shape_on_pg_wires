@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_virtual_shape_on_pg_wires  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_virtual_shape_on_pg_wires\fR \-  Generates additional virtual shapes and creates markers on PG wires, when the existing trim shapes overlap with PG wires. The generated virtual shapes are routing blockages on the specified layer. These virtual shapes can be based on the output of the defOut and streamOut commands, and edited by the wire editing commands
+.SH Syntax \fBcreate_virtual_shape_on_pg_wires\fR  [-help]  -layers {{virtual_layer, power_layer [mask_num]}
+...}  [-name <string>]  [-pg_width_list {<list_of_supported_width_values>} | -pg_width_range {min_width max_width}] 
+.P Generates additional virtual shapes and creates markers on PG wires, when the existing trim shapes overlap with PG wires. The generated virtual shapes are routing blockages on the specified layer. These virtual shapes can be based on the output of the defOut and streamOut commands, and edited by the wire editing commands. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each create_virtual_shape_on_pg_wires parameter. For a detailed description of the command and all of its parameters, use the man command:  man create_virtual_shape_on_pg_wires  "\fB-layers {{virtual_layer, power_layer [mask_num]}
+...}\fR" Specifies the pair of layers, which need to create the virtual shapes. You can specify the optional argument mask_num with this parameter to select the PG wires.   "\fB-name <string>\fR" Specifies the name of the marker shape to be generated.  Default: defLayerBlkName  "\fB-pg_width_list {<list_of_supported_width_values>}\fR" Creates virtual shapes on PG pin only for the specified width values.  Note: This parameter cannot work with the -pg_width_range parameter. It means that you can define either a range of width, or a list of width. You can use the -pg_width_list parameter with the -layer and -name parameters.  "\fB-pg_width_range {min_width max_width}\fR" Specifies the PG width range in which the virtual shapes are needed.  Default: All the PG wires.
+.P

@@ -1,0 +1,31 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editMove  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditMove\fR \-  Moves selected wires, boundary pins, or vias
+.SH Syntax \fBeditMove\fR  [-help]   {[[-direction {x y diag45 diag135} -distance <float>] | [-dx <float> -dy <float>] | -to {x y}] }
+.P Moves selected wires, boundary pins, or vias. 
+.SH Moving Wires
+.P editMove moves selected wires in the orthogonal direction. When used with the -direction and -distance or -dx and -dy combination, editMove maintains connectivity by stretching connected wires in the orthogonal direction. This command also supports 45 and 135-degree wire edits.
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P Use the setEditMode -connect_with_specified_layer parameter to control whether layer preference settings are honored when wires are moved. The default value of this parameter is 0. If you set this parameter to 1, editMove honors the setEditMode -layer_horizontal and -layer_vertical settings while jogging metal layers. For instance, if you cut a vertical wire on M4 by using editCutWire such that the wire is divided into three wire segments and then move the wire segment in the middle in the horizontal direction, the tool automatically creates new connecting wires on the layer defined by setEditMode -layer_horizontal and drops vias correctly. This means you no longer need to perform the additional step for layer change (editChangeLayer or Shift+L) while moving wires to create a jog. This feature is applicable for both regular and special wires. 
+.P To get the current value of the -connect_with_specified_layer parameter, you can use the corresponding getEditMode parameter.
+.P Note: You can use the setEditMode -snap_to_track and -snap_to_track_regular parameters to specify whether or not to snap wires to the track. To get the current values of these parameters, use the corresponding getEditMode options. 
+.SH Moving Physical Pins
+.P editMove moves selected physical pins along with connected wires. 
+.P Keep the following considerations in mind while trying to move a physical pin with editMove:
+.RS  "*" 2 editMove can be used to move only the physical pins on the design boundary. Pins inside the design cannot be moved with this command.  "*" 2 A pin can be moved only along a boundary.   "*" 2 It cannot be moved between design boundaries.   (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 Pins on the top or bottom boundary can be moved only horizontally.  "*" 2 Pins on the left or right boundary can be moved only vertically.
+.RE
+.P Note: You can use the setEditMode-snap_to_track_pin parameter to specify whether or not to snap moved pins to the track. This parameter is set to true (1) by default. To get the current value of this parameter, use the corresponding getEditMode option. 
+.SH Parameters   "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man editMove  "\fB-direction {x y diag45 diag135}\fR" Specifies the direction of movement. Use one of the following options:
+.RS  "*" 2 diag45 - Moves selected wires the specified <-distance> in a 45-degree direction.This option cannot be used for moving physical pins.  "*" 2 diag135 - Moves selected wires the specified <-distance> in a 135-degree direction. This option cannot be used for moving physical pins.  "*" 2 x - Moves selected vertical wires or pins to the right (if you specify a positive value for <-distance>) or left (if you specify a negative value for <-distance>).  "*" 2 y - Moves selected horizontal wires or pins up (if you specify a positive value for <-distance>) or down (if you specify a negative value for <-distance>).
+.RE   "\fB-distance <float>\fR" Specifies the distance to move the wire or pin in microns.  "\fB-dx <float> \fR" Specifies the distance in microns by which the selected wire should be moved in the x direction. You must specify the -dy value along with it. For example, if you want to move the wire in the x direction by 0.2 microns, specify the following command:  editMove -dx 0.2 -dy 0  "\fB-dy <float>\fR" Specifies the distance in microns by which the selected wire should be moved in the y direction. You must specify the -dx value along with it. For example, if you want to move the wire in the y direction by 0.2 microns, specify the following command:  editMove -dx 0 -dy 0.2  "\fB-to {x y}\fR" Specifies the coordinates of the new location to which the selected wire or via is to be moved. If you are moving a via, the x and y values specify the new coordinates of the via origin. In the case of a wire, the x and y values specify the new coordinates of the lower left corner of the wire. See eMExamplesExamples.  When you move the selected wire or via with editMove -to, connected wires are not moved. 
+.SH Examples
+.RS  "*" 2 The following command moves the selected wire such that its lower-left corner lies on the coordinates {20,30} after the move:  editMove -to {20 30}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2  The following command moves the selected via such that its origin lies on the coordinates {20, 30} after the move:  editMove -to {20 30}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 editAddRoute  "*" 2 editAdjust   "*" 2 editCommitRoute   "*" 2 editCutWire  "*" 2 editDelete   "*" 2 editDuplicate   "*" 2 editMerge   "*" 2 editResize  "*" 2 editRotate   "*" 2 editSplit  "*" 2 editTrim   "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

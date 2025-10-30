@@ -1,0 +1,8 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_floating_bus_check  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_floating_bus_check\fR \-  When set to true, disables propagation of minimum delay through three state disable timing arcs and maximum delay through three state enable arcs
+.SH Syntax \fBtiming_disable_floating_bus_check\fR   {true | false}  Default: false
+.P When set to true, disables propagation of minimum delay through three state disable timing arcs and maximum delay through three state enable arcs. These checks are only valid during floating bus conditions. 
+.P To set this global variable, use the set_global command.

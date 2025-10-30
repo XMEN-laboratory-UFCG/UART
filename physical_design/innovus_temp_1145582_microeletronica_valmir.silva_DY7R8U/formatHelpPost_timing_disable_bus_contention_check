@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_bus_contention_check  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_bus_contention_check\fR \-  When set to true, disables propagation of maximum delay along three state disable timing arcs and minimum delay along three state enable arcs
+.SH Syntax \fBtiming_disable_bus_contention_check\fR  {true | false}  Default: false
+.P When set to true, disables propagation of maximum delay along three state disable timing arcs and minimum delay along three state enable arcs. If you know that bus contention conditions do not occur in your design, disable these checks by setting these globals to true.
+.P Checks for setup and hold violations in three-state bus designs. Checks the worst delay path to ensure that the latched signals are stable and not unknown values - X. Ensures proper timing checks for bus contention.
+.P To set this global variable, use the set_global command.

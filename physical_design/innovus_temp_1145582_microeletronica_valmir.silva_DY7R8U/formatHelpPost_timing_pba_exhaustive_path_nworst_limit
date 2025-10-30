@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_pba_exhaustive_path_nworst_limit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_pba_exhaustive_path_nworst_limit\fR
+.SH Syntax \fBtiming_pba_exhaustive_path_nworst_limit\fR <value>
+.P Default: 10000
+.P Specifies the maximum number of paths per endpoint (nworst) that will be re-timed in exhaustive path-based analysis (PBA). 
+.P In exhaustive PBA mode, the value specified with the report_timing -nworst parameter is used only during the final reporting. The value specified with the timing_pba_exhaustive_path_nworst_limit global variable (and not the report_timing -nworst value) is used to specify the maximum number of paths to be re-timed per endpoint.
+.P If the limit specified by timing_pba_exhaustive_path_nworst_limit is reached and timing_path_based_enable_exhaustive_depth_bounded_by_gba global variable is set to:
+.RS  "*" 2 true: The worst of the current PBA slack is used and N+1th GBA path is reported.   "*" 2 false: The current PBA slack is reported - which may be optimistic.
+.RE
+.P To set this global variable, use the set command.
+.P

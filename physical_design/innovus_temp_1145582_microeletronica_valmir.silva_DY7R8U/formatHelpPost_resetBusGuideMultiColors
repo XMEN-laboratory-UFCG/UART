@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH resetBusGuideMultiColors  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBresetBusGuideMultiColors\fR \-  Clears the highlighted bus guide colors
+.SH Syntax \fBresetBusGuideMultiColors\fR 
+.P Clears the highlighted bus guide colors.
+.P Use this command after setBusGuideMultiColors has been used to color the bus guide(s). 
+.SH Parameters
+.P None 
+.SH Related Information
+.RS  "*" 2 setBusGuideMultiColors  "*" 2 Bus Planning chapter in the User Guide
+.RS  "*" 2 Highlighting and Dehighlighting the Bus Guide
+.RE  "*" 2 Edit Menu chapter in the Menu Reference
+.RS  "*" 2 Bus Guide
+.RE 
+.RE
+.P

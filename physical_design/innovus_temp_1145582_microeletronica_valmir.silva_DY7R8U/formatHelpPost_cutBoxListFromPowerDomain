@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH cutBoxListFromPowerDomain  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcutBoxListFromPowerDomain\fR \-  Cuts out default power domains from a non-default power domain
+.SH Syntax \fBcutBoxListFromPowerDomain\fR  [-help]  -powerdomain <powerDomainName>  -boxList {{box1}
+...}  
+.P Cuts out default power domains from a non-default power domain. This command is mainly used to solve buffering related issues.
+.P Use this command with other commands like ecoAddRepeater to insert buffers in the cutout box. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each cutBoxListFromPowerDomain parameter.  For a detailed description of the command and all its parameters, use the man command:   man cutBoxListFromPowerDomain  "\fB-powerDomain\fR" Specifies the Power Domain in which you want to cut out.  "\fB-boxList\fR" Specifies the list of boxes to be cut. 
+.SH Examples
+.P cutBoxListFromPowerDomain  -powerDomain pd -boxList { {list1} {list2}......}
+.P The list is numbers in the format: {llx1 lly1 urx1 ury1}
+.P cutBoxListFromPowerDomain -powerDomain 1.0V_Domain \\
+.P -boxList {{10 10 20 20} {35 60 45 70}}
+.P This will cut box {10 10 20 20} and {35 60 45 70} from the domain 1.0V_Domain, and these two boxes will become the default domain. 
+.SH Related Information
+.RS  "*" 2 cutPowerDomainByOverlaps  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

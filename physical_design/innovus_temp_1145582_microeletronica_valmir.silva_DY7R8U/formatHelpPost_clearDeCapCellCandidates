@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH clearDeCapCellCandidates  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBclearDeCapCellCandidates\fR \-  Clears all available cells for decoupling capacitance insertion
+.SH Syntax \fBclearDeCapCellCandidates\fR  [-help] 
+.P Clears all available cells for decoupling capacitance insertion. You can use this command to clear previously defined decoupling cell candidates specified using the addDeCapCellCandidates command. 
+.SH Parameter   "\fB-help\fR" Outputs a brief description of the clearDeCapCellCandidates command. For a detailed description of the command, use the man command: man  clearDeCapCellCandidates. 
+.SH   Example:
+.P The following command clears all available decoupling cell candidates:
+.P clearDeCapCellCandidates 
+.SH Related Information
+.RS  "*" 2 Placing the Design chapter in the Innovus System User Guide
+.RE
+.RS
+.RS  "*" 2 Adding Decoupling Capacitance
+.RE 
+.RE
+.RS  "*" 2 addDeCapCellCandidates  "*" 2 reportDeCapCellCandidates
+.RE
+.P

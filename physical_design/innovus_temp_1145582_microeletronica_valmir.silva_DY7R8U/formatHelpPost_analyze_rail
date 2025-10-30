@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH analyze_rail  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBanalyze_rail\fR \-  Runs rail analysis on a net or domain
+.SH Syntax  \fBanalyze_rail\fR  [-help]  [-type {domain | net}]  [-output <directory_name>]  <name> 
+.P Runs rail analysis on a net or domain. This command must be specified after defining the rail analysis mode properties using the set_rail_analysis_mode command. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each analyze_rail parameter.  For a detailed description of the command and all of its parameters, use the man command man analyze_rail.  "\fB<name>\fR" Specifies the name of the domain or net that you want to analyze.  "\fB-output <directory_name>\fR" Specifies the name of the directory in which to store the output directories created during the analysis.  Default: Current working directory.  "\fB-type {domain | net}\fR" Specifies whether to run rail analysis on a domain or a net. A domain is a list of power or ground nets to analyze together. See set_power_pads for more details.  You can specify the variable "ALL" to analyze all domains. 
+.SH Examples
+.RS  "*" 2 The following command performs an analysis for the vdd net and places the results directories in the analysis_out directory:   analyze_rail -type net -output analysis_out vdd
+.RE
+.RS  "*" 2 The next command performs rail analysis on TDSP power domain and writes the results in current working directory.   analyze_rail -type domain -output
+./ TDSP
+.RE
+.RS  "*" 2 The following command performs rail analysis on all power domains and writes the results in the current working directory:   analyze_rail -type domain ALL -output
+./
+.RE 
+.SH Related Information
+.RS  "*" 2 set_rail_analysis_mode  "*" 2 "Static Power, IRdrop and EM Analysis" in the Voltus IC Power Integrity Solution User Guide  "*" 2 "Dynamic Power and IRDrop Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

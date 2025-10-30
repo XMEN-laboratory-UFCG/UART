@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH update_glitch  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBupdate_glitch\fR \-  Allows you to run glitch analysis without running SI delay analysis
+.SH Syntax \fBupdate_glitch\fR   [-help]  [-effort {medium | high}] 
+.P Allows you to run glitch analysis without running SI delay analysis. This command provides the ability to run glitch analysis on all the nets in a design or on a subset of nets.
+.P Using the update_glitch command without report_timing or update_timing will only run glitch analysis.
+.P Note: It is not recommended to run the update_glitch command after the report_timing or update_timing command.  
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each update_glitch parameter. For a detailed description of the command and all of its parameters, use the  man command:  man update_glitch.   "\fB-effort {medium | high}\fR" Specifies the effort level for update glitch.  When set to high, glitch analysis uses more accurate modeling of glitch for small attackers, thereby reducing pessimism.  Note: The run time in high mode may be slightly higher, and is largely dependent on the distribution of coupling.  Default: medium 
+.SH   Examples
+.RS  "*" 2 The following command will run glitch analysis without SI delay:  > update_glitch
+.RE 
+.SH Related Information
+.RS  "*" 2 report_noise  "*" 2 report_timing  "*" 2 setSIMode  "*" 2 getSIMode
+.RE

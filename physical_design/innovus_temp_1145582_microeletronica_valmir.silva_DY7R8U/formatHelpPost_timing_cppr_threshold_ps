@@ -1,0 +1,8 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_cppr_threshold_ps  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_cppr_threshold_ps\fR \-  Specifies the maximum amount of pessimism that clock path pessimism removal (CPPR) analysis is allowed to leave in the path
+.SH Syntax \fBtiming_cppr_threshold_ps\fR <float>  Default: 20 ps
+.P Specifies the maximum amount of pessimism that clock path pessimism removal (CPPR) analysis is allowed to leave in the path. The unit is pico seconds. Setting this global to a specified value means that all the paths might be reported without having their pessimism removed. This global can be used to speed up CPPR analysis run time. The larger the value of the global, the faster the run time.
+.P To set this global variable, use the set_global command.

@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_use_latch_time_borrow  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_use_latch_time_borrow\fR \-  When set to false, does not consider time borrowing during timing analysis
+.SH Syntax \fBtiming_use_latch_time_borrow\fR  {true | false}  Default: true
+.P When set to false, does not consider time borrowing during timing analysis. Time borrowing is the amount of time borrowed by a previous logic. 
+.P To set this global variable, use the set_global command. 
+.P Note: The timing_use_latch_time_borrow global should not be used with the setAnalysisMode command. Use this global only when the setAnalysisMode command is not available. When the setAnalysisMode command is available, use the -timeBorrowing parameter to control time borrowing consideration.

@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH readSdpFile  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreadSdpFile\fR \-  Reads in a relative placement file (in
+.sdp format) and then calls placeSdpGroup to place all the structured data path (SDP) elements defined in the file
+.SH Syntax \fBreadSdpFile\fR  [-help]   -file <file_name>  [-hierPath <path>]   [-leftoverGroup]  [-origin <llx> <lly>]  [-skipPlacement] 
+.P Reads in a relative placement file (in
+.sdp format) and then calls placeSdpGroup to place all the structured data path (SDP) elements defined in the file. If -skipPlacement is specified, placement is skipped. 
+.P If the SDP file refers to an instance that is not present in the netlist or design, the software issues a warning but continues to load the rest of the SDP file. 
+.P Before using readSdpFile, you should have:
+.RS  "*" 2 Imported the design
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each readSdpFile parameter.  For a detailed description of the command and all of its parameters, use the man command: man readSdpFile.  "\fB-file <file_name>\fR" Specifies the name of the input file containing SDP definitions. The SDP file format supports wildcards (* and ?) for instance names. It also supports numeric bus bit range as part of an instance name.  "\fB-hierPath <path>\fR" Specifies the hierarchical path name of the SDP elements specified in the SDP file. This path name is appended to all SDP instances defined in the file.  "\fB-leftoverGroup\fR" Stores all remaining instances in the current hierarchical path that do not belong to any SDP group into a new SDP group called <SDPname>_LEFTOVER_RPLGRP. An error is issued if a logical hierarchy has more than one SDP group.  "\fB-origin <llx> <lly>\fR" Defines the SDP location by specifying the SDP block origin. The origin information is applied to all SDPs specified in the SDP file.  "\fB-skipPlacement\fR" Reads in the SDP group definition but does not place the group. 
+.SH Examples
+.RS  "*" 2 The following command reads the dtmf_chip.sdp file and places all defined SDP elements. It also appends the specified hierarchical path to all elements.   readSdpFile -file dtmf_chip.sdp -hierPath DTMF_CHIP/TDSP_CORE_INST
+.RE 
+.SH Related Information
+.RS  "*" 2 placeSdpGroup  "*" 2 writeSdpFile
+.RE
+.RS  "*" 2 sdpsdp object in Innovus Database Object Information  "*" 2 Using Structured Data Paths chapter of the User Guide  "*" 2 Floorplan Menu chapter of the Menu Reference 
+.RS  "*" 2 Structured Data Path
+.RE 
+.RE
+.P

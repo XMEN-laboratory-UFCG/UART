@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH update_ccopt_clock_tree  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBupdate_ccopt_clock_tree\fR \-  Updates the specified clock tree. This command converts a normal (non-generated) clock tree into a generated clock tree
+.SH Syntax \fBupdate_ccopt_clock_tree\fR  [-help]  clock_tree  [-generated_by <sink_pins>]
+.P Updates the specified clock tree. This command converts a normal (non-generated) clock tree into a generated clock tree. It is intended for internal use only, and should never be required in a CCOpt flow, because the create_ccopt_clock_tree_spec command issues create_ccopt_clock_tree and create_ccopt_generated_clock_tree commands in the correct order to ensure that the right type of clock trees are created. This command is only required when you are translating a legacy FE-CTS clock tree specification for use with CCOpt, which is done using the -ckSpec option of the ccopt_design command. This is because, in this case, the legacy FE-CTS clock specification may be in a different order than that required by CCOpt.
+.P This command can be seen in the output of ccopt_design -ckspec -cts -genScriptOnly <filename>. 
+.SH Parameters   "\fB-help      \fR" Outputs a brief description that includes type and default information for each update_ccopt_clock_tree parameter. For a detailed description of the command and all of its parameters, use the man command:  man update_ccopt_clock_tree.   "\fB<clock_tree>   \fR" Specifies the name of the clock tree to update. This parameter is required.   "\fB-generated_by <sink_pins>     \fR" Specifies the sink pins in the parent clock trees from which this clock tree is generated. 
+.SH Example
+.RS  "*" 2  The following command updates the specified clock tree:  update_ccopt_clock_tree m_clk
+.RE 
+.SH Related Information
+.RS  "*" 2 ccopt_design  "*" 2 delete_ccopt_clock_trees  "*" 2 get_ccopt_clock_trees  "*" 2 report_ccopt_clock_trees
+.RE
+.P

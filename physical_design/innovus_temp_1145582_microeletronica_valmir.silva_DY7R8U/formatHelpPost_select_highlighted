@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH select_highlighted  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBselect_highlighted\fR \-  Selects highlighted objects
+.SH Syntax \fBselect_highlighted\fR  [-help]  [-type <string>] 
+.P Selects highlighted objects. If -type is specified, selects highlighted objects of the specified type. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each select_highlighted parameter.  For a detailed description of the command and all of its parameters, use the man command:   man select_highlighted  "\fB-type <string>\fR" Specifies the type of the highlighted objects to be selected. Options are instance, wire, and via. 
+.SH Examples
+.RS  "*" 2 The following command selects all highlighted instances.   select_highlighted -type instance
+.RE 
+.SH Related Information
+.RS  "*" 2 gui_select  "*" 2 highlight
+.RE
+.P

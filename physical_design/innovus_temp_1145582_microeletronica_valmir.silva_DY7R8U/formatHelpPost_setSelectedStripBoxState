@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setSelectedStripBoxState  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetSelectedStripBoxState\fR \-  Sets the state of the selected strip box. You can use this command after importing the design and selecting a stripe box
+.SH Syntax \fBsetSelectedStripBoxState\fR   [-help]  <index>  {ROUTED FIXED COVER SHIELD}   [<shield_net>] 
+.P Sets the state of the selected strip box. You can use this command after importing the design and selecting a stripe box. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setSelectedStripBoxState parameter. For a detailed description of the command and all of its parameters, use the man command:   man setSelectedStripBoxState  "\fB<index>\fR" Specifies which selected strip box state needs to be set.You can specify one of the following:
+.RS  "*" 2 all: Specifies that the state of all the selected strip boxes must be set.  "*" 2 integer: Specifies that the state of only the selected strip box must be set.For example, if you have 4 strip boxes selected, an index value, 2, specifies that the state of the third selected strip box must be set.
+.RE   Data_type: string, required  "\fB{ROUTED FIXED COVER SHIELD} \fR" Specifies the state of the selected strip box. You can specify one of the following values:
+.RS  "*" 2 ROUTED  "*" 2 FIXED  "*" 2 COVER  "*" 2 SHIELD
+.RE   Data_type: enum, required  "\fB<shield_net>\fR" Specifies the shield net. If you are setting the state of the selected strip box as SHIELD, you must specify a shield net.  Data_type: string, optional 
+.SH Examples
+.RS  "*" 2 If you selected 5 strip boxes, the following command sets the state of the fifth strip box to FIXED.  setSelectedStripBoxState 4 FIXED  "*" 2 If you selected 4 strip boxes, the following command sets the state of all the 4 strip boxes to ROUTER.  setSelectedStripBoxState all ROUTED
+.RE 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

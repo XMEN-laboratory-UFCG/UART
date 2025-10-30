@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_socv_reporting_nsigma_multiplier  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_socv_reporting_nsigma_multiplier\fR \-  Controls n-sigma value for reporting purposes
+.SH Syntax \fBset_socv_reporting_nsigma_multiplier\fR   [-help]  [-view <list_of_views>]  {[-setup <float>] [-hold <float>]}  [-transition <float>]
+.P Controls n-sigma value for reporting purposes.
+.P This command supports n-sigma specification per view per setup/hold combination. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  "\fB-hold <float>\fR" Specifies the sigma multiplier for hold mode.  "\fB-setup <float>\fR" Specifies the sigma multiplier for setup mode.  "\fB-transition <float>\fR" Specifies the sigma multiplier to use for transition related DRV checks - including max_transition, min_transition, pulse_clock_max_transition, and pulse_clock_min_transition.  When this parameter is not specified, the sigma multiplier specified for setup will be used for transitions.  When the -transition parameter is specified, you can set the timing_report_max_transition_check_using_nsigma_slew global variable to true to report transition related DRV checks, such as, max_transition, min_transition, pulse_clock_max_transition, and pulse_clock_min_transition. This setting enables the report_constraint command to use mean and sigma slew values for reporting transition values in DRV checks.  "\fB-view <list_of_views>\fR" Applies the sigma multiplier factor to the specified list of analysis views.  Note: The specified views should be active.   
+.SH Examples
+.RS  "*" 2 The following command applies the sigma multiplier to the specified view in setup mode :  set_socv_reporting_nsigma_multiplier -setup 2.5 -view std_max_setup  "*" 2 The following command applies the sigma multiplier to the specified view in for hold mode:  set_socv_reporting_nsigma_multiplier -hold 3.0 -view std_min_hold
+.RE 
+.SH Related Information
+.RS  "*" 2 get_socv_reporting_nsigma_multiplier
+.RE
+.P

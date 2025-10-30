@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_socv_rc_variation_factor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_socv_rc_variation_factor\fR \-  Displays the variation factor for interconnect delays
+.SH Syntax \fBget_socv_rc_variation_factor\fR   [-help]  -view <viewName>  {-early | -late }
+.P Displays the variation factor for interconnect delays. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-early\fR" Displays the variation factor for early interconnect delays.   "\fB-late\fR" Displays the variation factor for late interconnect delays.   "\fB-view <viewName>\fR" Displays the SOCV interconnect variation factor for specified view. 
+.SH Related Information
+.RS  "*" 2 set_socv_rc_variation_factor
+.RE
+.P

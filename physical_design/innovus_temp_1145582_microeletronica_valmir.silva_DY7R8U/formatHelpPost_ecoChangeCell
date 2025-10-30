@@ -1,0 +1,36 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH ecoChangeCell  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBecoChangeCell\fR \-  Upsizes or downsizes the specified instance based on the available footprint
+.SH Syntax \fBecoChangeCell\fR   [-help]  -cell <list_of_cells>|-upsize | -downsize  -inst <instNames>  [-loc {xLoc yLoc} [-orient {R0 | R90 | R180 | R270 | MX | MX90 | MY | MY90}]]  [-pinMap <oldpin1 newpin1 oldpin2 newpin2>
+...]  
+.P Upsizes or downsizes the specified instance based on the available footprint. Cell mapping is also possible as long as the output pins are functionally the same. This command also checks for and observes power domains.
+.P This command does not modify dont_touch nets if setEcoMode -honorDontTouch is set to true.
+.P Note: If you use the ecoChangeCell command to modify a `fixed' instance, the software issues a warning message.
+.P Instead, you can specify the following using the setEcoMode command:
+.RS  "*" 2 setEcoMode -honorFixedStatus false, to modify FIXED instance.
+.RE
+.RS  "*" 2 setEcoMode -honorDontUse false to modify instances which have dontUse attribute on cells.
+.RE
+.RS  "*" 2 setEcoMode -honorDontTouch false to modify instance/nets which are marked dontTouch.
+.RE
+.P Notes:
+.RS  "*" 2 The ecoChangeCell command is simultaneous setup/hold and MMMC aware. To make the command simultaneous setup/hold aware, set the global variable set_global timing_enable_simultaneous_setup_hold_mode to true. The simultaneous setup/hold mode can only be used for timing analysis. It cannot be used for any physical implementation steps.  "*" 2 When resizing instances inside multiple-instantiated blocks, the resize would be applied to all instantiations of the block.  "*" 2 You can change a buffer to a pair of inverters using the ecoDeleteRepeater and ecoAddRepeater commands. You can change a buffer to an inverter by first using setEcoMode -LEQCheck false and then using ecoChangeCell. However, please note that it results in the change in logic.  "*" 2  The ecoChangeCell command cannot be used in the post-mask ECO. Please use loadECO <ecofile> -postMask to change cells in post-mask ECO.
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each ecoChangeCell.  For a detailed description of the command and all of its parameters, use the man command:   man ecoChangeCell  "\fB-orient {R0 | R90 | R180 | R270 | MX | MX90 | MY | MY90}\fR" Specifies the legalized orientation for the instance.  You can specify this parameter with the -loc parameter only.  "\fB-inst <instNames>\fR" Specifies the names of the instances to be changed.  "\fB-loc {xLoc yLoc}\fR" Specifies the legalized location where the instance will be placed.   "\fB-upsize\fR" Upsizes the specified instance with the next available cell in the same footprint unless the specified cell is already of the highest driving strength. Upsizing an instance that drives a large load can improve the driver delay and the transition time at the receivers.  "\fB-downsize\fR" Downsizes the specified instance with the next available cell in the same footprint unless the specified cell is already of the lowest driving strength. Downsizing an instance on the noncritical path can reduce the loading of its driver on the critical path.  "\fB-cell <list_of_cells>\fR" Specifies the name of a specific cell(s) to be substituted in the design. The function of the original cell has to match the function of the new cell for all the outputs used by the old cell. The original master cell and the new master cell must have exactly same number of pins.  "\fB-pinMap <oldpin1 newpin1 oldpin2 newpin2>\fR" Specifies the pin mapping for the new cell based on the old cell. This option is required if the new master cell has different pin names than the original cell. The net connected to <oldpin1> of the original cell should be connected to <newpin1> of the new cell, and so forth. 
+.SH Examples
+.RS  "*" 2 Upsizes the specified instance:   ecoChangeCell -inst Top_I18 -upsize
+.RE
+.RS  "*" 2 Downsizes the specified instance:   ecoChangeCell -inst Top_I18 -downsize
+.RE
+.RS  "*" 2 Modifies the specified instance according to the specified cell:   ecoChangeCell -inst Top_I18 -cell BUFX20
+.RE
+.RS  "*" 2 Changes to another cell with a different pin name:   ecoChangeCell -inst Top_I27 -cell TXOR2X2 -PINMAP A X B Y Y Z
+.RE
+.RS  "*" 2 Downsizes the specified instance:   ecoChangeCell -inst Top_I18 -downsize 
+.RE 
+.SH Related Information
+.RS  "*" 2 ecoAddRepeater   "*" 2 ecoDeleteRepeater   "*" 2 setEcoMode  "*" 2 timing_enable_simultaneous_setup_hold_mode
+.RE
+.P

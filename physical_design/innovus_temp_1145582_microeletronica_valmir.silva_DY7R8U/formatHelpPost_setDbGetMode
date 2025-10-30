@@ -1,0 +1,28 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setDbGetMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetDbGetMode\fR \-  Controls certain aspects of how the dbGet command displays object information
+.SH Syntax  \fBsetDbGetMode\fR   [-help]  [-reset]  [-displayFormat {simple | table}]  [-displayLimit <value>]  [-escapeBusChar {true | false}]
+.P Controls certain aspects of how the dbGet command displays object information.
+.P Use the getDbGetMode command to display the current settings for the setDbGetMode command. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each setDbGetMode parameter.  For a detailed description of the command and all its parameters, use the man command:  setDbGetMode  "\fB-displayFormat {simple | table}\fR" Determines whether to output the results of a
+.?? query as a simple list, or in a table.  Default: simple  "\fB-displayLimit <value>\fR" Specifies the maximum number of objects, or object attributes to display in the output for a
+.?? query.  Default: 10  "\fB-escapeBusChar {true | false}\fR" Indicates whether bus characters will be escaped using {} or not. Use the option to avoid braces when command displays object information.  Default: true (will escape names containing bus characters)  "\fB-reset\fR" Resets parameters to their default values. The -reset parameter must be the first parameter specified. If you specify -reset by itself, the software resets all setDbGetMode parameters to their default values. If you specify parameters after -reset, the software resets only those parameters to their default values. Any values that do not already match the default value and are reset, will be reported. 
+.SH Examples
+.RS  "*" 2 The following command instructs the dbGet command to output the results of a
+.?? query as a table.   setDbGetMode -displayformat table  Query results are displayed in the following format:   attribute/object | value  --------------------------------------------------------------------------------  box | {0 0 1.32 5.04}  cell | 0x121ede48  instTerms | 0x13450290 0x134502c4   isDontTouch | 0  isHaloBlock | 0  isJtagElem | 0  isPhysOnly | 0  isSpareGate | 0  name | IOPADS_INST/PKS_Opt_2126  objType | inst  orient | R0  pStatus | unplaced  pgCellTerms | 0x13a3db98 0x13a3dbdc   pgTermNets | 0x131aa5c8 0x131aa688   pt | {0 0}
+.RE
+.RS  "*" 2 The following command resets the -displayformat parameter to its default value:   setDbGetMode -reset -displayFormat   Query results are displayed in a simple list format:   box: {0 0 1.32 5.04}  cell: 0x121ede48  instTerms: 0x13450290 0x134502c4   isDontTouch: 0  isHaloBlock: 0  isJtagElem: 0  isPhysOnly: 0  isSpareGate: 0  name: IOPADS_INST/PKS_Opt_2126  objType : inst  orient : R0  pStatus : unplaced  pgCellTerms: 0x13a3db98 0x13a3dbdc   pgTermNets: 0x131aa5c8 0x131aa688   pt: {0 0}  box: {0 0 1.32 5.04}  cell: 0x121ede48  instTerms: 0x134502f8 0x1345032c   isDontTouch: 0  isHaloBlock: 0  isJtagElem: 0  isPhysOnly: 0  isSpareGate: 0  name: IOPADS_INST/PKS_Opt_2125  objType : inst  orient : R0  pStatus : unplaced  pgCellTerms: 0x13a3db98 0x13a3dbdc   pgTermNets: 0x131aa5c8 0x131aa688   pt: {0 0}
+.RE
+.RS  "*" 2 The following command resets all setDbGetMode parameters to their default values:   setDbGetMode -reset
+.RE
+.RS  "*" 2 The -escapeBusChar option can be used as follows:  Behaviour with -escapeBusChar option = true (Default):  dbGet top.nets.name  net1 {busnet[10]}
+...   Behaviour with -escapeBusChar option = false :  dbGet top.nets.name  net1 busnet[10]
+...  "*" 2 The -displayLimit can be used as follows:  Default behavior (displayLimit is set to 10) returns maximum of 10 pointers:  dbget top.?? nets nets  0x2ad51a5f4090 0x2ad51a5f40d8 0x2ad51a5f4120 0x2ad51a5f4168 0x2ad51a5f41b0 0x2ad51a5f41f8 0x2ad51a5f4240 0x2ad51a5f4288 0x2ad51a5f42d0 0x2ad51a5f4318
+... (total length 6467)  setDbGetMode -displayLimit 2  The above command returns maximum of 2 pointers.  dbget top.?? nets  nets: 0x2ad51a5f4090 0x2ad51a5f40d8
+... (total length 6467) 
+.RE 
+.SH Related Information
+.P getDbGetMode
+.P

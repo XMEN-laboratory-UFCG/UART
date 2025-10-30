@@ -1,0 +1,51 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addViaFill  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddViaFill\fR \-  Uses the values specified by the setMetalFill command to determine sizes of vias to create
+.SH Syntax \fBaddViaFill\fR  [-help]   [-area x1 y1 x2 y2]   [-layer [cutLayerNumber | {list_of_cut_layer_numbers}]]   [-includeVia <vias>]   [-mode {all | floatingOnly | connectedOnly | {floating connectToPG connectBetweenFill}}]   [-snap] 
+.P Uses the values specified by the setMetalFill command to determine sizes of vias to create. Via fill is inserted to get uniform cut density. Only vias that meet Minimum Area Rule requirements are used. addViaFill also uses values from setViaFill for the window size, step, and density values.
+.P For information, see the setMetalFill and setViaFill commands.
+.P Note: Default values from setMetalFill for minWidth and minLength are biased towards the need of addMetalFill use and should be overridden with values that are more useful for via generation.
+.P Add via fill in the following areas immediately before adding metal fill:
+.RS  "*" 2 Where metal fill shapes would intersect with power or ground nets on consecutive layers if no via fill was added.
+.RE
+.RS  "*" 2 Where metal fill shapes on consecutive layers would intersect if no via fill was added.
+.RE
+.P To reduce the need for via fill, insert multiple-cut vias with the NanoRoute router. For information, see setNanoRouteMode.
+.P Also note that this command does not support the 20nm and below node design rules. It is strongly recommended to use the PVS metal fill solution for 20nm and below modes. The same solution should also be used for the sign-off metal fill rule deck of 28nm and above.  
+.SH Adding Via Fill in Multi-Threading Mode
+.P You can add via fill in multi-threading mode by using the following command before adding the via fill:
+.RS  "*" 2 setMultiCpuUsage
+.RE
+.P Via Fill supports the new setMultiCpuUsage command use model. For more information, see the following documents:
+.RS  "*" 2 setMultiCpuUsage chapter of the Innovus Text Command Reference.
+.RE
+.RS  "*" 2 Accelerating the Design Process by Using Multiple-CPU Processing chapter of the User Guide.
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each addViaFill parameter.  For a detailed description of the command and all its parameters, use the man command: man addViaFill.  "\fB-area <x1 y1 x2 y2>\fR" Specifies a set of coordinates within which to add via fill. For example, specify -area 0 0 100 100.  Default: If you do not specify this parameter, adds via fill to the entire design area.  "\fB-includeVia <vias>\fR" Specifies a list of vias (VIA in LEF) to be included or via rules (VIARULE GENERATE in LEF) to be used or a combination of the two. Separate the arguments with spaces. You can specify both via names and via rules.
+.RS  "*" 2 The following example shows how to specify a list of via names:   -includeVia {VIA12 VIA23}
+.RE
+.RS  "*" 2 The following example shows how to specify a list of via rules:   -includeVia {via1Array via2Array}
+.RE
+.RS  "*" 2 The following example shows how to specify both via names and via rules:   -includeVia {VIA12 VIA23 via1Array via2Array}
+.RE   Note: Non-default rule (NDR) vias can also be specified with -includeVia.  "\fB-layer {<cutLayerNumber> | {<list_of_cut_layer_numbers>}}\fR" Specifies the cut layers for adding via fill. If you specify more than one layer, separate each layer with a space and enclose the list in braces or double quotation marks. To specify cut12, cut23, and cut34, type one of the following commands:  addViaFill -layer "VIA12 VIA23 VIA34"   addViaFill -layer {VIA12 VIA23 VIA34}   Default: If you do not specify this parameter, adds via fill to all cut layers.  "\fB-mode {all | floatingOnly | connectedOnly | {floating connectToPG connectBetweenFill}}\fR" Specifies the connection mode for via fill. Via fill can be connected to power or ground nets (tied off), or connected between floating metal fill, or unconnected to metal fill (floating). Via fill cannot be connected to signal nets.  Specify one or more of the following parameters, as required:
+.RS  "*" 2 all: Enables addition of unconnected and connectToPG via fill.  "*" 2 floatingOnly: Adds unconnected via fill only. The option will be made obsolete in the future release.  "*" 2 floating: Adds unconnected via fill. It is equivalent to -mode floatingOnly, which will be made obsolete in the future release.  "*" 2 connectToPG: Adds connected via fill to PG. It is equivalent to -mode connectOnly, which will be made obsolete in the future release.  "*" 2 connectBetweenFill: Adds connected via fill between floating metal fill.  "*" 2  connectedOnly: Adds connected via fill to PG only. The option will be made obsolete in the future release.
+.RE   Default: all  "\fB-snap\fR" Snaps edges of via fill shapes and centers of cuts to a user-defined snap grid that is a multiple of the manufacturing grid. When via shapes are snapped to this grid, the edges and centers of the via shapes lie on the grid. If a grid is not specified, the software snaps the shapes to the manufacturing grid. You can define a grid using the setSnapGrid command.  For more information, see setSnapGrid. 
+.SH Example
+.P The following set of command inserts unconnected via fill and connected via fill between floating metal fill in layers VIA1 to VIA8 and RV based on existing setMetalFill and setViaFill settings:
+.P setViaFill -layer {VIA1 VIA2 VIA3 VIA4 VIA5 VIA6 VIA7} /             -windowSize 100 100 -windowStep 50 50 -minDensity 0.01 /             -maxDensity 30 -preferredDensity 1
+.P setViaFill -layer {VIA8 RV} -windowSize 100 100 -windowStep 50 50 /             -minDensity 0.25 -maxDensity 30 -preferredDensity 10
+.P addViaFill -layer {VIA1 VIA2 VIA3 VIA4 VIA5 VIA6 VIA7 VIA8 RV} /             -mode {floating connectBetweenFill} 
+.SH Related Information
+.RS  "*" 2 The following sections in the Optimizing Metal Density chapter of User Guide.
+.RE
+.RS
+.RS  "*" 2 "Overview"
+.RE 
+.RE
+.RS
+.RS  "*" 2 "Adding Via Fill"
+.RE 
+.RE
+.P

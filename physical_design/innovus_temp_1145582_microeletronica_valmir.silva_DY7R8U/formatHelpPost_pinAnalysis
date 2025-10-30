@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH pinAnalysis  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBpinAnalysis\fR \-  Reports certain Quality of Results (QoR) metrics for pin assignment
+.SH Syntax \fBpinAnalysis\fR  [-help]  [-checkLegality]   [-outFile <fileName>]   [-noHtml]  
+.P Reports certain Quality of Results (QoR) metrics for pin assignment. The pinAnalysis command deletes the existing routes, reroutes the design ensuring that the routes pass through partition pins, and reports pin assignment QoR metrics. You can run this command after assigning partition pins.
+.P Notes: 
+.RS  "*" 2 The pinAnalysis command creates new routes. The original routes are not retained.  "*" 2 The pinAnalysis command reroutes the design using  setRouteMode -earlyGlobalRoutePartitionHonorPin. This command thus takes at least as much time as running Early Global Route.  "*" 2 In addition to displaying the report on screen, the command also generates the report in an HTML file named pinAnalysis.html.  "*" 2 This command is not supported by Multi Level Hierarchical Flow. It displays a warning message when used for a design with nested partitions and generates results based on single level partitions.
+.RE 
+.SH Parameters    "\fB-checkLegality\fR" Checks the legality of pin assignment (similar to the checkPinAssignmentcommand) and prints a summary report of the results.  The legality details for every partition are available through hyperlinks that are provided in the HTML report file.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each pinAnalysis parameter. For a detailed description of the command and all of its parameters, use the man command: man pinAnalysis  "\fB-noHtml\fR" Specifies that HTML report file should not be created.  Data_type: bool, optional  "\fB-outFile <fileName>\fR" In addition to displaying the report on screen, prints the report to the specified file.  Data_type: string, optional 
+.SH Example
+.P The following command checks the legality of pin assignment, displays the QoR report for pin assignment on the screen, and also prints the QoR report to a file named pinAnalysisMetricReport  pinAnalysis -checkLegality -outFile pinAnalysisMetricReport 
+.SH Related Information
+.RS  "*" 2 checkPinAssignment  "*" 2 Partitioning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Validating Pin Placement Results  "*" 2 Reporting QoR of Pin Assignment
+.RE 
+.RE
+.P

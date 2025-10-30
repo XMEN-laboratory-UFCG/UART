@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unplaceGuide  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunplaceGuide\fR \-  Unplaces hierarchical instances and instance groups from the floorplan
+.SH Syntax \fBunplaceGuide\fR     [-help]    obj_name 
+.P Unplaces hierarchical instances and instance groups from the floorplan. This command can also be used to delete fences and regions. Guides are hierarchical instances in the design and are guided in the floorplan.  You can use this command after importing the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each unplaceGuide parameter. For a detailed description of the command and all of its parameters, use the man command:   man unplaceGuide  "\fB<obj_name>\fR" Specifies the name of the module or group to be guided.  Data_type: string, required 
+.SH Examples
+.RS  "*" 2 The following command unplaces the guide MEM_DSCAN from the floorplan:   unplaceGuide MEM_DSCAN
+.RE
+.RS  "*" 2 The following command unplaces the instance group adder1 from the floorplan:   unplaceGuide adder1
+.RE 
+.SH Related Information
+.RS  "*" 2 createFence  "*" 2 createRegion   "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

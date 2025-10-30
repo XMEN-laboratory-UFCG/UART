@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getLogFileName  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetLogFileName\fR \-  Reports the name of the log file
+.SH Syntax \fBgetLogFileName\fR [-help] [-fullPath]  
+.P Reports the name of the log file.
+.P You can use the getLogFileName command at any time during an Innovus session. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each getLogFileName parameter.  For a detailed description of the command and all of its parameters, use the man command:   man getLogFileName.  "\fB-fullPath\fR" Reports the complete path to the log file. 
+.SH Examples
+.RS  "*" 2 The following command reports the name of the log file for the current Innovus session:   getLogFileName   The software reports:  innovus.log1003
+.RE
+.RS  "*" 2 The following command reports the complete path to the log file for the current Innovus session:   getLogFileName -fullPath  The software reports:  /icd/soclinx23/output/linux/07.10-e028_1/ph_46_08h34sec/innovus.log1003
+.RE 
+.SH Related Information
+.RS  "*" 2 innovus
+.RE
+.P

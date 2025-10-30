@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH specifyCellEdgeSpacing  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBspecifyCellEdgeSpacing\fR
+.SH Syntax \fBspecifyCellEdgeSpacing\fR   [-help]   {<<edgeType1>> <<edgeType2>> <spacing>  [-exceptAbutted | -forbiddenSpacing][-exceptNonFillerInBetween]} | [-reset]
+.P Creates the cell edge spacing rule as in CELLEDGESPACINGTABLE in LEF.   Note: The tool by default supports the latest Tcl settings. If a user tries to change the edge spacing, the tool will generate a warning message that resetting edge spacing would overwrite the old value.
+.P 
+.SH Parameters    "\fB<-exceptAbutted>\fR" Specifies that two abutted macros of the given edge types are also allowed.   "\fB<edgeType1>\fR" Specifies edge edgeType1for edge spacing.    "\fB<edgeType2>\fR" Specifies edge edgeType2 for edge spacing.  "\fB-exceptNonFillerInBetween\fR" Specifies that the edge spacing is only for adjacent instances.  If two MACROs (cells) have a edge-spacing rule, say 0.8 micron, then normally the rule applies regardless of presence of another macro (cell) in the gap between. When the -exceptNonFillerInBetween option is used, the rule is exempted when a non-filler cell is present between the two constrained cell edges.  "\fB-forbiddenSpacing\fR" Forbids <edgeType1> and <edgeType2> with the space.   "\fB-help\fR" Outputs a brief description that includes type and default information for each specifyCellEdgeSpacing parameter.  For a detailed description of the command and all of its parameters, use the man command: man specifyCellEdgeSpacing    "\fB-reset\fR" Resets the cell edge spacing to LEF.   "\fB<spacing>\fR" Specifies edge spacing between <edgeType1> and <edgeType2>.  If there is no spacing defined between two edge types, it indicates that there is no spacing constraint (or 0.0 m) between them. 
+.SH Example
+.P The following command creates 0.18 m spacing between grp1 and grp2:
+.P specifyCellEdgeSpacing grp1 grp2 0.18 
+.SH Related Information
+.RS  "*" 2 deleteCellEdgeSpacing  "*" 2 report_cell_edge_spacing  "*" 2 specifyCellEdgeType
+.RE
+.P

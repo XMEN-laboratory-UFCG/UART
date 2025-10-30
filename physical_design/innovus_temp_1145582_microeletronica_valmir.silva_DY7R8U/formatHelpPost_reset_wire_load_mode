@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_wire_load_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_wire_load_mode\fR \-  Resets the wire-load mode to the default mode of top
+.SH Syntax \fBreset_wire_load_mode\fR 
+.P Resets the wire-load mode to the default mode of top.
+.P Note: To enable wireload mode, you are required to set the following global:
+.P set soceSupportWireLoadMode 1
+.P Note: To use the wireload model functionality, you must enable the enable_wire_load_model_support global variable using the following command:
+.P set_var enable_wire_load_model_support 1 
+.SH Related Information
+.RS  "*" 2 set_wire_load_mode
+.RE
+.P

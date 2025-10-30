@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_case_analysis_for_icg_propagation  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_case_analysis_for_icg_propagation\fR
+.SH Syntax \fBtiming_case_analysis_for_icg_propagation\fR  {false | require_seq_prop | always} 
+.P Default: false
+.P Determines the conditions in which the constants are propagated through the integrated clock gating (ICG) cells. 
+.P The available options are described below:   "\fBOption\fR" Description  "\fBalways\fR" Enables constant propagation through ICGs, regardless of the value of the timing_case_analysis_for_sequential_propagation global variable, or the value of setAnalysisMode -sequentialConstProp setting. This allows the software to have constant propagation for ICG cells, even when this is disabled for other sequential devices.  "\fBfalse\fR" Disables constant propagation through ICG cells.  "\fBrequire_seq_prop\fR" When the require_seq_prop option is used, the software will treat ICG cells like other cells in the design from the perspective of constant propagation. This means that the timing_case_analysis_for_sequential_propagation global variable or setAnalysisMode -sequentialConstProp setting will act as a master switch and will control constant propagation through ICGs also.
+.P To set this global variable, use the set_global command. 
+.SH Related Information
+.RS  "*" 2 setAnalysisMode  "*" 2 timing_case_analysis_for_sequential_propagation
+.RE
+.P

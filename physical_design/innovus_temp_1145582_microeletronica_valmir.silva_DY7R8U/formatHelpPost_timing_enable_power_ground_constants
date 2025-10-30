@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_power_ground_constants  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_power_ground_constants\fR
+.SH Syntax \fBtiming_enable_power_ground_constants\fR  {true | false}  
+.P Default: false
+.P Determines if case analysis is inferred from power and ground rail connections/nets, e.g., VDD and GND.
+.P When set to true, the software recognizes the constants that come from power and ground rail connections.
+.P When set to false, the software ignores these constants. This provides the most intuitive behavior with logical style netlist (and other tools that do not read physical data). 
+.P To set this global variable, use the set_global command.
+.P

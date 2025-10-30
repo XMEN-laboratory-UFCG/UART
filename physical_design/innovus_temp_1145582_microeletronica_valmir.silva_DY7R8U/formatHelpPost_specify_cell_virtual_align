@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH specify_cell_virtual_align  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBspecify_cell_virtual_align\fR \-  Aligns a filler cell that does not have any pin or obs geometries to align, but the cell still needs to be aligned
+.SH Syntax \fBspecify_cell_virtual_align\fR   [-help]   [-cell <cells>]  [-mask <id>]   [-pin_x_loc <microns>]
+.P Aligns a filler cell that does not have any pin or obs geometries to align, but the cell still needs to be aligned. For example, a GA-Filler cell after the post-mask ECO becomes a logic cell and needs to be correctly aligned for the router to eco-route it.
+.P The specify_cell_virtual_align command can be used to provide mask for the first track inside the cell, or 'offset' to the first track (or both). You need to specify -mask or -pin_x_loc.  
+.P The command auto-detects the layer for vertical alignment. If as per the placement initialization there is no need for vertical alignment (site-width and vertical-track-pitch are same, pin-mask are not  fixed), the virtual alignment is turned off. this means that the specify_cell_virtual_align command will not help. 
+.SH Parameters    "\fB-cell <cells>\fR" Specifies the lib-cells with virtual alignment requirement.   "\fB -help \fR" Outputs a brief description that includes type and default information for each specify_cell_virtual_align parameter.  For a detailed description of the command and all of its parameters, use the man command: man specify_cell_virtual_align    "\fB-mask <virtual_mask_value>\fR" Specifies the virtual mask value for the first track in the cell.  If you specify -mask only, the offset of the first track in the core is used as the offset.  "\fB-pin_x_loc <location_in_microns>\fR" Specifies the location of the virtual geometry from the cell boundary.  If you specify offset only, the track can be of any mask-color, as long as offset matches.  Default: First track location 
+.SH Related Information
+.RS  "*" 2 delete_cell_virtual_align  "*" 2 report_cell_virtual_align
+.RE
+.P

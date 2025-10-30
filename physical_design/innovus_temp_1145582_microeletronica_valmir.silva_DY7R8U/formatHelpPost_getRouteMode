@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getRouteMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetRouteMode\fR \-  Returns information about the specified  Early Global Route mode parameter in the Innovus log file and the console
+.SH Syntax \fBgetRouteMode\fR  [-help]   [-earlyGlobalEffortLevel]         [-earlyGlobalHonorMsvRouteConstraint]  [-earlyGlobalNumTracksPerClockWire]    [-earlyGlobalReverseDirection]  [-earlyGlobalRouteBumpNets]   [-earlyGlobalRoutePartitionAllowFeedthru]    [-earlyGlobalRoutePartitionHonorFence]    [-earlyGlobalRoutePartitionHonorPin]    [-earlyGlobalRoutePartitionPinGuide]   [-earlyGlobalRouteSecondPG]   [-earlyGlobalRouteSelectedNetsOnly]  [-earlyGlobalRouteStripeLayerRange]    [-earlyGlobalSecondPGMaxFanout]     [-earlyGlobalSupplyScaleFactorH]    [-earlyGlobalSupplyScaleFactorV]    [-quiet]  [-nonDefault] 
+.P Returns information about the specified  Early Global Route mode parameter in the Innovus log file and the console. The following information is returned:
+.RS  "*" 2 Parameter name  "*" 2 Current value  "*" 2 Type (Boolean, string, and so on)  "*" 2 Whether the current value was set by user
+.RE
+.P If you do not specify a parameter, the software displays information for all of the Early Global Route mode parameters. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each getRouteMode parameter. For a detailed description of the command and all of its parameters, use the man command: man getRouteMode  "\fB-nonDefault\fR" Displays the current settings that are not default settings.   "\fB<parameter_names>\fR" Displays information for the specified parameters. You can specify one or more parameters. See setRouteMode for descriptions of the Early Global Route parameters you can specify.  "\fB-quiet\fR" Displays the current settings for the specified parameters in Tcl list format only. If you specify -quiet without any parameters, the software displays the current settings of all setRouteMode parameters in Tcl list format. 
+.SH Examples
+.RS  "*" 2 The following command displays the current setting for the -earlyGlobalNumTracksPerClockWire parameter:         getRouteMode -earlyGlobalNumTracksPerClockWire  The software displays the following information:        -earlyGlobalNumTracksPerClockWire 0 # int, default=0, min=0, max=8   0
+.RE
+.RS  "*" 2 The following command displays the current setting for the -earlyGlobalRoutePartitionPinGuide      parameter:         getRouteMode -earlyGlobalRoutePartitionPinGuide   The software displays the following information:  -earlyGlobalHoutePartitionPinGuide true # bool, default=true   {earlyGlobalRoutePartitionPinGuide true} 
+.RE 
+.SH Related Information
+.RS  "*" 2 setRouteMode  "*" 2 earlyGlobalRoute  "*" 2 Using Early Global Route for Congestion and Timing Analysis chapter in the Innovus User Guide
+.RE
+.P

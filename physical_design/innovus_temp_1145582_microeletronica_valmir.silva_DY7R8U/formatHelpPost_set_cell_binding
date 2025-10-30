@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_cell_binding  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_cell_binding\fR \-  Changes the layout binding for a cell
+.SH Syntax \fBset_cell_binding\fR  [-help]   [-abstract ]   [-lib <list_of_libs>]   -cell <list_of_cell_patterns>  -view <list_of_views> 
+.P Changes the layout binding for a cell. This also affects the layout viewing and automatic remastering. When specified with -abstract parameter, this instead of affecting the abstract binding replaces the in-memory cell information with the matched cells. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each set_cell_binding parameter.  For a detailed description of the command and all of its parameters, use the man command: man set_cell_binding.  "\fB-abstract\fR" Replaces in-memory cell information for the matched cells.  "\fB-cell <list_of_cell_patterns>\fR" Specifies one or more cell name patterns that are to be replaced.  "\fB-lib <list_of_libs>\fR" Specifies the OpenAccess library that is to be used to look for cell abstracts.  "\fB-view <list_of_views>\fR" Specifies the cellview name. 
+.SH Example
+.RS  "*" 2 The following command looks for the cells in the Innovus database that match the cell pattern and replaces their binding with the specified view found in the library list.   set lib_list1 {lib1 lib2}  set_cell_binding -lib $lib_list1 -cell {cell1 cell2 cell3} -view {abc}
+.RE 
+.SH Related Information
+.RS  "*" 2 oaOut
+.RE
+.P

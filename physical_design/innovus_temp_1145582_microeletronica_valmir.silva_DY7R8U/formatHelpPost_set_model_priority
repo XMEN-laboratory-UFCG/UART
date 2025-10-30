@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_model_priority  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_model_priority\fR \-  Allows you to define the priority order of models
+.SH Syntax \fBset_model_priority\fR   [-help]  [-objects <string>]  [-priority_list <string>]
+.P Allows you to define the priority order of models. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage  "\fB-objects <string>\fR" Specifies a list of library cells or library pins for which priority is specified.  "\fB-priority_list <string>\fR" Specifies a list of pin model priority.  Default: {ecsm ccs nldm cdb udn} 
+.SH Examples
+.P To force CCSN to be used, you can set timing_library_read_ccs_noise_data global variable to true before reading the timing libraries and then use the following command before using the update_glitch command:  set_model_priority -priority_list ccs 
+.SH Related Information
+.RS  "*" 2 update_glitch
+.RE
+.P

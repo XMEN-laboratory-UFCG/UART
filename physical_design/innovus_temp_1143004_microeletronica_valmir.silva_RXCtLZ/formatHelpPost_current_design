@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH current_design  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcurrent_design\fR \-  Sets the specified design to be the current design
+.SH Syntax \fBcurrent_design\fR   [-help]  [<design_name>]
+.P Sets the specified design to be the current design. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB<design_name>\fR" Specifies the name of the top design. 
+.SH Related Information
+.RS  "*" 2 set_max_transition  "*" 2 set_min_capacitance  "*" 2 set_min_transition
+.RE
+.P

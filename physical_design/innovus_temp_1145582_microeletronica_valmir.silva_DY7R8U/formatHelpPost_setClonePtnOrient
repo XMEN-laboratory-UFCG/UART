@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setClonePtnOrient  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetClonePtnOrient\fR \-  Changes the orientation of the specified partition clone
+.SH Syntax \fBsetClonePtnOrient\fR  [-help]   <name>   {R0 R90 R180 R270 MX MX90 MY MY90}
+.P Changes the orientation of the specified partition clone. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each setClonePtnOrient parameter.  For a detailed description of the command and all of its parameters, use the man command: man setClonePtnOrient.  "\fB<name>\fR" Specifies the name of the partition clone whose orientation has to be changed.  Data_type: (hinst), required  "\fB{R0 R90 R180 R270 MX MX90 MY MY90}  \fR" Specifies the orientation. The orientation can be one of the following:
+.RS  "*" 2 R0  "*" 2 MY  "*" 2 MX  "*" 2 R180  "*" 2 MX90  "*" 2 R90  "*" 2 R270  "*" 2 MY90
+.RE   Data_type: enum, required 
+.SH Example
+.P The following command sets the orientation of the partition clone name TDSP_ARB_C1 to R270:
+.P setClonePtnOrient TDSP_ARB_C1 R270 
+.SH Related Information
+.RS  "*" 2 getClonePtnOrient  "*" 2 Partitioning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Changing Partition Clone Orientation
+.RE 
+.RE
+.P

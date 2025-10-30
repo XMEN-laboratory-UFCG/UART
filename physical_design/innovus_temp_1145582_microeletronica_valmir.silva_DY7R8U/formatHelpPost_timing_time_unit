@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_time_unit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_time_unit\fR
+.SH Syntax \fBtiming_time_unit\fR <string> 
+.P Default: none
+.P Specifies the timing units to be used for timing constraints and timing reports. The default units for timing are inferred from the timing libraries. You can override this inference by explicitly setting the value to none, 1ns, 1ps, 10ps, or 100ps
+. 
+.P Setting this variable explicitly is the same as executing the setLibraryUnit -time command to set time units.
+.P To set this global variable, you can use the set command.
+.P

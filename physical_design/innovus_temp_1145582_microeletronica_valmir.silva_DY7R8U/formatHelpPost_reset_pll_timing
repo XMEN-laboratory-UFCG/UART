@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_pll_timing  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_pll_timing\fR \-  Resets the delay offset settings applied to a PLL (phase locked loop) output clock
+.SH Syntax \fBreset_pll_timing\fR   [-help]  <inst_name>  -output_clock  <clock name or ID>  -output_pin <output pin name>
+.P Resets the delay offset settings applied to a PLL (phase locked loop) output clock. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  "\fB<inst_name>\fR" Specifies the name of the instance on which reference pins, feedback pins, or output pins will be searched.   "\fB-output_clock <<clock name or ID>>\fR" Specifies the name of the PLL output clock.  "\fB-output_pin <<output pin name>>\fR" Specifies the name of the PLL output pin. 
+.SH Related Information
+.RS  "*" 2 set_pll_timing
+.RE
+.P

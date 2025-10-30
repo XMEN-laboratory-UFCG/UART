@@ -1,0 +1,2 @@
+ "*" 2 The general floorplan violations such as macro-to-macro overlap, fence-to-fence overlap, macro overlaps with fence, and/or if macros are placed outside their parent module boundary.  "*" 2 SAI 2.0 constraint violations  "*" 2 The Floorplan Quality Index that enables you to estimate whether a floorplan is ready to be used
+.SH Syntax \fBreport_sai_constraint\fR  [-help]  [-area_weight <float>]   [-spacing_weight <float>]   [-order_weight <float>]   [-congestion_weight <float>]   [-rule {all | <rule_name> | <rule_name_list>}]

@@ -1,0 +1,30 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH clock_opt_design  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBclock_opt_design\fR \-  The clock_opt_design command is used in place of ccopt_design when the input DB is place_opt_design V2 (PODV2)
+.SH Syntax \fBclock_opt_design\fR   [-help]   [-check_cts_config]  [-cts]  [-enable_pre_cts_opt]   [-expandedViews]  [-num_paths <number_of_paths>]  [-outDir <dirname>]    [-prefix <fileNamePrefix>]  [-timing_debug_report]
+.P The clock_opt_design command is used in place of ccopt_design when the input DB is place_opt_design V2 (PODV2). It performs clock concurrent optimization (CCOpt) on the current loaded design in Innovus. CCOpt optimizes both the clock tree and the datapath to meet global timing constraints. The only difference between this flow and the ccopt_design flow is that clock_opt_design has legalization at the beginning to remove overlapping caused by PODV2 optimization.
+.P In this flow, the commands, place_opt_design and clock_opt_design are used in combination. This means that the clock_opt_design command can only be used with the place_opt_design V2 (PODV2), which is the place_opt_design command that is run after enabling the PODV2 flow. 
+.P This flow is enabled by setting the following parameter to true. 
+.P setOptMode -opt_enable_podv2_clock_opt_flow true
+.P clock_opt_design
+.P If you set the above parameter but the DB is not PODV2, the software gives the following message:
+.P Cannot run clock_opt_design because current DB is not PODV2 DB
+.P By default, this parameter is set to false. 
+.P The effort level for the PODV2 flow is set using the following setOptMode parameter:
+.P setOptMode -opt_podv2_flow_effort {auto | standard | extreme}
+.P The following settings are available:
+.RS  "*" 2 auto: The software follows the setDesignMode -flowEffort parameter setting to perform optimization.  "*" 2 standard: The software performs a fast prects optimization and runtime is less. This option is recommended in the early design stage or in simple designs for PPA estimation.  "*" 2 extreme: The software performs a deep optimization to chase the best PPA. Runtime is high.
+.RE 
+.SH Parameters    "\fB-help  \fR" Outputs a brief description that includes type and default information for each clock_opt_design parameter. For a detailed description of the command and all of its parameters, use the man command:  man clock_opt_design.   "\fB-check_cts_config\fR" Checks that all the prerequisites for running clock tree synthesis are fulfilled without actually doing CTS. For example, it checks that the design is loaded, and the options set by that the user are correct. There are no changes made to the design  "\fB-cts\fR" Turns off clock concurrent optimization, and performs only clock tree synthesis (CTS) using the CCOpt engine. It does not perform any datapath optimization or useful skew.   "\fB-enable_pre_cts_opt\fR" Enables pre-CTS optimization in the extreme flow.  "\fB-expandedViews\fR" This parameter is not interpreted in CCOpt but passed directly to optDesign. The parameter is same as optDesign-expandedViews parameter, which is specified to generate detailed view-specific timing reports at the end of the optDesign command run.  "\fB-num_paths <number_of_paths>\fR" Specifies the number of paths generated in the timing reports. By default, all timing paths are reported.   "\fB-outDir <dirname>\fR" This parameter specifies the directory where the software writes timing reports that are generated after timing optimization.   The default directory is
+./timingReports  "\fB-prefix <fileNamePrefix>\fR" Specifies a prefix for optDesign report file names.   Default: DesignName_DesignStage , where DesignStage is preCTS, postCTS, or postRoute  "\fB-timing_debug_report\fR" When specified, generates a machine-readable timing debug report after completing CTS. This report is used for debugging timing results using the timing debug feature in Innovus. The number of paths to be reported can be specified using the -num_paths parameter. 
+.SH Examples
+.RS  "*" 2 The following command runs a complete CCOpt optimization for the podV2 flow:   clock_opt_design
+.RE 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree_spec  "*" 2 optDesign  "*" 2 place_opt_design  "*" 2 The following topic in the Innovus User Guide.  "*" 2
+.RS  "*" 2 Flow and Quick Start for CTS 
+.RE 
+.RE
+.P

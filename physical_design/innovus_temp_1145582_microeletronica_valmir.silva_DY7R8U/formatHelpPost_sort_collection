@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH sort_collection  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsort_collection\fR \-  Returns a sorted collection of objects based on the property
+.SH Syntax \fBsort_collection\fR  [-help]  <collection>[-dictionary]  {<property_or_> <list_of_properties>}   [-descending]  
+.P Returns a sorted collection of objects based on the property. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB<collection>\fR" Specifies the collection to sort. The collection must be a homogenous collection of any one of the following object types: cell, clock, design, lib, lib_cell, lib_pin, lib_timing_arc, net, path_group, pin, port, timing_arc, timing_path, or timing_point.  "\fB-descending\fR" Sorts the objects in the collection by descending order.  Default: Sorts the collection in ascending order.  "\fB-dictionary\fR" Sorts the objects in a collection by dictionary order.   "\fB<property> | <list_of_properties>\fR" Sorts the collection by the specified property. You can specify any property associated with the object type.  You can specify one or more properties. If you specify more than one property, the software sorts the collection in the order by which you specified the properties. 
+.SH Examples
+.RS  "*" 2 The following command returns a collection of all the input ports in the design sorted on the basis of their hierarchical names:  sort_collection [all_inputs] hierarchical_name  CLK1 CLK2 CLK3 CLK4 IN1 IN2 IN3 IN4
+.RE 
+.SH Related Information
+.RS  "*" 2 add_to_collection  "*" 2 append_to_collection  "*" 2 compare_collections  "*" 2 copy_collection  "*" 2 filter_collection
+.RE
+.P

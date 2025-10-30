@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deletePowerSwitch  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeletePowerSwitch\fR \-  Removes all switches and filler cells that were inserted by the addPowerSwitch command, from either columns or rings, or removes specified power switch defined in CPF
+.SH Syntax \fBdeletePowerSwitch\fR  [-help]  [-1801PowerSwitchRuleName <ruleName>]  {{-column | -ring}   -powerDomain <powerDomainName>}   [-instanceList {<instName
+...>}] 
+.P Removes all switches and filler cells that were inserted by the addPowerSwitch command, from either columns or rings, or removes specified power switch defined in CPF.
+.P This command retains and unplaces switches added by addPowerSwitch -switchInstances, whose cells were already instantiated in the netlist. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each deletePowerSwitch parameter.  For a detailed description of the command and all its parameters, use the man command:   man deletePowerSwitch  "\fB-1801PowerSwitchRuleName <ruleName>\fR" Removes power switches based on the specified IEEE 1801 rule.   "\fB-column\fR" Removes all switches and filler cells that were inserted by the addPowerSwitch command, from columns in the specified power domain.  "\fB-instanceList {<instName
+...>}\fR" Specifies the power switch cell instances to delete. The wildcard characters (* or ?) can also be used for specifying the power switch instance name.  "\fB-powerDomain <powerDomainName>\fR" Specifies the power domain next to which the columns are placed.  "\fB-ring\fR" Removes all switches and filler cells that were inserted by the addPowerSwitch command, from the ring around the specified power domain. 
+.SH Examples
+.RS  "*" 2 The following command removes instances psoI_TDSP3_instA and psoI_TDSP3_InstB that were added by the addPowerSwitch command:   deletePowerSwitch -instanceList {psoI_TDSP3_instA psoI_TDSP3_InstB}
+.RE
+.RS  "*" 2 The following command removes all power switch instances that were inserted by addPowerSwitch in columns inside the power domain PD2:   deletePowerSwitch -column -powerDomain PD2 
+.RE
+.RS  "*" 2 The following command removes all power switch instances that were inserted by addPowerSwitch in the ring around PD1:   deletePowerSwitch -ring -powerDomain PD1
+.RE 
+.SH Related Information
+.RS  "*" 2 addPowerSwitch  "*" 2 exportPowerSwitch  "*" 2 importPowerSwitch  "*" 2 movePowerSwitch  "*" 2 rechainPowerSwitch  "*" 2 replacePowerSwitch  "*" 2 verifyPowerSwitch  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

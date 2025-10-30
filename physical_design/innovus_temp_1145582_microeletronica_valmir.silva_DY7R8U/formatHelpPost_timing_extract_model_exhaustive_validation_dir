@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_extract_model_exhaustive_validation_dir  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_extract_model_exhaustive_validation_dir\fR
+.SH Syntax \fBtiming_extract_model_exhaustive_validation_dir\fR <string>
+.P Default: " "
+.P Specifies the output directory where the additional validation reports generated during ETM Extremity Validation (but not generated during normal validation) will be written.
+.P To set this global variable, use the set command.
+.P

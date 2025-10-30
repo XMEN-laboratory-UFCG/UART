@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setSelectedPtnCut  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetSelectedPtnCut\fR \-  Sets the area and the name for the selected partition cut area
+.SH Syntax \fBsetSelectedPtnCut\fR  [-help]   <X1> <Y1> <X2> <Y2>  <PartitionName> 
+.P Sets the area and the name for the selected partition cut area. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each setSelectedPtnCut parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setSelectedPtnCut  "\fB<X1> <Y1> <X2> <Y2>\fR" Specifies the coordinates of the partition cut area.  "\fB<PartitionName>\fR" Specifies the name of the partition cut area. 
+.SH Related Information
+.RS  "*" 2 setSelectedPtnFeedthrough  "*" 2 setSelectedPtnPinBlk  "*" 2 setSelectedPtnPinGuide
+.RE
+.P

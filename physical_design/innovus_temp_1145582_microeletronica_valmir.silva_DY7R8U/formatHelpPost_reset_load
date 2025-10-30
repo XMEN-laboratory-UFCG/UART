@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_load  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_load\fR \-  Resets the existing set_load assertions specified on nets or ports
+.SH Syntax  \fBreset_load\fR  <object_list> 
+.P Resets the existing set_load assertions specified on nets or ports. 
+.SH Parameters    "\fB<object_list>\fR" Specifies a list of nets or ports in the top cell for which assertions are reset. 
+.SH Related Information
+.P set_load

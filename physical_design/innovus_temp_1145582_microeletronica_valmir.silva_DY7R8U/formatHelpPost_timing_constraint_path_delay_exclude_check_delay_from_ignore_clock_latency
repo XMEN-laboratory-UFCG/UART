@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_constraint_path_delay_exclude_check_delay_from_ignore_clock_latency  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_constraint_path_delay_exclude_check_delay_from_ignore_clock_latency\fR
+.SH Syntax \fBtiming_constraint_path_delay_exclude_check_delay_from_ignore_clock_latency\fR {true | false}  
+.P Default: false
+.P Excludes check arc delays from slack computation.
+.P When set to true, the software excludes check arc delays from slack computation for paths constrained by the set_max_delay/set_min_delay -ignore_clock_latency command. 
+.P To set this global variable, use the set command.
+.P

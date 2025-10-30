@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH init_design_settop  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBinit_design_settop\fR
+.SH Syntax \fBinit_design_settop\fR <value> 
+.P Type: Integer
+.P Default: 1
+.P Specifies whether the top cell name is automatically assigned (0) or is set by the user (1). This global variable replaces the previous rda_Input(ui_settop) configuration file variable. 
+.SH Example
+.RS  "*" 2 The following command specifies that the top cell name is assigned automatically.   set init_design_settop {0} 
+.RE 
+.SH Related Information
+.RS  "*" 2 init_design
+.RE
+.P

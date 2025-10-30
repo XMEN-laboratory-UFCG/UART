@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH delete_ccopt_clock_spines  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdelete_ccopt_clock_spines\fR \-  This command deletes all clock spines matching the specified pattern. This will also delete any placement groups or regions associated with the spine
+.SH Syntax \fBdelete_ccopt_clock_spines\fR  [-help]  pattern  [-regexp]
+.P This command deletes all clock spines matching the specified pattern. This will also delete any placement groups or regions associated with the spine.   Note: This command is part of CCOpt spine functionality, which is a limited-access feature in this release. It is enabled by a variable specified through the setLimitedAccessFeature command. To use this feature, contact your Cadence representative to explain your usage requirements, and make sure this feature meets your needs before deploying it widely.  
+.SH Parameters   "\fB-help      \fR" Outputs a brief description that includes type and default information for each delete_ccopt_clock_spines parameter. For a detailed description of the command and all of its parameters, use the man command:  man delete_ccopt_clock_spines.  "\fB<pattern>\fR" Specifies the patterns for clock spines to delete. This parameter is required.   "\fB-regexp\fR" Specifies whether or not to use regular expression matching. 
+.SH Example
+.RS  "*" 2  The following set of commands are used to delete and retrieve information for clock spines spineA and spineB that are created using the create_ccopt_clock_spine command:  The following command deletes spineA:  delete_ccopt_clock_spines spineA  Now when you retrieve the list of spines, the software returns the following information:  get_ccopt_clock_spines spine*  spineB
+.RE 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree  "*" 2 create_ccopt_clock_spine  "*" 2 get_ccopt_clock_spines  "*" 2 get_ccopt_property
+.RE
+.P

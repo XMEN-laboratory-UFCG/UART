@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH add_text  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBadd_text\fR \-  Adds text to the specified custom layer
+.SH Syntax \fBadd_text\fR  [-help]  [-alignment {centerCenter centerLeft centerRight lowerCenter lowerLeft lowerRight upperCenter upperLeft upperRight}]  [-drafting {true | false}]  [-font {euroStyle gothic math roman script stick fixed swedish milSpec}]  [-height <value>]  -label {<string>}  [-layer {<layerNameOrPointer>}]  [-oaPurpose {<string>}]  [-orient {MX MX90 MY90 R0 R180 R270 R90}]   -pt {<x y>}
+.P Adds text to the specified custom layer. You can use the add_text command at any point in the design flow. The text added by the command is to annotate comment text and does not show up in a DEF output.  
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each   add_text parameter. For a detailed description of the command and all   of its parameters, use the man command:  man add_text  "\fB-alignment {centerCenter centerLeft centerRight lowerCenter lowerLeft lowerRight upperCenter upperLeft upperRight}\fR" Specifies the alignment of the text.   "\fB-drafting {true | false}\fR" Indicates if the text is always displayed.   "\fB-font {euroStyle gothic math roman script stick fixed swedish milSpec}\fR" Specifies the font style of the text.  Default: stick  "\fB-height <value>\fR" Specifies the height of the text, in microns.   "\fB-label {<string>}\fR" Specifies the text string.   "\fB-layer {<layerNameOrPointer>}\fR" Specifies the layer name or the layer pointer.   "\fB-oaPurpose {<string>}\fR" Specifies a user-defined purpose name for OpenAccess text layer purpose pair support. Only values that exist in the library's tech graph are allowed. If the specified name is not a legal purpose name, a warning is displayed and the text is treated as drawing purpose.  Default: drawing  "\fB-orient {MX MX90 MY90 R0 R180 R270 R90}\fR" Specifies the orientation of the text.   "\fB-pt {<x y>}\fR" Specifies the beginning coordinates of the text. It is specified in microns. 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

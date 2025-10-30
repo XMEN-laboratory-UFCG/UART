@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteShield  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteShield\fR \-  Deletes physical shielding wires from the specified or selected signal nets and removes SHIELDNET attributes from the nets
+.SH Syntax \fBdeleteShield\fR  [-help]  {-nets <list_of_signal_nets> | -selected}  [-routes_only {0 | 1}] 
+.P Deletes physical shielding wires from the specified or selected signal nets and removes SHIELDNET attributes from the nets. Use the deleteShield command after setting the SHIELDNET attribute on a net. To set the SHIELDNET attribute, use the setAttribute command. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each deleteShield parameter. For a detailed description of the command and all of its parameters, use the man command  man deleteShield  "\fB-nets <list_of_signal_nets>\fR" Specifies a list of signal nets with one or more SHIELDNET attributes. You can use the asterisk (*) wildcard in the net names.  Data_type: string, optional  "\fB-routes_only {0 | 1}\fR" Specifies that only shield wires and vias will be deleted.  Data_type: enum, optional  "\fB-selected\fR" Lets you select nets.  Data_type: bool, optional 
+.SH Examples
+.RS  "*" 2 The following command deletes SHIELDNET attributes and physical shielding wires from net clk1:  deleteShield -nets clk1   "*" 2 The following command deletes SHIELDNET attributes and physical shielding wires from nets c*:  deleteShield -nets c*   "*" 2 The following command deletes SHIELDNET attributes and physical shielding wires from selected nets:  deleteShield -selected
+.RE 
+.SH Related Information
+.RS  "*" 2 createShield  "*" 2 reportShield  "*" 2 Using the NanoRoute Router chapter in the Innovus User Guide
+.RS  "*" 2 Performing Shielded Routing
+.RE 
+.RE
+.P

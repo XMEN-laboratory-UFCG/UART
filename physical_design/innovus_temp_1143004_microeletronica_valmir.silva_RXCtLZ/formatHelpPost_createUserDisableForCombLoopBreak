@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createUserDisableForCombLoopBreak  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateUserDisableForCombLoopBreak\fR \-  Generates SDC file containing constraints for combinational loop breaking
+.SH Syntax \fBcreateUserDisableForCombLoopBreak\fR  -input_file <fileName>  -outfile <fileName> 
+.P Generates SDC file containing constraints for combinational loop breaking. The command selects the disable arc (s) with flag set to 1 from the report file, and generates the equivalent SDC commands in an output file.
+.P Note: You need to set set_interactive_constraint_modes command before sourcing the SDC file. 
+.SH Parameters    "\fB-input_file <fileName>\fR" Specifies the disabled time arcs report that you generate. To generate the report, use the following command:  report_disbale_timing -nosplit > pt_disable_arcs.rpt  "\fB-outfile <fileName>\fR" Specifies the name of the output SDC file. 
+.SH Command Order
+.P Use this command after generating the disable arcs report. 
+.SH Example
+.P The following command generates an encCombLoopBreak.sdc file when the input is a pt_disable_arcs.rpt file:
+.P createUserDisableForCombLoopBreak -input_file pt_disable_arcs.rpt               -outfile encCombLoopBreak.sdc
+.P The contents of pt_disable_arcs.rpt file are as follows:    "\fBCell or Port\fR" From  To  Sense  Flag Reason  "\fB------------------------------------------------------------------\fR"  "\fBuchip_core/u_s5_power\fR" oLpcSd_4_  orig_oSmAcpiSd_4_  *  1
+.P The contents of output file encCombLoopBreak.sdc are as follows:
+.P :  set_disable_timing -from {oLpcSd_4_} -to {orig_oSmAcpiSd_4_}                   [get_cells {uchip_core/u_s5_power}]:
+.P

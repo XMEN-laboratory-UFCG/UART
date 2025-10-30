@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_lec_files  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_lec_files\fR
+.SH Syntax \fBwrite_lec_files\fR {true | false} 
+.P Type: Boolean
+.P Default: true
+.P Specifies whether the write_do_lec command should write intermediate files to the verification directory specified by the write_lec_directory_naming_style global. If false, no files are written. 
+.SH Related Information
+.RS  "*" 2 write_do_lec  "*" 2 write_lec_directory_naming_style
+.RE

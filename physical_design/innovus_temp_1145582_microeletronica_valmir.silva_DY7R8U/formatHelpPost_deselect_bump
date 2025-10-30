@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deselect_bump  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeselect_bump\fR \-  Enables you to deselect bumps in different ways
+.SH Syntax \fBdeselect_bump\fR  [-help]  [-alternate {row column}]  [-area {{x1 y1 x2 y2}
+...}]   [-assigned]  [-bump_cell {cell_list}]   [-bumps {<bump_list>}]   [-floating]  [-max_distance_to_side <distance>]   [-nets {<net_list>}]  [-side {top bottom left right}]   [-start_lower_left]  [-type {signal power ground}]
+.P Enables you to deselect bumps in different ways. For example, you can deselect bumps by type or by net. By default, deselects all bumps in the design. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each deselect_bump parameter.  For a detailed description of the command and all of its parameters, use the man command:  man deselect_bump  "\fB-alternate {row column}\fR" Specifies the alternate bump pattern. You have to select an area to be alternate-deselected before using this option.   "\fB-area {{<x1 y1 x2 y2>}
+...}\fR" Specifies one or more areas from which bumps are to be deselected.   "\fB-assigned\fR" Deselects only the bumps that are assigned.   "\fB-bump_cell {<cell_list>}\fR" Specifies names of bump cells and the bumps with these bump cells are deselected. You can use wildcards in the bump cell list.   "\fB-bumps {<bump_list>}\fR" Specifies names of the bumps to be deselected. You can use wildcards in the bump list.   "\fB-floating\fR" Deselects only unassigned or floating bumps.   "\fB-max_distance_to_side <distance>\fR" Specifies the maximum distance away from the side in microns. When specified, only the bumps with geometries completely in that region are deselected.  By default, half the width/height of the die is used as the maximum distance to each side.  For <distance>, minimum value is 0 and maximum is 1e+20.  "\fB-nets {<net_list>}\fR" Specifies names of nets and the related bumps are deselected. You can use wildcards in the net list.   "\fB-side {top bottom left right}\fR" Specifies the side relative to which bumps are deselected.   "\fB-start_lower_left\fR" Specifies the start point of alternate deselection. If it is not specified, the lower-left point is considered the start point of alternate selection.  Note: This parameter can be used only with -alternate.  "\fB-type {signal power ground}\fR" Specifies the type of bumps to be deselected. 
+.SH Examples
+.RS  "*" 2 The following command deselects all bumps in the design:  deselect_bump   "*" 2 The following command deselects the bottom edge of bump geometry no more than 500 microns away from the top side:  deselect_bump -side top -max_distance_to_side  500  "*" 2 After selecting all the bumps in a design or in a specific area, use the following command to alternately deselect a 2x3 bump pattern:  deselect_bump -alternate {2 3}   The resulting deselection pattern is shown below. Note that as -start_lower_left is not specified, the bumps in the the lower-left corner are not deselected (that is, they are alternate selected).  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 select_bump
+.RE
+.P

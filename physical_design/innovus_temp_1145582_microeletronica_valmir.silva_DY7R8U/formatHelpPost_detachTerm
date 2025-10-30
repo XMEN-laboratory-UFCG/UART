@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH detachTerm  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdetachTerm\fR \-  Disconnects a terminal from a net
+.SH Syntax \fBdetachTerm\fR  [-help]  [-moduleBased <verilogModule>]   <instName>  <termName>  [<netName>] 
+.P Disconnects a terminal from a net.
+.P Note: Detaching a terminal that drives an output terminal of a module produces a Verilog violation at the output terminal if you use detachTerm. Instead, use attachTerm to attach the terminal to a new net. The attachTerm command automatically detaches the terminal from the net connecting to the output terminal, then attaches the terminal to the net you specify. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each detachTerm.  For a detailed description of the command and all of its parameters, use the man command:   man detachTerm  "\fB<instName>\fR" Specifies the instance that contains the terminal you want to detach.  "\fB-moduleBased <verilogModule>\fR" Detaches the terminal from the verilog module.  "\fB<netName>\fR" Specifies the net that is already connected to the terminal. If the terminal does not connect to the specified net, or if the net does not exist, the software displays an error message and the command stops. The software uses this parameter for error checking only.  "\fB<termName>\fR" Specifies the terminal to disconnect. If the terminal does not exist on the specified instance, the software displays an error message and the command stops. 
+.SH Example
+.RS  "*" 2 The following command disconnects terminal in1 of instance i1/i2/i3:   detachTerm i1/i2/i3 in1 i1/i2/net26  If instance i1/i2/i3 does not exist, or terminal in1 is not a terminal of i1/i2/i3, the software displays an error message and the command stops. The net i1/i2/net26 is specified, so if net i1/i2/net26 does not exist, or if the terminal is not already connected to net i1/i2/net26, the software displays an error message and the command stops.
+.RE 
+.SH Related Information
+.RS  "*" 2 attachTerm
+.RE
+.P

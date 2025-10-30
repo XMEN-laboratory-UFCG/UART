@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_visible_nets  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_visible_nets\fR \-  Returns the names of the visible nets if some nets have been hidden in the design
+.SH Syntax \fBget_visible_nets\fR  [-help] 
+.P Returns the names of the visible nets if some nets have been hidden in the design. If all nets are visible, this command has no effect. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each get_visible_nets parameter.  For a detailed description of the command and all of its parameters, use the man command:   man get_visible_nets 
+.SH Examples
+.RS  "*" 2 The following command returns the name of all visible nets in the designs:  innovus 17> get_visible_nets   ram1/subram02_lower/TESTACT_INST_PERIWDSRAM001PAA512W27C3/tpo_a_9_
+.RE 
+.SH Related Information
+.RS  "*" 2 set_visible_nets
+.RE
+.P

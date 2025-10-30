@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportSelect  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportSelect\fR \-  Reports the properties of one or more selected objects in the design display area in the main console window and the Innovus log file. You can use this command after selecting one or more objects in the design display area
+.SH Syntax  \fBreportSelect\fR  [-help]  -file <filename> 
+.P Reports the properties of one or more selected objects in the design display area in the main console window and the Innovus log file. You can use this command after selecting one or more objects in the design display area. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each reportSelect parameter. For a detailed description of the command and all of its parameters, use the man command:   man reportSelect  "\fB-file <filename>\fR" Specifies the name of the output file that reports the properties of the selected object.  Data_type: string, optional 
+.SH Example
+.P The following command generates a report file object.rpt, which displays the properties of the selected object:
+.P reportSelect -file object.rpt
+.P The following is the output format of the report file:
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference 
+.RE
+.P

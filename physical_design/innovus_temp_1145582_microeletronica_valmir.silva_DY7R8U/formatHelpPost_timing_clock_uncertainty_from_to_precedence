@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_clock_uncertainty_from_to_precedence  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_clock_uncertainty_from_to_precedence\fR
+.SH Syntax \fBtiming_clock_uncertainty_from_to_precedence\fR  {true | false}  
+.P Default: false
+.P Sets the clock uncertainty precedence.
+.P When set to true, the software gives higher precedence to clock-to-clock uncertainty.
+.P To set this global variable, use the set command.
+.P

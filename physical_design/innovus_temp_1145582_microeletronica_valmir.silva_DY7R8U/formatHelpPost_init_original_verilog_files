@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH init_original_verilog_files  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBinit_original_verilog_files\fR
+.SH Syntax \fBinit_original_verilog_files\fR name
+.P Type: String
+.P Specifies a list of Verilog files to be read during initialization. init_design will set it to the list of input files given to it. The original input file names are retained through the flow for reference, and used by write_do_lec for the default golden netlist comparison file names. 
+.SH Related Information
+.RS  "*" 2 init_design  "*" 2 write_do_lec
+.RE
+.P

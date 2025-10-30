@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_generated_clock_info  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_generated_clock_info\fR
+.SH Syntax  \fBtiming_report_generated_clock_info\fR   {true | false}  
+.P Default: true
+.P Generated clock information is automatically added to the report, if generated clocks are encountered in either the launching or capturing clock paths.
+.P The generated clock information column is displayed if the `Delay' field exists. If the `Delay' field does not exist, then the generated clock adjustment column is added to the report only when explicitly specified using the report_timing -format command or by setting the report_timing_format global variable.
+.P To set this global variable, use the set_global command.
+.P

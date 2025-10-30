@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_si_cppr  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_si_cppr\fR
+.SH Syntax  \fBtiming_enable_si_cppr\fR  {true | false} 
+.P Default: true
+.P Enables more accurate CPPR analysis when incremental delays are present and the timing_remove_clock_reconvergence_pessimism global variable is set to true.
+.P When set to true, the incremental delay is not included in the CPPR calculation during setup analysis, but is included in the CPPR calculation during hold analysis.
+.P When set to false, the incremental delay is included in both setup and hold CPPR calculations. 
+.P To set this global variable, use the set_global command.
+.P

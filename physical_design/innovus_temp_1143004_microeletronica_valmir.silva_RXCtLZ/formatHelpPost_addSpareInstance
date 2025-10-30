@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addSpareInstance  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddSpareInstance\fR \-  Specifies a file that lists spare cells to add to the netlist
+.SH Syntax \fBaddSpareInstance\fR  [-help]  [-async <netName:terminalList> [<netName:terminalList>
+... ]   [-clock <netName>]  -file <fileName>[-fix_placed_insts {TRUE|FALSE}]  [-hier <moduleName> | -powerDomain <domainName> [-submodule <submoduleName>]]   [-prefix <prefix>]  [-tie {0 | 1}]
+.P Specifies a file that lists spare cells to add to the netlist. You can use this command before or after standard cell placement.
+.RS  "*" 2 If you use this command before placement, the place_design command distributes and places the added instances without including them in spare modules. It adds the instances to the top level of the design by default.
+.RE
+.RS  "*" 2 If you use this command after placement, the software places the added instances without creating spare modules or disturbing the existing placement. The distribution of the cells is dependent upon the number of instantiations of each cell type.
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each addSpareInstance parameter.  For a detailed description of the command and all of its parameters, use the man command: man addSpareInstance.  "\fB-async <netName:terminalList>\fR" Specifies which net(s) to tie off the async pin(s).  Default: async pins will be tied to the logical zero net.  "\fB-clock <netName>\fR" Specifies the clock net that is tied to the clock pins.  "\fB-file <fileName>\fR" Specifies a text file that lists the spare cells, and the number of each, to add to the netlist. The file has the following format:  "<cellName number>"  Begin each line of a comment with a number sign (#).  "\fB-fix_placed_insts {TRUE|FALSE}\fR" Specifies not to move the existing placed instances to find location for newly added spare instances.   "\fB-hier <moduleName>\fR" Specifies the name of the module to which spares will be added.   "\fB-powerDomain <domainName>\fR" Specifies the name of the power domain to which spares will be added.   "\fB-prefix <prefix>\fR" Specifies a prefix for the names of the newly added cells.   Default: FE_spare  "\fB-submodule <submoduleName>\fR" Specifies the name of the module created for spares.   "\fB-tie {0 | 1}\fR" Specifies the logical net to which the cells are connected.  Default: 1 
+.SH Example
+.P The following command adds instances of the cells specified in spare_file and ties them to logical net 0. It ties the clock pins to sysclk:
+.P addSpareInstance -file spare_file -tie 0 -clock sysclk
+.P spare_file contains the following:
+.P DFFNSRX2T1T10   1  INVX4T1T10      2  NOR2X2T1T10     2
+.P The following command adds instances of the cells specified in spare.txt.It ties the async pin RN to net VDD:
+.P addSpareInstance -file spare.txt -async VDD:RN
+.P spare.txt contains the following:
+.P SDFFRHQXL 5
+.P

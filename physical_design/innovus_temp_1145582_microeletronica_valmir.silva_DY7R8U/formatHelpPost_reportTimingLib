@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportTimingLib  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportTimingLib\fR \-  Reports the contents of the timing library
+.SH Syntax  \fBreportTimingLib\fR  -outfile <fileName>  [-byLib]   [-all | -pin | -threshold | -sibling]  [-lib <library_name>]   [<cellName>] 
+.P Reports the contents of the timing library. 
+.SH Parameters    "\fB-all | -pin | -threshold | -sibling\fR" Specifies the parameter for which the software should report the timing data.  -all prints all the pin properties, siblings of a cell, the libraries where they are defined, and the voltage.  -pin reports the pin properties, such as the pin name, direction, capacitance, max load, max fanout, and fanout load.  -threshold reports the input thresholds, output thresholds, and slew thresholds of a cell.  -sibling reports sibling cells, the libraries where they are defined, and the voltage.  Default: -all  "\fB-byLib\fR" Organizes the generated report by libraries. If you do not specify this parameter, the reportTimingLib command prints out cells with the same name together. Use this parameter to support multi-supply multi-voltage feature of the software, where you can define same cell names in more than one library with different voltage values and timing data.  "\fB<cellName>\fR" Specifies the individual cell name to be reported.  "\fB-lib <library_name>\fR" Reports a specified library.  If you do not specify this parameter, all the library names are reported.  "\fB-outfile <fileName>\fR" Specifies the name of the file to which the results are written. 
+.SH Command Order
+.P Use this command after importing the design when the timing library is also loaded. 
+.SH Example
+.P The following command reports the cell information in the timing library, and writes the results to the file xyz.dump.lib:
+.P reportTimingLib -outfile xyz.dump.lib

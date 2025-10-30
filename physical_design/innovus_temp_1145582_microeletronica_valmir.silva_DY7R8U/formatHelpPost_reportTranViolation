@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportTranViolation  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportTranViolation\fR \-  After timing analysis, reports pins and ports that exceed the transition constraints in the timing constraints file
+.SH Syntax \fBreportTranViolation\fR  [-help]   [-all | -noGlobalNets]  [-max]  [-min]   [-selNetFile <fileName>]   [-excNetFile <fileName>]  [-significant_digits]   [-useDrcMargin]   [-outfile <fileName>] 
+.P After timing analysis, reports pins and ports that exceed the transition constraints in the timing constraints file.
+.P Run this command after running timing analysis (timeDesign) or timing optimization (optDesign). 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each reportTranViolation parameter.  For a detailed description of the command and all of its parameters, use the man command: man reportTranViolation  "\fB-all \fR" Reports violations on all nets in the design.  Default: -all  "\fB-excNetFile <fileName>\fR" Specifies a file that lists the names hierarchical nets that are excluded from the transition violation report.   "\fB-noGlobalNets\fR" Reports violations on all nets except for power and ground nets.  Note: The parameters, -all and -noGlobalNets are mutually exclusive.  "\fB-max\fR" Reports violations of maximum transition constraints.   "\fB-min\fR" Reports violations of minimum transition constraints.  Note: The parameters, -max and -min are mutually exclusive.  "\fB-outfile <fileName>\fR" Specifies name of the output file.  "\fB-selNetFile<fileName>\fR" Specifies a file that lists the names of hierarchical nets to consider in the transition violation report.  Note: The parameters, -selNetFile and -excNetFile are not mutually exclusive. If both parameters are specified, the -excNetFile parameter overides the -selNetFile parameter.  "\fB-significant_digits\fR" Allows the user to specify the number of significant digits.   Default: 3   "\fB-useDrcMargin\fR" Generates a report using the margin value that you specify with the -drcMargin parameter of the  setOptMode command. 
+.SH Example
+.P The following command runs timing analysis and generates a module1.tran report file that lists the pins and ports that exceed the transition constraints:
+.P reportTranViolation -outfile module1.tran 
+.SH Related Information
+.RS  "*" 2 optDesign  "*" 2 setOptMode  "*" 2 timeDesign
+.RE
+.P

@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setFlipping  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetFlipping\fR \-  Specifies the orientation of the bottom row in the core area
+.SH Syntax \fBsetFlipping\fR   [-help]  flip_type
+.P Specifies the orientation of the bottom row in the core area. The command recreates all the floorplan rows. You can use this command after importing the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setFlipping parameter. For a detailed description of the command and all of its parameters, use the man command:  man setFlipping  "\fB<flip_type>\fR" Specifies the type of orientation.
+.RS  "*" 2 f: Specifies that the first row flips from the bottom up.  "*" 2 n: Specifies that no row flipping is done.  "*" 2 s: Specifies that the second row flips from the bottom up.
+.RE   Tip: To get the flipping value set by the setFlipping command, use the following:  dbGet top.fplan.flipRows  Data_type: string, required 
+.SH Examples
+.RS  "*" 2 If the existing orientation of the bottom row is Mx and the second row from bottom is R0, then the following command changes the second row orientation to Mx and changes the orientation of the other rows accordingly (Bottom row orientation will be R0).  setFlipping s  "*" 2 If the existing orientation of the bottom row is R0 and second row from bottom is Mx, then the following command changes the first row orientation to Mx and changes the orientation of the other rows accordingly (second from bottom row orientation will be R0):  setFlipping f
+.RE 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

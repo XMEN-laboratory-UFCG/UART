@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_ml_design  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_ml_design\fR \-  Writes design-related data for JedAI to csv files with specified prefix
+.SH Syntax \fBwrite_ml_design\fR  [-help]   [-no_power]   [-objects <object_list>]   -prefix <string>  [-verbose]   [-views <view_list>]
+.P Writes design-related data for JedAI to csv files with specified prefix. It includes data that is design specific and relates to logical, physical, and timing type objects.
+.P Before running write_ml_design, the following two commands should be run:
+.RS  "*" 2 report_timing  "*" 2 write_global_slack_report -include_ports
+.RE 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each write_ml_design parameter.  For a detailed description of the command and all of its parameters, use the man command  man write_ml_design.  "\fB-no_power\fR" Specifies that power attributes should not be dumped.   Data_type: bool, optional  "\fB-objects <object_list>\fR" Specifies the list of db object(s) to be dumped, which could include one or more of the following values:  analysis_view arc base_cell base_pin blockage clock congestion constraint_mode   delay_corner design gcell_grid hinst hnet hpin hport inst layer marker net netlist   opcond option p2p partition patch_wire pg_base_pin pg_pin pin pin_shape port   rc_corner route_rule row site skew_group special_net timing_condition   track_pattern unit_parasitic via_def  Use curly braces to enclose multiple values.  Data_type: tcl_obj, optional  "\fB-prefix <string>\fR" Specifies the prefix for the output files.  Data_type: string, required  "\fB-verbose\fR" Displays a more detailed message.  Data_type: bool, optional  "\fB-views <view_list>\fR" Dumps the data for the specified analysis view(s).  Data_type: tcl_obj, optional 
+.SH Example
+.RS  "*" 2 The following command writes the attributes of all design objects to csv files with the specified prefix:  write_ml_design -prefix out/
+.RE 
+.SH Related Information
+.RS  "*" 2 init_ml  "*" 2 report_timing  "*" 2 write_global_slack_report  "*" 2 write_ml_library   "*" 2 write_ml_timing_graph   "*" 2 write_ml_timing_path
+.RE
+.P

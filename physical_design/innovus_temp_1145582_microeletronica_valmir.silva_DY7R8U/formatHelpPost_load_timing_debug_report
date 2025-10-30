@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH load_timing_debug_report  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBload_timing_debug_report\fR \-  Loads the violation report in Innovus for debugging timing results
+.SH Syntax \fBload_timing_debug_report\fR  [-help]   [-name report_name]  [{-proto [-additional_slack_past_wns <number>]  [-num_path <number>]}]  [-num_path]   <filename> 
+.P Loads the violation report in Innovus for debugging timing results.
+.P Note: The violation report that you specify in this command has a special machine readable format. Use the report_timing -machine_readable command or timeDesign-timingDebugReport command to generate the machine readable violation report.
+.P For more information on timing debug categories, see Debugging Timing Results in Innovus User Guide. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each load_timing_debug_report parameter.  For a detailed description of the command and all its parameters, use the man command:   man load_timing_debug_report  "\fB<filename>\fR" Specifies the name of the timing debug file, also known as the violation report.  "\fB-name\fR" Specifies the report name to load the machine readable timing report files incrementally.  Note: The name can be specified using any string; it is not the file name.  "\fB-num_path\fR" Specifies the number of paths to be reported in the detailed path violations.  "\fB{-proto [-additional_slack_past_wns number]  [-num_path number]}\fR" Creates flex model categories and displays the top path of the top 8 (by default) categories. This option can be used for design that has flexModels.  Use -additional_slack_past_wns to report all paths with slack worst than (WNS and additional specified slack value).  Use -num_path to control the number of violation paths. 
+.SH Examples:
+.RS  "*" 2 The following command loads the machine readable timing report top.mtarpt:  load_timing_debug_report top.mtarpt
+.RE
+.RS  "*" 2 The following commands load two machine readable timing reports top1.mtarpt and top2.mtarpt together:  load_timing_debug_report -name default_report top1.mtarpt  load_timing_debug_report -name default_report top2.mtarpt  Global Timing Debug (GTD) will first load the report top1.mtarpt, then append top2.mtarpt incrementally to the current report.
+.RE 
+.SH Related Information
+.P The Timing Budgeting chapter of the Innovus User Guide document.
+.P

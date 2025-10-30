@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setViaFill  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetViaFill\fR \-  Specifies window and density values for inserting via fill
+.SH Syntax \fBsetViaFill\fR  [-help]   [-layer {<layerNumber> | {<list_of_layer_numbers>}}]   [-windowSize <xSize> <ySize>]   [-windowStep <xStep> <yStep>]   [-minDensity <percent>]   [-maxDensity <percent>]   [-preferredDensity <percent>] 
+.P Specifies window and density values for inserting via fill. Use this command before running addViaFill. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setViaFill parameter.  For a detailed description of the command and all its parameters, use the man command: man setViaFill.  "\fB-layer <layerNumber> | {<list_of_layer_numbers>}\fR" Specifies the cut layers to which the parameters of the setViaFill command apply. If you specify more than one layer, separate each layer with a space and enclose the list in braces or double quotation marks. To specify cut12, cut23, and cut34, type one of the following commands:  addViaFill -layer "Via12 Via23 Via34"  addViaFill -layer {Via12 Via23 Via34}  "\fB-maxDensity <percent>\fR" Specifies a percentage value for the maximum cut density. For example, setViaFill -maxDensity 30.   Default: 30  "\fB-minDensity <percent>\fR" Specifies a percentage value for the minimum cut density. For example, setViaFill -minDensity 0.01.  Default: area of two cuts divided by 100 square microns  "\fB-preferredDensity <percent>\fR" Specifies a percentage value for the preferred cut density. When the cut density in a window is less than the minimum cut density value, this parameter adds via fill to achieve a density as close as possible to the preferred value. To disable the preferred density feature, specify 0. For example, setViaFill -preferredDensity 0.02.  Default: area of two cuts in the cut layer  "\fB-windowSize <xSize> <ySize>\fR" Specifies the x and y dimensions in microns of the area setViaFill uses to examine the cut density. The software assesses the cut density in each window, moving the window iteratively through the design. For example, setViaFill   windowSize 100 100.  Default: 10 microns in each dimension  "\fB-windowStep <xStep> <yStep>\fR" Specifies the x and y step distance in microns the window moves for each iteration of cut density analysis. For example, setViaFill -windowStep 50 50.  Default: 5 microns in each dimension 
+.SH Example
+.P The following command sets window and density values for inserting via fill in cut layers VIA1 to VIA7:
+.P setViaFill -layer {VIA1 VIA2 VIA3 VIA4 VIA5 VIA6 VIA7} -windowSize 100 100 /  -windowStep 50 50 -minDensity 0.01 -MaxDensity 30 /  -preferredDensity 1 
+.SH Related Information
+.RS  "*" 2 fill_setting_save  "*" 2 The following sections in the Optimizing Metal Density chapter of User Guide.
+.RE
+.RS
+.RS  "*" 2 "Overview"
+.RE 
+.RE
+.RS
+.RS  "*" 2 "Adding Via Fill"
+.RE 
+.RE
+.P

@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH convertFenceToBlackBox  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBconvertFenceToBlackBox\fR \-  Converts a fence to a blackbox
+.SH Syntax \fBconvertFenceToBlackBox\fR  [-help]  {-cell <cellName> | -hinst <hinstName>}   [-noRebuildTiming]   [-size { <x> <y> }] 
+.P Converts a fence to a blackbox. Use this command before committing partition. 
+.SH Parameters   "\fB-cell <cellName>\fR" Specifies the name of a module or submodule that should be converted to a black box.  Data_type: string, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each convertFenceToBlackBox parameter.  For a detailed description of the command and all of its parameters, use the man command:   man convertFenceToBlackBox  "\fB-hinst <hinstName>\fR" Specifies the name of the hierarchical instance that should be converted to a black box.  Data_type: string, optional  "\fB-noRebuildTiming\fR" Skips rebuilding the timing graph and re-initializing the top cell information.  Data_type: bool, optional  "\fB-size {<x> <y>}\fR" Specifies the width and height of the blackbox.  Default: If you do not specify this parameter, the current fence size is taken as the initial size of the blackbox.  Data_type: point, optional 
+.SH Example
+.P The following command converts a fence, cp1A to a blackbox with 12,44 dimensions.
+.P convertFenceToBlackBox -cell cp1A -size 12 44 
+.SH Related Information
+.RS  "*" 2 convertBlackBoxToFence  "*" 2 getBlackBoxArea  "*" 2 loadBlackBoxNetlist  "*" 2 setImportMode  "*" 2 specifyBlackBox  "*" 2 saveDesign   "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RS  "*" 2 Defining Blackboxes
+.RE 
+.RE
+.P

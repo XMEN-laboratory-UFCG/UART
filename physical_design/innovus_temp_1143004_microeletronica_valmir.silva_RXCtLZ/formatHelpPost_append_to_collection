@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH append_to_collection  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBappend_to_collection\fR
+.SH Syntax \fBappend_to_collection\fR  [help]  <var_name>  <second_collection_or_list>  [-unique] 
+.P Appends objects from one collection to another collection. The following rules apply:
+.RS  "*" 2 If all of the objects in the base collection are of the same type, only the objects in the second collection that are the same type as those in the base collection are appended to the base collection. 
+.RE
+.RS  "*" 2 If the base collection contains different types of objects, all objects in the second collection are appended to it. In this situation, you cannot specify an object list.
+.RE
+.P If the software finds no objects to add, an empty collection is returned. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB<var_name>\fR" Specifies a pointer to the base collection of objects. The objects in the second collection or object list are appended to this collection.  If you specify a pointer that does not refer to an existing base collection, the software creates a new collection that uses the pointer as a reference.  "\fB<second_collection_or_list>\fR" Specifies the second collection of objects, or an object list.  "\fB-unique\fR" Retains any duplicate objects that already exist in the base collection, but does not append duplicate objects from the second collection to the base collection. 
+.SH Examples
+.RS  "*" 2 The following command appends the nets in the specified collection to the collection newVar:   append_to_collection newVar [get_nets {CLK1}]
+.RE
+.RS  "*" 2 The following command appends the specified nets to the collection newVar:   append_to_collection newVar {Sin1 CLK1 Sout1}  "*" 2  You can use the following commands to create another collection:  tempus 6> set base_clock [get_clocks sbw_clk]  0xe50  tempus 7> set top_clock [get_clocks aclk]  0xe51  tempus 8> set base_top_clock ""  tempus 13> append_to_collection base_top_clock $base_clock  0xe54  tempus 14> append_to_collection base_top_clock $top_clock  0xe54  tempus 15> get_clocks $base_top_clock  sbw_clk aclk  0xe55  tempus 16> get_clocks $base_clock  sbw_clk  0xe56  tempus 17> get_clocks $top_clock  aclk  0xe57  Note: If a new collection variable is defined with an existing collection, then both point to the same object set. Any modifications made into either collection will be visible in both cases - because they reference each other.
+.RE 
+.SH Related Information
+.RS  "*" 2 add_to_collection
+.RE
+.RS  "*" 2 compare_collections  "*" 2 copy_collection  "*" 2 filter_collection  "*" 2 foreach_in_collection
+.RE
+.P

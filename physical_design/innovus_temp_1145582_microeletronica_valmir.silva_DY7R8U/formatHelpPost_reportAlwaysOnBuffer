@@ -1,0 +1,2 @@
+ "\fB-help\fR" Outputs a brief description that includes type and default information for each reportAlwaysOnBuffer parameter
+.SH Syntax \fBreportAlwaysOnBuffer\fR  [-help]  [-all]  [-powerDomain <domainName>]  [-verbose]

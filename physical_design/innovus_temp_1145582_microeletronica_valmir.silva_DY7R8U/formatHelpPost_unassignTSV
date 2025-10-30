@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unassignTSV  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunassignTSV\fR \-  Unassigns the specified TSV
+.SH Syntax \fBunassignTSV\fR  {-netName <netname>| -all |-signal | -power | -ground | -selected} 
+.P Unassigns the specified TSV. This command is used for manual operating on TSV or iteration between TSV assignment and instance placement. 
+.SH Parameters   "\fB-netName <netname>\fR" Unassigns the specified net from TSVs.  "\fB-all\fR" Unassigns all the TSVs.  "\fB-signal\fR" Unassigns the signal net from TSVs.  "\fB-power\fR" Unassigns the power net from TSVs.  "\fB-ground\fR" Unassigns the ground net from TSVs.  "\fB-selected\fR" Unassigns selected TSVs. 
+.SH Examples
+.RS  "*" 2 The following command reads unassign all the TSVs with power net:  unassignTSV -power 
+.RE 
+.SH Related Information
+.RS  "*" 2 addTSV  "*" 2 assignTSV   "*" 2 deleteTSV  "*" 2 readDieAbstract
+.RE
+.P

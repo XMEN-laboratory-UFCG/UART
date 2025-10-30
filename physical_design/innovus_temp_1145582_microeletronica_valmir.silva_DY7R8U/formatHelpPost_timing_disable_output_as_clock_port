@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_output_as_clock_port  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_output_as_clock_port\fR
+.SH Syntax \fBtiming_disable_output_as_clock_port\fR  {true | false} 
+.P Default: false
+.P Allows a clock path to be considered as a data path. 
+.P When set to true, this global causes a clock source path, leading to an output or bidi port, to be treated as a data path, irrespective of any constraint like set_output_delay, set_data_check, or set_max_delay asserted on that port. 
+.P To set this global variable, use the set_global command.

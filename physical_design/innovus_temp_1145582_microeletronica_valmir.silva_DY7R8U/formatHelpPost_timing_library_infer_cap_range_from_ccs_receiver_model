@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_library_infer_cap_range_from_ccs_receiver_model  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_library_infer_cap_range_from_ccs_receiver_model\fR
+.SH Syntax  \fBtiming_library_infer_cap_range_from_ccs_receiver_model\fR  {true | false} 
+.P Default: false
+.P Infers the rise or fall of capacitance range values from CCS receiver capacitance model.
+.P When set to false, the rise/fall CCS capacitance range values are not inferred. The NLDM pin capacitance range values defined in the library are honored.
+.P To set this global variable, use the set_global command.
+.P

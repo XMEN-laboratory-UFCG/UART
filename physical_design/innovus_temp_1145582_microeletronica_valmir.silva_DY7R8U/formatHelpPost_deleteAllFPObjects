@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteAllFPObjects  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteAllFPObjects\fR \-  Removes all floorplan objects
+.SH Syntax \fBdeleteAllFPObjects\fR  [-help]
+.P Removes all floorplan objects. The density screen, obstruction, power strips, and route guides objects are deleted. The guides and block guides are cleared from the design area. The physical instance groups are also cleared from the core area. Use this command after importing the design. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description of the deleteAllFPObjects command. For a detailed description of the command, use the man command: man deleteAllFPObjects 
+.SH Related Information
+.RS  "*" 2  deleteSelectedFromFPlan   "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference
+.RS  "*" 2 Clear Floorplan
+.RE 
+.RE
+.P

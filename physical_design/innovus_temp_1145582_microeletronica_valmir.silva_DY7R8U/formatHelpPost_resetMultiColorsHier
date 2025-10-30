@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH resetMultiColorsHier  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBresetMultiColorsHier\fR \-  Resets the color Id for all or the specified hierarchical instances
+.SH Syntax \fBresetMultiColorsHier\fR  [-help]   [<colorID> [<hInstName>]] 
+.P Resets the color Id for all or the specified hierarchical instances. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each resetMultiColorsHier parameter.  For a detailed description of the command and all of its parameters, use the man command: man resetMultiColorsHier.  "\fB<colorID>\fR" Specifies the color Id to which all hierarchical instances or the specified hierarchical instance will be reset.  The valid values of color Id are from 0 to 29. The color value for the color id is the same as specified in the Module Color Preference form (accessed by clicking Floorplan - Edit Floorplan - Color Module).  Default: If no color Id and no instance name is specified, all hierarchical instances are displayed with the color id 0. This is the same behavior as the Reset button on the Module Color Preferences form.  "\fB<hInstName>\fR" Specifies the name of hierarchical instance that should be displayed in the color corresponding to the specified color Id.  Default: If no instance is specified, the color Id for all hierarchical instances is reset. 
+.SH Example
+.RS  "*" 2 The following command resets the color Id for all hierarchical instances and their descendants to 3:   resetMultiColorsHier 3
+.RE
+.RS  "*" 2 The following command resets the color Id for the hierarchical instance <DTMF_INST> and all its descendants to the color id 3:   resetMultiColorsHier 3 DTMF_INST
+.RE 
+.SH Related Information
+.RS  "*" 2 saveHInstColor  "*" 2 setMultiColorsHier  "*" 2 setSelHInstColor  "*" 2 Floorplan Menu chapter in the Menu Reference
+.RS  "*" 2 Color Module
+.RE 
+.RE
+.P

@@ -1,0 +1,49 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH hier_clock_route  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBhier_clock_route\fR \-  Runs globalDetailRoute on the nets specified in the net file (<<ptnName>>.net file) provided for each of the specified partitions, in parallel, using EDP (parallel/distributed) framework.  
+.SH Note:
+.P Before running the hier_clock_route command if you have a requirement to set any custom preferences or callbacks (For example,VIA preferences, routing layers preference etc),  or perform any other operation, a file with name <hier_clock_route_global_detail_route.tcl> must be created in current run directory
+.SH Syntax \fBhier_clock_route\fR  [-help]  -dir <ptnParentDirName>   -ptn_net_dir <ptnNetDirName>  [-ptns <ptnNameList>] 
+.P Runs globalDetailRoute on the nets specified in the net file (<<ptnName>>.net file) provided for each of the specified partitions, in parallel, using EDP (parallel/distributed) framework.  
+.SH Note:
+.P Before running the hier_clock_route command if you have a requirement to set any custom preferences or callbacks (For example,VIA preferences, routing layers preference etc),  or perform any other operation, a file with name <hier_clock_route_global_detail_route.tcl> must be created in current run directory.
+.P The <hier_clock_route_global_detail_route.tcl> file must have a procedure defined like below:  
+.P proc ::hier_clock_route_pre_global_detail_route {ptnName} {  Puts "called ::hier_clock_route_pre_global_detail_route $ptnName"  <<body: operations/settings to be written in tcl format>> 
+.
+.
+.
+.   }
+.P proc ::hier_clock_route_post_global_detail_route {ptnName} {  Puts "called ::hier_clock_route_post_global_detail_route $ptnName"  <<body: operations/settings to be written in tcl format>> 
+.
+.
+.
+.  }
+.P For example,
+.P proc ::hier_clock_route_pre_global_detail_route {ptnName} {  Puts "called ::hier_clock_route_pre_global_detail_route $ptnName"  set bot_layer 6  set top_layer 9  setDesignMode -bottomRoutingLayer $bot_layer   setDesignMode -topRoutingLayer $top_layer  setGenerateViaMode -reset  setGenerateViaMode -ndr_only true  }
+.P proc ::hier_clock_route_post_global_detail_route {ptnName} {  Puts "called ::hier_clock_route_post_global_detail_route $ptnName"  setGenerateViaMode -reset  } 
+.SH Parameters   "\fB-dir <ptnParentDirName>  \fR" Specifies the directory in which partition databases are present.  Data_type: string, required  "\fB-help\fR" Outputs a brief description that includes the type and default information for each hier_clock_route parameter.  For a detailed description of the command and all of its parameters, use the man command:   man hier_clock_route  "\fB-ptn_net_dir <ptnNetDirName> \fR" Specifies the directory in which net file for each partition is present. The net file contains the nets to be routed.  Data_type: string, required  "\fB-ptns <ptnNameList>\fR" Specifies the list of partition names.  Data_type: string, optional 
+.SH Example
+.P The following command routes the nets specified in the net files (./nets/tdsp_core.txt and
+./nets/controller.txt ), within the
+./nets partition net directory, provided for each of the specified partitions (tdsp_core and  controller)
+.P hier_clock_route -dir
+./ptns -ptn_net_dir
+./nets -ptns {tdsp_core controller}
+.P where,
+.RS  "*" 2
+./ptns directory contains partitions, tdsp_core and controller.  "*" 2
+./nets/tdsp_core.txt contains net names: N1, N2, N3  "*" 2
+./nets/controller.txt contains net names: N4, N5
+.RE
+.P The result of this command is equivalent to the following tcl code:
+.P  foreach ptnName $ptnNameList {          cd $ptnParentDir/$ptnName          restoreDesign
+. $ptnName          # select nets specified in $ptnNetDir/$ptnName.net          # set routeGuide, if found in $ptnNetDir/$ptnName.rgf          # source user-defined-procs for global detail route         if {[file exists ${current_run<_>dir}/hier_clock_route_global_detail_route.tcl]} {              source ${current_run<_>dir}/hier_clock_route_global_detail_route.tcl         }             # invoke call back : pre global detail route         if {[info procs ::hier_clock_route_pre_global_detail_route] != {}} {             ::hier_clock_route_pre_global_detail_route $ptnName         }
+.P        # run globalNanoRoute on the selected nets         setNanoRouteMode -route_selected_net_only true         globalDetailRoute         setNanoRouteMode -route_selected_net_only false
+.P        # invoke call back : post global detail route         if {[info procs ::hier_clock_route_post_global_detail_route] != {}} {             ::hier_clock_route_post_global_detail_route $ptnName         }
+.P        # write def file         defOut -routing $ptnName.def.gz         } 
+.SH Related Information
+.RS  "*" 2 globalDetailRoute  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

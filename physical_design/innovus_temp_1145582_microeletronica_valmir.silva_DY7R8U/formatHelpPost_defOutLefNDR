@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH defOutLefNDR  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefOutLefNDR\fR
+.SH Syntax \fBdefOutLefNDR\fR{0 | 1} 
+.P Type: Integer
+.P Default: 0
+.P Controls whether defOut writes out LEF non-default rule information in DEF. By default, defOut does not write out non-default rules defined in LEF. 
+.SH Related Information
+.RS  "*" 2 defOut
+.RE
+.RS  "*" 2 defOutBySection
+.RE
+.P

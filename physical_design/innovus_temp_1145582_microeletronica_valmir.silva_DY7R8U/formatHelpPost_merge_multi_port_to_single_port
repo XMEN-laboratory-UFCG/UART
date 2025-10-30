@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH merge_multi_port_to_single_port  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmerge_multi_port_to_single_port\fR
+.SH Syntax \fBmerge_multi_port_to_single_port\fR {true | false} 
+.P Type: Boolean
+.P Default: false
+.P When set to true, multiple ports in a LEF PIN are merged into a single port. However, the pin should not have the MUSTJOINALLPORTS attribute as it specifies that all of the ports must be connected individually.
+.P

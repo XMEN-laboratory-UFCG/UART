@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setLibraryUnit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetLibraryUnit\fR \-  Sets the time and capacitance unit values for constraints and report generation
+.SH Syntax \fBsetLibraryUnit\fR  [-help]   [-cap <capUnit>]   [-time <timeUnit>] 
+.P Sets the time and capacitance unit values for constraints and report generation.
+.P The timing constraints (SDC) files do not contain any unit specification for capacitance and time values. Hence, the units for these values are considered to be same as those specified in the timing libraries. The commands, e.g., report_timing, require consistent units to generate reports. If an inconsistency occurs in the timing libraries, the default unit of time (as ns) and capacitance (as pf) is used.
+.P You can use this command when you need to override the library units, or force the setting of units when libraries have different units.
+.P Note: You must set the setLibraryUnit command before the design and constraints are read. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each setLibraryUnit parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setLibraryUnit.  "\fB-cap <capUnit>\fR" Specifies the capacitance load unit in the timing library.  Default: 1.0 pf  "\fB-time <timeUnit>\fR" Specifies the time unit to be used for timing constraints. The valid values are 1ns, 1ps, 10ps, 100ps.  Default: 1.0 ns 
+.SH Example
+.RS  "*" 2 The following command sets the time unit for the design to 10ps:   setLibraryUnit -time 10ps
+.RE 
+.SH Related Information
+.RS  "*" 2 Timing Analysis chapter in the Innovus User Guide
+.RE
+.P

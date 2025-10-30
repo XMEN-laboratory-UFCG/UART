@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createMarker  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateMarker\fR \-  Creates markers for violations in the database. Use this command to create a specific marker that has been created by a third party tool
+.SH Syntax \fBcreateMarker\fR  [-help]  [-bbox { x1 y1 x2 y2 } | -poly { x1 y1 x2 y2
+...}]  [-desc <description>]  [-layer {layerName | layerNumber}]  [-rulemap]  [-subtype <subtypeName>]   [-tool <toolName>]   [-type <typeName>]  
+.P Creates markers for violations in the database. Use this command to create a specific marker that has been created by a third party tool. The created markers can be saved and restored by saveDesign/restoreDesign. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each createMarker parameter.  For a detailed description of the command and all its parameters, use the man command:  man createMarker  "\fB-bbox <x1 y1 x2 y2>\fR" Specifies the area of the bounding box of the marker. For example, createMarker -bbox 100 100 100.5 100.5.  Type: Real  "\fB-desc <description>\fR" Describes the marker. For example, createMarker -desc "the user mark is non default rule spacing check".  Default: ""  Type: String  "\fB-layer {layerName | layerNumber}\fR" Specifies the layer. Following are few examples:
+.RS  "*" 2 createMarker -layer METAL2 creates a marker on layer METAL2.  "*" 2 createMarker -layer VIA3 creates a marker on cut layer VIA3.  "*" 2 createMarker -layer 4 creates a marker on layer METAL4.
+.RE   Type: String  "\fB-poly {<x1> <y1> <x2> <y2>...}\fR" Specifies the area of the bounding polygon of the marker.   "\fB-rulemap\fR" Specifies if the marker needs to be created through ruleMap.   "\fB-subtype <subtypeName>\fR" Specifies the marker subtype. For example, createMarker -subtype user_spacing.  Default: Other  Type: String  "\fB-tool <toolName>\fR" Specifies the source software application. For example, createMarker -tool Calibre.  Default: Other  Type: String  "\fB-type <typeName>\fR" Specifies the marker type. For example, createMarker -type user_verify.  Default: Other  Type: String 
+.SH Example
+.RS  "*" 2 The following command generates a marker for tool named Calibre with type METAL1 and subtype S.1:   createMarker -bbox { 1 2 1 2 } -tool Calibre -type METAL1 -subtype S.1  The violation browser displays the marker in the above example as follows:  + Calibre      + METAL1          + S.1             
+...
+.RE
+.RS  "*" 2 Suppose the cadence LPA tool has created the following marker on layer METAL3:   CDNLitho;SPACING; Severity: 3; MARKER_INFO: "CD = 45.39"  bbox = (468.248, 63.511) (468.310, 63.599)  The following command creates a corresponding marker in the Innovus design:  createMarker -bbox {468.248 63.511 468.310 63.599} -layer metal3 \\               -type CDNLitho -subtype Spacing  "*" 2  The following command generates a polygon shape marker with the user description:  createMarker -poly {100.0 100.0 194.0 100.0 194.0 238.0 168.0 238.0 168.0 288.0 100.0 288.0} \\  -tool User -desc "congested area"
+.RE 
+.SH Related Information
+.P The Identifying and Viewing Violations chapter of User Guide.
+.P

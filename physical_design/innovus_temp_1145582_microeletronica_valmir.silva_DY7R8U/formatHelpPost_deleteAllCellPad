@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteAllCellPad  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteAllCellPad\fR \-  Removes placement padding specified by specifyCellPad for all cells
+.SH Syntax \fBdeleteAllCellPad\fR 
+.P Removes placement padding specified by specifyCellPad for all cells. If you run this command before running checkPlace, checkPlace does not consider the cell padding when calculating effective utilization. 
+.SH Parameters
+.P None 
+.SH Examples
+.P The following set of commands specifies the cell padding for HDSDFRSPQ1 and HDSDFRSPQ2, and then deletes all padding by using deleteAllCellPad:
+.P specifyCellPad HDSDFRSPQ1 2   specifyCellPad HDSDFRSPQ2 2   deleteAllCellPad 
+.SH Related Information
+.RS  "*" 2 checkPlace  "*" 2 specifyCellPad  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Adding Padding 
+.RE 
+.RE
+.P

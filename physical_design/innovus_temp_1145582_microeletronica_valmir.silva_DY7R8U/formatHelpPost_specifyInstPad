@@ -1,0 +1,30 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH specifyInstPad  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBspecifyInstPad\fR \-  Specifies a value (number of sites) for padding for an instance
+.SH Syntax \fBspecifyInstPad\fR  <instName>  {<padding> | [[-right <padding>] [-left <padding>] [-top <padding>] [-bottom <padding>]]}  
+.P Specifies a value (number of sites) for padding for an instance. Padding expands the area of an instance, so that the software leaves extra space around the instance during global placement (place_design), which helps reduce congestion in both the horizontal and vertical directions. In detail placement, user should specify setPlaceMode -place_detail_honor_inst_pad to true to honor left, right, top, and bottom instance padding.
+.P Adding instance padding reduces horizontal and vertical congestion, but also decreases utilization.
+.P Note: To remove instance padding, use the deleteInstPad command.
+.P You can use the reportInstPad to report the padding for a specific instance, or all instance padding in the design. 
+.SH Parameters    "\fB-bottom <padding>\fR" Specifies the amount of padding at the bottom, in terms of number of rows.   "\fB<instName>\fR" Specifies the instance to pad. You can use wildcards (*) when you specify the instance.  "\fB-left <padding>  \fR" Specifies the amount of padding on the left side, in terms of number of sites occupied by the instance.   "\fB<padding>\fR" Specifies the amount of padding to add, in terms of number of sites occupied by the instance (sites are defined in the LEF file).  For example, if an instance occupies eight sites, specifying 8 expands the area horizontally of the instance by 100 percent, and specifying 12 expands the area horizontally of the instance by 150 percent.  The number you specify must be a whole number that is equal to or greater than zero.  "\fB-right <padding>\fR" Specifies the amount of padding on the right side, in terms of number of sites occupied by the instance.   "\fB-top <padding>\fR" Specifies the amount of padding at the top, in terms of number of rows. 
+.SH Examples
+.RS  "*" 2 The following command adds padding of 2 sites around instance named U27316:
+.RE
+.P specifyInstPad U27316 2
+.RS  "*" 2 The following command adds padding of 3 sites for all instances with prefix U2:
+.RE
+.P specifyInstPad U2* 3 
+.SH Related Information
+.RS  "*" 2 deleteInstPad  "*" 2 reportInstPad  "*" 2 setPlaceMode  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RS  "*" 2 Adding Padding
+.RE 
+.RE
+.RS  "*" 2 LEF Syntax chapter in the Innovus LEF/DEF Language Reference
+.RE
+.RS
+.RS  "*" 2 Site
+.RE 
+.RE
+.P

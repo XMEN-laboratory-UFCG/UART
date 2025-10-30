@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_analysis_precision_ps  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_analysis_precision_ps\fR \-  Default: 0.01 (in ps) 
+.P Allows you to set the delay precision value for the write_sdf command
+.SH Syntax \fBtiming_analysis_precision_ps\fR   {0.1 | 0.01}
+.P Default: 0.01 (in ps) 
+.P Allows you to set the delay precision value for the write_sdf command.
+.P The write_sdf command shows a double digit value after the decimal point by default. You can use this global variable for more accuracy.
+.P To set this global variable, you can use the set command.
+.P

@@ -1,0 +1,10 @@
+ "*" 2 Parameter name
+.RE
+.RS  "*" 2 Current value
+.RE
+.RS  "*" 2 Type (Boolean, string, and so on)
+.RE
+.RS  "*" 2 Whether the current value was set by user
+.RE
+.P If you do not specify a parameter, the Innovus software returns values for all of the setHierMode parameters
+.SH Syntax \fBgetHierMode\fR  [-help]  [-addAntennaCell]  [-quiet]  [-trialRouteHonorReadOnly]  [-optStage {preCTS | postCTS | unset}]

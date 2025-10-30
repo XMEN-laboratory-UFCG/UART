@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_clock_tree_latency  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_clock_tree_latency\fR \-  Resets all network clock latency set using the set_clock_latency command in the fanout of the specified clock or pins and ports
+.SH Syntax \fBreset_clock_tree_latency\fR   [<object_list>]  
+.P Resets all network clock latency set using the set_clock_latency command in the fanout of the specified clock or pins and ports. The reset_clock_tree_latency command resets the latency until the root pins of clocks and generated clocks. Use this command after building clock tree and setting the clock network from the root to propagated mode using the set_propagated_clock <clockRootPinOrPort> command.
+.P Note: You can use the reset_clock_tree_latency command only on command line and command script. You cannot specify it in an SDC file. 
+.SH Parameters    "\fB<object_list>\fR" Specifies list of objects - pins, ports, or clocks for which latency will be reset. 
+.SH   Related Information
+.RS  "*" 2 set_clock_latency  "*" 2 set_propagated_clock
+.RE
+.P

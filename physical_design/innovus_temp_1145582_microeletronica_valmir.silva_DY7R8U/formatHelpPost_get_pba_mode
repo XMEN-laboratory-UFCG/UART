@@ -1,0 +1,2 @@
+ "\fB-help\fR" Prints out the command usage
+.SH Syntax \fBget_pba_mode\fR    [-help]  [-epba_bounded_mode]  [-quiet]  [-nonDefault]

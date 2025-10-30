@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH moveMacroInsideModule  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmoveMacroInsideModule\fR \-  Moves all hard macros that belong to the specified module into its boundary
+.SH Syntax \fBmoveMacroInsideModule\fR  [-help]  {-hInst {hinstName(s)} | -all}
+.P Moves all hard macros that belong to the specified module into its boundary. You use this command after the module is placed in the core area. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each moveMacroInsideModule parameter. For a detailed description of the command and all of its parameters, use the man command: man moveMacroInsideModule.  "\fB-all\fR" Moves all hard macros that belong to hierarchical modules.  Data_type: bool, optional  "\fB-hInst {<hinstName>}\fR" Specifies the name of the hierarchical instance. You can use wildcards (*?) with this parameter.  Data_type: string, optional 
+.SH Example
+.P The following command moves all hard macros that belong to modules that have hierarchical instance names that match DTMF_INST/*_TEST_INST into its boundary:  moveMacroInsideModule -hInst DTMF_INST/*_TEST_INST  
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH lefExtend2DCellShapes  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBlefExtend2DCellShapes\fR
+.SH Syntax \fBlefExtend2DCellShapes\fR { {layer extension_amount}... }  
+.P Type: String
+.P Default: ""
+.P Specifies a list of layer and a value for creating obs shape for 2D pin/obs shapes. Cells could have 2D objects, which require larger line-end spacing. You can use lefExtend2DCellShapes to automatically add SPACING 0 OBS  for routing during LEF in..
+.P For any 2D shapes, you can extend edges that are perpendicular to the preferred routing direction of the rectilinear shape by specifying the extension_amount in lefExtend2DCellShapes.
+.P Note: Cells would still require explicit edge constraint to prevent improper cell abutment. 
+.SH Example
+.P set lefExtend2DCellShapes {M1 0.1}
+.P The direction of M1 is Vertical.
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P

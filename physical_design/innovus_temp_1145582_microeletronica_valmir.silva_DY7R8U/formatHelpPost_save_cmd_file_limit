@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH save_cmd_file_limit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsave_cmd_file_limit\fR
+.SH Syntax \fBsave_cmd_file_limit\fR <limit>
+.P Type: integer
+.P Default: 10
+.P The saveDesign command saves the complete
+.cmd history across multiple sessions. The save_cmd_file_limit variable specifies the file length limit (in units of Mb) that is saved in the inn.cmd.gz file inside the save directory. If it is set to 0, the command history is not saved. 
+.SH Related Information
+.RS  "*" 2 saveDesign
+.RE

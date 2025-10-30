@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_enable_si_debug  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_enable_si_debug\fR
+.SH Syntax \fBtiming_report_enable_si_debug\fR   {true | false}
+.P Default: false
+.P Allows the software to capture signal integrity (SI) related details for each stage of a path being analyzed during path-based analysis in the form of attributes. 
+.P To set this global variable, use the set_global command.

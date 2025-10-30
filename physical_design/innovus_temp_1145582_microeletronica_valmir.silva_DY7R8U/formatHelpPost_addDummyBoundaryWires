@@ -1,0 +1,26 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addDummyBoundaryWires  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddDummyBoundaryWires\fR \-  Add wires on the first and last tracks in the direction parallel to preferred routing direction with specified layers
+.SH Syntax \fBaddDummyBoundaryWires\fR  [-help]   -layers <layerName> | { <layerNameList
+...> }  [-masks <maskNumber> | { <maskNumberList
+...> }]   [-shape {blockring | blockagewire | blockwire | corewire | drcfill| fillwireopc | fillwire | followpin | iowire | none | padring | ring | stripe} ]  [-shortWires <wireLength> | { <wireLengthList
+...> }]   [-space <spaceValue> | { <spaceValueList
+...> }]
+.P Add wires on the first and last tracks in the direction parallel to preferred routing direction with specified layers.
+.P Note: DRC rules define forbidden regions near the design boundary edges that are parallel to the preferred routing direction of a layer. Any wires in these regions cannot project to the design boundary directly. Using the addDummyBoundaryWires command you can add wires that shadow the design boundary such that no routing wires in the forbidden regions can project to the design boundary. This helps to avoid DRC violations.
+.P Note: The addDummyBoundaryWires command enables long dummy wires to honor route blockages by default.
+.P Note: The addDummyBoundaryWire command honors routing blockages and adds dummy wires along the routing blockages when the track box overlaps with them. The dummy wires do not cross partial routing blockages around the design boundary. It keeps the wires at the boundary and discontinues them when there is a routing blockage. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each addDummyBoundaryWires parameter. For a detailed description of the command and all of its parameters, use the man command:  man addDummyBoundaryWires  "\fB-layers <layerName> | { <layerNameList
+...> }\fR" Specifies the layers on which the dummy boundary wires are added.  Note:  The net name of the dummy wires is _BOUNDARY_WIRES_RESERVED.  Note:  You can specify the layerName as a number, abbreviation or as a layer name defined in LEF. For example, layerName can be specified as 2, M2 or Metal2.  addDummyBoundaryWires -layers {metal2 metal3} //full name works  addDummyBoundaryWires -layers {M2 M3} //abbreviated name works  addDummyBoundaryWires -layers {2 3} ///layer number works  Data_type: string, required  "\fB-masks <maskNumber> | { <maskNumberList>
+... }\fR" Specifies one or multiple mask numbers which short dummy boundary wires snap to. The number of specified mask values should match the number of the specified layers in option layers.  Data_type: string, optional  "\fB-shape {blockring | blockagewire | blockwire | corewire | drcfill| fillwireopc | fillwire | followpin | iowire | none | padring | ring | stripe}\fR" Specifies the shape of the dummy boundary wires.  Default: none  Data_type: string, optional  "\fB-shortWires <wireLength> | { <wireLengthList
+...> }  \fR" Specifies one or multiple set of lengths of short dummy boundary wires and space between them. The number of specified shortWires values should be twice of the number of specified layers in option layers.  Data_type: string, optional  "\fB-space <spaceValue> | { <spaceValueList
+...> }  \fR" Specifies one or multiple space values to design boundary.  Note: The space value is the distance between the design boundary and the start or end of the wire for 90 corner. The space value does not apply to 270 corner.  Default: 0  Data_type: string, optional 
+.SH Examples
+.RS  "*" 2 The following command adds dummy wires on layers metal2 and metal3:  addDummyBoundaryWires -layers {M2 M3}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command adds dummy wires on layers metal2 and metal3. Dummy wires will honor route blockages by default on Metal3 :  addDummyBoundaryWires -layers {M2 M3}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command adds dummy wires with space value on layers metal2 and metal3:  addDummyBoundaryWires -layers {M2 M3} -space {0.1 0.2}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command adds long dummy wires with specified space and short dummy wires with specified length, space and mask on layers metal2:   addDummyBoundaryWires -layers M2 -space 0.1 -shortWires {0.15 0.2} -masks 1  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 legalizeFPlan  "*" 2 Floorplanning the Design chapter in the Innovus User Guide 
+.RE
+.P

@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_ideal_transition  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_ideal_transition\fR \-  Resets the ideal transition constraint, specified using the set_ideal_transition command, on instance pins or ports
+.SH Syntax  \fBreset_ideal_transition\fR   [-min]   [-max]   [-rise]   [-fall]   <object_list> 
+.P Resets the ideal transition constraint, specified using the set_ideal_transition command, on instance pins or ports. 
+.SH Parameters    "\fB-fall\fR" Resets the ideal transition for the falling edge.  "\fB-max\fR" Resets the ideal transition for the maximum corner.  "\fB-min\fR" Resets the ideal transition for the minimum corner.  "\fB<object_list>\fR" Resets a list of objects - instance pins, ports, or nets.  "\fB-rise\fR" Resets the ideal transition for the rising edge. 
+.SH Related Information
+.P set_ideal_transition
+.P

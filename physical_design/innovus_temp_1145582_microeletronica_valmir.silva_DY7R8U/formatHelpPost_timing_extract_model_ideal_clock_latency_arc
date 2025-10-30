@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_extract_model_ideal_clock_latency_arc  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_extract_model_ideal_clock_latency_arc\fR
+.SH Syntax \fBtiming_extract_model_ideal_clock_latency_arc\fR  {true | false}
+.P Default: true
+.P When set to true, the latency arcs for the generated clocks that are defined ideal are extracted with reference as master clock during ETM extraction.
+.P When set to false, the arcs are not extracted for generated clocks that are defined ideal during ETM extractions.
+.P To set this global variable, use the set command.
+.P

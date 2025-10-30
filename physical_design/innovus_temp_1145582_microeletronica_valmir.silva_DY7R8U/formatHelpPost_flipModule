@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH flipModule  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBflipModule\fR \-  Flips all hierarchical instances in the specified module, with respect to the referenced X axis or Y axis of the module. Use this command after importing the design
+.SH Syntax \fBflipModule\fR   [-help]  <moduleName>  {<X> | <Y>}
+.P Flips all hierarchical instances in the specified module, with respect to the referenced X axis or Y axis of the module. Use this command after importing the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each flipModule parameter.  For a detailed description of the command and all of its parameters, use the man command:   man flipModule  "\fB<moduleName>\fR" Specifies the name of the module whose hierarchical instances are to be flipped.  Data_type: string, required  "\fB<X> | <Y>\fR" Specifies the X or Y axis of the module to be used as a reference to flip all hierarchical instances. This referenced X or Y axis is normally at the center of the module.  Data_type: enum, required 
+.SH Example
+.P The following command flips all hierarchical instances in the module DTMF_INST/TDSP_CORE_INST from the right side of the referenced Y axis to the left and from the left side to the right, and flips all instances mirrored through it's own Y axis as well.
+.P flipModule DTMF_INST/TDSP_CORE_INST Y   Before:                                                                                                                    After：
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)       (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference 
+.RE
+.P

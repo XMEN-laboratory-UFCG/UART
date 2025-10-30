@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addHierInst  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddHierInst\fR \-  Adds a hierarchical module to the design
+.SH Syntax \fBaddHierInst\fR  [-help]   -cell <cellName>  {-hinst <hinstName> | -module <moduleName>}
+.P Adds a hierarchical module to the design.
+.P You can use this command after importing a design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each addHierInst parameter.  For a detailed description of the command and all of its parameters, use the  man  command:    man addHierInst  "\fB-cell <cellName>\fR" Specifies the master of the module. Innovus creates a new, empty master if the cell name is new.   "\fB-hinst <hinstName>\fR" Specifies the name of the module instance to add.  "\fB-module <moduleName>\fR" Specifies the name of the module instance to add.  Note: There is no difference between -module and -hinst. You should use -module for backward compatibility. It is recommended to use -hinst. 
+.SH Examples
+.RS  "*" 2 The following command adds a hierarchical instance DTMF_INST/TDSP_CORE_INST/spare of module type sparemodule to the design, here DTMF_INST/TDSP_CORE_INST should be an existing hierarchical instance in the design:  addHierInst -cell sparemodule -hinst DTMF_INST/TDSP_CORE_INST/spare  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE
+.RS  "*" 2 The following commands create a new module modA and hinsts inst_modA and inst_modA_clone whose master cell is modA:  addHierInst -cell modA -hinst inst_modA  addHierInst -cell modA -hinst inst_modA_clone  The resulting Verilog netlist would have:  module modA();  endmodule  modA inst_modA();  modA inst_modA_clone();
+.RE 
+.SH Related Information
+.RS  "*" 2 addModulePort
+.RE
+.P

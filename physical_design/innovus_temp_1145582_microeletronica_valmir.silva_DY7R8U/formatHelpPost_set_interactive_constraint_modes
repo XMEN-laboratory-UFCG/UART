@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_interactive_constraint_modes  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_interactive_constraint_modes\fR \-  Puts the software into interactive constraint entry mode for the specified multi-mode multi-corner constraint mode objects
+.SH Syntax \fBset_interactive_constraint_modes\fR {<list_of_constraint_modes>}  
+.P Puts the software into interactive constraint entry mode for the specified multi-mode multi-corner constraint mode objects. Any timing constraints that you specify after this command take effect immediately on all active analysis views that are associated with the specified constraint modes. By default, no constraint modes are considered active.
+.P The software stays in interactive mode until you exit by specifying the set_interactive_constraint_modes command with an empty list:
+.P set_interactive_constraint_modes { }
+.P All new assertions are saved in the SDC files of the specified constraint modes when you save the design (saveDesign).
+.P The all_constraint_modes command can be used to generate a list of constraint modes as the argument for this command.
+.P Use the get_interactive_constraint_modes command to return a list of the constraint mode objects in interactive constraint entry mode.
+.P Note: Interactive constraint mode only works when the software is in multi-mode multi-corner timing analysis mode. In min/max analysis mode, constraints are always accepted interactively. 
+.SH Parameters    "\fB{<list_of_constraint_modes>}\fR" Specifies the constraint mode objects to update with the new assertions. 
+.SH Examples
+.RS  "*" 2 The following commands put the software into interactive constraint entry mode, and apply the set_propagated_clock assertion on all views in the current session that are associated with the constraint mode func1:   set_interactive_constraint_modes func1  set_propagated_clock [all_clocks]  When you specify saveDesign, the updated constraints file for the func1 constraint mode will include the set_propagated_clock.
+.RE
+.RS  "*" 2 The following commands put the software into interactive constraint entry mode, and apply the set_propagated_clock assertion on all active analysis views in the current session.   set_interactive_constraint_modes [all_constraint_modes -active]  set_propagated_clock [all_clocks]  When you specify saveDesign, the set_propagated_clock assertion will be saved persistently as part of a new
+.sdc file. 
+.RE 
+.SH Related Information
+.RS  "*" 2 get_interactive_constraint_modes  "*" 2 all_constraint_modes
+.RE
+.P

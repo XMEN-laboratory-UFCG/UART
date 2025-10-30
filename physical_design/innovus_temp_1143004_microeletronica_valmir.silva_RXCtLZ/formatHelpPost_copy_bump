@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH copy_bump  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcopy_bump\fR \-  Copies bumps to the specified location with the same pitch constraint. By default, the target bumps after copy are unassigned and named with the default format Bump_%i by the tool
+.SH Syntax \fBcopy_bump\fR  [-help]   [-assigned]   [-name_format {format}]   -shift {X Y}   {-bumps {bump_list} | -selected }
+.P Copies bumps to the specified location with the same pitch constraint. By default, the target bumps after copy are unassigned and named with the default format Bump_%i by the tool. Here, %i refers to the index of the bump, which starts at one more than the number of existing bumps in the design. Use the option -name_format to name the copied bumps. If there are any name collisions, an error is given and the bumps are not copied.  
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each copy_bump parameter.  For a detailed description of the command and all of its parameters, use the man command:  man copy_bump  "\fB-assigned\fR" Copies the bumps and their assigned signals.   "\fB-bumps {<bump_list>}\fR" Specifies names of the bumps to be copied. You can use wildcards in the bump list.   "\fB-name_format {<format>}\fR" Specifies the name format for the target bumps. The format is similar to the printf format, except that it uses %i for index and %o for original name of source bump. %i mean the index of bump, which starts at one more than the number of existing bumps in the design.  "\fB-selected\fR" Copies only the selected bumps.   "\fB-shift {X Y}\fR" Specifies the distance in microns from the source location to the target location in X/Y direction 
+.SH Examples
+.RS  "*" 2 The following command copies the selected bumps, Bump_1 to Bump_5, and pastes them with a {250 -600} shift. The copied bumps are named Bump_1_copy, Bump_2_copy,  and so on.  copy_bump -selected -shift {250 -600}  -name_format {%o_copy}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 Assuming that the number of bumps in the design is 15, the following command copies the selected bumps, Bump_1 to Bump_5, and pastes them with a {250 -600} shift. The copied bumps are named Bump_1_copy_16, Bump_2_copy_17, 
+..., and Bump_5_copy_20:   copy_bump -selected -shift {250 -600} -name_format {%o_copy_%i}   "*" 2 Assuming that the number of bumps in the design is 15, the following command copies the selected bumps, Bump_1 to Bump_5, and pastes them with a {250 -600} shift. The copied bumps are named Bump_16, Bump_17,
+..., and Bump_20, according to the default name format:   copy_bump -selected -shift {250 -600}
+.RE 
+.SH Related Information
+.RS  "*" 2 create_bump  "*" 2 edit_bump_name  "*" 2 select_bump  "*" 2 deselect_bump  "*" 2 deleteBumps  "*" 2 Flip Chip Methodologies chapter in the User Guide
+.RE
+.P

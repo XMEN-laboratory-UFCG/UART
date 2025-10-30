@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_extract_model_write_lvf  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_extract_model_write_lvf\fR
+.SH Syntax \fBtiming_extract_model_write_lvf\fR {true | false} 
+.P Default: false
+.P Generates extracted timing model (ETM) containing Liberty Variation Format (LVF) model.
+.P When set to true, this global variable enables writing separate mean and variation tables for all the delay/constraint and transition tables.
+.P When set to false, the variation data will be merged with the mean values. The mean +/- nsigma values of delay/constraint/transition data will be written in the ETM.
+.P To set this global variable, use the set command.
+.P

@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH check_macro_place_constraint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheck_macro_place_constraint\fR \-  Checks the constraints of macros which will be honored during the macro placer.  To define the constraints of macros, use the set_macro_place_constraint command
+.SH Syntax \fBcheck_macro_place_constraint\fR  [-help]  
+.P Checks the constraints of macros which will be honored during the macro placer.  To define the constraints of macros, use the set_macro_place_constraint command. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each check_macro_place_constraint parameter. For a detailed description of the command and all of its parameters, use the man command:  man check_macro_place_constraint 
+.SH Example
+.RS  "*" 2 The following command checks the constrains of macros:  check_macro_place_constraint
+.RE 
+.SH Related Information
+.RS  "*" 2 create_pg_model_for_macro_place  "*" 2 get_macro_place_constraint  "*" 2 reset_macro_place_constraint  "*" 2 set_macro_place_constraint  "*" 2 write_macro_place_constraint  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Using the Mixed Placer chapter in the Innovus User Guide 
+.RE
+.P

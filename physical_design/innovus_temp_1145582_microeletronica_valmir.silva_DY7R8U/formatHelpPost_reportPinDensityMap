@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportPinDensityMap  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportPinDensityMap\fR \-  Generates a map that uses colors to represent pin density and generates a pin density report. Use this command any time after placement
+.SH Syntax \fBreportPinDensityMap\fR   [-help]   [-displayStep <step_value>]  [-gridInMicron <micron>]   [-gridInRow <numberRow>]  [-threshold <density>]
+.P Generates a map that uses colors to represent pin density and generates a pin density report. Use this command any time after placement.   Note: You can also use setPinDensityMapMode to set the threshold, and specify whether the map displays bins in microns or rows. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each reportPinDensityMap parameter.  For a detailed description of the command and all of its parameters, use the man command:   man reportPinDensityMap  "\fB-displayStep <step_value>\fR" Specifies the range step for displaying the pin density map.  Default: 0.05  "\fB-gridInMicron <micron>\fR" Specifies the horizontal or vertical dimension of a bin in the map in microns.  Default: 50  Minimum: 0.000000  Maximum: 1000.000000  "\fB-gridInRow <numberRow>\fR" Specifies the value (in row-height) of side of square grid for pin density calculations.  Default: 10  Minimum: 1  Maximum: 100  "\fB -threshold <density>\fR" Specifies a threshold density value over which the densities must be reported. Any grid under the threshold value is not reported. The value must be positive.  Default: 0.5  Minimum: 0.000000  Maximum: 2.000000  
+.SH Examples
+.P The following command reports the pin density map:
+.P reportPinDensityMap  *** Starting report pin density ***  default core: bins with pin density > 0.5 = 0 % (0 / 1)  bin size: 90 sites by 10 row(s). total 1 bins ( 1 by 1 )   pin density range   #bins     %   total                 0       0 
+.SH Related Information
+.RS  "*" 2 setPinDensityMapMode
+.RE
+.P

@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH delete_bump_grid  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdelete_bump_grid\fR \-  Removes the bump grid from the design
+.SH Syntax \fBdelete_bump_grid\fR  [-help]   [-grid_names string< |> -all ] 
+.P Removes the bump grid from the design. Use this command anytime after creating a bump grid. 
+.SH Parameters   "\fB-all\fR" Deletes all the bump grids.  Data_type: bool, optional  "\fB-grid_names <string>\fR" Specifies the name(s) of the bump grid to be deleted.  Data_type: string, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each delete_bump_grid parameter.  For a detailed description of the command and all of its parameters, use the man command:   man delete_bump_grid 
+.SH Example
+.RS  "*" 2 The following command deletes all the bump grids in the current design:  delete_bump_grid -all  "*" 2 The following command deletes the myGridFront_9x9 named bump grid:   delete_bump_grid -grid_names {myGridFront_9x9}  "*" 2 The following command deletes multiple bump girds:  delete_bump_grid -grid_names {myGridFront_9x9 myGridFront_25x25}
+.RE 
+.SH Related Information
+.RS  "*" 2 create_bump_grid  "*" 2 Floorplanning the Design chapter in the Innovus User Guide 
+.RE
+.P

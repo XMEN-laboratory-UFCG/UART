@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH read_path_descriptions  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBread_path_descriptions\fR
+.SH Syntax \fBread_path_descriptions\fR  [-help]  <filename>  [-hpin]  [-path_type {end summary full full_clock end_slack_only summary_slack_only}]  [-retime {aocv ssta path_slew_propagation aocv_path_slew_propagation waveform_propagation}]
+.P Reads the file created by the write_path_descriptions command. This command reads the complete description of the paths specified in the file in another Tempus session.
+.P The paths description when read back can be saved as a collection that can be used as a regular path collection for any reporting command or queried using the get_property command. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  "\fB<filename>\fR" Specifies the name of the input file.  "\fB-hpin\fR" Prints all the hierarchical crossings of an arc under the "hpin" column in the report_timing table.  "\fB-path_type {end | summary | full |   full_clock | end_slack_only |  summary_slack_only}\fR" Allows you to choose the format of the report based on the path type.  "\fB-retime {aocv | ssta | path_slew_propagation |   aocv_path_slew_propagation | waveform_propagation}\fR" Reanalyzes the specified set of paths using the specified analysis method. 
+.SH   Examples
+.RS  "*" 2 The following example command reads out the pathfile1.txt. The file contains details of the collection of timing paths with hierarchical pins (-hpin) format based on timing and exact path availability in the session in which the path description is read:  read_path_descriptions pathfile1.txt -hpin
+.RE 
+.SH Related Information
+.RS  "*" 2 write_path_descriptions
+.RE
+.P

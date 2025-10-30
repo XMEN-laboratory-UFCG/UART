@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH gui_deselect  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgui_deselect\fR \-  Deselects objects as per the parameters you specify
+.SH Syntax \fBgui_deselect\fR  [-help]   {-all  |   -rect {<x1 y1 x2 y2>} |   -point {<x y>} |   -line {<x1 y1 x2 y2>}}
+.P Deselects objects as per the parameters you specify. If -all is specified, deselects all selected objects. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each gui_deselect parameter.  For a detailed description of the command and all of its parameters, use the man command:   man gui_deselect  "\fB-all\fR" Deselects all objects.   "\fB-line {<x1 y1 x2 y2>}\fR" Deselects objects through which the specified line passes.   "\fB-point {<x y>}\fR" Deselects objects at the specified point.   "\fB-rect {<x1 y1 x2 y2>}\fR" Deselects objects within the specified box coordinates. 
+.SH Related Information
+.RS  "*" 2 deselect_obj  "*" 2 gui_select  "*" 2 lineSelect  "*" 2 select_obj  "*" 2 windowSelect  "*" 2 The Main Window chapter in Menu Reference 
+.RS  "*" 2 Tool Box Widgets
+.RE 
+.RE
+.P

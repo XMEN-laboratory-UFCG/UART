@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH delaycal_support_min_max_pin_cap  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdelaycal_support_min_max_pin_cap\fR
+.SH Syntax  \fBdelaycal_support_min_max_pin_cap\fR {0 | 1} 
+.P Type: Integer
+.P Default: 1
+.P Controls whether SignalStorm delay calculation respects Liberty pin capacitance ranges. A "0" setting is only required for correlation with the feDC delay engine. 
+.SH Example
+.RS  "*" 2 The following global variable disables SignalStorm delay calculation support for Liberty pin capacitance ranges:   set delaycal_support_min_max_pin_cap 0
+.RE 
+.SH Related Global Variable
+.RS  "*" 2 delaycal_support_rise_fall_pin_cap
+.RE
+.P

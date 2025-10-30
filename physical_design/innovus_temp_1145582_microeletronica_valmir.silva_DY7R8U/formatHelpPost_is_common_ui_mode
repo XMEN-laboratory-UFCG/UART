@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH is_common_ui_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBis_common_ui_mode\fR \-  Checks if the Stylus Common UI mode is enabled
+.SH Syntax \fBis_common_ui_mode\fR  [-help]  
+.P Checks if the Stylus Common UI mode is enabled. This command is helpful if you are using both Common UI and Legacy UI, and you want to source their respective script based on the value returned by is_common_ui_mode. In such scripts, if is_common_ui_mode returns 1, Stylus Common UI commands will be sourced, and if it returns 0, Legacy UI commands will be sourced.
+.P For example, you can write a script, which can be sourced irrespective of UI, as below.   if {[is_common_ui_mode]} 
+.P {   <Common UI commands>   } 
+.P else 
+.P {   <Legacy UI commands>   } 
+.SH Parameters
+.P None
+.P Example
+.P The following example checks it on the Innovus prompt:
+.P @innovus> is_common_ui_mode
+.P 1
+.P innovus> is_common_ui_mode
+.P 0
+.P Return value 1 indicates that the Stylus Common UI mode is enabled.
+.P

@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH ctd_save_view  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBctd_save_view\fR \-   Saves the current snapshot of the clock tree viewer into a file
+.SH Syntax \fBctd_save_view\fR   [-help]   -file <fileName>  [-id <windowID>]  [-legend_on]  [-type {PNG | GIF}
+.P  Saves the current snapshot of the clock tree viewer into a file. 
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each ctd_save_view parameter. For a detailed description of the command and all of its parameters, use the man command: man  ctd_save_view.   "\fB-file <fileName>\fR" Specifies the name of the file where you want to dump the display image. This parameter is required.   "\fB-id <windowIDName>  \fR" Specifies the window ID whose display is to be saved.  The default value is the returned value of command get_ctd_win_id.  "\fB-legend_on\fR" Saves the whole window including the panels that are open.   "\fB-type {PNG | GIF}\fR" Specifies whether the format of the image should be GIF or PNG.  The default format is PNG. 
+.SH Example
+.P The following command saves the view snapshot in the snapshot1.png file.
+.P ctd_save_view -file snapshot1 -type PNG 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree_spec  "*" 2 close_ctd_win  "*" 2 ctd_win  "*" 2 get_ctd_win_id  "*" 2 get_ctd_win_title  "*" 2 gui_zoom_ctd  "*" 2 set_ctd_win_title
+.RE
+.RS  "*" 2 Clock Menu chapter of the Innovus Menu Reference.
+.RE
+.P

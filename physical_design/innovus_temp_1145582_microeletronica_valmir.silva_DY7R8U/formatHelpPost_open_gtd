@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH open_gtd  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBopen_gtd\fR \-  Opens the global timing debugger for accessing the GTD files report
+.SH Syntax \fBopen_gtd\fR  [-help] 
+.P Opens the global timing debugger for accessing the GTD files report. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each open_gtd parameter.  For a detailed description of the command and all its parameters, use the man command:   man open_gtd
+.P

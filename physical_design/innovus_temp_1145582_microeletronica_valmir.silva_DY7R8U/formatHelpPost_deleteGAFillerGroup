@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteGAFillerGroup  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteGAFillerGroup\fR \-  Deletes  the gate array filler groups created by createGAFillerGroup
+.SH Syntax \fBdeleteGAFillerGroup\fR  [-help]  <groupName>
+.P Deletes  the gate array filler groups created by createGAFillerGroup. 
+.SH Parameters   "\fB<groupName>\fR" Specifies the name of the group to be deleted. 
+.SH Related Information
+.RS  "*" 2 createGAFillerGroup  "*" 2 ecoPlace
+.RE
+.P

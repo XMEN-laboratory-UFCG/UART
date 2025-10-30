@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH defOutLefVia  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefOutLefVia\fR
+.SH Syntax \fBdefOutLefVia\fR {0 | 1} 
+.P Type: Integer
+.P Default: 0
+.P Controls whether defOut writes out LEF via information in DEF. By default, defOut does not write out vias defined in LEF. Set defOutLefVia to 1 to write out LEF vias in the DEF file. 
+.SH Related Information
+.RS  "*" 2 defOut
+.RE
+.RS  "*" 2 defOutBySection
+.RE
+.P

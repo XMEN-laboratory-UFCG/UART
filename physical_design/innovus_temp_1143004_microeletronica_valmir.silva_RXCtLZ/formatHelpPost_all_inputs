@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH all_inputs  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBall_inputs\fR \-  Creates a collection of all the input ports in the current design
+.SH Syntax \fBall_inputs\fR  [help]  [-clock list_of_<clocks>]   [-no_clocks]  [-edge_triggered]   [-level_sensitive] 
+.P Creates a collection of all the input ports in the current design. To filter inputs, use the get_ports command to create a collection of ports matching certain criteria. Assign these ports to a variable or pass them using another command. You can limit the contents of the collection to ports with input delay relative to a specific clock. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-clock <list_of_clocks>\fR" Considers only input ports with input delay relative to the specified list of clocks.  "\fB-edge_triggered\fR" Returns a collection of input ports with the set_input_delay -clock constraint.  "\fB-level_sensitive\fR" Returns a collection of input ports with the set_input_delay -level_sensitive constraint.  "\fB-no_clocks\fR" Returns primary input ports that do not have create_clock or create_generated_clock constraints. 
+.SH Example
+.RS  "*" 2 The following command returns the names all of the input ports with input delay relative to an ideal_clk:   all_inputs -clock ideal_clk
+.RE 
+.SH Related Information
+.RS  "*" 2 get_ports  "*" 2 report_ports  "*" 2 set_input_delay
+.RE
+.P

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH analyze_paths_by_view  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBanalyze_paths_by_view\fR \-  Categorizes the timing paths based on views which are included in the timing debug file, also known as the violation report
+.SH Syntax \fBanalyze_paths_by_view\fR  [-help]  [-prefix string]  [-master <master_category_name>] 
+.P Categorizes the timing paths based on views which are included in the timing debug file, also known as the violation report. By arranging the timing information of different views quickly, the command helps in analyzing timing paths.
+.P For more information on creating path categories, see "Creating Path Categories" in the Debugging Timing Results chapter of User Guide.
+.P The command can be applied wherever the user loads the machine readable timing report. To delete the path categories created by this command, use delete_path_category. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each analyze_paths_by_view parameter.  For a detailed description of the command and all its parameters, use the man command:   man analyze_paths_by_view  "\fB-master <master_category_name>\fR" Specifies that the timing paths should be categorized only for the specified master category.  "\fB-prefix <string>\fR" Adds a prefix to the category name. 
+.SH Example
+.P The following command categorizes paths based on views, which are included in the timing debug file:
+.P analyze_paths_by_view 
+.SH Related Information
+.P The Timing Budgeting chapter of the Innovus User Guide document.
+.P

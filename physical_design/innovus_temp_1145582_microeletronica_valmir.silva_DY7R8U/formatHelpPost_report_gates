@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_gates  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_gates\fR \-  Reports the technology library cells that were implemented (and identifies their originating libraries), the area of the cell instances, and the break up of the instances into timing models, sequential cells, integrated clock-gating cells, inverters, buffers, and logic gate cells
+.SH Syntax \fBreport_gates\fR  [-help]  [-hinst <hInstName>]   [-out_file <fileName>]  [-sort {name count area leakage_power internal_power total_power switching_power}] [-power | -leakage_power ] 
+.P Reports the technology library cells that were implemented (and identifies their originating libraries), the area of the cell instances, and the break up of the instances into timing models, sequential cells, integrated clock-gating cells, inverters, buffers, and logic gate cells. Optionally power information can be reported.
+.P The result is based on the cell_area calculated from LIB information. Use set_db use_area_from_lef true (default: false), if you want to get correlation between reports generated with report_gates command and report_qor or report_utilization commands. When a lef is read into Genus, the property use_area_from_lef is automatically set to true.
+.P Timing models can refer to memory cells, IPs, and so on. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each report_gates parameter.  For a detailed description of the command and all of its parameters, use the man command:   man report_gates  "\fB-hinst <hInstName>\fR" Specifies the name of the hinst to collect the cell information. Only cells in the specified hinst will be considered.   "\fB-leakage_power\fR" Provides leakage power statistic only.   "\fB-out_file <fileName>\fR" Specifies the file in which report will be saved. If not specified, information is dumped in the log.   "\fB-power\fR" Provides internal, switching, leakage and total power statistic.   "\fB-sort {name count area leakage_power internal_power total_power switching_power}\fR" Specifies the sorting criteria to sort content of the tables to generate leakage_power/internal_power value only respected if the option -power is also specified. 
+.SH Examples
+.P >report_gates -sort name -out_file check.rpt
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P

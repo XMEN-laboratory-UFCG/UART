@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getInstPowerDomain  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetInstPowerDomain\fR \-  Returns the power domain of the instance
+.SH Syntax \fBgetInstPowerDomain\fR  <instanceName>  -help 
+.P Returns the power domain of the instance. 
+.SH Parameters    "\fB-help           \fR" Outputs a brief description that includes the type and default information for getInstPowerDomain.  For a detailed description of the command and all its parameters, use the man command:   man getInstPowerDomain 
+.SH Example
+.P The following command returns the power domain of the instance:
+.P getInstPowerDomain a/ff1
+.P PD1 
+.SH Related Information
+.P Low Power Design chapter in the Innovus User Guide
+.P

@@ -1,0 +1,30 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getExportMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetExportMode\fR \-  Retrieves the current settings of all or specific setExportMode parameters
+.SH Syntax \fBgetExportMode\fR  [-help]  [-fullPinout]   [-implicitPortMapping]  [-quiet] 
+.P Retrieves the current settings of all or specific setExportMode parameters. The setExportMode command controls how the software writes out a Verilog netlist. For specified setExportMode parameters, getExportMode displays the following information in the Innovus log file and at the console:
+.RS  "*" 2 Parameter name
+.RE
+.RS  "*" 2 Current value
+.RE
+.RS  "*" 2 Type (Boolean, string, and so on)
+.RE
+.RS  "*" 2 Whether the current value was set by user
+.RE
+.P If you do not specify a parameter, getExportMode displays information for all of the setExportMode parameters. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each getExportMode parameter.  For a detailed description of the command and all of its parameters, use the man command:  man getExportMode.  "\fB<parameter_names>\fR" Displays information for the specified parameters. You can specify one or more parameters.  See setExportMode for descriptions of the parameters you can specify.  "\fB-quiet\fR" Displays the current settings for the specified parameters in Tcl list format only.  If you specify -quiet without any parameters, the software displays the current settings of all setExportMode parameters in Tcl list format. 
+.SH Examples
+.RS  "*" 2 The following command displays the current setting of the -fullPinout parameter:   getExportMode -fullPinout  The software displays the following information:  -fullPinout true # bool, default=false, user setting  true
+.RE
+.RS  "*" 2 The following command displays the current settings for all setExportMode parameters:   getExportMode  The software displays the following information:  -fullPinout true # bool, default=false, user setting  -implicitPortMapping false # bool, default=false  {fullPinout true} {implicitPortMapping false} 
+.RE
+.RS  "*" 2 The following command displays the current setting of the -fullPinout parameter in Tcl list format only:   getExportMode -fullPinout -quiet  The software displays the following information:  true
+.RE
+.RS  "*" 2 The following command displays the current settings for all setExportMode parameters in Tcl list format only:   getExportMode -quiet  The software displays the following information:  {fullPinout true} {implicitPortMapping false} 
+.RE 
+.SH Related Information
+.RS  "*" 2 setExportMode
+.RE
+.P

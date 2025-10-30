@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH remove_gui_marker  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBremove_gui_marker\fR \-  Removes a marker from the design layout
+.SH Syntax \fBremove_gui_marker\fR   [-help]   {-name <string> | -all }
+.P Removes a marker from the design layout. 
+.SH Parameters   "\fB-help\fR" Outputs the command usage and a brief description about the command parameters.   "\fB-name <string>\fR" Specifies the name of the marker to be removed from the design layout.   "\fB-all\fR" Removes all markers from the design layout. 
+.SH Related Information
+.RS  "*" 2 add_gui_marker  "*" 2 list_gui_marker
+.RE
+.P

@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_pulsewidth_same_edge_si_cppr_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_pulsewidth_same_edge_si_cppr_mode\fR
+.SH Syntax \fBtiming_disable_pulsewidth_same_edge_si_cppr_mode\fR    {true | false} 
+.P Default: true
+.P Enables SI CPPR credit up to the last divergent pin for pulse width checks for zero width pulse clocks. By default, the software credits minimum of rise and fall transition CPPR up to the common pin as the transitions mismatch at the common pin. 
+.P When set to true, the software computes base delay CPPR up to the common pin as CPPR credit for the path. The software then finds an alternate common timing pin in the clock network where the transition for launch and capture match. If a match is found, the software includes the SI delay up to this pin in the CPPR credit as well.
+.P To set this global variable, use the set command.
+.P

@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_advanced_url_endpoint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_advanced_url_endpoint\fR \-  Default: The default value of this string variable is not set
+.SH Syntax \fBmetric_advanced_url_endpoint\fR <value> 
+.P Default: The default value of this string variable is not set.
+.P Provides pointer to advanced metric server URL to store the snapshot information.
+.P

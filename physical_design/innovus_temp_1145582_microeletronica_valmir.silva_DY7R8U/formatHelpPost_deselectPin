@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deselectPin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeselectPin\fR \-  Deselects the specified pin
+.SH Syntax \fBdeselectPin\fR   [-help]   <name> 
+.P Deselects the specified pin. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each deselectPin parameter.  For a detailed description of the command and all of its parameters, use the man command:   man deselectPin  "\fB<name>\fR" Specifies the name of the pin to be deselected. 
+.SH Example
+.P The following example deselects the swack pin.
+.P deselectPin swack 
+.SH Related Information
+.RS  "*" 2 selectPin
+.RE
+.P

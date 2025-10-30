@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editSplit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditSplit\fR \-  Splits selected special wires at connection points with orthogonal wires
+.SH Syntax \fBeditSplit\fR [-help] 
+.P Splits selected special wires at connection points with orthogonal wires. This command can also be used to split selected bus guides.
+.P Note: Use the editSelect command to select the wires. Use the selectBusGuide command to select bus guides or bus guide segments 
+.SH Parameters   "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man editSplit 
+.SH Related Information
+.RS  "*" 2 editAddRoute  "*" 2 editAdjust   "*" 2 editCommitRoute   "*" 2 editCutWire  "*" 2 editDelete   "*" 2 editDuplicate   "*" 2 editMerge   "*" 2 editMove  "*" 2 editSelect  "*" 2 editResize   "*" 2 editTrim   "*" 2 getEditMode  "*" 2 redo  "*" 2 selectBusGuide  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE 
+.SH Related Information
+.RS  "*" 2 To check how undo and redo works with this wire editing command, see undo and redo in the Text Command Reference.  "*" 2 To review global controls that affect wire editing, see setEditMode and getEditMode in the Text Command Reference.  "*" 2 For more help on editing wires, see the Editing Wires chapter in the Innovus User Guide.
+.RE
+.P

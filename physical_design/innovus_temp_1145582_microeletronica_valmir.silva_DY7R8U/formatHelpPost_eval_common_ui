@@ -1,0 +1,31 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH eval_common_ui  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeval_common_ui\fR \-  Runs a Stylus Common UI command in the legacy interpreter
+.SH Syntax \fBeval_common_ui\fR  [-help]  <script>  
+.P Runs a Stylus Common UI command in the legacy interpreter. This command is not required in the normal usage. However, it may be needed when there is a transition period, that some scripts are already converted into Common UI style, but you still need to run the flow in legacy. This command is intended as a temporary workaround as you transition to the Stylus Common UI and will be removed in a future release.
+.P Most Stylus Common UI commands are available, but the commands that have behavior difference from legacy will not work properly (for example, write_db, read_db, read_netlist, read_physical, read_mmmc, init_design, and report_timing).
+.P These commands will not work and give error messages:
+.P Initialization commands (legacy uses globals and its own version of init_design)
+.RS  "*" 2 read_mmmc  "*" 2 read_netlist  "*" 2 read_physical  "*" 2 init_design
+.RE
+.P Some timing commands that have different formatting and controls:
+.RS  "*" 2 report_timing  "*" 2 report_critical_insts
+.RE
+.P Commands that only work with Stylus logging:
+.RS  "*" 2 set_log_post_cmd
+.RE
+.P The CUI only supports MMMC2 and does not support MMMC1 usage. So the following commands have limitations:   "\fBCommand\fR" Limitation  "\fBread_db\fR" Can only read an MMMC2 DB, saved by either the legacy saveDesign or  CUI write_db command. An MMMC1 DB will cause an error.  "\fBwrite_db\fR" Can only save an MMMC2 DB (if the current DB is MMMC1 an error occurs)   "\fBwrite_mmmc\fR" Not supported
+.P See the legacy global init_mmmc_version for more info about how to load an MMMC2 file into legacy during initialization. You can also use saveDesign -mmmc2 to convert a legacy MMMC1 DB in memory to a saved MMMC2 DB.
+.P The Stylus Common UI commands run in a separate Tcl interpreter. Therefore, Tcl variables in the current interpreter are not available. That means the script should normally be inside " " rather than { } so that the Tcl variable substitution occurs in the current interpreter before passing the script to the Stylus Common UI Tcl interpreter.
+.P If a TCL_ERROR is returned by any command inside a script, the script stops executing, and eval_common_ui returns a TCL_ERROR. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each eval_common_ui parameter.  For a detailed description of the command and all of its parameters, use the man command: man eval_common_ui.  "\fB<script>\fR" Specifies one or more Stylus Common UI Tcl commands to run in the Stylus Common UI Tcl interpreter.  Data_type: string, required 
+.SH Examples
+.RS  "*" 2 The following command runs the finish_floorplan command in the CUI Tcl interpreter.    eval_common_ui "finish_floorplan"   "*" 2 If you want a Tcl var from the legacy Tcl interpreter available inside the CUI interpreter script, you should protect it with  to force Tcl var substitution in the legacy interpreter like this:  set inst i1  eval_common_ui get_db insts -if {.name == $inst}  The $inst will be substituted to result in 'get_db insts -if {.name == i1}' before eval_common_ui sees it and passes it to the CUI interpreter.   "*" 2 If you want to use CUI Tcl vars inside the CUI interpreter, you should protect them with { } like this to avoid substitution in the legacy interpreter:  eval_common_ui {set i [get_db insts -if {.base_cell.name == AND2X}] get_db $i
+.name}  The Tcl var $i is only used inside the CUI interpreter, and not added to the legacy interpreter.   "*" 2 If you have a few global Tcl vars in the legacy interp to pass into a common CUI script, you could add them in separate eval_common_ui calls like this:  set glob1 test  set glob2 test2  eval_common_ui set glob1 $glob1    This command sets CUI glob1 to legacy $glob1  eval_common_ui set glob2 $glob12  This command sets CUI glob2 to legacy $glob2  eval_common_ui source my.tcl         CUI my.tcl can use both globals
+.RE 
+.SH Related Information
+.RS  "*" 2 init_mmmc_version  "*" 2 saveDesign
+.RE
+.P

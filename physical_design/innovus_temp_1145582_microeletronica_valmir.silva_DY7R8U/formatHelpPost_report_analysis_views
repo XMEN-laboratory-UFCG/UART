@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_analysis_views  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_analysis_views\fR \-  Generates a hierarchical report of the current multi-mode multi-corner configuration
+.SH Syntax  \fBreport_analysis_views\fR  -help   [-type {all | setup | hold | active}]  
+.P Generates a hierarchical report of the current multi-mode multi-corner configuration. By default, the report_analysis_views command generates a report of all defined views in the design. Use the -type parameter to generate a report on a specific type of analysis view.
+.P Use this command after creating analysis views (create_analysis_view), and setting active setup and hold views (set_analysis_view) for the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each report_analysis_views parameter. For a detailed description of the command and all of its parameters, use the man command: man report_analysis_views.  "\fB-type {all | setup | hold | active}\fR" Specifies the type of report to generate.  Default: all
+.RS  "*" 2 active: Generates a report of all active setup and hold views in the design.  "*" 2 all: Generates a report of all defined views in the design, including those that are currently inactive.  "*" 2 hold: Generates a report of all active hold views in the design.  "*" 2 setup: Generates a report of all active setup views in the design.
+.RE 
+.SH Examples
+.RS  "*" 2 The following command generates a hierarchical report of the active setup analysis views in the design:   report_analysis_views -type setup  The software reports the following results:  Multi-Mode Analysis View Report  _______________________________  + SETUP Views   |   + Analysis View: default_emulate_view   |   + Delay Calc Corner: default_emulate_delay_corner   | |   | |   | |   | + rc_corner: default_emulate_rc_corner   | | |   | | + preRoute_res: 1   | | |   | | + postRoute_res: 1   | | |   | | + preRoute_cap: 1   | | |   | | + postRoute_cap: 1   | | |   | | + postRoute_xcap: 1   | | |   | | + preRoute_clkcap: 0   | | |   | | + postRoute_clkcap: 0 0 0   | | |   | | + preRoute_clkres: 0   | | |   | | + postRoute_clkres: 0 0 0   | |   | + late_library_set: default_emulate_libset_max   | | |   | | + timing: /icd/ssv_pe_t2b/timing/pawang/unit_test_cases/unit_2/data/cell_w.lib   | | |   | | + si: /icd/ssv_pe_t2b/timing/pawang/unit_test_cases/unit_2/data/celtic-NDC.cdB   | |   | + early_library_set: default_emulate_libset_min   | | |   | | + timing: /icd/ssv_pe_t2b/timing/pawang/unit_test_cases/unit_2/data/cell_w.lib   | | |   | | + si: /icd/ssv_pe_t2b/timing/pawang/unit_test_cases/unit_2/data/celtic-NDC.cdB   | |   | + si_enabled: true   |   + Constraint Mode: default_emulate_constraint_mode   | |   | + SDC Constraint Files: /dev/null
+.RE 
+.SH Related Information
+.RS  "*" 2 create_analysis_view  "*" 2 set_analysis_view
+.RE
+.P

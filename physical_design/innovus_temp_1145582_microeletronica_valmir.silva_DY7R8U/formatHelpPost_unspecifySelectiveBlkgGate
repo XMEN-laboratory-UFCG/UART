@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unspecifySelectiveBlkgGate  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunspecifySelectiveBlkgGate\fR \-  Specifies cells and instances that are forbidden to be placed inside the soft blockage during legalization
+.SH Syntax \fBunspecifySelectiveBlkgGate\fR  [-help]  [-cell <cellName>]  [-inst <instName>] 
+.P Specifies cells and instances that are forbidden to be placed inside the soft blockage during legalization. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each unspecifySelectiveBlkgGate parameter.  For a detailed description of the command and all of its parameters, use the man command: man unspecifySelectiveBlkgGate.  "\fB<-cell cellName>\fR" Specifies the cell type name as illegal for soft blockage. You can use wildcards (* or ?) with this parameter.  "\fB-inst <instName>\fR" Specifies the instance name as illegal for soft blockage. You can use wildcards (* or ?) with this parameter. 
+.SH Examples
+.P The following command specifies that cell NR2RLX1 and all instance names that begin with MEMCTLU cannot be moved into soft blockage during legalization.
+.P unspecifySelectiveBlkgGate -cell NR2RLX1 -inst MEMCTLU* 
+.SH Related Information
+.RS  "*" 2 specifySelectiveBlkgGate
+.RE
+.P

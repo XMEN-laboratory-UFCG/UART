@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportVoltage  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportVoltage\fR \-  This command reports the voltage for the net/pin (term)/inst in the specific view under a specific corner
+.SH Syntax \fBreportVoltage\fR  [-help]  [-early]   [-inst <string>]  [-late]  [-net <string>]  [-quiet]  [-term <string>]  [-view <string>]
+.P This command reports the voltage for the net/pin (term)/inst in the specific view under a specific corner. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each reportVoltage parameter. For a detailed description of the command and all its parameters, use the man command:  man reportVoltage  "\fB-early\fR" Specifies that the voltage is repoted in the early mode.  "\fB-inst <string>\fR" Reports the specified instance's power domain, cell name, timing library, view, mode, power net, and voltage information.  "\fB-late\fR" Specifies that the voltage is reported in the late mode.   "\fB-net <string>\fR" Specifies the net voltage (driver's pin voltage).   "\fB-quiet\fR" Displays only the pin voltage-related information without other additional unnecessary information to avoid huge log size.   "\fB-term <string>\fR" Specifies the term voltage.   "\fB-view <string>\fR" Specifies the analysis view. 
+.SH Related Information
+.P For more information, see the Low Power Design chapter of the User Guide.
+.P

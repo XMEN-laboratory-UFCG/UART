@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteRoutingHalo  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteRoutingHalo\fR \-  Deletes a routing halo for a blackbox, hard macro, or block-level design. Use this command after specifying a routing halo for a blackbox, hard macro, or block-level design. You can use the addRoutingHalocommand to add routing halos
+.SH Syntax \fBdeleteRoutingHalo\fR   [-help]  [-lithoHalo]  {-allBlocks | -block <blockNameList> | -cell <cellNameList> | -inst <instanceName> | -designHalo} 
+.P Deletes a routing halo for a blackbox, hard macro, or block-level design. Use this command after specifying a routing halo for a blackbox, hard macro, or block-level design. You can use the addRoutingHalocommand to add routing halos. 
+.SH Parameters   "\fB-allBlocks\fR" Deletes the routing halo for all blocks and black boxes.  Data_type: bool, required  "\fB-block <blockNameList>\fR" Deletes the routing halo for the specified blocks.  Data_type: list, required  "\fB-cell <cellNameList>\fR" Deletes the routing halo for the specified cells.  Data_type: list, required   "\fB-designHalo\fR" Deletes the routing halo at the design level.  Data_type: bool, required  "\fB-help\fR" Outputs a brief description that includes the type and default information for each deleteRoutingHalo parameter. For a detailed description of the command and all of its parameters, use the man command:   man deleteRoutingHalo  "\fB-inst <instanceName>\fR" Specifies that the routing halo should be added to the specified instance. Use this option to delete the halo of an I/O pad instance.  Data_type: list, required  "\fB-lithoHalo\fR" Deletes the litho routing halo.  Data_type: bool, optional 
+.SH Example
+.RS  "*" 2 The following command delete the routing halo for all blocks and black boxes
+.   deleteRoutingHalo -allBlocks
+.RE 
+.SH Related Information
+.RS  "*" 2 addRoutingHalo  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference
+.RS  "*" 2 Edit Halo - Routing Halo
+.RE 
+.RE
+.P

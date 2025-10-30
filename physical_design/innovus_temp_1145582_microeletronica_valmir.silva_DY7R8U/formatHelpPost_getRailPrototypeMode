@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getRailPrototypeMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetRailPrototypeMode\fR \-  Returns information about the specified setRailPrototypeMode parameter in the Innovus log file and the console
+.SH Syntax \fBgetRailPrototypeMode\fR   [-help]   [-domain]  [-railModel]   [-totalPower]  [-quiet]
+.P Returns information about the specified setRailPrototypeMode parameter in the Innovus log file and the console. The following information is returned:
+.RS  "*" 2 Parameter name  "*" 2 Current value  "*" 2 Type (Boolean, string, and so on)  "*" 2 Whether the current value was set by user
+.RE
+.P Note: If you do not specify a parameter, the software displays values for all of the setRailPrototypeMode parameters. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each getRailPrototypeMode parameter.  For a detailed description of the command and all of its parameters, use the man command man getRailPrototypeMode.  "\fB-parameter_names                \fR" Displays information for the specified parameters. You can specify one or more parameters.  See setRailPrototypeMode for descriptions of the parameters you can specify.  "\fB-quiet\fR" Displays the current settings for the specified parameters in Tcl list format only. 
+.SH Related Information
+.RS  "*" 2 setRailPrototypeMode  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

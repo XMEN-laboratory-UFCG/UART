@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH zoomTo  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBzoomTo\fR \-  Zooms in the viewable window to the point defined by the coordinates with a default radius of 150 microns. 
+.P You can also use the Select bar to specify the zoom area center and radius directly from the GUI
+.SH Syntax \fBzoomTo\fR   [-help]   x y   [-radius <value>]
+.P Zooms in the viewable window to the point defined by the coordinates with a default radius of 150 microns. 
+.P You can also use the Select bar to specify the zoom area center and radius directly from the GUI. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each zoomTo parameter.  For a detailed description of the command and all of its parameters, use the man command: man zoomTo.  "\fB-radius <value>\fR" Zooms in the viewable window to a radius of the specified value in microns, with the center at the point specified by <x> and <y>. The radius <value> is of type float.  Default: 150 microns  "\fB<x y>\fR" Zooms in the viewable window to the point defined by the coordinates, x and y. 
+.SH Examples
+.RS  "*" 2 When the following command is run, the display zooms in to the point with x=100 and y=200. The display area is centered at this point and has the default radius of 150 microns:  zoomTo 100 200   "*" 2 When the following command is run, the display zooms in to point with x=100 and y=200. The display area is centered at this point and has a radius of 50 microns:  zoomTo 100 200 -radius 50
+.RE 
+.SH Related Information
+.RS  "*" 2  viewLast  "*" 2  viewNext  "*" 2  zoomBox  "*" 2  zoomIn  "*" 2  zoomOut  "*" 2  zoomSelected  "*" 2  View Menu chapter in the Menu Reference
+.RS  "*" 2 Zoom 
+.RE 
+.RE
+.RS  "*" 2 The Main Window chapter in the Menu Reference 
+.RS  "*" 2 Select Bar  
+.RE 
+.RE

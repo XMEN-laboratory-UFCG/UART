@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_ccopt_preserved_clock_tree_port  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_ccopt_preserved_clock_tree_port\fR \-  This command resets the preservation settings for the specified preserved port that have been specified using the set_ccopt_preserved_clock_tree_port command
+.SH Syntax \fBreset_ccopt_preserved_clock_tree_port\fR  [-help]  {<portname>}
+.P This command resets the preservation settings for the specified preserved port that have been specified using the set_ccopt_preserved_clock_tree_port command. 
+.SH Parameters   "\fB-help          \fR" Outputs a brief description that includes type and default information for each reset_ccopt_preserved_clock_tree_port parameter. For a detailed description of the command and all of its parameters, use the man command:  man reset_ccopt_preserved_clock_tree_port.   "\fB<portname>\fR" Specifies the name of the port. 
+.SH Example
+.RS  "*" 2 Use the following command to reset the port:  reset_ccopt_preserved_clock_tree_port m1/ck
+.RE 
+.SH Related Information
+.RS  "*" 2 report_ccopt_preserved_clock_tree_ports  "*" 2 reset_all_ccopt_preserved_clock_tree_ports  "*" 2 set_ccopt_preserved_clock_tree_port
+.RE
+.P

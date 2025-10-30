@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH check_design_threshold_fanout  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheck_design_threshold_fanout\fR
+.SH Syntax \fBcheck_design_threshold_fanout\fR {true | false} 
+.P Type: Integer
+.P Default: 10000
+.P Checks for upper threshold in a netlist design.  
+.SH Related Information
+.RS  "*" 2 check_design_across_hierarchy  "*" 2 check_design_report_async_pins  "*" 2 check_design_report_scan_pins
+.RE
+.P

@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH dehighlight  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdehighlight\fR \-  Removes highlights from all the highlighted objects at any stage of the design flow
+.SH Syntax \fBdehighlight\fR  [-help]  [<objectList>]   [-all | -index <indexValue> | -original | -select] 
+.P Removes highlights from all the highlighted objects at any stage of the design flow. You can choose to dehighlight all objects, selected objects, objects highlighted with original color, or objects with specified index values. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each dehighlight parameter.  For a detailed description of the command and all of its parameters, use the man command:   man dehighlight  "\fB-all \fR" Specifies that all objects will be dehighlighted.  "\fB-index <indexValue>\fR" Specifies that the objects with the index value provided will be dehighlighted.  The index value is the value of the Highlight Set as specified through the Edit - Highlight Selected menu or through the highlight command.  The Edit - Highlight Selected menu provides eight highlight patterns to choose from. The value of index should, therefore, be a number be from 1 to 8.  As an example, if you specify a value of 3 for index, all objects that are highlighted as Highlighted Set 3 will be dehighlighted.  "\fB<objectList>\fR" Specifies the object pointer list for dehighlighting.   "\fB-original\fR" Specifies that the objects highlighted with original color should be dehighlighted.  "\fB-select\fR" Specifies that all selected objects should be dehighlighted. 
+.SH Examples
+.RS  "*" 2 The following command dehighlights all highlighted objects.   dehighlight
+.RE
+.RS  "*" 2 The following command dehighlights all highlighted objects that have been highlighted as Highlight Set 4 through the Edit - Highlight Selected menu or through the highlight command.   dehighlight -index 4
+.RE
+.RS  "*" 2 The following command dehighlights all highlighted objects that are currently selected in the display window.   dehighlight -select
+.RE 
+.SH Related Information
+.RS  "*" 2 highlight  "*" 2 highlight_pin  "*" 2 View Menu chapter of the Menu Reference:
+.RS  "*" 2 Highlight Selected  "*" 2 Clear Highlight  "*" 2 Edit Highlight Color
+.RE 
+.RE
+.P

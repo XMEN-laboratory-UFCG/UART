@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_time_unit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_time_unit\fR
+.SH Syntax  \fBget_time_unit\fR 
+.P Returns the current time unit for the session. 
+.SH Example
+.RS  "*" 2 The following command returns the time unit for the session:   get_time_unit  1.000000ns
+.RE 
+.SH Related Information
+.RS  "*" 2 setLibraryUnit
+.RE
+.P

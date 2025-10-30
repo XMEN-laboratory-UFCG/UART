@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_extract_model_consider_design_level_drv  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_extract_model_consider_design_level_drv\fR
+.SH Syntax \fBtiming_extract_model_consider_design_level_drv\fR  {true | false} 
+.P Default : true
+.P Considers set_max_capacitance and set_max_transition DRV constraints, that have been applied on the current design during model extraction.
+.P When set to true, these constraints applied at the design level will be considered during model extraction. However, the maximum capacitance and maximum transition from various DRV constraints applied/inferred on the ports is considered.
+.P When set to false, the software extracts the worse-case DRV values and the constraints applied on the current design will be ignored.
+.P To set this global variable, use the set_global command.

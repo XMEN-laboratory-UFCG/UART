@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH specifySpareGate  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBspecifySpareGate\fR \-  Specifies spare gates to place
+.SH Syntax \fBspecifySpareGate\fR  {-help}  {-cell <leafCellName>     |-inst <instanceName>     | -hinst {<hierarchicalInstanceName>}}  
+.P Specifies spare gates to place. To localize spare gate placement, guide the module containing the spare gate during the floorplanning session. This command should be used before placing the design. 
+.SH Parameters    "\fB-cell <leafCellName>\fR" Specifies the cell type names of the spare gate cells. You can use this parameter to specify leaf cells (standard cells)--you cannot use it to specify spare modules. You can use wildcards with this parameter.  "\fB-help\fR" Outputs a brief description that includes type and default information for each specifySpareGate parameter.  For a detailed description of the command and all of its parameters, use the man command: man specifySpareGate.  "\fB-hinst {<hierarchicalInstanceName>} \fR" Specifies a hierarchical instance that contains spare gate cells. A hierarchical instance acts as one unit (a submodule). The units are evenly spaced and are close together when they are distributed.  You can use wildcards when specifying the hierarchical instance names.  "\fB-inst <instanceName>\fR" Specifies the leaf instance names of the spare gates. You can use wildcards when specifying instance names. 
+.SH Examples
+.RS  "*" 2 The following command specifies all cell types YFD2S_SPG to be spare gates:   specifySpareGate -cell YFD2S_SPG
+.RE
+.RS  "*" 2 The following command specifies instance SH16/I1022 to be a spare gate:   specifySpareGate -inst SH16/I1022
+.RE
+.RS  "*" 2 The following command specifies that all instances in SH16 to be spare gates:   specifySpareGate -inst SH16/*
+.RE
+.RS  "*" 2 The following command treats all instances with the cell type NAND2X1 as spare cells. If the design uses some of these cells as spares and some as not spare, use the -inst parameter instead.   specifySpareGate -cell NAND2X1  "*" 2  The following example specifies multiple spare gates instances for the ECO placement:   specifySpareGate -inst spare_lv_more_* specifySpareGate -inst *SPAREcells_lv_*  Note: The specifySpareGate does not accept the "list" option for defining multiple spare gates.
+.RE 
+.SH Related Information
+.RS  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RS  "*" 2 Placing Spare Cells and Spare Modules
+.RE 
+.RE
+.P

@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH fix_feedthru_assign  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBfix_feedthru_assign\fR \-  Fixes the assign statements that are associated with partitions by replacing them with the specified buffer
+.SH Syntax \fBfix_feedthru_assign\fR  [-help]  -buffer <string>[-delete_feed] 
+.P Fixes the assign statements that are associated with partitions by replacing them with the specified buffer. This helps to minimize the number of buffers that are added to the design when assign statements are deleted.
+.P The fix_feedthru_assign command enables selective replacement of assign statements with real buffers.  
+.SH Parameters    "\fB-buffer <string>\fR" Specifies the buffer to be used for replacing assign statements.  Data_type: string, required  "\fB-delete_feed\fR" Removes input-output(s) assigns from within the partition module.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each fix_feedthru_assign parameter.  For a detailed description of the command and all of its parameters, use the man command:   man fix_feedthru_assign 
+.SH Example
+.P The following command replaces the assign statements associated with partitions with the specified buffer.
+.P fix_feedthru_assign -buffer abc
+.P 
+.SH Related Information
+.RS  "*" 2 remove_assigns
+.RE
+.RS  "*" 2 insertPtnFeedthrough  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

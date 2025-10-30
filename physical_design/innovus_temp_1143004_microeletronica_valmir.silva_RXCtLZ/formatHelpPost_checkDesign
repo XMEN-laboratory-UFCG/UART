@@ -1,0 +1,111 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH checkDesign  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheckDesign\fR \-  Checks for missing or inconsistent library and design data at any stage of the design and writes the results to a text and HTML report
+.SH Syntax \fBcheckDesign\fR  [-help]   { -all      [-danglingNet [highlight]] | [[-io]      [-netlist [-danglingNet [highlight]]]      [-physicalLibrary]      [-timingLibrary]      [-powerGround]      [-tieHiLo]      [-floorplan]      [-place]     [-spef][-assigns]] }  [[-noText] [-outdir directoryName] [-browser]]   | [-noHtml [-outfile fileName]]  
+.P Checks for missing or inconsistent library and design data at any stage of the design and writes the results to a text and HTML report. This eliminates the need to perform these checks manually. By default, the HTML report is saved as <design_name>.main.htm whereas the text version of the report is saved as <design_name>.main.htm.ascii.
+.P The Innovus Implementation System (Innovus) software checks the following data:
+.RS  "*" 2 I/Os
+.RE
+.RS  "*" 2 Netlist
+.RE
+.RS  "*" 2 Physical library
+.RE
+.RS  "*" 2 Timing library
+.RE
+.RS  "*" 2 Power and ground pins
+.RE
+.RS  "*" 2 Tie-high and tie-low pins
+.RE
+.RS  "*" 2 Floorplan
+.RE
+.RS  "*" 2 Placement
+.RE
+.P Cadence recommends that you check libraries and data as follows:
+.RS  "*" 2 Perform I/O checking at any time. I/O problems might not impede any tool, but they might add to design problems.
+.RE
+.RS  "*" 2 Perform netlist checking at any time after the design has been loaded.
+.RE
+.RS  "*" 2 Perform physical library checking before floorplanning.
+.RE
+.RS  "*" 2 Perform timing library checking before any timing-related operation (for example, timing driven placement or routing, timing optimization, clock-tree synthesis, and static timing analysis)
+.RE
+.RS  "*" 2 Perform power/ground checking before routing and extraction, and verifying geometry and connectivity.
+.RE
+.RS  "*" 2 Perform tie-high and tie-low checking before routing and extraction.
+.RE 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each checkDesign parameter.  For a detailed description of the command and all of its parameters, use the man command:   man checkDesign.  "\fB-all\fR" Performs all checks.  "\fB-assigns\fR" Reports all assign statements in the netlist, including assigns to 1'b0/1'b1.   "\fB-browser\fR" Opens a browser and displays the HTML version of the report.  Note: This option cannot be used with -noHtml.  "\fB-danglingNet [highlight]\fR" Checks the design for nets that have no instance or top-level terminals, and outputs their names into the report file.  The -danglingNet parameter can be used only if the -netlist or -all parameter is specified.  If you specify highlight, the software also highlights the "dangling" nets in the main window, after the checkDesign command finishes.  "\fB-floorplan\fR" Checks the floorplan, generates error or warning messages, and reports the following information:
+.RS  "*" 2 Off-grid horizontal and vertical tracks
+.RE
+.RS  "*" 2 Instances not snapped to row site
+.RE
+.RS  "*" 2 Unplaced I/O pins
+.RE
+.RS  "*" 2 Off Grid Power/Ground Pre-routes
+.RE
+.RS  "*" 2 Instances not on the manufacturing grid
+.RE
+.RS  "*" 2 Preroutes not on the manufacturing grid (error)
+.RE
+.RS  "*" 2 Regular preroutes not on tracks
+.RE   "\fB-io\fR" Checks I/O pads, generates warning messages, and reports the following information:
+.RS  "*" 2 Unplaced I/O cells
+.RE
+.RS  "*" 2 Floating pins that belongs to I/O pads (warning)
+.RE
+.RS  "*" 2 I/O pins connected to non-I/O instances (directly connected to core cells)
+.RE
+.RS  "*" 2 Unplaced I/O pins
+.RE
+.RS  "*" 2 Floating I/O pins
+.RE   "\fB-netlist\fR" Checks the netlist, generates error or warning messages, and reports the following information:
+.RS  "*" 2 Output pins tied to power/ground nets (for example, BUFX1 U1 (.A(net1),.Y1(1'b0)))
+.RE
+.RS  "*" 2 Input pins floating (warning)
+.RE
+.RS  "*" 2 Multiple driver nets (warning)
+.RE   "\fB-noHtml\fR" Generates only a text version of the report.  Default: The report is generated in both HTML and text format.  "\fB-noText\fR" Generates only an HTML version of the report.  Default: The report is generated in both HTML and text format.  "\fB-outdir <directoryName>\fR" Specifies the directory in which the HTML and text reports are saved. If -noText is specified, saves only the HTML version of the report to the specified directory.  Note: The -outdir parameter cannot be used with -noHtml.  "\fB-outfile <fileName>\fR" Writes the text version of the report to the specified file.  Note: You can specify this option only if you specify -noHtml.  Default: If you specify -noHtml but do not specify -outfile, the software writes the text version of the report to a file named <design_name>.main.htm.ascii.  "\fB-physicalLibrary\fR" Checks the physical libraries and reports whether all cells have LEF views. The software generates error messages for the following conditions:
+.RS  "*" 2 Cells not defined in LEF
+.RE
+.RS  "*" 2 Cells with missing dimensions
+.RE
+.RS  "*" 2 Pins with missing direction
+.RE
+.RS  "*" 2 Cells pins with missing geometry
+.RE
+.RS  "*" 2 Cell dimensions are not an integer multiple of the core site dimensions  "*" 2  A macro does not have fully covered obstruction  "*" 2  Fixed mask block have some pins not colored
+.RE   "\fB-place\fR" Checks the placement, generates error or warning messages, and reports the following information:
+.RS  "*" 2 Number of instances with placement violations
+.RE
+.RS  "*" 2 Instances placed outside of the core area
+.RE
+.RS  "*" 2 Instances overlapping other instances
+.RE
+.RS  "*" 2 Instances overlapping placement blockages
+.RE   "\fB-powerGround\fR" Checks power and ground connections, generates warning messages, and reports the following information:
+.RS  "*" 2 Power terminals connected to ground net
+.RE
+.RS  "*" 2 Ground terminals connected to power net
+.RE
+.RS  "*" 2 Floating power and ground terminals
+.RE
+.RS  "*" 2 Power and ground terminals connected to non-power and ground nets.
+.RE   "\fB-spef\fR" Checks spef.   "\fB-tieHiLo\fR" Reports unconnected tie-high or tie-low terminals and tieHi/Lo pins and P/G pins connected to different nets. The system generates a warning message.  "\fB-timingLibrary\fR" Checks whether the cells used in the design have been defined in the timing library. This option does not check for the presence of timing arcs. All physical cells are excluded from this check. 
+.SH Examples
+.RS  "*" 2 The following command checks the design and generates a text version of the report called checkDesign.ascii:   checkDesign -all -noHtml -outfile checkDesign.ascii  The following is a sample of the resulting text report:  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 Data Preparation chapter of the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Checking Designs
+.RE 
+.RE
+.RS  "*" 2 Placing the Design chapter of the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Preparing for Placement
+.RE 
+.RE
+.P

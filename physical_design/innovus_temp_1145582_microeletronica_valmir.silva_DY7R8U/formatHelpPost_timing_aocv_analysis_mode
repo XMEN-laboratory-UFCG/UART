@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_aocv_analysis_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_aocv_analysis_mode\fR
+.SH Syntax \fBtiming_aocv_analysis_mode\fR   {launch_capture | clock_only | separate_data_clock | combine_launch_capture}
+.P Default: launch_capture
+.P Controls handling of AOCV analysis modes.
+.P When set to launch_capture, AOCV analysis will be performed for both data and clock paths, and the AOCV derating factor will be calculated based on both clock and data path stages.
+.P When set to clock_only, AOCV analysis will be performed for clock paths only, and the AOCV derating factor will be calculated based on the clock path stage depth only.
+.P When set to separate_data_clock, the software calculates the AOCV stage count for clock paths and data paths separately. Both clock and data paths have related AOCV derating factors.
+.P When set to combine_launch_capture, the software calculates AOCV stage count using combined depth for launch and capture paths. This is achieved by summation of path depth on the launch and capture paths.
+.P To set this global variable, use the set command.
+.P

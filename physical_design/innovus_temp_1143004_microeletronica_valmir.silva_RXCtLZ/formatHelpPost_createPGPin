@@ -1,0 +1,35 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createPGPin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreatePGPin\fR \-  Creates a power/ground pin as per the specified coordinates of the physical shape
+.SH Syntax \fBcreatePGPin\fR   [-help]    {-onDie {-selected | -net <netName>}   [-width <float>]   [-length <float>]} |    {<pgPinName> [-net <netName>]   [-geom <layerName llx lly urx ury>]}   [-dir {undefined | input | output}]
+.P Creates a power/ground pin as per the specified coordinates of the physical shape. You can use this command to create a power/ground pin without having to first create a power stripe with the addStripe command.
+.P If the -geom parameter is not specified, only the logical pin is created.   If the -geom parameter is specified, the physical pin is also created.
+.P If a logical power/ground pin exists before this command is run, the net name will be ignored if it is specified.  If a logical power/ground pin does not exist before this command is run:
+.RS  "*" 2 If a net has been specified with the -net parameter, the power/ground pin will be created and attached to the net specified.  "*" 2 If a net name has not been specified, the net name is assumed to be the same as the pin name. In this case, the power/ground pin will be created and attached to that nets.
+.RE 
+.SH Parameters   "\fB-dir {undefined | input | output}\fR" Specifies the direction of the power/ground pin. You can specify one of the following:
+.RS  "*" 2 undefined: Specifies that the direction of the pin is not defined.   "*" 2 input: Specifies that the direction of the pin is input.  "*" 2 output: Specifies that the direction of the pin is output.
+.RE   Data_type: enum, optional  "\fB-geom <layerName llx lly urx ury>\fR" Specifies the geometry of the physical pin.
+.RS  "*" 2 layerName: Specifies the layer on which the power/ground pin will be created. The layerIdcan range from 1 to n, where, the maximum value for n is the top most routing layer.  Note: Layers can also be specified using layer names (for example, Metal1, Metal2, Metal3) or the LEF layer names.
+.RE
+.RS  "*" 2 llx: Specifies the lower-left x coordinate, in microns, of the power/ground pin.  "*" 2 lly: Specifies the lower-left y coordinate, in microns, of the power/ground pin.  "*" 2 urx: Specifies the upper-right x coordinate, in microns, of the power/ground pin.  "*" 2 ury: Specifies the upper-right y coordinate, in microns, of the power/ground pin.
+.RE   Data_type: string, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each <createPGPin>parameter.  For a detailed description of the command and all of its parameters, use the man command:   man createPGPin  "\fB-length <float>\fR" Specifies the length of the power/ground pin.  Default: Same as the width  Data_type: float, optional  "\fB-net <netName>\fR" Specifies the name of the net to which the power/ground pin will be attached.  Data_type: string, optional  "\fB-onDie\fR" Creates  power/ground pin on the die.  Data_type: bool, optional  "\fB<pgPinName>\fR" Specifies the name of the power/ground pin.  Data_type: string, optional  "\fB-selected\fR" Creates  power/ground pin on the die, for all selected stripes.  Data_type: bool, optional  "\fB-width <float>\fR" Specifies the width of the power/ground pin.  Default: width of the stripe.  Data_type: float, optional 
+.SH Examples
+.RS  "*" 2 This example is for the case where a logical pin name has not been defined prior to running the command and a net name has been specified.   The following command creates a power/ground pin named pgpin_A on layer Metal2 and attaches the pin to the net net_A. The pin coordinates are 7 (llx), 3 (lly), 17 (urx), and 23 (ury).   createPGPin -geom Metal2 7 3 17 23 -net net_A pgpin_A
+.RE
+.RS  "*" 2 This example is for the case where a logical pin name has not been defined prior to running the command and a net name has not been specified.   The following command creates a power/ground pin named pgpin_B on layer Metal3 and attaches the pin to the net pgpin_B. The pin coordinates are 7 (llx), 3 (lly), 17 (urx), and 23 (ury). As the net name was not specified, the net name is assumed to be the same as the pin name.   createPGPin -geom Metal3 7 3 17 23 pgpin_B
+.RE
+.RS  "*" 2 This example is for the case where a logical pin name has already been defined prior to running the command.   The following command creates a power/ground pin named pgpin_C on layer Metal5. The pin coordinates are 7 (llx), 3 (lly), 17 (urx), and 23 (ury). In this case, the logical pin name was already defined prior to running the command, and so a net name is not required. Even if a net name were specified, it would have been ignored.   createPGPin -geom Metal5 7 3 17 23 pgpin_C
+.RE
+.RS  "*" 2 This example is for the case where the net name is not specified and the -geom parameter has not been specified.   The following command creates a logical pin names pgpin_D. The net name is assumed to be the same as the pin name and no physical pin is created.   createPGPin pgpin_D  "*" 2 This example is for the case where the pin is created on the die attached to net vdd with a width of 2 and a length of 3.  createPGPin -onDie -net vdd -width 2 -length 3  
+.RE 
+.SH Related Information
+.RS  "*" 2 addStripe  "*" 2 deletePGPin  "*" 2 Power Menu chapter in the Innovus Menu Reference
+.RE
+.RS
+.RS  "*" 2 Create P/G Pin
+.RE 
+.RE
+.P

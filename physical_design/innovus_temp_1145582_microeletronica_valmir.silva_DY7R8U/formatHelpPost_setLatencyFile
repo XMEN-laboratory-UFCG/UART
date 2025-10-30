@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setLatencyFile  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetLatencyFile\fR \-  Specifies the latency file that the timing engine must load when the timing analysis mode is set to -usefulSkew
+.SH Syntax \fBsetLatencyFile\fR  [-help]  <latencyFileName> 
+.P Specifies the latency file that the timing engine must load when the timing analysis mode is set to -usefulSkew.
+.P To see the current settings for the setLatencyFile command, see getLatencyFile. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each setLatencyFile parameter.  For a detailed description of the command and all of its parameters, use man setLatencyFile.  "\fB<latencyFileName>\fR" Specifies the latency file to load. 
+.SH Command Order
+.P Use this command after setting analysis mode to -usefulSkew. For more information, see the Timing Analysis chapter in the Innovus User Guide. 
+.SH Example
+.P The following example sets the latency filename to latency1.
+.P setLatencyFile latency1 
+.SH Related Information
+.RS  "*" 2 getLatencyFile
+.RE
+.RS  "*" 2 The following section in Optimizing Timing chapter of the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Performing Optimization Before Clock Tree Synthesis 
+.RE 
+.RE
+.P

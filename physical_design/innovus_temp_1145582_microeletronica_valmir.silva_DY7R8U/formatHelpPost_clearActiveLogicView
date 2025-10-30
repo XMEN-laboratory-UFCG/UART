@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH clearActiveLogicView  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBclearActiveLogicView\fR \-  Resets the reduced timing graph created by createActiveLogicView back to the original timing graph
+.SH Syntax \fBclearActiveLogicView\fR  [-help] 
+.P Resets the reduced timing graph created by createActiveLogicView back to the original timing graph. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description of the clearActiveLogicView command. For a detailed description of the command, use the man command:   man clearActiveLogicView 
+.SH Related Information
+.RS  "*" 2 createActiveLogicView  "*" 2 Timing Analysis chapter of the Innovus User Guide  "*" 2 Top-level Timing Closure Methodologies chapter of the Innovus User Guide
+.RE
+.P

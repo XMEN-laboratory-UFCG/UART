@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH select_obj  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBselect_obj\fR \-  Selects the object or the list of objects for putting into a set
+.SH Syntax \fBselect_obj\fR  [-help]  <any_object>+
+.P Selects the object or the list of objects for putting into a set. The object type can be any object type selectable on the GUI such as inst and net.
+.P You can add a new selection to an already selected object using the following command: 
+.P select_obj [concat [dbGet selected.] <new_object_pointer>] 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each select_obj parameter.  For a detailed description of the command and all of its parameters, use the man command:  man select_obj  "\fB<any_object+\fR" Specifies the list of objects.  Note: If the list contains the objects that cannot be selected, such as head, layer, and ptn, select_obj will not select them.  The objects that cannot be selected are head, layer, ptn, fPlan, prop, bus, vCell, viaRuleGenerate, layerRule, foreign, hNet, site, densityShape, shape, rackDef, and gCellGridDef.  Data_type: (any_object)+, required 
+.SH   Example
+.P select_obj [dbGet -p top.insts.name i1] 
+.SH Related Information
+.RS  "*" 2 deselect_obj
+.RE
+.P

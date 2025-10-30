@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH defInCheckMaskShifts  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefInCheckMaskShifts\fR
+.SH Syntax \fBdefInCheckMaskShifts\fR {on | off | bypass}  
+.P Type: Enum
+.P Default: off
+.P Checks conflicts between DEF COMPONENT MASKSHIFT and MACRO MASKSHIFT values with the LEF FIXEDMASK and LAYERMASKSHIFT values, respectively, in the technology and MACRO sections. You can set the following values: 
+.RS  "*" 2 on: When the variable is set as on, the the tool will check for the conflict. In case of a conflict, the tool will give an error and stop running.  "*" 2 off: When the variable is set as off, the tool will not check for the conflict.   "*" 2 bypass: When the variable is set as bypass, the tool will give and error message and will continue running. 
+.RE 
+.SH Related Information
+.RS  "*" 2 restoreDesign
+.RE
+.P

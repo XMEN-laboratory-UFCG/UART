@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_constraint_enable_report_invalid_begin_end_points  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_constraint_enable_report_invalid_begin_end_points\fR
+.SH Syntax \fBtiming_constraint_enable_report_invalid_begin_end_points\fR   {true | false} 
+.P Default: false
+.P Enables reporting of invalid begin points/end points specified with set_false_path or set_multicycle_path constraint.
+.P To set this global variable, use the set command.
+.P

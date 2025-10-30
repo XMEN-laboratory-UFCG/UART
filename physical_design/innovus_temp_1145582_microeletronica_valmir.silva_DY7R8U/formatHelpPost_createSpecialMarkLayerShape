@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createSpecialMarkLayerShape  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateSpecialMarkLayerShape\fR \-  Creates a mark layer shape, using special route
+.SH Syntax \fBcreateSpecialMarkLayerShape\fR  [-help]   [-cutOutBlockInsts <string>]  [-extendOuterX <float>]  [-extendOuterY <float>]   [-extendX <float>]  [-extendY <float>]   -layer <string>
+.P Creates a mark layer shape, using special route. This command enables you to apply one set of rules for the entire design in Innovus by connecting the macro pins around halo of IP blocks. The IPs are selected based on a list which provides the instance name. 
+.SH Parameters   "\fB-cutOutBlockInsts <string>\fR" Specifies the name of the instances that are to be cut out.  Note: All blocks are cut out if -cutOutBlockInsts is not specified however, if -cutOutBlockInsts {} is specified then all blocks are NOT cut as this pattern cannot match anything.  Data_type: string, optional   "\fB-extendOuterX <float>  \fR" Expands the mark layer shape in X direction.   Data_type: float, optional  "\fB-extendOuterY <float>  \fR" Expands the mark layer shape in Y direction.   Data_type: float, optional   "\fB-extendX <float>  \fR" Expands the no-mark layer shape in X direction.  Data_type: float, optional   "\fB-extendY <float>  \fR" Expands the no-mark layer shape in Y direction.  Data_type: float, optional   "\fB-help\fR" Outputs a brief description that includes the type and default information for each createSpecialMarkLayerShape parameter.  For a detailed description of the command and all of its parameters, use the man command:   man createSpecialMarkLayerShape  "\fB-layer <string>  \fR" Specifies the names of the layers on which the mark layer shape is to be applied.  Data_type: string, required 
+.SH Example
+.RS  "*" 2 The following command creates a mark layer shape on M2_P48 that blocks out DTMF_INST/PLLCLK_INST and expands the marker layer shape by 10 in X direction and by 20 in Y direction:  createSpecialMarkLayerShape -cutOutBlockInsts DTMF_INST/PLLCLK_INST -extendOuterX 10 -extendOuterY 20 -layer M2_P48  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   "*" 2 The following command creates a mark layer shape on M2_P48 that blocks out DTMF_INST/PLLCLK_INST and expands the no-mark layer shape by 10 in X direction and by 20 in Y direction:  createSpecialMarkLayerShape -cutOutBlockInsts DTMF_INST/PLLCLK_INST -extendX 10 -extendY 20 -layer M2_P48  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

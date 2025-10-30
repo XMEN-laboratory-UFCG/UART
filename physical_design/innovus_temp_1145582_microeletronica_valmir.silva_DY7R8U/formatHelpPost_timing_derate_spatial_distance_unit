@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_derate_spatial_distance_unit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_derate_spatial_distance_unit\fR
+.SH Syntax \fBtiming_derate_spatial_distance_unit\fR   {default | 1um | 1nm}
+.P Default: default
+.P Specifies distance units in the SOCV and AOCV library formats.
+.P This global variable supports 3 distance units - default, 1um, and 1nm. The default value is the default units that are derived from the current system units for distance (um/nm overrides the default).
+.P To set this global variable, use the set command.
+.P Note: The timing_derate_spatial_distance_unit global variable should be set before a design is loaded. 
+.P

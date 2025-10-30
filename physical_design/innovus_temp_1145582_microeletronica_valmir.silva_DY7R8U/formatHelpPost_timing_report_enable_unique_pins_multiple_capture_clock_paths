@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_enable_unique_pins_multiple_capture_clock_paths  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_enable_unique_pins_multiple_capture_clock_paths\fR
+.SH Syntax \fBtiming_report_enable_unique_pins_multiple_capture_clock_paths\fR 
+.P Default: false
+.P Enables reporting of different paths with respect to the reference clocks in the unique pins. 
+.P To set this global variable, use the set command.
+.P

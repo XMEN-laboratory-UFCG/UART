@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_extract_model_exhaustive_validation_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_extract_model_exhaustive_validation_mode\fR
+.SH Syntax \fBtiming_extract_model_exhaustive_validation_mode\fR  {true | false} 
+.P Default: false
+.P Enables extracted timing model (ETM) validation at the minimum and maximum indices of the slew load indices.
+.P When set to false, the ETM validation is done only for the input slews/output-loads that have been asserted on the design during timing model extraction. 
+.P When set to true, the software uses the Extremity-Validation (EV-ETM) methodology that allows ETM to model the timing arcs in the design for a range of discrete input slews/output-loads, thus providing a more comprehensive validation.
+.P To set this global variable, use the set command.
+.P

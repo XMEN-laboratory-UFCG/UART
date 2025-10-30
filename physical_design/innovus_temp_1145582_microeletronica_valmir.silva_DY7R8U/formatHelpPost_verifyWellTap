@@ -1,0 +1,32 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH verifyWellTap  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBverifyWellTap\fR \-  Generates violation markers for missing well-tap cells and for well-tap cells that do not meet the rule specified for the distance between well-tap cells
+.SH Syntax \fBverifyWellTap\fR  [-help]  [-area <x1 y1 x2 y2>]  [-avoidAbutment]  [-check <string>]  [-cell <list_of_well_tap_cells>]  [-fromEdge]  [-layer <layer_name>]  [-powerDomain <powerDomainName>]  [-report <filename>]  [-rule <distance>]  [-siteOffset <number_of_sites>]  [-wellCutCell <list_of_well_cut_cells>] 
+.P Generates violation markers for missing well-tap cells and for well-tap cells that do not meet the rule specified for the distance between well-tap cells. Optionally, generates a well-tap violation report.
+.P Honors the set_well_tap_mode settings for -cell, -rule, -well_cut_cell, -bottom_tap_cell, and -top_tap_cell options.
+.P Marks violations in the area where well-tap placement violates the rule, covering the shared well of abutting rows. If there is no abutting row, marks the violation where it covers only one-half of a row with a violation.
+.P Reports the actual distance between well-tap cells, as well as the rule distance. If there are no well-tap cells in a row and the row that abuts it, or no well-tap cells between the row end and the edge of a block, the software generates a message.
+.P Does not check row areas that are covered by blocks and their halos, or by placement blockages.
+.P The software places well-tap cells with the addWellTap command. You can delete well-tap cells with the deleteFiller command. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each verifyWellTap parameter.  For a detailed description of the command and all its parameters, use the man command: man verifyWellTap  "\fB-area <x1 y1 x2 y2>\fR" Specifies the area in which well-taps are to be verified.   "\fB-avoidAbutment\fR" Checks that there is no abutted tap cell in the vertical and horizontal directions.   "\fB-check <string>\fR" Checks the latchup rule violation for either Nwell or Pwell. The <string> can be either power (for Nwell check) or ground (for Pwell check).  "\fB-cell <list_of_well_tap_cells>\fR" Specifies the well-tap cells. If not specified, uses cells defined as CLASS CORE WELLTAP in the Macro section of the LEF file.  "\fB-fromEdge\fR" Checks the rule distance from the right and left edges of the well tap cells, instead of from the center line. Use this parameter when the design has well-tap cells of different widths.  If this parameter is not specified, verifyWellTap checks the rule distance from the center line of the well-tap cells.   "\fB-layer <layer_name>\fR" Specifies the layer name to check the rule.   "\fB-powerDomain <powerDomainName>\fR" Limits checking to the specified power domain. If you do not use this parameter, <verifyWellTap> checks the default domain with the designs of N3 or below nodes, and checks the entire design for the other nodes.  "\fB-report <filename>\fR" Specifies the report name.  Default: <topCellName>.welltap.rpt  "\fB-rule <distance>\fR" Specifies the maximum distance between two well-tap cells. The spacing between two well-tap cells should be twice the -rule value when measured from center to center or edge to edge. The distance between tap and row end should be same as the -rule value. For example, verifyWellTap -rule 50.   "\fB-siteOffset <number_of_sites>\fR" Checks the offset value in number of sites that vertical taps need to be aware of.  Minimum:1   Maximum: INT_MAX  "\fB-wellCutCell <list_of_well_cut_cells>\fR" Specifies the list of cells with the well cuts. Use this option to flag latch-up violations due to well cut cells. 
+.SH Example
+.P The following command displays violations due to well cut cells:
+.P verifyWellTap -rule 30 -wellCutCell {EP32_VDDI_DSWITCH_50n_NOBUF EP32_VDDI_DSWITCH_50n_BUF} -cell {EP8T32_VDDI_GNDS_CDM EP8T32_VDDI_VDDS_CDM} 
+.SH Related Information
+.RS  "*" 2 The following sections in the Placing the Design chapter of User Guide.
+.RE
+.RS
+.RS  "*" 2 Adding Well-Tap Cells
+.RE 
+.RE
+.RS
+.RS  "*" 2 Deleting Well-Tap Cells
+.RE 
+.RE
+.RS  "*" 2 "Substrate Biasing" in the Low Power Design chapter of User Guide.
+.RE
+.RS  "*" 2 Eco Flows chapter of User Guide.
+.RE
+.P

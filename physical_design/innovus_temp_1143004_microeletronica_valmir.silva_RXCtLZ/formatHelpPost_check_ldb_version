@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH check_ldb_version  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheck_ldb_version\fR \-  Reports the LDB version, size, and the source of the software that is used to generate the library database (LDB) file
+.SH Syntax  \fBcheck_ldb_version\fR   -ldb<string>  [-help] 
+.P Reports the LDB version, size, and the source of the software that is used to generate the library database (LDB) file. The LDB is Cadence binary library format. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  "\fB-ldb<string>\fR" Specifies the LDB (library database) file whose version is to be printed. 
+.SH Examples
+.P The following example displays the missing features/recommendations for the library database cell_w.db:   > check_ldb_version -ldb cell_w.ldb
+.P The output is as shown below:  LDB file compiled with tool version: v15.20 ((64bit) mm/dd/yyyy 08:40 (Linux 2.6.18-371.el5))  File Size is xxxxx  Source Tool: Innovus
+.P

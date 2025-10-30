@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getPinDensityMapMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetPinDensityMapMode\fR
+.SH Syntax 
+.P getPinDensityMapMode  [-gridInMicron]   [-gridInRow]   [-threshold]   [-quiet]
+.P Returns the information about setPinDensityMapMode parameters in the Innovus log file and in the Innovus console. Returns the following information:
+.RS  "*" 2 Parameter name
+.RE
+.RS  "*" 2 Current value
+.RE
+.RS  "*" 2 Type (Boolean, string, and so on)
+.RE
+.RS  "*" 2 Source of current value (default, user)
+.RE
+.P If you do not specify a parameter, the software displays values for all of the setPinDensityMapMode mode parameters. 
+.SH Related Information
+.RS  "*" 2 reportPinDensityMap  "*" 2 setPinDensityMapMode
+.RE
+.P

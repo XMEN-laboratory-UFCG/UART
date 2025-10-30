@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH ecoSwapSpareCell  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBecoSwapSpareCell\fR \-  Swaps an unplaced or placed cell with a cell in the spare cell list
+.SH Syntax \fBecoSwapSpareCell\fR   [-help]   instName  spareCellInstName  [-keepScan]  [-noScanTrace]   [-preservePin {<list_of_spare_cell_pins>}]   [-suffix string]
+.P Swaps an unplaced or placed cell with a cell in the spare cell list.
+.P You can specify this command only after you have run specifySpareGate.
+.P This command can swap cells of the same cell type (same footprint and identical pin name). Cells of different sizes can also be swapped. The spare cell is connected according to the specified global net connections.
+.P If the cell to be swapped is unplaced, it is mapped to the spare cell. <instName> is deleted, and its connection is transferred to the spare cell. If the cell to be swapped is placed, it is swapped with the spare cell and is renamed to <instNameSuffix> if the -suffix option is used. If a suffix is not specified, the <instName> cell is renamed to <spareCellInstName>. The <instName> cell's connections are transferred to <spareCellInstName>. The input of <instName> is tielo, based on the global connection definition. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each ecoSwapSpareCell parameter.   For a detailed description of the command and all of its parameters, use the man command:  man ecoSwapSpareCell  "\fB-keepScan\fR" Keeps the scan connection for both the spare cell and the specified instances. Before you can use this parameter, you must first identify the scan connections by running a scan trace.   "\fB<instName>\fR" Specifies the name of the cell to swap.  "\fB-noScanTrace\fR" Disables scan tracing while swapping.  "\fB-preservePin {<list_of_spare_cell_pins>}\fR" Specifies a list of pins whose connection you want to preserve while swapping spare cells. The same pin on both the spare cell and specified instances is preserved. If both the instance and the spare cell are placed instances, the -preservePin parameter is effective for both cells. If the instance is unplaced, -preservePin only affects the spare cell because the instance is deleted.  "\fB<spareCellInstName>\fR" Specifies the spare cell in the spare cell list to swap with the placed cell.  "\fB-suffix <string>\fR" Specifies a string that is appended to the <instName> after swapping. 
+.SH Examples
+.P The following example swaps a placed cell, DTMF_INST/TDSP_CORE_INST/PROG_BUS_MACH_INST/i_9649, with spare cell spare1:
+.P specifySpareGate -inst *spare*  ecoPlace -useSpareCells  checkPlace
+.P ecoSwapSpareCell DTMF_INST/TDSP_CORE_INST/PROG_BUS_MACH_INST/i_9649 spare1 
+.SH Related Information
+.RS  "*" 2 checkPlace   "*" 2 ecoPlace   "*" 2 specifySpareGate  "*" 2 Interactive ECO chapter in the Innovus User Guide.   "*" 2 ECO Flows chapter in the Innovus User Guide. 
+.RE
+.P

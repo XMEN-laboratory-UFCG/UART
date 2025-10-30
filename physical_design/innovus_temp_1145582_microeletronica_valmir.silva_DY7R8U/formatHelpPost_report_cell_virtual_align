@@ -1,0 +1,2 @@
+ "\fB-cell <cells>\fR" Specifies the lib cells that require virtual alignment
+.SH Syntax \fBreport_cell_virtual_align\fR   [-help]   [-cell <cells>]

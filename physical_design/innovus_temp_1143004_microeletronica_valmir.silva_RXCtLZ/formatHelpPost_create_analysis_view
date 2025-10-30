@@ -1,0 +1,26 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_analysis_view  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_analysis_view\fR \-  Creates an analysis view object that associates a delay calculation corner with a constraint mode
+.SH Syntax  \fBcreate_analysis_view\fR  -name <viewName>  -constraint_mode <modeName>   -delay_corner <dcCornerObj> 
+.P Creates an analysis view object that associates a delay calculation corner with a constraint mode. An analysis view object provides all of the information necessary to control a single multi-mode multi-corner analysis.
+.P After creating analysis views, use the set_analysis_view command to specify which views to use for setup and hold optimization or timing analysis.
+.P Use this command after creating constraint modes (create_constraint_mode) and delay calculation corners (create_delay_corner). 
+.SH Parameters    "\fB-name <viewName>\fR" Specifies the name of the analysis view being defined.  "\fB-constraint_mode <modeName>\fR" Specifies the name of the constraint mode to associate with this analysis view. A constraint mode groups a set of constraints to be used with any given analysis. To create the constraint mode, use the create_constraint_mode command.  "\fB-delay_corner <dcCornerObj>\fR" Specifies the name of the delay calculation corner object to associate with this analysis view. A delay calculation corner object contains all of the information needed to control delay calculation for a specific analysis view. To create a delay calculation corner, use the create_delay_corner command. 
+.SH Examples
+.RS  "*" 2 The following command creates an analysis view called missionSlow using the constraint mode missionSetup and the delay calculation corner dcWCCOM: 
+.RE
+.P create_analysis_view   -name missionSlow
+.P -constraint_mode missionSetup
+.P -delay_corner dcWCCOM
+.RS  "*" 2 The following command creates an analysis view called missionFast using the constraint mode missionHold and the delay calculation corner dcBCCOM:  
+.RE
+.P create_analysis_view 
+.P -name missionFast
+.P -constraint_mode missionHold
+.P -delay_corner dcBCCOM 
+.SH Related Information
+.RS  "*" 2 set_analysis_view  "*" 2 create_constraint_mode  "*" 2 create_delay_corner
+.RE
+.P

@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_via_pillars  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_via_pillars\fR \-  The command returns a via pillar list on a cell pin
+.SH Syntax \fBget_via_pillars\fR  [-help]  {[-term <term>[-required]] | -instterm <instterm>} 
+.P The command returns a via pillar list on a cell pin. 
+.SH  Parameters    "\fB -help\fR" Prints a brief description that includes the type and default information for each get_via_pillars parameter.  For a detailed description of the command and all its parameters, use the man command:  man get_via_pillars  "\fB-instterm <instterm>\fR" Specifies the InstTerm name or pointer.  "\fB-required\fR" Returns the required flag.  "\fB-term <term>\fR" Specifies the Term name (cell name/term base_name) or pointer.
+.P

@@ -1,7 +1,13 @@
 # Version:1.0 MMMC View Definition File
-# Do Not Remove Above Line
-create_rc_corner -name RCMAX -cap_table {../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -T {125} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
-create_rc_corner -name RCMIN -cap_table {../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -T {-40} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+# Do Not Remove Above L#ine
+#create_rc_corner -name RCMAX -cap_table {../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -T {125} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+#create_rc_corner -name RCMIN -cap_table {../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl} -T {-40} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+
+
+
+ create_rc_corner -name RCMAX -T {125} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0    } -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+  3 create_rc_corner -name RCMIN -T {-40} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0    } -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../qrc/qx/gpdk045.tch}
+
 create_library_set -name slow -timing {../lib/slow_vdd1v0_basicCells.lib}
 create_library_set -name fast -timing {../lib/fast_vdd1v0_basicCells.lib}
 create_constraint_mode -name funcional -sdc_files {../sim/outputs/uart_sdc.sdc}

@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_cppr_skip_clock_reconvergence_for_unmatched_clocks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_cppr_skip_clock_reconvergence_for_unmatched_clocks\fR
+.SH Syntax \fBtiming_cppr_skip_clock_reconvergence_for_unmatched_clocks\fR {true | false}  
+.P Default: false
+.P Allows the software to skip re-convergence of unmatched clocks.
+.P When set to true, the software uses the farthest branch point from the register clock pins when the launching and capturing clocks are different - the re-converge points are ignored and not searched.
+.P To set this global variable, use the set command.
+.P

@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_derate_negative_delay_backward_compatibility  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_derate_negative_delay_backward_compatibility\fR
+.SH Syntax \fBtiming_derate_negative_delay_backward_compatibility\fR {true | false} 
+.P Default: true
+.P Controls the effective derate calculation for negative delays. When effective derate is requested for negative delays, the value will be converted according to the negative delay scaling rule, e.g., 2 - positiveVal.
+.P To set this global variable, use the set command.
+.P

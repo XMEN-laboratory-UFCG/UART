@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH print_message  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBprint_message\fR \-  Generates a message that is included in the report_message output if the message is designated as an error or a warning
+.SH Syntax \fBprint_message\fR  -help   <formatString>  [<args>]   [-error]   [-warning] 
+.P Generates a message that is included in the report_message output if the message is designated as an error or a warning. 
+.SH Parameters   "\fB<args>\fR" Specifies the format argument value to print.   Data_type: string, optional  "\fB-error\fR" Specifies the message is an error. A prefix will be added.  Data_type: bool, optional  "\fB<formatString>\fR" Specify the format specifier like sprintf or Tcl's format command.  Data_type: string, required  "\fB-help\fR" Prints a brief description that includes the type and default information for each print_message parameter.  For a detailed description of the command and all of its parameters, use the man command:   man print_message.  "\fB-warning\fR" Specifies that the message is a warning. A prefix will be added.  Data_type: bool, optional 
+.SH   Examples
+.P The following commands generate an error and a message, which are included in the report_message output:
+.P [DEV]innovus> print_message -error "A test %s." "from the user"  ERROR: (user): A test from the user.
+.P innovus> print_message -warning "A test %s." "from the user"  WARN: (user): A test from the user.
+.P innovus> print_message "A test %s." "from the user"  A test from the user.
+.P innovus > report_message
+.P *** Summary of all messages that are not suppressed in this session:  Severity      ID       Count         Summary   ERROR       no_id       1            A test %s.  ERROR       user        1            A test %s.  WARN        user        1            A test %s.  *** Message Summary: 1 warning(s), 2 error(s) 
+.SH Related Information
+.RS  "*" 2 report_message
+.RE
+.P

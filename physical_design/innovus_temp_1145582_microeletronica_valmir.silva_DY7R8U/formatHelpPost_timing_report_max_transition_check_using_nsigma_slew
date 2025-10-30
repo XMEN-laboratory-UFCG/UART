@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_max_transition_check_using_nsigma_slew  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_max_transition_check_using_nsigma_slew\fR
+.SH Syntax \fBtiming_report_max_transition_check_using_nsigma_slew\fR    {true | false}
+.P Default: false
+.P Enables the report_constraint command to use mean and sigma slew values for reporting transition values in DRV checks.
+.P When set to true, in the SOCV flow the report_constraint command uses the mean plus n-sigma slew values for DRV checks.
+.P When set to false, the report_constraint command will report only the mean slews.
+.P To set this global variable, use the set command.
+.P

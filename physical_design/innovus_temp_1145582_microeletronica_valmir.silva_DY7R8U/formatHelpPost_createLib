@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createLib  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateLib\fR \-  Copies or attaches a technology database to a library
+.SH Syntax \fBcreateLib\fR  [-help]  <libName>  [-libPath <path>]  [-noCompress]  {-attachTech <techlib> |  -copyTech <techlib> |  -referenceTech <techliblist>} 
+.P Copies or attaches a technology database to a library. If the library exists, this command does not update the library.
+.P Note: The parameters must appear in the order specified by the syntax.
+.P The createLib command is part of the OpenAccess design flow. Use this command to create an OpenAccess library at the specified path. createLib needs to be called only once before the design is saved. Subsequent saveDesign calls to the same library will automatically find out the library path that gets stored in cds.lib. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each createLib parameter.  For a detailed description of the command and all of its parameters, use the man command: man createLib.  "\fB<libName>\fR" Specifies the name of a library to be created. The software creates the library and adds its name to the cds.lib file.  "\fB-libPath <path>\fR" Specifies the name of a directory in which to save the library. The path you specify must include the directory that will become the library itself.  Default:
+./<libName> (Saves the library to the current working directory)  "\fB-noCompress\fR" Creates a new library without any compression irrespective of the compression settings provided by the setOaxMode command.  "\fB-attachTech <techlib>\fR" Attaches the technology database specified by the technology library to the library that is to be created.  "\fB-copyTech <techlib>\fR" Copies the technology database specified by <techLib> to the library specified by <libName>, and saves the library to the current working directory.  "\fB-referenceTech <techliblist>\fR" Creates a local technology database in the design library that can be modified incrementally. 
+.SH Examples
+.RS  "*" 2  The following command creates the library myLib in the current directory, and attaches the technology database in myRefLib to myLib:  createLib myLib -attachTech myRefLib  Note: Note: If myRefLib is read-only, the saveDesign -cellview command generates an error if it needs to update the technology database.  "*" 2 The following command creates the library TEST_LIB at the specified path, and attaches the technology database in TEST_REF_LIB to TEST_LIB:  createLib TEST_LIB -libPath
+./outputs/TEST_LIB -attachTech TEST_REF_LIB
+.RE
+.RS  "*" 2 The following command generates an error because only one reference library can be specified:   createLib myLib -attachTech {myRefLib1 myRefLib2}
+.RE
+.RS  "*" 2 The following command creates the library myLib, and copies the technology database from myRefLib to myLib. If myRefLib is modified, the two technology databases will become out of sync. Additionally, any future write operations from the saveDesign -cellview command will modify the technology database copy in myLib and also cause the databases to be out of sync.   createLib myLib -copyTech myRefLib 
+.RE
+.RS  "*" 2 The following command creates a new library which references existing technology databases (refLib1 and refLib2), but allows local technology updates if required (typically to add new custom vias to the local technology database).   createLib myLib -referenceTech {refLib1 refLib2}
+.RE 
+.SH Related Information
+.RS  "*" 2 add_oa_library_property  "*" 2 saveDesign  "*" 2 setOaxMode
+.RE
+.P

@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getPtnPinStatus  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetPtnPinStatus\fR \-  Retrieves the pin status that was defined with the setPtnPinStatus command
+.SH Syntax \fBgetPtnPinStatus\fR  [-help]  [-cell <cellName>]   [-pin {<pinName | pinNameList>}] 
+.P Retrieves the pin status that was defined with the setPtnPinStatus command. 
+.SH Parameters    "\fB-cell<cellName>\fR" Specifies the name of the partition. You can use wildcards (*?) with this parameter.  Data_type: string, optional  "\fB-help\fR" Outputs a brief description that includes type and default information for each getPtnPinStatus parameter.  For a detailed description of the command and all of its parameters, use the man command:   man getPtnPinStatus.  "\fB-pin<pinName>|<pinNameList>\fR" Specifies the name of the pin(s) of the partition. You can use wildcards (*?) with this parameter.  Default: If the pin name is not specified, the command is run on all pins.  Data_type: string, optional 
+.SH Example
+.P The following command tells the status of pin DATA of partition EUG:
+.P getPtnPinStatus -pin DATA -cell EUG 
+.SH Related Information
+.RS  "*" 2 setPtnPinStatus  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

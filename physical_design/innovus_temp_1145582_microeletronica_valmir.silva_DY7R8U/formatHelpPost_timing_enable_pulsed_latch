@@ -1,0 +1,29 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_pulsed_latch  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_pulsed_latch\fR
+.SH Syntax  \fBtiming_enable_pulsed_latch\fR  {true | false}  
+.P Default: true
+.P Enables pulse-latch analysis.
+.P When set to true, the pulse-latch analysis mode provides several additional pulse-clock specific constraint specifications and reporting capabilities.
+.P When in pulse-latch mode, you can use the following pulse clock constraints:
+.RS  "*" 2 set_pulse_clock_max_width
+.RE
+.RS  "*" 2 set_pulse_clock_min_width 
+.RE
+.RS  "*" 2 set_pulse_clock_max_transition
+.RE
+.RS  "*" 2 set_pulse_clock_min_transition
+.RE
+.P Additionally, in this mode, the report_constraint command supports the following pulse clock check types:
+.RS  "*" 2 pulse_clock_max_width
+.RE
+.RS  "*" 2 pulse_clock_min_width
+.RE
+.RS  "*" 2 pulse_clock_max_transition
+.RE
+.RS  "*" 2 pulse_clock_min_transition
+.RE
+.P To set this global variable, use the set_global command.
+.P

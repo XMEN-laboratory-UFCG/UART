@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH view_package_results  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBview_package_results\fR
+.SH Syntax  \fBview_package_results\fR  [-help]   [-result_file <<filename>>]   -type <<package_analysis_type>>  [-workspace <<workspacename>>]  
+.P Specifies to view the package IR drop analysis results in the PowerDC GUI which will be invoked from within Voltus/Innovus.
+.P 
+.SH Parameters   "\fB-help\fR" Outputs the command usage and a brief description about the command parameters.  "\fB-result_file <<filename>>\fR" Specifies the name of the
+.xml result file.   "\fB-type <<package_analysis_type>>\fR" Specifies the type of package analysis. Currently, the software supports only the dc package analysis type.   "\fB-workspace <<workspace_name>>\fR" Specifies the workspace name for package analysis (powerDC). The file name extension is
+.pdcx. 
+.SH Example
+.RS  "*" 2 The following example specifies to view the package analysis results  view_package_results -type dc
+.RE 
+.SH Related Information
+.RS  "*" 2 set_advanced_package_options  "*" 2 extract_package  "*" 2 "Package Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_net_parasitics  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_net_parasitics\fR \-  Reports the RC parasitics of the specified net
+.SH Syntax \fBreport_net_parasitics\fR   <net_name>  [-help]  -rc_corner <rc_corner_name>  [-file_name <output_file_name>]  
+.P Reports the RC parasitics of the specified net.
+.P The report_net_parasitics command reports a list of attackers in the order of worst coupling capacitance by default. The software determines and reports the probable top N worst attackers for a victim. The command output will show worst coupling capacitance, in addition to RC parasitics. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each report_net_parasitics parameter. For a detailed description of the command and all of its parameters, use the man command:  man report_net_parasitics.   "\fB-file_name <output_file_name>\fR" Specifies the name of the output file.  "\fB-rc_corner <rc_corner_name>\fR" Specifies the RC corner name for which the RC parasitics are to be reported.  "\fB<net_name>\fR" Specifies the name of the net for which the RC parasitics are to be reported. 
+.SH Example
+.RS  "*" 2 The following command reports the RC parasitics for net, NET1 for RC corner, rc_best:   report_net_parasitics -rc_corner rc_best NET1  Net: NET1  RC Corner: rc_best  Total Cap = 0.473082 ff  Total Res = 2.104041 ohms  Total XCap = 0.334035 ff  Cap Distribution:  Total Ground Cap = 0.139046 ff   XCap With Nets:  NET3 = 0.059964 ff   NET4 = 0.040277 ff   NET5 = 0.233794 ff
+.RE 
+.SH Related Information
+.RS  "*" 2 extractRC  "*" 2 setExtractRCMode
+.RE
+.P

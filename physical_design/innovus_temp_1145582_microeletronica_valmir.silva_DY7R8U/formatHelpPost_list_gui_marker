@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH list_gui_marker  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBlist_gui_marker\fR \-  Gives a list of GUI markers in the design layout
+.SH Syntax \fBlist_gui_marker\fR 
+.P Gives a list of GUI markers in the design layout. 
+.SH Parameters   "\fB-help\fR" Prints a brief description of the list_gui_marker command.  For a detailed description of the command, use the man command: man list_gui_marker. 
+.SH Example
+.RS  "*" 2 The following command shows a list of GUI markers:  list_gui_marker  The following is displayed:  {name:aa  coordinate:(100.000 100.000)}
+.RE 
+.SH Related Information
+.RS  "*" 2 add_gui_marker  "*" 2 remove_gui_marker
+.RE
+.P

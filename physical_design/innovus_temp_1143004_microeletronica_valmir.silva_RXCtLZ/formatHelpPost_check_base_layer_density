@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH check_base_layer_density  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheck_base_layer_density\fR \-  Checks the CPODE density by the defined pattern
+.SH Syntax \fBcheck_base_layer_density\fR  [-help]   [-layer <layerName>]   [-site_parameter <sitePara>]
+.P Checks the CPODE density by the defined pattern. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each check_base_layer_density parameter.  For a detailed description of the command and all of its parameters, use the man command: man check_base_layer_density.  "\fB-layer <layerName>\fR" Specifies the layer name for the base layer density check.  "\fB-site_parameter <sitePara>\fR" Specifies the site parameter of the CPODE layer. The site parameters of the CPODE layer include:
+.RS  "*" 2 shape_num: Number of the CPODE shape  "*" 2 site_num: Number of the site in row.  "*" 2 step: Number of stepping
+.RE   The tool checks the CPODE number of consecutive site_num sites by every step steps. The CPODE number should be less than the defined shape_num. Otherwise, the tool will give a violation. 
+.SH Example
+.RS  "*" 2  In the following example, the command checks the CPODE in the number of consecutive 3 sites by every 1 step. The CPODE number should less than 4.  check_base_layer_density -site_parameter  {4 4 1}  -layer  CPODE  Number of CPODE:3  Number of site in row:3  Number of stepping:1   "*" 2 In the following example, the command checks the CPODE number of consecutive 2 sites by every 1 step. The CPODE number should less than 4.  check_base_layer_density -site_parameter  {5 4 1} -layer  CPODE  Number of CPODE:5  Number of site in row:4  Number of stepping:1
+.RE
+.P

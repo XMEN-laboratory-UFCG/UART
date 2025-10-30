@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getSrouteMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetSrouteMode\fR \-  For descriptions of the above options see setSrouteMode
+.SH Syntax \fBgetSrouteMode\fR   [-help]   [-allowWrongWayRoute]   [-avoidOverCoreRowLayer]   [-blockPinConnectRingPinCorners]   [-blockPinRouteWithPinWidth]  [-connectBrokenCorePin]  [-corePinIgnoreObs]  [-corePinJoinLimit]   [-corePinLength]   [-corePinLengthAsInstance]   [-corePinMaxViaScale]  [-corePinReferToFollowPin]   [-corePinReferenceMacro]  [-corePinSiteRailWidth]  [-corePinSnapTo]  [-corePinStopRoute]   [-extendNearestTarget]   [-jogThresholdRatio]   [-layerNormalCost]   [-layerWrongWayCost]  [-nonDefault]   [-padPinMinViaSize]   [-padPinSplit]   [-padRingLefConvention]   [-secondaryPinMaxGap]   [-secondaryPinRailWidth]   [-signalPinAsPG]   [-splitLongVia]   [-srpgAonCellPin]   [-targetNumber]   [-targetSearchDistance]   [-timeLimit]   [-treatEndcapAsCore]  [-treatWelltapAsEndcap]  [-viaConnectToShape]   [-viaThruToClosestRing]   [-quiet]
+.P For descriptions of the above options see setSrouteMode. 
+.SH Related Information
+.RS  "*" 2 sroute  "*" 2 setSrouteMode  "*" 2 Power Planning and Routing chapter in the Innovus User Guide
+.RE
+.P

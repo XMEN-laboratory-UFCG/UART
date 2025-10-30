@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_ideal_network  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_ideal_network\fR \-  Identifies driver pins or ports as sources of an ideal network
+.SH Syntax \fBset_ideal_network\fR  <object_list>  [-no_propagate] 
+.P Identifies driver pins or ports as sources of an ideal network. By default, all pins and nets in the transitive fanout of the specified port or driver pin are marked as ideal. Ideal network marking normally propagates through combinational cells and stops at sequential cells.
+.P Note: This command is not view/mode-based - it applies to all the active views.
+.P The set_ideal_network command sets 0 slew for bi-directional pins. This ensures that unnecessary DRV violations do not occur. 
+.SH Parameters    "\fB-no_propagate\fR" Prevents propagation through transitive fanout.  "\fB<object_list>\fR" Specifies a list of objects - instance pins, ports, or nets. 
+.SH Examples
+.RS  "*" 2 The following command marks the fanout of the input port scan_se as an ideal network:  > set_ideal_network scan_se  This can be observed in the output of below mentioned report_timing command where the whole fanout of 'scan_se' is considered as ideal :  > report_timing -from scan_se  Path 1: MET Setup Check with Pin RESULTS_CONV_INST/r697_reg[12]/CK   Endpoint: RESULTS_CONV_INST/r697_reg[12]/SE (v) checked with trailing edge of 'm_rcc_clk'  Beginpoint: scan_se (v) triggered by leading edge of 'm_ram_clk'  Path Groups: {m_rcc_clk}  Analysis View: scan_fast_RCMIN  Other End Arrival Time 20.700  - Setup 1.122  + Phase Shift 0.000  + Cycle Adjustment 40.000  - Uncertainty 0.400  = Required Time 59.178  - Arrival Time 4.000  = Slack Time 55.178  Clock Rise Edge 0.000  + Input Delay 4.000  = Beginpoint Arrival Time 4.000  -----------------------------------------------------------------   Pin                  Cell      Load   Slew   Delay     Arc                                                          Annotation   -----------------------------------------------------------------   scan_se ->                     0.000  0.000            Ideal  FE_OFC413_scan_se/Z  BUF_X32   0.000  0.000  0.000     Ideal  FE_OFC247_scan_se/Z  BUF_X16   0.000  0.000  0.000     Ideal  FE_OFC248_scan_se/Z  BUF_X16   0.000  0.000  0.000     Ideal  FE_OFC249_scan_se/Z  BUF_X8    0.000  0.000  0.000     Ideal  FE_OFC250_scan_se/Z  BUF_X16   0.000  0.000  0.000     Ideal  FE_OFC251_scan_se/Z  BUF_X4    0.000  0.000  0.000     Ideal  RESULTS_CONV_INST/r697_reg[12]/SE                       SDFF_X2   0.000  0.000 0.000 Ideal  ------------------------------------------------------------
+.RE 
+.SH Related Information
+.RS  "*" 2 reset_ideal_network
+.RE
+.P

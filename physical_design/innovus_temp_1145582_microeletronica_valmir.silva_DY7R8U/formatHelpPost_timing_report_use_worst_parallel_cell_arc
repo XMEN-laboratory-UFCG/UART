@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_use_worst_parallel_cell_arc  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_use_worst_parallel_cell_arc\fR
+.SH Syntax  \fBtiming_report_use_worst_parallel_cell_arc\fR  {true | false}  
+.P Default: false
+.P When set to false, setting the -nworst parameter reports several paths by selecting parallel arcs in the library cell between two pins.
+.P When set to true, only a single worst path is reported by selecting the worst delay arc among all parallel arcs of a cell. For example, for reporting timing through A to Y pins (where the cell is a 2-input cell), the parallel arc is applicable for the same input and output pin. So the worst arc for A->Y is chosen from all arcs of A->Y.
+.P To set this global variable, use the set_global command.
+.P

@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH pack_align_macros  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBpack_align_macros\fR \-  Pushes macros (or pack of macros) to core corners and marks them fixed
+.SH Syntax \fBpack_align_macros\fR  [-help] 
+.P Pushes macros (or pack of macros) to core corners and marks them fixed.
+.P The pack_align_macros command executes the following two steps:
+.RS  "*" 2 Aligns macros of the same size (initially placed together) on the entire design.  "*" 2 Pushes macros (or pack of macros) to core corners and marks them fixed.
+.RE
+.P The pack_align_macros command honors the following rules of set_macro_place_constraint. 
+.RS  "*" 2 Min space to macro  "*" 2 Min space to core  "*" 2 Forbidden space to macro  "*" 2 Forbidden space to core  "*" 2 Avoid abut macro edge with pins  "*" 2 Macro corner keepout
+.RE
+.P Figure 1: Macros before running pack_align_macros
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P Figure 2: Macros aligned after running pack_align_macros
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P The Figure 1 and Figure 2 show a design before and after running the pack_align_macros, respectively. The Figure 2 shows that the push till the core corner takes place when the gap between the core corner and the corner of the nearest macro satisfies the following  condition:  GY <= MY  And  GX <= MX
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P 
+.SH Parameters
+.P None
+.P

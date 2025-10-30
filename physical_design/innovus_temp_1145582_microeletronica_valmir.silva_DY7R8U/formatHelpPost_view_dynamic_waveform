@@ -1,0 +1,27 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH view_dynamic_waveform  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBview_dynamic_waveform\fR \-  Provides the ability to view dynamic current or voltage waveforms generated during analysis
+.SH Syntax  \fBview_dynamic_waveform\fR   [-help]   [-type [current | voltage | profile]]  [-waveform_files {<file1> <file2>
+... <fileN>}]  [-instance_name <instance_name>]  [-composite_waveform_type [hierarchy | clock | clock_with_seq       | total_current]  [-composite_waveform_name [<hierarchy_name>| <clock_name>]]  [-power_db [<powermeter>.db]]  [-effective_voltage_waveform]  [-free_data]  [-state_directory <directory_name>]  [-hier_block_file<filename>]  [-clear_hier] 
+.P Provides the ability to view dynamic current or voltage waveforms generated during analysis. 
+.SH Parameters    "\fB-clear_hier\fR" Specifies to clear the hierarchical block data that was loaded using the -hier_block_file parameter.   "\fB-composite_waveform_name [<hierarchy_name> | <clock_name>]\fR" Only available for -type current.  If hierarchy_name is specified, plots total current waveform for the specified hierarchy.  If clock_name is specified, plots current waveform for the selected or all clocks.  If -composite_waveform_type clock_with_seq is specified, plots total current waveform for all sequential cells.  If -composite_waveform_type total_current option is specified, plots total current waveform for all instances in the current file.  "\fB-composite_waveform_type [hierarchy | clock | clock_with_seq | total_current]\fR" You can specify to view a waveform for a specific hierarchy, a clock, clock with sequential cells, or total current.  "\fB-effective_voltage_waveform\fR" Plots the effective voltage waveform (i.e. VDD - VSS).  You must specify the voltage for two nets to generate the effective waveform.  "\fB-free_data \fR" Frees the memory but leaves the menu entries.  "\fB-help \fR" Outputs a brief description that includes the type and default information for each view_dynamic_waveform parameter.  For a detailed description of the command and all of its parameters, use the man command man view_dynamic_waveform.  "\fB-hier_block_file<filename>\fR" Specifies to analyze the multiple (top/block-level) current (.ptiavg) files of a hierarchical design in the SimVision waveform viewer interface. This parameter can be used to easily find an instance of a specific block when there are multiple blocks with the same instance name.  -hier_block_file specifies a text file that contains the list of blocks.  For example, if the block name BLOCK_A is specified in the text file, you can match the instance named BLOCK_A/Instance_A and Instance_A in the BLOCK_A's
+.ptiavg file.  When specifying multiple block names in the text file, one block name should be given per line.  The following is a snippet from the block_hier file:  u_top/vcore3  u_top/vcore2  u_top/vcore1  "\fB-instance_name <instance_name>\fR" Plot the waveform for the specified instance.  "\fB-power_db [<powermeter>.db]\fR" Specifies the power database.  Must be specified if -composite_waveform_type is clock or clock_with_seq.  "\fB-state_directory <directory_name>\fR" Specifies to load the state directory where the current or voltage waveform files have been saved.  The current and voltage waveforms are saved in the state directory generated during rail analysis. If you specify this state directory when viewing dynamic waveforms, the generated waveform file is automatically populated in the GUI.  "\fB-type [current | voltage | profile]\fR" Specifies to display either current (power) or voltage waveform.  The profile option displays the profiling db and the SimVision interface to view the histograms.  "\fB-waveform_files {<file1><file2>
+... <fileN>} \fR" Specifies one or more current or voltage waveform files generated with a
+.ptiavg extension. 
+.SH Examples
+.RS  "*" 2 The following command views dynamic composite total current waveforms from the file vddm_vddm.ptipeak:   view_dynamic_waveform -type current -composite_waveform_type total_current \\      -waveform_files vddm_vddm.ptipeak
+.RE
+.RS  "*" 2 The following command views the dynamic current waveform for instance inst1:   view_dynamic_waveform \\       -type current \\       -waveform_files dynamic_vss.ptiavg \\       -instance_name inst1
+.RE
+.RS  "*" 2 The following command is for viewing the total current waveform:   view_dynamic_waveform \\       -type current \\       -waveform_files dynamic_vss.ptiavg \\       -composite_waveform_type total_current
+.RE
+.RS  "*" 2 The following command plots a clock domain composite waveform:   view_dynamic_waveform \\       -type current \\       -waveform_files dynamic_vss.ptiavg \\       -power_db power.db \\       -composite_waveform_type clock \\       -composite_waveform_name clk
+.RE
+.RS  "*" 2 The following command plots a hierarchical composite waveform:   view_dynamic_waveform \\       -type current \\       -waveform_files dynamic_vss.ptiavg \\       -composite_waveform_type hierarchy \\       -composite_waveform_name ethernet_mac_2
+.RE 
+.SH Related Information
+.RS  "*" 2 set_rail_analysis_mode  "*" 2 view_dynamic_movie  "*" 2 "Dynamic Power and IRDrop Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

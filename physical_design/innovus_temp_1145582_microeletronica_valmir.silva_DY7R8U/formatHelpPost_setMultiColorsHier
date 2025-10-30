@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setMultiColorsHier  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetMultiColorsHier\fR \-  Specifies the color assignment for hierarchical instances based on the color Id from the Module Color Preference form (accessed by clicking Floorplan - Edit Floorplan - Color Module)
+.SH Syntax \fBsetMultiColorsHier\fR  [-help]   [<colorID> [<hInstName>]] 
+.P Specifies the color assignment for hierarchical instances based on the color Id from the Module Color Preference form (accessed by clicking Floorplan - Edit Floorplan - Color Module). 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each setMultiColorsHier parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setMultiColorsHier  "\fB<colorID>\fR" Specifies an integer from 0 to 29 to set the starting color ID for the specified hierarchical instance.  Default: If no ID is specified, the color ID 0 in the Module Color Preference form is applied to the selected hierarchical instances. This is the same behavior as using the Auto button on the Module Color Preference form.  "\fB<hInstName>\fR" Specifies the name of the hierarchical instance whose descendants are set to the specified color ID.  Default: if this parameter is not specified, the first hierarchical instance uses the specified color id; the second hierarchical instance uses the next color ID, and so on. 
+.SH Examples
+.RS  "*" 2 The following command specifies the color Id 3 for the first hierarchical module, the color Id 4 for the second hierarchical module, and so on.  setMultiColorsHier 3  "*" 2 In the following command, only the descendants of topModule are displayed using the color ID 3.  setMultiColorsHier 3 topModule
+.RE 
+.SH Related Information
+.RS  "*" 2 resetMultiColorsHier  "*" 2 saveColorPreference  "*" 2 saveHInstColor  "*" 2 setHInstColorId  "*" 2 set_object_color  "*" 2 setSelHInstColor  "*" 2 Floorplan Menu chapter in the Menu Reference
+.RS  "*" 2 Color Module
+.RE 
+.RE
+.P

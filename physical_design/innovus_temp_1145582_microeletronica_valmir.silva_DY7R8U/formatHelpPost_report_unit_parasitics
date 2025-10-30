@@ -1,0 +1,36 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_unit_parasitics  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_unit_parasitics\fR \-  Reports unit parasitics for individual metal layers and vias. The report prints the per unit resistance and capacitance for the specified layer
+.SH Syntax \fBreport_unit_parasitics\fR    [-help]    -layer <metal_layer_name>   -rc_corner <rc_corner_name>   [-space <wire_space_in_um>]   [-via_res <via_resistance>]   [-width <wire_width_in_um>]
+.P Reports unit parasitics for individual metal layers and vias. The report prints the per unit resistance and capacitance for the specified layer. The resistance values are reported in ohms per micron for min width and min spacing of the layer. The capacitance values are reported in femtofarad (fF) per micron for min width and min spacing of the layer.
+.P Via parasitics are printed considering the layer mentioned in the command as the lower layer of the via. The default via specified in the LEF file will be considered in this case. 
+.SH Parameters   "\fB-help  \fR" Outputs a brief description that includes type and default information for each report_unit_parasitics parameter. For a detailed description of the command and all of its parameters, use the man command: man report_unit_parasitics.  "\fB-layer <metal_layer_name>\fR" Specifies the name of the metal layer for which the unit parasitics are to be reported.   "\fB-rc_corner <rc_corner_name>\fR" Specifies the name of the RC corner for which the unit parasitics are to be reported.   "\fB-space <wire_space_in_um>\fR" Specifies the wiring space in microns.  Default: minimum spacing  "\fB-via_res\fR" When this parameter is specified, the resistances of all vias, whose upper layer is specified using the -layer parameter, are reported.   "\fB-width <wire_width_in_um>\fR" Specifies the wiring width in microns.  Default: minimum width 
+.SH Examples
+.RS  "*" 2 The following command reports the unit parasitics for metal layer, Metal5, for the specified RC corner, rc_worst:  report_unit_parasitics -layer Metal5 -rc_corner rc_worst  The software gives the following information:
+.RE
+.P Unit parasitics for layer Metal5 (in fF,ohm)      RC-Corner = rc_worst        Cap = 0.213204        Res = 0.900873   Parasitics for default Via "VIA5_0_VH"        Via Cap = 0.017901        Via Res = 8.859576
+.RS  "*" 2 The following commands reports the unit parasitics for Metal5 with spacing two times the minimum spacing:  report_unit_parasitics -layer Metal5 -rc_corner rc_worst -space [expr 2 * [dbGet [dbGet head.layers.extName Metal5 -p].minSpacing]]  The software gives the following information:
+.RE
+.P Unit parasitics for layer Metal5 (in fF,ohm)
+.P RC-Corner = rc_worst
+.P Cap = 0.188657   Res = 0.900873
+.P Parasitics for default Via "VIA5_0_VH"
+.P Via Cap = 0.017901   Via Res = 8.859576
+.RS  "*" 2 The following commands reports the unit parasitics for Metal5 with width two times the minimum width:  report_unit_parasitics -layer Metal5 -rc_corner rc_worst -width [expr 2 * [dbGet [dbGet head.layers.extName Metal5 -p].minWidth]]  The software gives the following information:
+.RE
+.P Unit parasitics for layer Metal5 (in fF,ohm)
+.P RC-Corner = rc_worst   Cap = 0.198657   Res = 0.555333
+.P Parasitics for default Via "VIA5_0_VH"
+.P Via Cap = 0.017901   Via Res = 8.859576
+.RS  "*" 2 The following commands reports the unit parasitics for vias with top layer of Metal5:  report_unit_parasitics -layer Metal5 -rc_corner rc_worst -via_res  The software gives the following information:
+.RE
+.P Unit parasitics for layer Metal5 (in fF,ohm)
+.P  RC-Corner = rc_worst   Cap = 0.213204   Res = 0.900873
+.P Parasitics for default Via "VIA5_0_VH"
+.P Via Cap = 0.017901   Via Res = 8.859576    Other Via res   VIA45_1C 8.859576   VIA45_1C_H 8.859576   VIA45_1C_V 8.859576   VIA45_1ST_N 8.859576   VIA45_1ST_S 8.859576   VIA45_2C_E 4.429788   VIA45_2C_W 4.429788   VIA45_2C_N 4.429788   VIA45_2C_S 4.429788   VIA45_2ST_N 4.429788   VIA45_2ST_S 4.429788   VIA45_4C 2.214894 
+.SH Related Information
+.RS  "*" 2 extractRC  "*" 2 setExtractRCMode
+.RE
+.P

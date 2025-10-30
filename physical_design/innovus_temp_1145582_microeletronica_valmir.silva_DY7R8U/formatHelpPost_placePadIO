@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH placePadIO  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBplacePadIO\fR \-  Places the I/O pads evenly from one row to multiple rows
+.SH Syntax  \fBplacePadIO\fR  [-help]  [-rows <numOfRow>]  [-maxIOHeight]  
+.P Places the I/O pads evenly from one row to multiple rows. You can use this command after design initialization when the Innovus software automatically places the I/O pads in one row. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each placePadIO parameter.  For a detailed description of the command and all of its parameters, use the man command:  man placePadIO.  "\fB-rows <numOfRows>\fR" Specifies the number of I/O rows needed for the placement.  Data_type: int, optional  "\fB-maxIOHeight\fR" Specifies the maximum height used to calculate the head box. By default, this command uses the minimum height.  Data_type: bool, optional 
+.SH Example
+.RS  "*" 2 The following command places I/O pads in two I/O rows:  placePadIO -row 2
+.RE 
+.SH Related Information
+.RS  "*" 2 placePIO  "*" 2 placeAIO  "*" 2 setIoRowMargin  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

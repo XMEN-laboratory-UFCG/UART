@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getCmdLogFileName  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetCmdLogFileName\fR \-  Reports the name of the command log file
+.SH Syntax \fBgetCmdLogFileName\fR [-help] 
+.P Reports the name of the command log file.
+.P You can use the getCmdLogFileName command at any time during an Innovus session. 
+.SH Parameters    "\fB-help\fR" Prints a brief description of the getCmdLogFileName command usage.  For a detailed description of the command and all of its parameters, use the man command:   man getCmdLogFileName.  
+.SH Example
+.P The following command gives the command log file name:
+.P > getCmdLogFileName   innovus.cmd3
+.P

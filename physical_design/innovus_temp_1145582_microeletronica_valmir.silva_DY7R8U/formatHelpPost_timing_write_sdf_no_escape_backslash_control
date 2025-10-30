@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_write_sdf_no_escape_backslash_control  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_write_sdf_no_escape_backslash_control\fR \-  Controls how the write_sdf command handles escape characters when the -no_escape parameter is specified
+.SH Syntax timing_write_ sdf_no_escape_backslash_control   {true | false}  Default: false
+.P Controls how the write_sdf command handles escape characters when the -no_escape parameter is specified. 
+.P For example, consider the following input Verilog expression:
+.P         \\a/b\\/c\\/d      
+.P When the global is set to true, the write_sdf command removes the first escape character and outputs a/b\\/c\\/d in the SDF file.
+.P When set to false, the command removes all the escape characters and outputs a/b/c/d. 
+.P To set this global variable, use the set_global command. 
+.P

@@ -1,0 +1,32 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH pinAlignment  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBpinAlignment\fR \-  Aligns pins between blocks on their facing edges
+.SH Syntax \fBpinAlignment\fR  [-help]   [-ignore_ref_pin_shape]  [-markFixed]   [-moveFixedPin]  [-keepLayer | -newLayer <layer>]    [-legalizePin ]   [-noSnap]  [-pinNames <pinList>]  [-ptnInst <ptnName>]   [-refObj <refObjName>]   [-refType {partition_pin hinst}]   [-verbose] 
+.P Aligns pins between blocks on their facing edges. By default, this command snaps pins to the routing grid. You can use this command after partitioning floorplanning.
+.P Notes: 
+.RS  "*" 2 Specified pins will not be aligned if they do not have the reference connections on the reference block, or if the reference pins are not assigned prior to running this command.  "*" 2 If this command is run on a blackbox that has one or more pins with a single LEF port but with multiple shapes within the LEF port, the command will remove these multiple shapes and create a single shape. If this command is run on a blackbox that has one or more pins with multiple LEF ports, the first LEF port will be processed as per the command and the remaining LEF ports will remain unchanged.  "*" 2 This command supports Multi Level Hierarchical Flow.
+.RE
+.P The pin alignment priority is as follows:
+.RS  "*" 2 If you specify the -refObj and the -ptnInst parameters but not the -pinNames parameter, the pinAlignment command aligns all pins of specified instances that are connected to the referenced object.  "*" 2 If you specify the -refObj parameter but not the -ptnInst and the -pinNames parameter, the pinAlignment command aligns all pins of all partitions that are connected to the referenced object.  "*" 2 If you specify the -refObj, -ptnInst, and the -pinNames parameters, the pinAlignment command tries to align all possible pins that can be aligned.  "*" 2 If you do not specify the -refObj parameter, the following order of priority will be used for aligning partition pins that have multiple connections:
+.RS  "*" 2 Hard macro pins  "*" 2 I/O pads or pins  "*" 2 Partition pins  "*" 2 Standard cell pins
+.RE 
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each pinAlignment parameter.  For a detailed description of the command and all of its parameters, use the man command:   man pinAlignment  "\fB-ignore_ref_pin_shape\fR" Specifies that the aligned pin will ignore matching of shape with the reference pin.  Data_type: bool, optional  "\fB-keepLayer | \fR" Specifies whether to keep the current pin layer.  Default: If you do not specify this option, the new pin layer will be the same as the referenced layer to reduce wire routing.  Data_type: bool, optional  "\fB-legalizePin\fR" Specifies that the legalizePincommand should run automatically after the pinAlignment command.  Data_type: bool, optional  "\fB-markFixed\fR" Specifies that the pins that are moved by this command will have a Fixed status.  Default: By default, the pins moved by this command have a Placed status.   Data_type: bool, optional   "\fB-moveFixedPin\fR" Specifies that the pins with a Fixed status can also be moved.   Data_type: bool, optional  "\fB-newLayer <layer>\fR" Specifies a new pin layer.  Note: Layers can be specified using the LEF layer names or layer ID numbers.  Data_type: string, optional   "\fB-noSnap\fR" Disables pins from being snapped to the routing grid.  Data_type: bool, optional  "\fB-pinNames <pinList>\fR" Specifies the pin(s) to be aligned between the facing edges of the target block and reference block. You can use wildcards (*?) with this parameter.  If you specify more than one pin, you must enclose them in curly braces.  Data_type: string, optional  "\fB-ptnInst <ptnName>\fR" Specifies the target instance where its pins will be aligned to the pins of the specified instance.  Data_type: string, optional  "\fB-refObj <refObjectName>\fR" Specifies the reference object where the specified pins of the target block will be aligned to the pins of the reference object.  The reference object can be a standard cell, an I/O pin, an I/O pad, a macro, or all I/O pins in the design by specifying the top cell as the reference object. Now the pinAlignment command can also take uncommitted ptn as the reference object.  Note: You can also use wildcard (* or ?) for specifying the reference object names.  Data_type: string, optional  "\fB-refType {partition_pin hinst}\fR" Specifies the type of reference objects to consider. You can specify partition pins or hinsts.  Data_type: enum, optional   "\fB-verbose\fR" Generates intermediate messages.  Data_type: bool, optional 
+.SH Examples
+.RS  "*" 2 The following command aligns A0 and A1 pins of p1 to the reference pins of blockA:   pinAlignment -refObj blockA -ptnInst p1 -pinNames {A0 A1}
+.RE
+.RS  "*" 2 Assume the following netlist:  module testcase (in1, in2, in3);  input in1, in2, in3;  wire net;  a i_a(.in1(in1),
+.in2(in2),
+.in3(in3),
+.out1(net));  BUFX1 i0(.A(net));  endmodule  module a(in1, in2, in3, out1);  input in1, in2, in3;  output out1;  endmodule  The following command aligns pins in1, in2, and in3 on partition i_a:  pinAlignment -refObj testcase -ptnInst i_a
+.RE
+.P Moving pin [in1] of partition [a] connected to pin [in1] of top cell [testcase] to ALIGNED location ( 0.000 21.000 Metal3).   Moving pin [in2] of partition [a] connected to pin [in2] of top cell [testcase] to ALIGNED location ( 0.000 38.920 Metal5).   Moving pin [in3] of partition [a] connected to pin [in3] of top cell [testcase] to ALIGNED location ( 0.000 57.960 Metal3).   Aligned 3 pin(s) of the partition [a] successfully.
+.P Note: Only 3 of the 4 partition pins are moved because pin out1 is connected to a nearby instance rather than a top-level IO pin. 
+.SH Related Information
+.RS  "*" 2 assignIoPins  "*" 2 assignPtnPin  "*" 2 legalizePin   "*" 2 checkPinAssignment   "*" 2 Partitioning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Validating Pin Placement Results  "*" 2 Aligning Partition Pins
+.RE 
+.RE
+.P

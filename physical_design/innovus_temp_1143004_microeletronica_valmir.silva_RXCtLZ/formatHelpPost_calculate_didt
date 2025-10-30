@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH calculate_didt  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcalculate_didt\fR \-  Generates the on-die di/dt information from an existing dynamic rail analysis run and saves it in a text file
+.SH Syntax  \fBcalculate_didt\fR  [-help]   -net_name <net_name>  -nworst <value>  -state_directory <dir>  [-window_steps <value> | -window_size <value> ] 
+.P Generates the on-die di/dt information from an existing dynamic rail analysis run and saves it in a text file. This command allows you to determine the worst N di/dt events for each bump and for the sum of all bumps (vc_sum).
+.P 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each calculate_didt parameter.  For a detailed description of the command and all of its parameters, use the man command:  man calculate_didt  "\fB-net_name <net_name> \fR" Specifies a net for which the di/dt report is to be generated.  "\fB-nworst <value>\fR" Specifies the number of worst windows with the largest di/dt values to be reported per bump.   "\fB-state_directory <dir>\fR" Specifies the name of the state directory where the information on the bump-based di/dt information from the previous run resides.  "\fB-window_steps <value>\fR" Specifies the transient time step size or resolution of the sliding window. The default value is 5.   "\fB-window_size <value>\fR" Specifies the duration of the sliding window in seconds.  Note: The -window_size and -window_steps parameters are mutually exclusive. When both the parameters are specified, the -window_size parameter takes precedence. If you do not specify either of the two parameters, the results will be based on a default of 5 resolution steps. 
+.SH Examples
+.RS  "*" 2 The following command generates the on-die di/dt information:   calculate_didt -nworst 3 -window_steps 10 -net_name VDD10 -state_directory
+./dynamic_rail/core_125C_dynamic_1
+.RE 
+.SH Related Information
+.RS  "*" 2 "Static Power, IRdrop and EM Analysis" in the Voltus User Guide
+.RE
+.P

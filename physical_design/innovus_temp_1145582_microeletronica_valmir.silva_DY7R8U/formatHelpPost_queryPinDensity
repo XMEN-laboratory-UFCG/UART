@@ -1,0 +1,2 @@
+ "\fB-help\fR" Outputs a brief description that includes type and default information for each queryPinDensity parameter
+.SH Syntax \fBqueryPinDensity\fR  [-help]   [-area <x1 y1 x2 y2>]

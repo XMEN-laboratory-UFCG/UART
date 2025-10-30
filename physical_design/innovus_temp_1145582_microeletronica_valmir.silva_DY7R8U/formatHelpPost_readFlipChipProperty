@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH readFlipChipProperty  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreadFlipChipProperty\fR \-  Reads the text file containing flip chip property information
+.SH Syntax \fBreadFlipChipProperty\fR  [-help]   <fileName>  [-onlyBumpConnectTargetConstraint] 
+.P Reads the text file containing flip chip property information. The readFlipChipProperty command prints an error message if the following errors occur:
+.RS  "*" 2 Type error of property name
+.RE
+.RS  "*" 2 Instance/pin not found
+.RE
+.RS  "*" 2 Metal layer not found
+.RE
+.RS  "*" 2 Size is zero or minus
+.RE 
+.SH Parameters    "\fB-help\fR" Prints out the command usage that includes type and default information for each readFlipChipProperty parameter.  For a detailed description of the command and all of its parameters, use the man command:  man readFlipChipProperty  "\fB<fileName>\fR" Specifies the bump and IO pad property text file.  "\fB-onlyBumpConnectTargetConstraint\fR" Reads only the bump connect target constraints. 
+.SH Example
+.P The following command reads only the bump connect target constraints from the test2 input file:
+.P readFlipChipProperty test2 -onlyBumpConnectTargetConstraint 
+.SH Related Information
+.RS  "*" 2 readIoUpdate  "*" 2 writeFlipChipProperty  "*" 2 Flip Chip Methodologies chapter of the User Guide  "*" 2 Tools Menu chapter in the Menu Reference 
+.RS  "*" 2 Flip Chip
+.RE 
+.RE
+.P

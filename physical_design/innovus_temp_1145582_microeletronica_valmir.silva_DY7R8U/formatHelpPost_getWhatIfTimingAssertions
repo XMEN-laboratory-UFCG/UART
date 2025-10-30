@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getWhatIfTimingAssertions  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetWhatIfTimingAssertions\fR \-  Displays the what-if timing arc specifications of the specified port in the command window
+.SH Syntax  \fBgetWhatIfTimingAssertions\fR  <blackBoxCellName>  -port <portName>  [-tclList] 
+.P Displays the what-if timing arc specifications of the specified port in the command window.
+.P You can use this command after the module definition of the blackbox or the blackblob is available with the I/O's in the Verilog netlist. 
+.SH Parameters   "\fB<blackBoxCellName>\fR" Specifies the name of the blackbox or blackblob cell.  "\fB-port <portName>\fR" Specifies the name of the port.  "\fB-tclList\fR" Generates the specifications as a Tcl list. The Tcl list is useful for integrating what-if timing with custom Tcl functions and customizing specification generation. 
+.SH Related Information
+.RS  "*" 2 What-If Timing Analysis chapter in the Innovus User Guide
+.RE
+.RS  "*" 2 UsingtheWhat-IfTimingCommands  "*" 2 saveWhatIfTimingAssertions  "*" 2 deleteWhatIfTimingAssertions
+.RE
+.P

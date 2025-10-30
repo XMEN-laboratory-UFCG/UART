@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unfixBondPad  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunfixBondPad\fR \-  Unassigns the fixed status of a specified bond pad
+.SH Syntax \fBunfixBondPad\fR  [-help]   {-ioInstName <InstName>[-pinName <pinName>] | -selected} 
+.P Unassigns the fixed status of a specified bond pad. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each unfixBondPad parameter.  For a detailed description of the command and all of its parameters, use the man command:  man unfixBondPad  "\fB-ioInstName <instName>\fR" Specifies the name of the I/O instance whose bond pad's fixed status will be unassigned.  "\fB-pinName <pinName>\fR" Specifies the name of the pin.  "\fB-selected\fR" Unassigns the fixed status of a selected bond pad.   You must first select the bond pad in the design display area, then use this parameter to unassign the fixed status. 
+.SH Example
+.RS  "*" 2 The following command unassigns the fixed status of the bond pad on I/O instance pad_addr[30]:   unfixBondPad -ioInstName {pad_addr[30]}
+.RE 
+.SH Related Information
+.RS  "*" 2 checkBondPadSpacing  "*" 2 fixBondPad  "*" 2 getBondPad  "*" 2 placeBondPad  "*" 2 spaceBondPad  "*" 2 staggerBondPad
+.RE
+.P

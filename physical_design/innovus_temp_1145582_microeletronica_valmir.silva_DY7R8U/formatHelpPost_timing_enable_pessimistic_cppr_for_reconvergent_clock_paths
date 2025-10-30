@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_pessimistic_cppr_for_reconvergent_clock_paths  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_pessimistic_cppr_for_reconvergent_clock_paths\fR
+.SH Syntax \fBtiming_enable_pessimistic_cppr_for_reconvergent_clock_paths\fR  {true | false} 
+.P Default: false
+.P When set to true, the software will consider all combinations of launch and capture clock path pairs to identify all possible common pins, and then selects the pin with minimum CPPR adjustment over all such common pins as the common pin.
+.P When set to false, the default, the software will choose the CPPR common pin based on the commonality of the worst launch and worst capture path only.
+.P Consider the following example,
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P In the above diagram, both capture paths are considered along with the single launch path, and the common pin is chosen as the pin with the least CPPR adjustment. The pin CP1 is chosen as a common pin and CPPR is reported up to this pin. The same common pin, CP1, will be used for CPPR adjustment whether the capture clock path goes through the mux A pin or the mux B pin. When this global variable is set to false, CPPR common pin is chosen by the commonality in the worst-case launch and worst-case capture paths. so CP2 is chosen as the common pin and CPPR is reported up to this pin.
+.P Note: The timing_cppr_skip_clock_reconvergence and timing_enable_pessimistic_cppr_for_reconvergent_clock_paths global variables are mutually exclusive.  Also, the timing_cppr_skip_clock_reconvergence global variable has precedence over timing_enable_pessimistic_cppr_for_reconvergent_clock_paths.
+.P To set this global variable, use the set_global command.
+.P

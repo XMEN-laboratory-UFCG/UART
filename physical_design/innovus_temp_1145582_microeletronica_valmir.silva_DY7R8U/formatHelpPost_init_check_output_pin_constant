@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH init_check_output_pin_constant  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBinit_check_output_pin_constant\fR
+.SH Syntax \fBinit_check_output_pin_constant\fR  {0 | 1 }
+.P Type: Boolean
+.P Default: 1
+.P Stops the Verilog reader if any output (or inout) signal pins have any 1'b0 or 1'b1 constants that would cause shorts to power/ground.
+.P The default value of this boolean variable is TRUE or 1. 
+.SH Related Information
+.RS  "*" 2 init_design  "*" 2 setCheckMode
+.RE
+.P

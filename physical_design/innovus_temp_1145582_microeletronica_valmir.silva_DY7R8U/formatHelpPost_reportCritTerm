@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportCritTerm  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportCritTerm\fR \-  Performs slack analysis and writes the names of all critical terminals to the specified file
+.SH Syntax \fBreportCritTerm\fR  [-help]   -outfile <fileName> 
+.P Performs slack analysis and writes the names of all critical terminals to the specified file. As a result, deterioration of setup slack can be avoided while the Innovus software repairs hold time violations. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each reportCritTerm parameter.  For a detailed description of the command and all of its parameters, use the man command: man reportCritTerm  "\fB-outfile <fileName>\fR" Specifies the name of report file. 
+.SH Command Order
+.P Use this command after the timing graph is built by timeDesign/optDesign. 
+.SH Example
+.RS  "*" 2 The following commands write the setup critical terminals into a file called critTerm:   setAnalysisMode -checkType setup  reportCritTerm -outfile critTerm
+.RE 
+.SH Related Information
+.RS  "*" 2 optDesign  "*" 2 setOptMode  "*" 2 timeDesign
+.RE
+.P

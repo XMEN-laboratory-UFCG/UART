@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setBumpPlacementStatus  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetBumpPlacementStatus\fR \-  Sets the bump placement status
+.SH Syntax \fBsetBumpPlacementStatus\fR  [-help]   [-bumpName <Name> | -selected]  PLACED | FIXED | COVER  
+.P Sets the bump placement status. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each setBumpPlacementStatus parameter.  For a detailed description of the command and all of its parameters, use the man command: man setBumpPlacementStatus.  "\fB-bumpName <Name>\fR" Specifies the name of the bump to set the placement status.  "\fBPLACED | FIXED | COVER\fR" Specifies the bump placement status.  "\fB-selected\fR" Specifies to set the bump placement status for the selected bump. 
+.SH Example
+.RS  "*" 2 The following command sets the placement status of the bump Bump_53_2_5 to FIXED:   setBumpPlacementStatus FIXED -bumpName Bump_53_2_5  Note: You can also double-click the bump to change the placement status from PLACED to FIXED.
+.RE 
+.SH Related Information
+.RS  "*" 2 setBumpFixed  "*" 2 unfixBump  "*" 2 Flip Chip Methodologies chapter in the User Guide  "*" 2 Data Preparation chapter in the User Guide 
+.RS  "*" 2 Defining BUMP CELL Placement Status 
+.RE  "*" 2 Tools Menu chapter in the Menu Reference 
+.RS  "*" 2 Flip Chip
+.RE 
+.RE
+.P

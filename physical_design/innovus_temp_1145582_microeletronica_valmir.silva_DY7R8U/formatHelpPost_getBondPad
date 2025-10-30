@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getBondPad  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetBondPad\fR \-  Gets the current stagger position of a bond pad on a specified I/O instance
+.SH Syntax \fBgetBondPad\fR  [-help]  -ioInstName <InstName>  [-pinName <pinName>] 
+.P Gets the current stagger position of a bond pad on a specified I/O instance. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each getBondPad parameter.  For a detailed description of the command and all of its parameters, use the man command:  man getBondPad  "\fB-ioInstName <instName>\fR" Specifies the name of the I/O instance whose bond pad position is reported.  "\fB-pinName <pinName>\fR" Specifies the name of the pin inside the instance. 
+.SH Example
+.RS  "*" 2 The following command gets the current stagger position of the bond pad on the I/O instance testmacro with pin Z2:   getBondPad -ioInstName testmacro -pinName Z2  Returns:  Pin Name = Z2, Bond Pad Name = testmacro_PAD1, Position = O, Fixed = 0
+.RE 
+.SH Related Information
+.RS  "*" 2 checkBondPadSpacing  "*" 2 fixBondPad  "*" 2 placeBondPad  "*" 2 spaceBondPad  "*" 2 staggerBondPad  "*" 2 unfixBondPad
+.RE
+.P

@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_bump_grid  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_bump_grid\fR \-  Creates a bump grid
+.SH Syntax \fBcreate_bump_grid\fR  [-help]   -grid_name <string>  -layers <string>  -origin {<x y>}   -pitch {<x y>} 
+.P Creates a bump grid. A bump grid is a grid for bump/TSV placement  that helps in guiding bump placement and bump alignment. 
+.P Note: 
+.RS  "*" 2 When you use the savePartition command, the tool recalculates the offset so that a bump can be aligned after assemble.  "*" 2 The saveFPlan command saves the  bump grid definition into *.fp file.  "*" 2 The loadFPlan command loads the bump grid file while reading the design. 
+.RE 
+.SH Parameters   "\fB-grid_name <string>\fR" Specifies the bump grid name.  Data_type: string, required  "\fB-help\fR" Outputs a brief description that includes the type and default information for each create_bump_grid parameter.  For a detailed description of the command and all of its parameters, use the man command:   man create_bump_grid  "\fB-layers <string>\fR" Specifies the layer names. You can specify the layer of a relative bump pin for this option.  Data_type: string required  "\fB-origin {<x y>}\fR" Specifies the coordinates of the origin of the bump grid.  Data_type: point, required  "\fB-pitch {<x y>}\fR" Specifies the spacing between two bumps. The first value (x) defines the horizontal spacing and the second value (y) defines the vertical spacing.  Data_type: point, required 
+.SH Example
+.RS  "*" 2 The following command creates a bump grid named myGridFront_9x9:  create_bump_grid -grid_name myGridFront_9x9 -layers {UBM UBM1} -origin {50 50} -pitch {9 9}
+.RE 
+.SH Related Information
+.RS  "*" 2 delete_bump_grid  "*" 2 Floorplanning the Design chapter in the Innovus User Guide 
+.RE
+.P

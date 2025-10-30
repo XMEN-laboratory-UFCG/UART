@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setTopCell  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetTopCell\fR \-  Switches the design to the partition specified by the <cellName>
+.SH Syntax \fBsetTopCell\fR <cellName> 
+.P Switches the design to the partition specified by the <cellName>.
+.P Note: Cadence recommends that you use the same name for the top cell and the partition.
+.P You can use this command only after you commit the partition. 
+.SH Parameters   "\fB<cellName>\fR" The name of the top cell that indicates a different partition.  Data_type: string, required 
+.SH Related Information
+.RS  "*" 2 Hierarchical Flow Capabilities chapter in the Innovus User Guide
+.RS  "*" 2 Partitioning the Design - Restoring the Top-Level Floorplan with Partition Data
+.RE 
+.RE
+.P

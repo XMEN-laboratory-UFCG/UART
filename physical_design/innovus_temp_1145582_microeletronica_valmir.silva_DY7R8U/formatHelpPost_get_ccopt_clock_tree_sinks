@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_ccopt_clock_tree_sinks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_ccopt_clock_tree_sinks\fR \-  This command returns a list of clock tree sinks whose names match the specified pattern
+.SH Syntax \fBget_ccopt_clock_tree_sinks\fR   [-help]  <pattern>   [-in_clock_trees <list_of_trees>]  [-not_in_clock_trees <list_of_trees>]   [-regexp] 
+.P This command returns a list of clock tree sinks whose names match the specified pattern. By default, the command returns all clock tree sinks with matching names, but you can use optional parameters to filter the list based on the clock tree membership. 
+.SH Parameters   "\fB-help      \fR" Outputs a brief description that includes type and default information for each get_ccopt_clock_tree_sinks parameter.  For a detailed description of the command and all of its parameters, use the man command: man get_ccopt_clock_tree_sinks.  "\fB-in_clock_trees <list_of_trees>          \fR" Specifies a TCL list of clock trees whose sinks are to be included in the list.  If not specified, all the sinks of all the clock trees in the design that satisfy the other conditions of the command will be returned.  "\fB-not_in_clock_trees <list_of_trees>  \fR" Specifies  a TCL list of clock trees whose sinks are to be excluded from the list.  If not specified, all the sinks that satisfy the other conditions of the command will be returned.  "\fB<pattern>\fR" Returns clock tree sinks that match this pattern.   If not specified, all the sinks that satisfy the other conditions of the command will be returned.   "\fB-regexp\fR" When specified, treats all patterns as full TCL regular expressions. If not specified, pattern is treated as a wildcard pattern. 
+.SH Examples
+.RS  "*" 2 The following command returns the list of all clock tree sinks in all clock trees:  get_ccopt_clock_tree_sinks *  {TDSP_CORE_INST/TDSP_CORE_MACH_INST/tdsp_state_reg[2]/CP} {TDSP_CORE_INST/TDSP_CORE_MACH_INST/tdsp_state_reg[1]/CP} {TDSP_CORE_INST/TDSP_CORE_MACH_INST/tdsp_state_reg[0]/CP}...   "*" 2 The following command returns the list of all clock tree sinks in clock whose name starts with "TEST":  get_ccopt_clock_tree_sinks TEST*  TEST_CONTROL_INST/g137/A1   "*" 2  The following command returns the list of all clock tree sinks in clock trees whose names contain "TEST":   get_ccopt_clock_tree_sinks TEST -regexp  TEST_CONTROL_INST/g137/A1 RAM_128x16_TEST_INST/RAM_128x16_INST/CLK RAM_256x16_TEST_INST/RAM_256x16_INST/CLK 
+.RE 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree  "*" 2 delete_ccopt_clock_trees  "*" 2 set_ccopt_property
+.RE
+.RS  "*" 2 The following section in Clock Tree Synthesis chapter of the Innovus User Guide
+.RS  "*" 2 Reporting
+.RE 
+.RE
+.P

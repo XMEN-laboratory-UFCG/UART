@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH copy_collection  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcopy_collection\fR
+.SH Syntax  \fBcopy_collection\fR  [-help]  <base_collection> 
+.P Returns a collection that is an exact copy of the specified base collection. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB<base_collection>\fR" Specifies the base collection of objects.
+.P 
+.SH Related Information
+.RS  "*" 2 add_to_collection
+.RE
+.RS  "*" 2 compare_collections  "*" 2 filter_collection  "*" 2 foreach_in_collection
+.RE
+.P

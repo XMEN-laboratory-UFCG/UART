@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_generated_clocks_inherit_ideal_latency  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_generated_clocks_inherit_ideal_latency\fR
+.SH Syntax \fBtiming_generated_clocks_inherit_ideal_latency\fR   {true | false}
+.P Default: false
+.P When set to true, the software makes the generated clocks to inherit the ideal network latency of the parent clock.
+.P To set this global variable, use the set command.
+.P

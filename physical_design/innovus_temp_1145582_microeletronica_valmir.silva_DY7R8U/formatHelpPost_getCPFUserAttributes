@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getCPFUserAttributes  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetCPFUserAttributes\fR \-  Reports the user_attributes of the power domain or net specified in the CPF file
+.SH Syntax \fBgetCPFUserAttributes\fR  [-help]  -domain <domainName> | -net <netName> 
+.P Reports the user_attributes of the power domain or net specified in the CPF file. If the domain or net has no user_attributes in the CPF file, then this command reports an empty string. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each getCPFUserAttributes parameter.  For a detailed description of the command and all its parameters, use the man command:   man getCPFUserAttribute.  "\fB-domain       \fR" Specifies the name of the power domain containing the user_attributes.  "\fB-net\fR" Specifies the name of the net having the user_attributes. 
+.SH Related Information
+.RS  "*" 2 For more information, see the following topics in the Low Power Design chapter of the User Guide. 
+.RS  "*" 2 "Overview"  "*" 2 "Power Domain Shutdown and Scaling"  "*" 2 "Support for the Common Power Format"
+.RE 
+.RE
+.P

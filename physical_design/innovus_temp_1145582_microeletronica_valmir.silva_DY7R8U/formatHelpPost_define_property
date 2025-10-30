@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH define_property  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefine_property\fR \-  Defines a new property
+.SH Syntax \fBdefine_property\fR  [-help]  -object_type {<object_type_list>}  -type <data_type>  [-lower_bound <val>]   [-upper_bound <val>]   [-string_values {<values>}]   <property_name> 
+.P Defines a new property.
+.P Design objects can be associated with user-defined commands that can be used for analysis and debugging purposes.
+.P You can use the define_property command if a define statement is not used for the specified property value(s). To read property values from the library, the command must be issued before the timing library is read. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-lower_bound <val>\fR" Specifies a lower range - integer, float, or double.  "\fB-object_type <object_type_list>\fR" Specifies the type of object on which the property is to be defined.  "\fB<property_name>\fR" Specifies the name of the property.  "\fB-string_values <values>\fR" Specifies the values that can be defined for the property.  "\fB-type <data_type>\fR" Specifies the type of property.  "\fB-upper_bound <val>\fR" Specifies a higher range - integer, float, or double. 
+.SH Examples
+.RS  "*" 2 The following example defines property having object type pin and type of property int:   define_property -object_type pin -type int slk
+.RE
+.RS  "*" 2 The following example defines a property on a library arc:   define_property -object_type lib_arc -type int libArcProperty    "*" 2 The following example defines aocv_weight property on a library arc:  define_property -type float -object_type lib_arc aocv_weight  "*" 2  The following example defines certain nets as critical, using the critical_net property and then setting it to true for those nets:  define_property critical_net -object_type net -type boolean  set_property [get_nets n2] critical_net true   You can view the report and query on critical nets, as shown below:   innovus> report_property [get_nets n2] 
+...  property                           | value   -------------------------------------------------  capacitance_max                    | 0.002  capacitance_min                    | 0.002  driver_pins                        | {...}  escaped_name                       | n2  hierarchical_name                  | n2  has_detailed_parasitics            | false  is_dont_touch                      | false  is_hierarchical                    | false  load_pins                          | {...}  name                               | n2  object_type                        | net  pin_capacitance_max                | 0.002  pin_capacitance_max_rise           | 0.002  pin_capacitance_max_fall           | 0.002  pin_capacitance_min                | 0.002  pin_capacitance_min_rise           | 0.002  pin_capacitance_min_fall           | 0.002  total_capacitance_max_fall         | 0.002  total_capacitance_max_rise         | 0.002  total_capacitance_min_rise         | 0.002  total_capacitance_min_fall         | 0.002  wire_capacitance_max               | 0.000  wire_capacitance_min               | 0.000  wire_capacitance_max_rise          | 0.000  wire_capacitance_max_fall          | 0.000  wire_capacitance_min_rise          | 0.000  wire_capacitance_min_fall          | 0.000  critical_net                       | true  innovus> get_property [get_nets n2] critical_net  true  innovus> get_nets -filter "critical_net==true"  n2  0x1c
+.RE 
+.SH Related Information
+.RS  "*" 2 get_property  "*" 2 report_property  "*" 2 set_property  "*" 2 reset_property
+.RE
+.P

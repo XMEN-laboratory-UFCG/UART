@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH restore_db_directory  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBrestore_db_directory\fR
+.SH Syntax \fBrestore_db_directory\fR <directory_name>
+.P Type: string
+.P Default: ""
+.P Specifies the directory of the current loaded database.

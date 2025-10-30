@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_read_library_without_ecsm  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_read_library_without_ecsm\fR
+.SH Syntax  \fBtiming_read_library_without_ecsm\fR  {true | false} 
+.P Default: false
+.P Disables loading ECSM data.
+.P When set to true, the loading of ECSM data is disabled. If the timing library contains NLDM, ECSM, or CCS data in the same file, then ECSM data will not be read.
+.P Note:  This global variable does not disable CCS data loading.
+.P To set this global variable, use the set_global command.
+.P

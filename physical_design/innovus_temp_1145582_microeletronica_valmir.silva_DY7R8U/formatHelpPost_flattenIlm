@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH flattenIlm  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBflattenIlm\fR \-  Flattens the interface logic models (ILMs) at the top level so that the entire design can be analyzed at the top
+.SH Syntax \fBflattenIlm\fR  [-help] 
+.P Flattens the interface logic models (ILMs) at the top level so that the entire design can be analyzed at the top. When you use this command, the software switches from blackbox view to ILM view.
+.P If you do not run flattenIlm, the ILM netlist will not be visible to the Innovus software. You can switch between the ILM view and the blackbox view using the flattenIlm and unflattenIlm commands.
+.P All super commands such as timeDesign, place_design, and optDesign flatten the ILMs internally and hence no explicit flattenILM is required. However, you should use this command for other timing related commands. For example, for the report_timing command, you need to run flattenILM before reporting timing. It would not work in the unflattened mode.
+.P Example:
+.P flattenIlm
+.P report_timing 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the usage of the flattenIlm command. 
+.SH Related Information
+.RS  "*" 2 optDesign  "*" 2 place_design,  "*" 2 report_timing  "*" 2 timeDesign
+.RE
+.P

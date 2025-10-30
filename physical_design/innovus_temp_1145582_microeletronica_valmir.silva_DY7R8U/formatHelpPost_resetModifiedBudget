@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH resetModifiedBudget  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBresetModifiedBudget\fR \-  Resets the budget that was modified using the modifyBudget command
+.SH Syntax \fBresetModifiedBudget\fR  {-ptn <partitionName> | -inst <instanceName>}  -pin <pinName>  [-setup | -hold]   [-view <viewName>]  [-help] 
+.P Resets the budget that was modified using the modifyBudget command. resetModifiedBudget allows you to revert to the original generated budget if the modified budget is not yielding the correct timing for a block, or rectify an incorrectly modified budget. 
+.SH Parameters   "\fB-pin<pinName>\fR" Specifies the name of the pin for which manual budgets are to be reset. You can use * to specify all pins.  "\fB-hold\fR" Specifies to reset the hold information.  "\fB-inst<instanceName>\fR" Specifies the name of the hierarchical instance for which manual budgets are to be reset.  "\fB-help\fR" Outputs the command usage.  "\fB-ptn<partitionName>\fR" Specifies the name of the partition for which manual budgets are to be reset.  "\fB-setup\fR" Specifies to reset the setup information.  "\fB-view <viewName>\fR" Resets the budget for the specified view. 
+.SH Example
+.RS  "*" 2 The following command resets the modified budget data for the instance inst1:   resetModifiedBudget -inst inst1 
+.RE 
+.SH Related Information
+.P The "Modifying Budgets" section in the Timing Budgeting chapter of the User Guide document.
+.P

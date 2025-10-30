@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_ccopt_dag_traversal  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_ccopt_dag_traversal\fR \-  This command traverses the clock tree network DAG, starting at the specified pins and traversing to their fanin or fanout, returning a list of the resulting pins. Instance types can be skipped over, and can be restricted to a specified skew group.  The clock tree network is modeled as a DAG (Directed Acyclic Graph) to accommodate re-convergence and overlap among clock trees and skew groups
+.SH Syntax \fBget_ccopt_dag_traversal\fR  [-help]  [-fanin]  [-fanout]  [-of_insts instances]  [-of_pins pins]  [-skew_group skew_group_name]  [-skip buffers inverters drivers clock_gates logics generators generated_roots all]  [-transitive]
+.P This command traverses the clock tree network DAG, starting at the specified pins and traversing to their fanin or fanout, returning a list of the resulting pins. Instance types can be skipped over, and can be restricted to a specified skew group.  The clock tree network is modeled as a DAG (Directed Acyclic Graph) to accommodate re-convergence and overlap among clock trees and skew groups. 
+.SH Parameters   "\fB-help      \fR" Outputs a brief description that includes type and default information for each get_ccopt_dag_traversal parameter. For a detailed description of the command and all of its parameters, use the man command: man get_ccopt_dag_traversal.  "\fB-fanin\fR" Returns the output clock network pins of the fanin of the specified pins.  "\fB-fanout \fR" Returns the input clock network pins of the fanout of the specified pins.   "\fB-of_pins\fR" Specifies a list of pins to start traversing from.   "\fB-of_insts\fR" Specifies a list of instances to start traversing from. If -fanin is specifed, will start from the input pins of the instances. If -fanout is specifed, will start from the output pins.   "\fB-skew_group skew_group_name\fR" If specified, restricts traversal to instances in the skew group.   "\fB-skip <types>\fR" Specifies the types of nodes that should be skipped past to their fanin/fanout during the traversal. You can specify one or more of the following:
+.RS  "*" 2 buffers   "*" 2 inverters   "*" 2 drivers (equivalent to buffers and inverters)  "*" 2 clock_gates   "*" 2 logics  "*" 2 generators   "*" 2 generated_roots  "*" 2 all (equivalent to listing all the above, and also equivalent to -transitive)
+.RE   "\fB-transitive\fR" Skip all types and get sinks (if -fanout) or clock roots (if -fanin). This is equivalent to the -skip all option. 
+.SH Examples
+.P get_ccopt_dag_traversal -fanout -of_insts CTS_ccd_BUF_clock_G0_L1_1
+.P get_ccopt_dag_traversal -fanout -skip buffers -of_insts CTS_ccd_BUF_clock_G0_L1_1
+.P get_ccopt_dag_traversal -fanin -skip {buffers generators logics} -of_pins {CTS_ccd_BUF_clock_G0_L1_1/A CTS_cdb_BUF_clock_G0_L1_2/A}
+.P set pins [get_ccopt_dag_traversal -transitive -skew_group skewgroup1 -fanin -of_pins d1111a/CK]
+.P foreach pin $pins  {
+.P   Puts "Got pin $pin"   }
+.P

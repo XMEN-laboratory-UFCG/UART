@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH compress_special  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcompress_special\fR \-  Compresses Power-Grid (PG) based on the specified area, layer, or net
+.SH Syntax \fBcompress_special\fR  [-help]  [-area {<x1 y1 x2 y2>}]  [-incremental]  [-layers <layer>+]  [-nets <net>+]
+.P Compresses Power-Grid (PG) based on the specified area, layer, or net. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each compress_special parameter. For a detailed description of the command and all its parameters, use the man command:  man compress_special  "\fB-area {<x1 y1 x2 y2>}\fR" Specifies the coordinates for the area from which PG needs to be compressed. The compress_special command compresses only those special wires and special vias, which exist within the area specified by this parameter.  Default: All PG structures are compressed.  "\fB-incremental\fR" Recompresses the PG after editing the PG wires or vias. This parameter can only be specified when the current design is in compressed mode.  "\fB-layers <layer>+\fR" Specifies the layers on which PG compression is needed. This parameter requires either LEF layer names or a routing layer index value (for example, 1 for the first routing layer,  2 for the second routing layer, and so on).   "\fB-nets <net>+\fR" Specifies the nets from which PG compression is needed. If the specified net does not have any special route on it, it is ignored. 
+.SH Example
+.P The following command compresses %s special_wires and %s special_vias:
+.P compress_special -area {100 100 120 120} -net VDD -incremental 
+.SH Related Information
+.P decompress_special
+.P

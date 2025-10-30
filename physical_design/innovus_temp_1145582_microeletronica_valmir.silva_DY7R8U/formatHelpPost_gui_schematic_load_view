@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH gui_schematic_load_view  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgui_schematic_load_view\fR \-  Loads the specified schematic file
+.SH Syntax \fBgui_schematic_load_view\fR  [-help]  -file <file_name>[-name <name>] 
+.P Loads the specified schematic file.   Note: This commands work only in the cone view (flattened mode). 
+.SH Parameters   "\fB-help\fR" Prints a brief description of the gui_schematic_load_view command.  For a detailed description of the command, use the man command: man gui_schematic_load_view.  "\fB-file <file_name>\fR" Specifies the name of the schematic file to be loaded.   "\fB-name <name>\fR" Specifies a unique window name for the opened schematic view. 
+.SH Related Information
+.RS  "*" 2 gui_schematic_save_view
+.RE
+.P

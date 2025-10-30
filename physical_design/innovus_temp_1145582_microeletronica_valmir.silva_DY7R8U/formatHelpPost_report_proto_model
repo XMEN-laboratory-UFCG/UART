@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_proto_model  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_proto_model\fR \-  Reports statistics information for models. 
+.P Note: The report_proto_model command takes the top-level cells in account while reporting the netlist reduction ratio at the end
+.SH Syntax \fBreport_proto_model\fR  [-help]  [-constraint]  [-file <string>]  [-min_inst <integer> | -identified | -created]  [-min_inst <integer>]  [-instance_ratio <float> | -min_inst <integer>] 
+.P Reports statistics information for models. 
+.P Note: The report_proto_model command takes the top-level cells in account while reporting the netlist reduction ratio at the end. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each report_proto_model parameter.  For a detailed description of the command and all of its parameters, use the man command:  man report_proto_model  "\fB-constraint\fR" Report physical constraint information.  Data_type: bool, optional  "\fB-created\fR" Reports the statistics, including reduction ratio of the models that have been created.   Data_type: bool, optional  "\fB-file <string>\fR" Specifies output report file name.  Data_type: string, optional  "\fB-identified\fR" Reports the statistics of the modules/instgroups that have been identified as models.  Data_type: bool, optional  "\fB-instance_ratio <float>\fR" Specifies ratio value where report_proto_model only reports flexModels that have instance ratio greater than or equal to this specified value.  Min: 0  Max: 1.79769313486232e+308  Data_type: float, optional  "\fB-min_inst <integer>\fR" Specifies the threshold of an instance count that is used to filter modules.  Data_type: int, optional 
+.SH Examples
+.RS  "*" 2 The following command reports modules or instance groups have been identified as FlexModels  report_proto_model -identified  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE
+.RS  "*" 2 The following command reports models in the design with hierarchical modules that have at least 30 instances:   report_proto_model -min_inst 30  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE
+.RS  "*" 2 The following command reports all models after the FlexModels have been committed:  report_proto_model -created  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE
+.RS  "*" 2 If -constraint option is specified, the report has the has PhysicalConstraint column  report_proto_model -created  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  report_proto_model -created -constraint  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  
+.RE 
+.SH Related Information
+.RS  "*" 2  set_proto_model  "*" 2  Prototyping Methodologies chapter in the Innovus User Guide
+.RE
+.P

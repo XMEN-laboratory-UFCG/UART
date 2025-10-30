@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_histogram_png  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_histogram_png\fR \-  Dumps out the timing histogram image from global timing debug in the PNG format without bringing up the GUI
+.SH Syntax \fBcreate_histogram_png\fR  [-help]  [-height <integer>]  -name <string>  [-width <integer>] 
+.P Dumps out the timing histogram image from global timing debug in the PNG format without bringing up the GUI. It should open the Global Timing Debug window before the execution of the command. Earlier, this was done when the GUI was displayed by right-clicking the histogram window and selecting Snapshot. But that worked only when the snapshot was displayed in the GUI. This command has eliminated the necessity of bringing up the GUI to dump out the timing histogram. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each create_histogram_png parameter.  For a detailed description of the command and all its parameters, use the man command:   man create_histogram_png  "\fB-height <integer>\fR" Specifies the height of the PNG image.  Minimum: 1  Maximum: 10000  "\fB-name <string>\fR" Specifies the name of the PNG file.   "\fB-width <integer>\fR" Specifies the width of the PNG image.  Minimum: 1  Maximum: 10000 
+.SH Related Information
+.P The Timing Budgeting chapter of the Innovus User Guide document.
+.P

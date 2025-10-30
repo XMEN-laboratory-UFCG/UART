@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setObjFPlanBox  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetObjFPlanBox\fR \-  Defines the bounding box of a specified object, even outside the core boundary. You can use this command after importing the design
+.SH Syntax \fBsetObjFPlanBox\fR   [-help]  objectType   objectName   llx lly urx ury
+.P Defines the bounding box of a specified object, even outside the core boundary. You can use this command after importing the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setObjFPlanBox parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setObjFPlanBox  "\fB<objectName>\fR" Specifies the name of the object for <objectType>.  Data_type: string, required  "\fB<objectType>\fR" Specifies the type of object for objectName. This can be any of the following:
+.RS  "*" 2 Bump  "*" 2 Cell  "*" 2 Group  "*" 2 Instance  "*" 2 I/O cell  "*" 2 I/O pin  "*" 2 Layershape  "*" 2 Module  "*" 2 Net  "*" 2 Partition cut  "*" 2 Partition feedthrough  "*" 2 Partition pin block  "*" 2 Pin  "*" 2 Pin guide  "*" 2 Row cluster  "*" 2 Standard row
+.RE   Data_type: string, required  "\fB<llx>\fR" Specifies the lower left x coordinate of the object.  Data_type: float, required  "\fB<lly>\fR" Specifies the lower left y coordinate of the object.  Data_type: float, required  "\fB<urx>\fR" Specifies the upper right x coordinate of the object.  Data_type: float, required  "\fB<ury>\fR" Specifies the upper right y coordinate of the object.  Data_type: float, required 
+.SH Example
+.P The following command specifies a bounding box for module DTMF_INST/TDSP_CORE_INST at a lower left x coordinate of 700.00, a lower left y coordinate of 700.00, and upper right x coordinate of 1000.00, and an upper right y coordinate of 1000.00:
+.P setObjFPlanBox Module DTMF_INST/TDSP_CORE_INST 700.00 700.00 1000.00 1000.00  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Defining the Bounding Box
+.RE 
+.RE
+.P

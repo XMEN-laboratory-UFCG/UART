@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH add_cell_obs  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBadd_cell_obs\fR \-  Adds obstruction to a cell. The added obs is saved in the database by its own
+.SH Syntax \fBadd_cell_obs\fR  [-help]  -cell <cell_name_or_pointer>[-exceptPGNet]  -layer <layer_name_or_pointer>  [-mask <int_value>]  {-rects {{<llx1 lly1 urx1 ury1>} {<llx2 lly2 urx2 ury2>}...} | -polygon {<x1 y1 x2 y2 x3 y3
+...>}}  [-spacing <value> | -design_rule_width <value>]
+.P Adds obstruction to a cell. The added obs is saved in the database by its own. You do not need to resource it after restoring the database. It adds an obstruction geometry to a cell on the specified layer and is helpful when you want to add a temporary cell obstruction without changing the cell's LEF and reloading Innovus. 
+.SH  Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each add_cell_obs parameter.  For a detailed description of the command and all its parameters, use the man command:  man add_cell_obs  "\fB-cell <cell_name_or_pointer>\fR" Specifies the cell name or pointer.   "\fB-design_rule_width <value>\fR" Specifies the design rule width.   "\fB-exceptPGNet\fR" Ignores the Power/Ground routing while checking for DRC violations (including shorts) involving the added obs. This parameter is equivalent to LEF MACRO OBS LAYER # EXCEPTPGNET.  "\fB-layer <layer_name_or_pointer>\fR" Specifies the layer name or pointer.   "\fB-mask <int_value>\fR" Specifies the integer value of the mask (within the mask range) for the created OBS.  Default: 0, which means that the mask is uncolored.  "\fB-polygon {<x1 y1 x2 y2 x3 y3> <
+...>}\fR" Specifies the polygon shape.   "\fB-rects {{<llx1 lly1 urx1 ury1>} {<llx2 lly2 urx2 ury2>}...}  \fR" Specifies the Obs rect list for adding obstruction geometries.   "\fB-spacing <value>\fR" Specifies the spacing value. 
+.SH Related Information
+.P delete_cell_obs

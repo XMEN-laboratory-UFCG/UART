@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportProbePins  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportProbePins\fR \-  Generates a report of all probe pins that are used for package-level design and testing
+.SH Syntax \fBreportProbePins\fR [-help] 
+.P Generates a report of all probe pins that are used for package-level design and testing. If no probe points exist, the software returns the following message:
+.P "No Probe Points Defined"
+.P Note: You can set or delete probe points using the setProbePin or unsetProbePin commands, respectively. 
+.SH Parameters    "\fB-help\fR" Prints a brief description of the reportProbePins command.  For a detailed description of the command, use the man command:  man reportProbePins 
+.SH Example
+.RS  "*" 2 The following command generates a report of all probe pins:   reportProbePins
+.RE 
+.SH Related Information
+.RS  "*" 2 setProbePin  "*" 2 unsetProbePin
+.RE
+.P

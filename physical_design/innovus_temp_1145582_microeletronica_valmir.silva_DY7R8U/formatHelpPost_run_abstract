@@ -1,0 +1,2 @@
+ "*" 2 Checks if the executable abstract exists in the path
+.SH Syntax \fBrun_abstract\fR  [-help]   -gds_files <file_list>   [-gen_script_only <file.il>]   [-lib_files <file_list>]   [-output_lef_file <file.lef>]   [-run_script_only <file.il>]   [-verilog_stub_files <file_list>]

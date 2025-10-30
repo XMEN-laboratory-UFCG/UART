@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unloadPtnPin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunloadPtnPin\fR \-  Removes the loading of partition pins by the loadPtnPin command
+.SH Syntax \fBunloadPtnPin\fR  [-help]  -ptnName <partitionName>  {-file <floorplanFileName> } 
+.P Removes the loading of partition pins by the loadPtnPin command. This is used to remove the preassignment of pins that were previously reassigned by the loading. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each unloadPtnPin parameter.  For a detailed description of the command and all of its parameters, use the man command:   man unloadPtnPin  "\fB-file <floorplanFileName>\fR" Specifies the full pathname of the partition floorplan file.  Data_type: string, optional  "\fB-ptnName <partitionName>\fR" Specifies the name of the partition.  Data_type: string, required 
+.SH Example
+.P The following command unloads pin positions for partition EUG from file EUG.fp.ptn:
+.P unloadPtnPin -ptnName EUG -file EUG.fp.ptn 
+.SH Related Information
+.RS  "*" 2 loadPtnPin  "*" 2 Partitioning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Assigning Partition and Blackbox Pins  "*" 2 ECO Pin Assignment
+.RE 
+.RE
+.P

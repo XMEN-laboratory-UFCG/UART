@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_clock_groups  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_clock_groups\fR \-  Resets clock groups that have been set using the set_clock_groups command
+.SH Syntax \fBreset_clock_groups\fR  [-help]  {-physically_exclusive | -logically_exclusive | -asynchronous}   {-name <name_list> | -all} 
+.P Resets clock groups that have been set using the set_clock_groups command. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-all\fR" Removes all physically exclusive, logically exclusive, or asynchronous clock groups in the design.  Removes all the physically exclusive, logically exclusive, or asynchronous clock groups in the design.  This parameter should be used with one of the parameters: -logically_exclusive, -physically_exclusive, or -asynchronous at one time, and should not be used with the -name parameter.  "\fB-asynchronous\fR" Specifies the asynchronous clock groups to be removed.  This parameter must be used with either -all or -name parameter.  "\fB-logically_exclusive\fR" Specifies the logically exclusive clock groups to be removed.  This parameter must be used with either -all or -name parameter.  "\fB-name <name_list>\fR" Specifies the previously defined names of clock groups to be removed.  This parameter should be used with one of the parameters: -logically_exclusive, -physically_exclusive, or -asynchronous at one time.  "\fB-physically_exclusive\fR" Specifies all the physically exclusive clock groups to be removed.  This parameter must be used with either -all or -name parameter.
+.P 
+.SH Examples
+.RS  "*" 2 The following command resets all physically exclusive clock groups in the design:   reset_clock_groups -physically_exclusive -all
+.RE
+.RS  "*" 2 The following command resets physically exclusive clock group CLKGRP0:   reset_clock_groups -physically_exclusive -name CLKGRP0
+.RE 
+.SH Related Information
+.RS  "*" 2 set_clock_groups
+.RE
+.P

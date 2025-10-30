@@ -1,0 +1,37 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH prepareForEcoRoute  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBprepareForEcoRoute\fR \-  Converts special nets to geometrically equivalent regular nets
+.SH Syntax \fBprepareForEcoRoute\fR  [-help]  [-exclude <nets>]  [-nets <nets>]  
+.P Converts special nets to geometrically equivalent regular nets. You can convert all special nets, named special nets, or all special nets except those you specify. The prepareForEcoRoute command supports polygon shapes as well.
+.P Notes 
+.RS  "*" 2 If you do not specify any parameters, the prepareForEcoRoute command converts all special nets to signal nets.   "*" 2 Use the prepareForEcoRoute command to convert physical nets. To convert logical nets, use setNet.  "*" 2 The prepareForEcoRoute command does not work for PG nets.
+.RE 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each prepareForEcoRoute parameter.  For a detailed description of the command and all of its parameters, use the man command:  man prepareForEcoRoute  "\fB-exclude <nets>\fR" Specifies the special nets that you do not want to convert. You can use wildcards.
+.RS  "*" 2 If a name contains a special character, enclose it in braces ({}).
+.RE
+.RS  "*" 2 If you specify multiple net names, enclose the names in braces ({}).
+.RE   "\fB-nets <nets>\fR" Specifies the special nets to be converted. You can use wildcards.
+.RS  "*" 2 If a name contains a special character, enclose it in braces ({}).
+.RE
+.RS  "*" 2 If you specify multiple net names, enclose the names in braces ({}).
+.RE
+.P Note: For backward compatibility, this command also supports the following syntax for nets to convert:
+.P prepareForEcoRoute <netName> [<netName2 netName3>
+...] 
+.SH Examples
+.RS  "*" 2 The following command converts special nets named clk* to regular nets:   prepareForEcoRoute -nets clk* 
+.RE
+.RS  "*" 2 The following command converts all special nets, except those named clk1*, to regular nets:   prepareForEcoRoute -exclude clk1*
+.RE
+.RS  "*" 2 The following command converts special nets named clk* to regular nets, except nets named clk1*:   prepareForEcoRoute -nets clk* -exclude clk1*
+.RE
+.RS  "*" 2 The following command converts all special nets named clk*, a2, and s2[1], except for nets clk1 and clk2, to regular nets:   prepareForEcoRoute -nets {clk* a2 s2[1]} -exclude {clk1 clk2} 
+.RE 
+.SH Related Information
+.RS  "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 setNet  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

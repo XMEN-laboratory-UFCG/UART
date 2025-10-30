@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH resizeFloorplan  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBresizeFloorplan\fR \-  Resizes the floorplan while maintaining the relative locations of the existing floorplan. You can also set global parameters for the resizeFloorplan by using the setResizeFPlanModecommand
+.SH Syntax \fBresizeFloorplan\fR  [-help]   [-xSize <xAxisSize>]   [-ySize <yAxisSize>]   [-xPercent <xAxisPercent>]   [-yPercent <yAxisPercent>]   [-undo]   [-pushCore]   [-forceResize]
+.P Resizes the floorplan while maintaining the relative locations of the existing floorplan. You can also set global parameters for the resizeFloorplan by using the setResizeFPlanModecommand. Parameters that you specify with setResizeFPlanMode are then used automatically whenever you run the resizeFloorplan command or use the Resize Floorplan form. You can use this command after importing the design. When run on a block design, the resizeFloorplan command keeps physical PG pins during resize and trims the PG pin geometries that fall out of the chip boundary after resize.
+.P Note: You can use the addSizeBlockage command to add a size blockage object that controls the behavior of the resize line under a covered area. 
+.SH Parameters   "\fB-forceResize\fR" Resizes the floorplan even if the target size can not be met. However, the floorplan is resized as near as possible to the specified size.  Default: If you do not specify this parameter, the floorplan is not resized if the target size can not be met.  Note: This parameter can be used only when the setResizeFplanMode -shiftBased parameter has been set to true.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes type and default information for each resizeFloorplan parameter. For a detailed description of the command and all of its parameters, use the man command:  man resizeFloorplan  "\fB-pushCore\fR" Pushes the core when the design is I/O bound.  Data_type: bool, optional   "\fB-undo\fR" Revert to the floorplan that existed before the command was run.  Data_type: bool, optional   "\fB-xPercent <xAxisPercent>\fR" Specifies the percentage of how much the floorplan should be expanded or shrunk in the x direction. A positive value expands the floorplan and a negative value shrinks the floorplan.  Data_type: float, optional  "\fB-yPercent <yAxisPercent>\fR" Specifies the percentage of how much the floorplan should be expanded or shrunk in the y direction. A positive value expands the floorplan and a negative value shrinks the floorplan.  Data_type: float, optional   "\fB-xSize <xAxisSize>\fR" Specifies how much the floorplan should be expanded or shrunk in the x direction. A positive value expands the floorplan and a negative value shrinks the floorplan. This value is in microns.  Note: If both -xSize and -ySize parameters are specified, the resize order is the same as the order of the parameters.  Data_type: float, optional  "\fB-ySize <yAxisSize>\fR" Specifies how much the floorplan should be expanded or shrunk in the y direction. A positive value expands the floorplan and a negative value shrinks the floorplan. This value is in microns.  Data_type: float, optional 
+.SH Example
+.P The following command resizes the floorplan as follows: shrinks the floorplan in shift based mode by -50 microns in the x direction and -40 microns in the y direction.  resizeFloorplan -xSize -50 -ySize -40 
+.SH Related Information
+.RS  "*" 2 addSizeBlockage  "*" 2 deleteSizeBlockage  "*" 2 getResizeFPlanMode  "*" 2 setResizeFPlanMode
+.RE
+.RS  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference  "*" 2 Floorplanning the Design chapter in the Innovus User Guide 
+.RS  "*" 2 Resizing the Floorplan
+.RE 
+.RE
+.P

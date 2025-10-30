@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_resistance  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_resistance\fR \-  Sets the wire resistance value on the specified nets of the top cell, which is used to compute the net delay of the specified nets
+.SH Syntax \fBset_resistance\fR  -help   [-max]   [-min]   <resistance_value>  <net_list> 
+.P Sets the wire resistance value on the specified nets of the top cell, which is used to compute the net delay of the specified nets. The resistance that you specify using this command overrides the resistance from wire load models and SPEF.
+.P Note: In the best-case worst-case (BC-WC) analysis mode, the minimum resistance is used to compute the early path delay and the late path delay for the minimum corner. The maximum resistance is used to compute the early path delay and the late path delay for the maximum corner. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each set_resistance parameter. For a detailed description of the command and all of its parameters, use the man command: man set_resistance.  "\fB-max\fR" Specifies that the asserted resistance is the maximum resistance.  Default: If the -max (or -min) parameter is not specified, the resistance value is used as both minimum and maximum resistance.  "\fB-min\fR" Specifies that the asserted resistance is the minimum resistance.  Default: If the -min (or -max)parameter is not specified, the resistance value is used as both minimum and maximum resistance.  "\fB<net_list>\fR" Specifies a list of nets on which the wire resistance is set.  "\fB<resistance_value>\fR" Specifies the value for the wire resistance. This value (in units) is found in the target technology library. 
+.SH   Examples
+.RS  "*" 2 The following example set the maximum wire resistance of 2.0 units on the net n1:  set_resistance -max 2.0 [get_nets n1]
+.RE
+.RS  "*" 2 The following example set the minimum wire resistance of 1.2 units and a maximum wire resistance of 2.0 units on the net n1:   set_resistance 1.2 -min [get_nets n1]  set_resistance 2.0 -max [get_nets n1]
+.RE 
+.SH Related Information
+.RS  "*" 2 reset_resistancereset_resistance  "*" 2 report_net  "*" 2 report_timing  "*" 2 set_drive  "*" 2 set_load
+.RE
+.P

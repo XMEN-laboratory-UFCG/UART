@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH all_registers  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBall_registers\fR
+.SH Syntax \fBall_registers\fR  [help]  [-clock {<clock_list>}]   [-cells]  [-rise_clock {<clock_list>}]   [-fall_clock {<clock_list>}]   [-flops | -edge_triggered]   [-no_hierarchy]  [-latches | -level_sensitive]   [-macros]   [-master_slave]   [-data_pins]   [-clock_pins]   [-output_pins]   [-async_pins]   [-slave_clock_pins] 
+.P Returns a collection of instances and pins of flip-flops, latches, or sequential macros in the design. A cell is considered sequential if the library cell defines trigger or timing check arcs.
+.P Note: The following options can be used only after building the timing graph:
+.RS  "*" 2 -clock
+.RE
+.RS  "*" 2 -rise_clock
+.RE
+.RS  "*" 2 -fall_clock
+.RE 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-async_pins\fR" Returns a collection of async preset or clear pins.  "\fB-cells\fR" Creates a collection of cells. This is the default option.  "\fB-clock {<clock_list>}\fR" Specifies the name of a clock or a list of clocks. The all_registers command creates a collection of registers clocked by the specified <clock_list>.  "\fB-clock_pins\fR" Returns a collection of register clock pins. You can use other parameters to further filter this collection.  "\fB-data_pins\fR" Returns a collection of register data input pins. You can use other parameters to further filter this collection.  "\fB-fall_clock {<clock_list>}\fR" Specifies the name of a clock or a list of clocks. The all_registers command creates a collection of registers opened by the falling edge of the clocks specified in the <clock_list>.  "\fB-flops | -edge_triggered\fR" Returns a collection of edge-triggered sequential instances. Both the -flops and -edge_triggered options return the same collection. The -flops option is provided for backward compatibility.  "\fB-latches | -level_sensitive\fR" Returns a collection of level-sensitive sequential instances. Both -latches and -level_sensitive options return the same collection. The -latches option is provided for backward compatibility.  "\fB-macros\fR" Returns sequential instances that are neither flip-flops nor latches.  "\fB-master_slave\fR" Returns a collection of master-slave register cells.  "\fB-no_hierarchy\fR" Searches the current instance only; does not descend the hierarchy.  "\fB-output_pins\fR" Returns a collection of register output pins.  "\fB-rise_clock {<clock_list>}\fR" Specifies the name of a clock or a list of clocks. The all_registers command creates a collection of registers opened by the rising edge of the clocks specified in the <clock_list>.  "\fB-slave_clock_pins\fR" Returns a collection of slave clock pins of the master-slave registers. You can specify the slave clock pins as clocked_on_also in the library. 
+.SH Example
+.RS  "*" 2 The following command reports the10 worst paths going to registers in the design:   report_timing -to [all_registers] -max_paths 10
+.RE
+.RS  "*" 2 the following script using the all_registers command along with other Innovus commands can be used to get number of flops in the design:   set flopName [all_registers -flops]  set flopCount [sizeof_collection $flopName]  puts "Number of flops in the design is $flopCount"
+.RE 
+.SH Related Information
+.RS  "*" 2 get_cells  "*" 2 get_pins
+.RE
+.P

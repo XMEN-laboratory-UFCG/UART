@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editBumpConnectTargetConstraint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditBumpConnectTargetConstraint\fR \-  Modifies the property values on bumps
+.SH Syntax \fBeditBumpConnectTargetConstraint\fR  [-help]   {-bump <list_of_bumps> | -selected }   {-instName <instance_name>    {[-toInstName <instance_name>]      [-pinName <pin_name> {[-toPinName <pin_name>]      [{-portNum <value> -toPortNum <value>}]}]}} 
+.P Modifies the property values on bumps. You can change the instance name, pin name, and port name on specified or selected bumps. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each editBumpConnectTargetConstraint parameter.  For a detailed description of the command and all of its parameters, use the man command:  man editBumpConnectTargetConstraint  "\fB-bump <list_of_bumps> | -selected\fR" Edits the bump connect target constraint on specified or selected bumps. The -bump option accepts wild cards and -selected can have multiple bumps selected.  "\fB-instName <instance_name>\fR" Specifies the name of the instance for which you want to change the bump connect target constraint.  "\fB-pinName <pin_name>\fR" Specifies the name of the pin for which you want to change the bump connect target constraint.  "\fB-portNum <value>\fR" Specifies the port number for which want to change the bump connect target constraint.  "\fB-toInstName <instance_name>\fR" Specifies the instance name to change to in the bump connect target constraint.  "\fB-toPinName <pin_name>\fR" Specifies the pin name to change to in the bump connect target constraint.  "\fB-toPortNum <value>\fR" Specifies the port number to change to in bump connect target constraint. 
+.SH Example
+.RS  "*" 2 The following command modifies bump_connect_target property on Bump_1 to change pairing between Bump_1 and instance IOPADS_INST/esd from PORT1 to PORT2. PORT1 and PORT2 are under VDD PIN of instance IOPADS_INST/esd.   editBumpConnectTargetConstraint -bump Bump_1 -instName IOPADS_INST/esd -pinName VDD -portNum 1 -toPortNum 2
+.RE 
+.SH Related Information
+.RS  "*" 2 addBumpConnectTargetConstraint  "*" 2 deleteBumpConnectTargetConstraint  "*" 2 findPinPortNumber  "*" 2 Flip Chip Methodologies chapter of the User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2 Port Numbering 
+.RE  "*" 2 Tools Menu chapter in the Menu Reference 
+.RS  "*" 2 Flip Chip
+.RE 
+.RE
+.P

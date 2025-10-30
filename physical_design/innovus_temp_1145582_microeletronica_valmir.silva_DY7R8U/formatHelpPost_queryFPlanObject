@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH queryFPlanObject  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBqueryFPlanObject\fR \-  Prints the properties of selected objects to the console
+.SH Syntax \fBqueryFPlanObject\fR  [-help]  [-pd] 
+.P Prints the properties of selected objects to the console. This command supports only instances and modules. You can use this command after selecting one ore more instances or modules. 
+.SH Parameters    "\fB-help     \fR" Outputs a brief description that includes the type and default information for each queryFPlanObject parameter. For a detailed description of the command and all of its parameters, use the man command:   man queryFPlanObject  "\fB-pd\fR" Use this option to output power domain information, as well as check if the objects belong to a power domain.  Data_type: bool, optional
+.P Example
+.P The following commands select and print property information for module modA:
+.P selectInst modA  queryFPlanObject -pd 
+.SH Related Information
+.RS  "*" 2 selectInst  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

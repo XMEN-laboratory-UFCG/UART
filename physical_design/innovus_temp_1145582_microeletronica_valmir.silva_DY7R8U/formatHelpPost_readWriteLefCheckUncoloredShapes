@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH readWriteLefCheckUncoloredShapes  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreadWriteLefCheckUncoloredShapes\fR
+.SH Syntax \fBreadWriteLefCheckUncoloredShapes\fR {pin_only | on | off} 
+.P Type: enum
+.P Default: off
+.P Specifies whether to check for uncolored LEF PIN and OBS shapes on multi-mask routing layers when reading or writing LEF files. If the check is on, LEF read or write commands will error out if there are any uncolored routing layer shapes (cut layers are not checked). If set to pin_only, only check LEF PIN shapes and ignore LEF OBS shapes.
+.RS  "*" 2 During write_lef_abstract, if the tool finds any uncolored physical pin and if readWriteLefCheckUncoloredShapes is set to on, the tool will print an error message, and will not write out uncolored shapes to the LEF file. However, if readWriteLefCheckUncoloredShapes is set to off, the tool will not check the uncolored object and dump all physical pins into the macro lef. In this case, the tool does not print any error message.  "*" 2 When the tool reads the LEF file and finds any uncolored macro pin, and if readWriteLefCheckUncoloredShapes is set to on, the tool will print an error message and only read colored shapes into the design. However, if readWriteLefCheckUncoloredShapes is set to off, the tool will not check the uncolored object and will read the definition of all macros into the design. In this case, the tool does not print any error message.
+.RE
+.P The readWriteLefCheckUncoloredShapes global controls the behavior of following commands or flow:
+.RS  "*" 2 write_lef_abstract  "*" 2 restoreDesign and init design flow  "*" 2 replaceLefMacro
+.RE
+.P readWriteLefCheckUncoloredShapes does not impact write_lef_library and read/write oa tech. 
+.SH Related Information
+.RS  "*" 2 replaceLefMacro  "*" 2 restoreDesign  "*" 2 write_lef_abstract  "*" 2 write_lef_library
+.RE
+.P

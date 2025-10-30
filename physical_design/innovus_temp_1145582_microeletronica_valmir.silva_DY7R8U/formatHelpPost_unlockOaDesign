@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unlockOaDesign  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunlockOaDesign\fR \-  Unlocks the specified OpenAccess design
+.SH Syntax \fBunlockOaDesign\fR  [-help]  <lib>  <cell>  <view> 
+.P Unlocks the specified OpenAccess design.
+.P A design cannot be opened if setOaxMode -locking is set to true, and the design is currently locked. You can use the unlockOaDesign command to free the lock so that other tools can access and edit the database. You also can use the command to override the lock, if the design is incorrectly locked.
+.P You can use the unlockOaDesign command at any time. 
+.SH Parameters    "\fB<cell>\fR" Specifies the name of the top cell to unlock.  "\fB-help\fR" Outputs a brief description that includes type and default information for each unlockOaDesign parameter.  For a detailed description of the command and all of its parameters, use the man command: man unlockOaDesign.  "\fB<lib>\fR" Specifies the name of the OpenAccess library in which the design was saved.  "\fB<view>\fR" Specifies the name of the cell view to unlock. 
+.SH Example
+.RS  "*" 2 The following command unlocks the view layout in the cell dtmf_chip in the library designLib:   unlockOaDesign designLib dtmf_chip layout
+.RE 
+.SH Related Information
+.RS  "*" 2 setOaxMode
+.RE
+.P

@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH checkMacroLLOnTrack  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheckMacroLLOnTrack\fR \-  By default, checks whether the lower left coordinates (llx, lly) of hard macros are at the intersection of Metal1/Metal2 tracks, and reports an error in Innovus if they are not
+.SH Syntax \fBcheckMacroLLOnTrack\fR  [-help]  -useLayerOffset   -useM2M3Track
+.P By default, checks whether the lower left coordinates (llx, lly) of hard macros are at the intersection of Metal1/Metal2 tracks, and reports an error in Innovus if they are not. This is based on the assumption that Metal1 and Metal2 are both specified in opposite directions in a 65nm process. You can use this command after the floorplan is ready and want to make sure hard macro is on tracks. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each checkMacroLLOnTrack parameter.  For a detailed description of the command and all of its parameters, use the man command:   man checkMacroLLOnTrack  "\fB-useLayerOffset\fR" Checks pin alignment in a block against the layer offset of the design library.  Data_type: bool, optional  "\fB-useM2M3Track\fR" Checks the location of the macro against Metal2/Metal3 tracks if both Metal1 and Metal2   are specified in the same horizontal direction in a 40nm process.  Data_type: bool, optional 
+.SH Example
+.RS  "*" 2 The  following command checks whether the lower left coordinates (llx, lly) of hard macros are at the intersection of Metal1/Metal2 tracks:  checkMacroLLOnTrack -useLayerOffset -useM2M3Track
+.RE 
+.SH Related Information
+.RS  "*" 2 check_macro_place_constraint  "*" 2 checkFPlan  "*" 2 checkFPlanSpace  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

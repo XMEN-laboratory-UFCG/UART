@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_capture_reg2reg_metrics  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_capture_reg2reg_metrics\fR
+.SH Syntax \fBmetric_capture_reg2reg_metrics\fR [true | false} 
+.P Default: false
+.P Forces the capture of reg2reg metrics regardless of path groups.
+.P

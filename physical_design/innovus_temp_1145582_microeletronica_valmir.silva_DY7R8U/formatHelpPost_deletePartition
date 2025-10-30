@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deletePartition  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeletePartition\fR \-  Deletes the specified partition
+.SH Syntax \fBdeletePartition\fR  [-help]  { <partition_name> | -all | -nested | -non_leaf }   [-undo_tcl_file <file_name> [-non_leaf ]] 
+.P Deletes the specified partition.
+.P Note: The Hinst retains the fence property. 
+.SH Parameters   "\fB-all\fR" Deletes all partitions.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each deletePartition parameter.  For a detailed description of the command and all of its parameters, use the man command:   man deletePartition.  "\fB-nested\fR" Deletes all nested partitions in the design.  Data_type: bool, optional   "\fB-non_leaf\fR" Deletes all non-leaf partitions in the design.  Note: It saves the information of the deleted partitions in a tcl file, so that the same can be used to restore the deleted partitions.  For example, in the diagram below, all the non-leaf partitions (marked in yellow) must be deleted and dumped in a tcl file for restoration purpose later on.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   Data_type: bool, optional  "\fB<partition_name>\fR" Specifies the name of the partition to delete.  Data_type: string, optional  "\fB-undo_tcl_file <file_name>\fR" Specifies the file that can be sourced to undo deletion of partitions.  With this parameter, the partition definition of the partition being deleted is written to the specified file. Later, if required, this file can be sourced to bring back the partition definition.  Data_type: string, optional 
+.SH Example
+.RS  "*" 2 The following command deletes the partition p1.  deletePartition p1  "*" 2 The following command writes the partition definition of partition p1 in file ptn.tcl and then deletes it.  deletePartition p1 -undo_tcl_file ptn.tcl
+.RE 
+.SH Related Information
+.RS  "*" 2 partition  "*" 2 definePartition  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P 
+.SH 
+.P

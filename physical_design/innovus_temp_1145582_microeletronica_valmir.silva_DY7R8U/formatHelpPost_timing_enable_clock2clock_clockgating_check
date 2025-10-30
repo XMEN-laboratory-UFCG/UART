@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_clock2clock_clockgating_check  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_clock2clock_clockgating_check\fR
+.SH Syntax \fBtiming_enable_clock2clock_clockgating_check\fR  {true | false} 
+.P Default: false
+.P Enables clock-to-clock clock gating checks.
+.P When set to true, the software performs clock to clock gating checks at gating elements. For clock to clock gating checks, the frequency of a clock arriving at the reference side of a check should be equal to or greater than the frequency of the clock arriving at the signal side of the check.
+.P To set this global variable, use the set_global command.
+.P

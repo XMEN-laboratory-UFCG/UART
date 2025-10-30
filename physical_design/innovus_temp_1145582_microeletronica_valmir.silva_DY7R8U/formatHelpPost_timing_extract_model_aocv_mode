@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_extract_model_aocv_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_extract_model_aocv_mode\fR
+.SH Syntax \fBtiming_extract_model_aocv_mode\fR        {graph_based | path_based | none}
+.P Default: none
+.P Allows you to specify AOCV derating mode.
+.P The valid values are:
+.RS  "*" 2 graph_based: Specifies that the delays in the timing model are derated using the graph-based stage counts.  "*" 2 path_based: Specifies that the delays in the timing model are derated using the total path stage count of worst path between those pin pairs.  "*" 2 none: Specifies that the delays in the timing model are non-AOCV derated base delays.
+.RE
+.P Note: Before setting this global to graph_based or path_based mode, it is mandatory that the AOCV libraries are read in and AOCV analysis is enabled (by setting set_analysis_mode -aocv true).
+.P

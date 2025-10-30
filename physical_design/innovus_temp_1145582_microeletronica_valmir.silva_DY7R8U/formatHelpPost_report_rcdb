@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_rcdb  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_rcdb\fR \-  Displays the contents of the RCDB being read
+.SH Syntax \fBreport_rcdb\fR  [-help]  rcdb_dir_name 
+.P Displays the contents of the RCDB being read.
+.P Note:
+.RS  "*" 2 This command is supported only for reading flat single RCDB. Multiple RCDB's cannot be read simultaneously using this command.  "*" 2 The RCDB being read must be generated on the same platform and architecture on which it is being read. For example, if you have generated the RCDB on Linux platform, then the  report_rcdb command cannot report its content on the IBM AIX platform. Similarly, an RCDB generated on a 64-bit system cannot be reported on a 32-bit system.
+.RE 
+.SH Parameters    "\fB-help  \fR" Outputs a brief description that includes type and default information for each report_rcdb parameter. For a detailed description of the command and all of its parameters, use the man command: man report_rcdb.  "\fB<rcdb_dir_name>\fR" Specifies the location of the RCDB directory. 
+.SH Example
+.RS  "*" 2 The following command reports the contents of the RCDB being read in the test.rcdb.d directory:  report_rcdb test.rcdb.d  Opening parasitic data file 'test.rcdb.d/header.da' for reading.  RCDB VERSION           : 11.1  OS-bit                 : 64  OS-endianness          : little-endian  RCDB Compression       : on  RCDB Source            : Innovus  DESIGN                 : test  RC-Corners:            : typical  Coupled                : yes  Node-loc               : no  Statistical            : no
+.RE 
+.SH Related Information
+.RS  "*" 2 extractRC  "*" 2 setExtractRCMode
+.RE
+.P

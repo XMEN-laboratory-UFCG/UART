@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_sdc_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_sdc_mode\fR \-  Determines the constraint mode that is being currently read
+.SH Syntax \fBget_sdc_mode\fR    [-help]
+.P Determines the constraint mode that is being currently read.
+.P This command can be used inside SDC constraint files which are shared across multiple constraint modes to conditionalize how the constraints are interpreted for specific modes.
+.P

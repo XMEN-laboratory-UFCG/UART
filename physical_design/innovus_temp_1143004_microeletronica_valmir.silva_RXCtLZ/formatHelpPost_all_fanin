@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH all_fanin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBall_fanin\fR \-  Returns a collection of pins, ports, or cells that exist in the fanin cone of the specified objects
+.SH Syntax \fBall_fanin\fR  [-help]  [-hpin]   [-only_cells]  [-startpoints_only]   -to {collection | <object_list>}   [-trace_through {case_disable | user_disable | all | clocks | loop_snipped}]   [-view <view_name>]   [-levels <value> | -pin_levels <value>]   [ > | >> ] 
+.P Returns a collection of pins, ports, or cells that exist in the fanin cone of the specified objects. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB> | >>\fR" Stores the generated collection in the specified file.  You can add the
+.gz extension to the file name to generate a compressed report.  Note: The file name must be the last parameter specified.  "\fB-hpin\fR" Returns hierarchical pins along with the flat pins.  "\fB-levels <value>\fR" Specifies the number of gate levels to go back from a specific pin object to create the collection.  "\fB-only_cells\fR" Returns a collection only of the cells in the fanin zone.  "\fB-pin_levels <value>\fR" Specifies the number delay arcs to go back from a specific pin object to create the collection.  "\fB-startpoints_only\fR" Returns a collection only of valid start points in the fanin zone.  "\fB-trace_through {case_disable |user_disable | all | clocks | loop_snipped}\fR" You can specify one of the following options:
+.RS  "*" 2 case_disable: Allows traversal of arcs disabled using set_case_analysis command. Arcs disabled using set_disable_timing are not traversed.
+.RE
+.RS  "*" 2 user_disable: Allows traversal of arcs disabled using set_disable_timing command, but arcs disabled using set_case_analysis command are not traversed.
+.RE
+.RS  "*" 2 all: Allows traversal through all the arcs  "*" 2 clocks: Allows traversal through pins for which clock constraints (such as, create_clock, create_generated_clock) are applied. The pins that are disabled using the set_case_analysis and set_disable_timing commands are not traversed.  "*" 2 loop_snipped: Allows trace through the loop snipped arcs.
+.RE   "\fB-to {<collection> | <object_list>} \fR" Specifies the objects for which to return the collection. You can specify a list of objects, or a collection of objects.  "\fB-view <view_name>\fR" Specifies the view name for which fan cone traversal is to be performed. 
+.SH Examples
+.RS  "*" 2 The following command returns the collection of cells in the fanin zone of the output port OUT1:  all_fanin -to OUT1 -only_cells  "*" 2 The following command returns all the valid startpoints (sequential elements and/or input ports) in the fanin zone of OUT1, allowing the traversal through arcs disabled by set_case_analysis and set_disable_timing:  all_fanin -to OUT1 -startpoints_only -trace_through all
+.RE 
+.SH Related Information
+.RS  "*" 2 all_fanout 
+.RE
+.P

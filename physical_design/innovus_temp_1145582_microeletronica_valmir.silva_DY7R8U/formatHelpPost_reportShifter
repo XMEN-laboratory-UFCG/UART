@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportShifter  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportShifter\fR \-  Reports the level shifters that have been read into or defined for the Innovus software
+.SH Syntax \fBreportShifter\fR  [-help]  [-cell <cellName>]   [-from <powerDomainName>]   [-to <powerDomainName>]   [-outfile <fileName>]   [-highlight] 
+.P Reports the level shifters that have been read into or defined for the Innovus software. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each reportShifter parameter.  For a detailed description of the command and all its parameters, use the man command:   man reportShifter.  "\fB-cell\fR" Reports shifters with the specified cell.  Default: Reports all level shifters.  "\fB-from <powerDomainName>\fR" Reports all the shifter instances connected to the output pins of the power domain specified in the -from option.  Default: Reports all level shifters.  "\fB-highlight\fR" Highlights placed level shifters.  "\fB-outfile <fileName>\fR" Reports all instances in an output file.  Default: The instances will be reported to a default output file <designName>.shifter.rpt. A warning message is printed to indicate a default output file is created.  "\fB-to <powerDomainName>\fR" Reports shifter instances connected to the input pins of the power domain specified in the -to option.  Default: Reports all level shifters. 
+.SH Related Information
+.P For more information, see the following topics in the Low Power Design chapter of the User Guide.
+.RS  "*" 2 "Overview"  "*" 2 "Power Domain Shutdown and Scaling"  "*" 2 "Power Switch Optimization"
+.RE
+.P

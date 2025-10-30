@@ -1,0 +1,2 @@
+ "\fB-cell <cellName>\fR" Specifies cell name to remove constraint
+.SH Syntax \fBdeleteCellEdgeType\fR  [-help]   -cell <cellName>   -edgeType <edgeType>

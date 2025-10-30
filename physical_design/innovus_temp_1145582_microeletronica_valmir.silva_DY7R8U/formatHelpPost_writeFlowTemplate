@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH writeFlowTemplate  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwriteFlowTemplate\fR \-  Copies the Innovus Foundation flows templates into the directory you specify, or to the current directory if you do not specify one with the -directory parameter
+.SH Syntax \fBwriteFlowTemplate\fR  -help   [-directory <directory_name>]  
+.P Copies the Innovus Foundation flows templates into the directory you specify, or to the current directory if you do not specify one with the -directory parameter. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each writeFlowTemplate parameter. For a detailed description of the command and all of its parameters, use the man command:  man writeFlowTemplate  "\fB-directory <directory_name>\fR" Specifies the directory in which to save the templates.  Data_type: string, optional
+.P

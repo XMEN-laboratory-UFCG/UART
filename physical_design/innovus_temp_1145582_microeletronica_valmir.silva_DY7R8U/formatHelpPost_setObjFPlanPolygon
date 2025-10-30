@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setObjFPlanPolygon  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetObjFPlanPolygon\fR \-  Specifies a rectilinear object with polygon coordinates
+.SH Syntax \fBsetObjFPlanPolygon\fR   [-help]  {Cell | Group | Instance | Layershape | Module }  objectName   coordList
+.P Specifies a rectilinear object with polygon coordinates. The rectilinear object can take any shape depending on the number of x and y coordinates you specify. You can use this command after importing the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setObjFPlanPolygon parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setObjFPlanPolygon  "\fB<objectName>\fR" Specifies the name of the object for objectType.  Data_type: string, required  "\fB {Cell | Group | Instance | Layershape | Module} \fR" Specifies the type of object for objectName. This can be:
+.RS  "*" 2 Cell  "*" 2 Group  "*" 2 Instance  "*" 2 Layershape  "*" 2 Module
+.RE   Data_type: enum, required  "\fB<coordList>\fR" Specifies the corner coordinates, {x1 y1 x2 y2
+.....}, of the rectilinear object. The rectilinear object can take any shape depending on the number of x and y coordinates you specify.  Data_type: list, required 
+.SH Example
+.P The following command defines a rectilinear object - module xyz with five pairs of corner coordinates.  setObjFPlanPolygon module xyz 371.46 537.60 371.46 754.35 412.5 754.35 412.5 920.64 696.96 920.64 696.96 537.60
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 getObjFPlanPolygon  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

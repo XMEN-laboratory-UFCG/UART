@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH detachModulePort  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdetachModulePort\fR \-  Detaches the net connected to the specified port on the specified hierarchical instance
+.SH Syntax \fBdetachModulePort\fR  [-help]  <hinstName>  <portName> 
+.P Detaches the net connected to the specified port on the specified hierarchical instance. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each detachModulePort.  For a detailed description of the command and all of its parameters, use the man command:   man detachModulePort  "\fB<hinstName>\fR" Specifies the name of the hierarchical instance.  To detach a top-level port, specify - as the <hinstName>. For example, the following command detaches the port 'a' from the net connected to it:  >detachModulePort - a  "\fB<portName>\fR" Specifies the port on the module. 
+.SH Example
+.RS  "*" 2 The following command detaches port p1 from moduleA:   detachModulePort moduleA p1
+.RE 
+.SH Related Information
+.RS  "*" 2 attachModulePort  "*" 2 deleteModulePort
+.RE
+.P

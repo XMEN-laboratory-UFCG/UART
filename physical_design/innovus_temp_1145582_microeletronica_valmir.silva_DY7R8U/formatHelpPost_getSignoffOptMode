@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getSignoffOptMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetSignoffOptMode\fR \-  Returns information about the specified setSignoffOptMode parameter in the Innovus log file and the console
+.SH Syntax \fBgetSignoffOptMode\fR   [-help]  [-addInst]  [-addLoad]  [-allowSkewing]  [-alongRouteBuffering]   [-bufferCellList]  [-checkDrvFromHoldViews]   [-checkType]  [-clockCellList]  [-clockMaxLevel]  [-deleteInst]  [-disableGeometryChecks]  [-drvMargin]   [-ecoFilePrefix]  [-emType]  [-fixCellEm]  [-fixClockDrv]  [-fixDataDrv]  [-fixHoldAllowSetupOptimization]   [-fixHoldAllowSetupTnsDegrade]   [-fixHoldWithMargin]  [-fixGlitch]  [-fixIrDrop]  [-fixMaxCap]  [-fixMaxTran]  [-fixOsusGlitch]  [-fixSlackInRangeLowerLimit]  [-fixSlackInRangeUpperLimit]  [-fixSiSlew]  [-fixXtalk]   [-holdTargetSlack]  [-holdXtalkDeltaThreshold]  [-holdXtalkSlackThreshold]  [-ignoreDrvChecks]  [-keepTempFiles]    [-legalOnly]   [-loadEcoOptDb]  [-loadIrDropDb]  [-maxCapMargin]  [-maxOptRunTime]   [-maxPaths]  [-maxRunTime]   [-maxSlack]  [-maxTranMargin]   [-numReportPaths]   [-nworst]   [-optimizeCoreOnly]   [-optimizeReplicatedModules]   [-optimizeSequentialCells]   [-partitionListFile]  [-pbaEcoRoute]  [-pbaEffort]  [-postMask]   [-postStaTcl]  [-powerAware]  [-powerOptFocus]   [-prefixName]  [-preserveFiller]   [-preStaTcl]   [-resizeInst]   [-retime]  [-retimeDepth]  [-retimeDepthEarly]  [-retimeMode]   [-routingCongestionAware]   [-saveEcoOptDb]  [-selectDrvNetFile]  [-selectDrvPinFile]  [-selectHoldEndpoints]  [-selectSetupEndpoints]  [-setupRecovery]   [-setupTargetSlack]  [-setupXtalkDeltaThreshold]  [-setupXtalkSlackThreshold]  [-skipDrvNetfile]  [-specifyHoldEndpointsMargin]  [-specifySetupEndpointsMargin]   [-swapInst]  [-useGaFillerList]  [-usePfcDecapList]  [-usePfcFillerList]  [-usePfcRegularList]   [-verbose]   [-quiet]  [-nonDefault]
+.P Returns information about the specified setSignoffOptMode parameter in the Innovus log file and the console. The following information is returned: 
+.RS  "*" 2  Parameter name
+.RE
+.RS  "*" 2  Current value
+.RE
+.RS  "*" 2  Type (Boolean, string, and so on)
+.RE
+.RS  "*" 2  Whether the current value was set by user
+.RE
+.P  If you do not specify a parameter, Innovus returns values for all of the setSignoffOptMode parameters. 
+.SH  Parameters   "\fB <parameter_names>\fR" Returns information for the specified parameter. You can specify one or more parameters. See setSignoffOptMode for descriptions of the parameters you can specify.  "\fB-nonDefault\fR" Returns the current settings of the setSignoffOptMode parameters that are not default.   "\fB-quiet\fR" Returns the current settings for the specified parameters in Tcl list format only.  If you specify -quiet without any parameters, the software returns the current settings of all setSignoffOptMode parameters in Tcl list format. 
+.SH Related Information
+.RS  "*" 2 setSignoffOptMode  "*" 2 signoffOptDesign
+.RE
+.RS  "*" 2 The following sections in Optimizing Timing chapter of the Innovus User Guide
+.RS  "*" 2 Running MMMC SignOff ECO within Innovus  "*" 2 Using Signoff Timing Analysis to Optimize Timing and Power  "*" 2 Signoff Timing Analysis in Innovus using Timing Debug  "*" 2 Optimization in Path-Based Analysis (PBA) Mode  "*" 2 Total Power Optimization  "*" 2 Setup Timing Recovery After a Large Leakage or Total Power Optimization  "*" 2 Getting the Best Total Power Optimization Recipe  "*" 2 Path Group Support  "*" 2 Top Down Block ECO flow using Tempus Signoff Timing
+.RE 
+.RE
+.P

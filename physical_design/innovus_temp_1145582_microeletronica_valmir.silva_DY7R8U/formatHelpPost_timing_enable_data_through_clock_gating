@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_data_through_clock_gating  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_data_through_clock_gating\fR \-  When set to false, blocks signals arriving on the enable of the clock-gating check
+.SH Syntax \fBtiming_enable_data_through_clock_gating\fR  {true | false}   Default: true 
+.P When set to false, blocks signals arriving on the enable of the clock-gating check. 
+.P When set to true, allows both data and clock signals at the enable pin of a clock-gating check to propagate forward past the check. 
+.P To set this global variable, use the set_global command.

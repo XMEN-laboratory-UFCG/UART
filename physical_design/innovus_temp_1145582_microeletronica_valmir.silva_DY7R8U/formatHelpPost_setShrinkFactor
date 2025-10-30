@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setShrinkFactor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetShrinkFactor\fR \-  Sets the value by which the software shrinks the design before extraction. The shrink factor is used only for extraction calculations
+.SH Syntax \fBsetShrinkFactor\fR  [-help]  <shrinkFactor> 
+.P Sets the value by which the software shrinks the design before extraction. The shrink factor is used only for extraction calculations. It does not change the actual design.
+.P Note: You do not need to specify the shrink factor if the capacitance table file in use contains the shrink factor specification in its header. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for the setShrinkFactor parameter. For a detailed description of the command and its parameter, use the man command: man setShrinkFactor.  "\fB<shrinkFactor>\fR" Specifies the value by which the software shrinks a design.   Default: 1.0 
+.SH Example
+.P The following command sets the shrink factor to 0.9:
+.P setShrinkFactor 0.9
+.P Setting the shrink factor to 0.9 reduces the wire lengths, widths, and spacings in the design by 0.9 times the original values. 
+.SH Related Information
+.RS  "*" 2 extractRC  "*" 2 setDesignMode  "*" 2 setExtractRCMode
+.RE
+.P

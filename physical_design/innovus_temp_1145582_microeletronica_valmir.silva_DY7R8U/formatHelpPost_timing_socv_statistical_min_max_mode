@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_socv_statistical_min_max_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_socv_statistical_min_max_mode\fR
+.SH Syntax \fBtiming_socv_statistical_min_max_mode\fR   {statistical | mean_and_three_sigma_bounded}
+.P Default: mean_and_three_sigma_bounded
+.P Determines how worst cases will be computed in SOCV mode. 
+.P You can select one of the following options:
+.RS  "*" 2 statistical: The mean and standard deviation for the result of worst-cases is computed to get the greatest or smallest of normal distributions.  "*" 2  mean_and_three_sigma_bounded: The worst mean value is chosen as the mean of the resulting distribution. The standard deviation is computed as a bound from the worst (mean+/-3*sigma) value. This ensures that the 3-sigma value of the result always bounds the worst 3-sigma value.  Note: The mean_and_three_sigma_bounded option is required for SOCV-based optimization in Innovus. It is also highly recommended for analysis in Tempus due to improved bounding properties.
+.RE
+.P To set this global variable, use the set command.
+.P

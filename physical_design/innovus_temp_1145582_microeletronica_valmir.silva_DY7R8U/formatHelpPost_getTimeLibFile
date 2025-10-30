@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getTimeLibFile  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetTimeLibFile\fR \-  Reports the library files that match the specified library name
+.SH Syntax  \fBgetTimeLibFile\fR  <library_name> 
+.P Reports the library files that match the specified library name. 
+.SH Parameters    "\fB<library_name>\fR" Specifies the library name for which to check.
+.P

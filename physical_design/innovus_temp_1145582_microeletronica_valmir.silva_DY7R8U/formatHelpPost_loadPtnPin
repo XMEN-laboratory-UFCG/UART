@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH loadPtnPin  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBloadPtnPin\fR \-  Loads either a partition floorplan file (from a saved partition design session) or a DEF file, and then displays the preassigned I/O pins for the partition
+.SH Syntax \fBloadPtnPin\fR    [-help]  [-report <string>]  [-snapModifiedToBoundary]  {-ptnName <string> | -all}  {-file <string>| -def <string>} 
+.P Loads either a partition floorplan file (from a saved partition design session) or a DEF file, and then displays the preassigned I/O pins for the partition. This command must be run for each partition in the design. You can use this command on a partition design after loading the top level floorplan and after running/loading placement and early global route data. Use unloadPtnPinto remove the preassigned I/O pins.
+.P Note: The loadPtnPin command can load partition files that are saved using the saveFPlan command. 
+.SH Parameters   "\fB-all\fR" Specifies that pin positions for all the partitions should be loaded.  Data_type: bool, optional  "\fB-def <string>\fR" Specifies the full pathname of the partition def file.   Note: You can specify a DEF file in the gzip format (with the
+.gz extension) also.  Data_type: string, optional  "\fB-file<string>\fR" Specifies the full path name of the partition floorplan file.  Data_type: string, optional   "\fB-help\fR" Outputs a brief description that includes the type and default information for each loadPtnPin parameter.  For a detailed description of the command and all of its parameters, use the man command:   man loadPtnPin  "\fB-ptnName <string> \fR" Specifies the name of the partition.  Data_type: string, optional  "\fB-report <string> \fR" Specifies the optional report filename that contains any pins deleted or newly added.  Data_type: string, optional  "\fB-snapModifiedToBoundary\fR" Snaps pins to the modified partition boundary. The pin is unplaced if it cannot be snapped to edge at same location in same direction. If the existing pin is off-grid, the loadPtnPin command does not snap it to the track and you need to run the legalizePin command to snap the pin to the track.  Data_type: bool, optional 
+.SH Example
+.P The following command loads pin information from file EUG.fp.ptn for partition EUG
+.P loadPtnPin -ptnName EUG -file EUG.fp.ptn 
+.SH Related Information
+.RS  "*" 2 unloadPtnPin  "*" 2 saveFPlan  "*" 2 savePtnPin  "*" 2 Partitioning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Assigning Partition and Blackbox Pins  "*" 2 ECO Pin Assignment
+.RE 
+.RE
+.P

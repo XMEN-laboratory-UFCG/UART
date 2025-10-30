@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH add_gui_marker  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBadd_gui_marker\fR \-  Places a marker to indicate location on the design layout
+.SH Syntax \fBadd_gui_marker\fR  [-help]   -color <string>  -name <string>  -pt {x y}  -type {X TICK STAR}
+.P Places a marker to indicate location on the design layout. 
+.SH Parameters   "\fB-help\fR" Outputs the command usage and a brief description about the command parameters.  "\fB-color <string>\fR" Specifies the color of the marker. You can specify 16 colors for the marker. These are:   red blue green yellow magenta cyan pink orange brown purple violet teal olive gold maroon wheat  "\fB-name <string>\fR" Specifies the name of the marker.   "\fB-pt {x y}\fR" Specifies the location {x y} at which the marker will be placed on the design layout.   "\fB-type {X TICK STAR}\fR" Specifies the shape of the marker. There are three shapes for the markers: X, TICK, and STAR. 
+.SH Example
+.RS  "*" 2  The following command shows that a X type marker of color RED has been placed at the location {100 100}.  add_gui_marker -name aa -color red -pt {100 100} -type X   (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 list_gui_marker  "*" 2 remove_gui_marker
+.RE
+.P

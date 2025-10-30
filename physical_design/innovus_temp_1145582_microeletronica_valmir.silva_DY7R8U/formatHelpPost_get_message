@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_message  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_message\fR \-  Gets the limit, severity, or suppression for a message
+.SH Syntax \fBget_message\fR  -help  -id <msgID>  {-severity | -limit | -suppress | -count | -short | -long | | -on_error | -stop_script_limit | -detail}
+.P Gets the limit, severity, or suppression for a message. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each get_message parameter.  For a detailed description of the command and all of its parameters, use the man command:  man get_message  "\fB-count\fR" Returns the number of times this message has been issued this session.  Data_type: bool, optional  "\fB-detail\fR" Returns the message of specified id.  Data_type: bool, optional  "\fB-id <msgID>\fR" Specifies a single message ID, in the form "ENCFOO-123".  Data_type: string, required  "\fB-limit\fR" Returns the limit for the specified message as an integer. -1 is unlimited. 0 is suppressed.  Data_type: bool, optional  "\fB-long \fR" Returns the long message description, as used for the Description section in "man <msgID>"  Data_type: bool, optional  "\fB-on_error \fR" Returns the error action for the specified message.  Data_type: bool, optional  "\fB-severity\fR" Returns the severity, error, warn, info, or default, of the specified message as a string.  Data_type: bool, optional  "\fB-short \fR" Returns the short message description. Equivalent to "help <msgID>"
+.  Data_type: bool, optional  "\fB-stop_script_limit\fR" Returns the message limit allowed for every public command. Message limit set as -1 means unlimited.  Data_type: bool, optional  "\fB-suppress\fR" Returns 1 if the message is suppressed, 0 if not suppressed.  Data_type: bool, optional 
+.SH Related Information
+.RS  "*" 2 set_message command
+.RE
+.P

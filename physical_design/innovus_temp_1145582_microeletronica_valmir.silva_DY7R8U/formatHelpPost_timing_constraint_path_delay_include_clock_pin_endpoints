@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_constraint_path_delay_include_clock_pin_endpoints  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_constraint_path_delay_include_clock_pin_endpoints\fR
+.SH Syntax \fBtiming_constraint_path_delay_include_clock_pin_endpoints\fR   {true | false}
+.P Default: false
+.P Considers register clock pins as end-points for path delay constraints applied upstream.
+.P When set to true, the set_max_delay command considers unconstrained paths ending at the register clock pins. 
+.P To set this global variable, use the set command.
+.P

@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_bidi_output_timing_checks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_bidi_output_timing_checks\fR \-  When set to false, timing checks on both the input and output sides of the bidirectional pin are analyzed
+.SH Syntax \fBtiming_disable_bidi_output_timing_checks\fR  {true | false}   Default: true 
+.P When set to false, timing checks on both the input and output sides of the bidirectional pin are analyzed. 
+.P When set to true, the software disables timing checks on the output side of bidirectional pins.
+.P To set this global variable, use the set_global command.

@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH extract_metal_density  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBextract_metal_density\fR \-  Specifies to extract the metal density information
+.SH Syntax  \fBextract_metal_density\fR  -help 
+.P Specifies to extract the metal density information. The command generates the Voltus Thermal Model (VTM) for Celsius only if you do not want to include power information. Before specifying this command, use the set_metal_density_options command to set the parameters for extracting the metal density information. 
+.SH Parameters    "\fB-help\fR" Outputs the command usage and a brief description about the command parameters. 
+.SH Examples
+.RS  "*" 2 The following command specifies to run extract metal density:  extract_metal_density 
+.RE 
+.SH Related Information
+.RS  "*" 2 set_metal_density_options
+.RE
+.P

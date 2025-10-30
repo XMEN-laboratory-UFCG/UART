@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH attachModulePort  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBattachModulePort\fR \-  Attaches a port in the specified hinst (or top level) to a net
+.SH Syntax \fBattachModulePort\fR  [-help]   <moduleName>  <portName>   <netName>   [-noNewPort]
+.P Attaches a port in the specified hinst (or top level) to a net. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each attachModulePort.  For a detailed description of the command and all of its parameters, use the man command:   man attachModulePort  "\fB<moduleName>\fR" Specifies the module to which you want to attach the port. To specify the top module, enter '-'.  "\fB<netName>\fR" Specifies the net on the module.  "\fB<portName>\fR" Specifies the port on the module.  "\fB-noNewPort\fR" Prevents creation of hierarchical ports if a module port is attached. If the module port does not connect to the net in a different hierarchy through the existing ports, the software displays an error message and the command stops running.  Default: If you do not specify this parameter, the software creates hierarchical ports as required. 
+.SH Examples
+.RS  "*" 2 The following commands create a port p1 on hinst i1/i2/i3 and a net i1/i2/n1. The attachModulePort command then connects the created port p1 on hinst i1/i2/i3 to the net i1/i2/n1:   addModulePort i1/i2/i3 p1 input  addNet i1/i2/n1  attachModulePort i1/i2/i3 p1 i1/i2/n1
+.RE
+.RS  "*" 2 The following command attaches port in on the top module to net123:   attachModulePort - in net123
+.RE 
+.SH Related Information
+.RS  "*" 2 addNet  "*" 2 detachModulePort
+.RE
+.P

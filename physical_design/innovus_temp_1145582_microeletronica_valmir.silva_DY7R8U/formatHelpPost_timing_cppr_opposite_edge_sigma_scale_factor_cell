@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_cppr_opposite_edge_sigma_scale_factor_cell  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_cppr_opposite_edge_sigma_scale_factor_cell\fR
+.SH Syntax \fBtiming_cppr_opposite_edge_sigma_scale_factor_cell\fR <double>
+.P Default: 1
+.P Value Range: 0 to 1
+.P Controls the cell sigma delay component for CPPR credit for opposite transition edges at the common pin.
+.P The scale factors are applicable only when the common pin has mismatched transitions for the launch and capture paths.
+.P To set this global variable, use the set command.
+.P

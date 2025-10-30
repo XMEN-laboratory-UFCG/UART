@@ -1,0 +1,8 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_internal_inout_cell_paths  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_internal_inout_cell_paths\fR \-  When set to false, enables internal bidirectional feedback paths that are completely contained in one instance
+.SH Syntax \fBtiming_disable_internal_inout_cell_paths\fR  {true | false}  Default: true
+.P When set to false, enables internal bidirectional feedback paths that are completely contained in one instance.
+.P To set this global variable, use the set_global command.

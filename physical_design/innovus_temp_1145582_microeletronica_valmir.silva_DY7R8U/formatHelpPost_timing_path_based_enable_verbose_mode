@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_path_based_enable_verbose_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_path_based_enable_verbose_mode\fR
+.SH Syntax \fBtiming_path_based_enable_verbose_mode\fR <value> 
+.P Default: 1
+.P Controls printing of verbose messages during and at the end of path-based analysis (PBA).  
+.P You can specify one of the three values - 0, 1, and 2. These are described below:
+.RS  "*" 2 0: Verbose messages are not reported during exhaustive PBA analysis. For default PBA analysis, the path count will be reported.  "*" 2 1: Reports the final message for PBA path count and max depth reached during exhaustive PBA. Progress messages are not reported.  "*" 2 2: Reports multiple progress messages after regular intervals (in addition to the final message for PBA path count and max depth).
+.RE
+.P This global variable impacts messages when the report_timing and report_constraint commands are used in PBA mode.
+.P To set this global variable, use the set command. 
+.SH Examples
+.RS  "*" 2 The following commands print messages during and after PBA analysis:  set timing_path_based_enable_verbose_mode 2  report_timing -retime path_slew_propagation -retime_mode exhaustive -max_paths 500000 -nworst 1  The following progress messages are displayed during PBA analysis:  INFO: Path Based Analysis (PBA) currently performed on '108455' paths  INFO: Path Based Analysis (PBA) currently performed on '217574' paths  INFO: Path Based Analysis (PBA) currently performed on '327511' paths  INFO: Path Based Analysis (PBA) currently performed on '437472' paths 
+....  The following messages are displayed at the end of PBA analysis mentioning the PBA path count and max depth reached during exhaustive PBA:  INFO: Path Based Analysis (PBA) performed on total '2660526' paths  INFO: Max depth 9460 reached for end point 'top/hier1/hier2/flop/d' during Path Based Analysis
+.RE
+.P

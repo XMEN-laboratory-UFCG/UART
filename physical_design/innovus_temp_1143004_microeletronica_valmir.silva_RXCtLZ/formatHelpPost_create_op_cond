@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_op_cond  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_op_cond\fR \-  Creates a set of virtual operating conditions in the specified library without actually modifying the library
+.SH Syntax  \fBcreate_op_cond\fR  -name <virtualOpcondName>  -library_file <libraryFileName>  -P <processValue>  -V <voltageValue>  -T <temperatureValue> 
+.P Creates a set of virtual operating conditions in the specified library without actually modifying the library. These virtual operating conditions can then be referenced by a delay calculation corner (create_delay_corner) as if they actually exist in the library. 
+.SH Parameters    "\fB-library_file <libraryFileName>\fR" Specifies the library for which to create the virtual operating conditions.  "\fB-name <virtualOpcondName>\fR" Specifies the name for the operating condition being created.  "\fB-P <processValue>\fR" Specifies the process value for the operating condition.  "\fB-T <temperatureValue>\fR" Specifies the temperature value for the operating condition.  "\fB-V <voltageValue>\fR" Specifies the voltage value for the operating condition. 
+.SH Examples
+.RS  "*" 2 The following command creates a virtual operating condition called PVT1 for the libraryIsCOM-1V.lib:   create_op_cond -name PVT1      -library_file IsCOM-1V.lib     -P 1.0      -V 1.2      -T 120
+.RE
+.RS  "*" 2 The following command creates a virtual operating condition called PVT2 for the library IsCOM-2V.lib:   create_op_cond -name PVT2      -library_file IsCOM-2V.lib     -P 1.0      -V 1.2      -T 20
+.RE 
+.SH Related Information
+.RS  "*" 2 get_op_cond  "*" 2 create_delay_corner
+.RE
+.P

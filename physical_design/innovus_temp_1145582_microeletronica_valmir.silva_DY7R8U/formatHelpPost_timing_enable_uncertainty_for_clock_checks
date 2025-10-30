@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_uncertainty_for_clock_checks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_uncertainty_for_clock_checks\fR
+.SH Syntax \fBtiming_enable_uncertainty_for_clock_checks\fR  {true | false} 
+.P Default: true
+.P Considers clock uncertainty when performing clock checks.
+.P When set to true, the set_clock_uncertainty command supports clock uncertainty for period, pulse width, skew, and separation checks. This global setting affects all the clock_style checks including pulse_width.
+.P Note: The timing_enable_uncertainty_for_clock_checks global variable overrides timing_enable_uncertainty_for_pulsewidth_checks setting.
+.P To set this global variable, use the set command.
+.P

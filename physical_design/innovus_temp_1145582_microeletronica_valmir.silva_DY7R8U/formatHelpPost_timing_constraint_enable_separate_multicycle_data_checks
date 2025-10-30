@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_constraint_enable_separate_multicycle_data_checks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_constraint_enable_separate_multicycle_data_checks\fR
+.SH Syntax \fBtiming_constraint_enable_separate_multicycle_data_checks\fR {true | false}
+.P Default: false
+.P Controls multicycle path constraint application on data checks. 
+.P To set this global variable, use the set command.
+.P

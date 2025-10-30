@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH windowSelect  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwindowSelect\fR \-  Selects all objects within the specified area. 
+.P Note: This command works only in GUI mode
+.SH Syntax \fBwindowSelect\fR  [-help]   <area>  
+.P Selects all objects within the specified area. 
+.P Note: This command works only in GUI mode. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each windowSelect parameter.  For a detailed description of the command and all of its parameters, use the man command:   man windowSelect  "\fB<area>\fR" Specifies the coordinates of the window area to be selected. You can specify <area>using any of the following formats:
+.RS  "*" 2  <x1 y1 x2 y2>Example: windowSelect 10 10 20 20   "*" 2 "<x1 y1 x2 y2">  Example: windowSelect "10 10 20 20"  "*" 2 {<x1 y1 x2 y2>}  Example: windowSelect {10 10 20 20}  "*" 2 [list 10 10 20 20]  Example: windowSelect [list 10 10 20 20]   "*" 2  [dbGet $inst.box]  Example: windowSelect [dbGet $inst.box]  Where inst is a variable that has already been set.
+.RE 
+.SH Example
+.P The following command selects objects that are totally enclosed by the area with coordinates defined as (x=10, y=200) and (x=100, y=50):
+.P windowSelect 10 200 100 50 
+.SH Related Information
+.RS  "*" 2 lineSelect  "*" 2 windowDeselect  "*" 2 windowToggleSelect
+.RE
+.P

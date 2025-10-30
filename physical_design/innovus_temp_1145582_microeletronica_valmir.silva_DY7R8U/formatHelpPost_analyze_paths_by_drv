@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH analyze_paths_by_drv  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBanalyze_paths_by_drv\fR \-  Reads or generates a report containing max transition, max capacitance, and max fanout violations
+.SH Syntax \fBanalyze_paths_by_drv\fR  [-help]  [[-load_cap_file <capacitance_file>] | [-generate_cap_file <fileName>]]  [[-load_tran_file <transition_file>] | [-generate_tran_file <fileName>]]  [-load_fanout_file <fanout_file> | [-generate_fanout_file <fileName>]]  [-master <master_category_name>] 
+.P Reads or generates a report containing max transition, max capacitance, and max fanout violations. Paths that are affected by the selected DRV type are grouped into a category. This command can be used if the user wants to debug the timing issues caused by DRV.
+.P The command can be applied wherever the user loads the machine readable timing report.
+.P For more information on creating path categories, see "Creating Path Categories" in the Debugging Timing Results chapter of User Guide. 
+.SH Parameters   "\fB-help                  \fR" Outputs a brief description that includes the type and default information for each analyze_paths_by_drv parameter.  For a detailed description of the command and all its parameters, use the man command:   man analyze_paths_by_drv  "\fB-load_cap_file <capacitance_file>\fR" Reads a file containing a list of paths containing max capacitance violations.  "\fB-load_fanout_file <fanout_file>\fR" Reads a file containing a list of paths containing max fanout violations.  "\fB-load_tran_file <transition_file>\fR" Reads a file containing a list of paths containing max transition violations.  "\fB-generate_cap_file <fileName>\fR" Generates a file containing a list of paths containing max capacitance violations.  "\fB-generate_fanout_file <fileName>\fR" Generates a file containing a list of paths containing max fanout violations.  "\fB-generate_tran_file <fileName>\fR" Generates a file containing a list of paths containing max transition violations.  "\fB-master <master_category_name>\fR" Specifies that the analysis should be performed only for the specified master category. 
+.SH Examples:
+.P The following command generates DRV report files, then creates path categories based on the critical paths which are affected by DRV:
+.P analyze_paths_by_drv -generate_cap_file capViolation.rpt
+.P -generate_tran_file tranViolation.rpt
+.P -generate_fanout_file fanoutViolation.rpt 
+.SH Related Information
+.P The Timing Budgeting chapter of the Innovus User Guide document.
+.P

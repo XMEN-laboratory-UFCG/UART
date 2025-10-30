@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getCompressLevel  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetCompressLevel\fR \-  Displays the current compression speed level used for compressing large data files
+.SH Syntax \fBgetCompressLevel\fR 
+.P Displays the current compression speed level used for compressing large data files. Compression speed is controlled with the setCompressLevel command. 
+.SH Related Information
+.RS  "*" 2 setCompressLevel
+.RE
+.P

@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_socv_rc_variation_factor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_socv_rc_variation_factor\fR \-  Defines the value of interconnect delay variation factor
+.SH Syntax \fBset_socv_rc_variation_factor\fR   [-help]  <variation_factor>  [-early]  [-late]  [-view <list_of_views>]
+.P Defines the value of interconnect delay variation factor.
+.P This command applies global variation as percentage of the nominal delay. 
+.P To enable this feature, you can set the timing_socv_rc_variation_mode global variable to true. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage  "\fB<variation_factor>\fR" Specifies the value of the interconnect delay variation factor to be used.  "\fB-early\fR" Specifies the variation factor for early interconnect delays.  "\fB-late\fR" Specifies the variation factor for late interconnect delays.  "\fB-view <list_of_views>\fR" Apply the SOCV interconnect variation factor to the specified list of analysis views. 
+.SH Related Information
+.RS  "*" 2 get_socv_rc_variation_factor
+.RE
+.P

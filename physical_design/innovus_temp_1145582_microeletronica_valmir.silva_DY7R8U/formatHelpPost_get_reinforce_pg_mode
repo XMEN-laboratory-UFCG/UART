@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_reinforce_pg_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_reinforce_pg_mode\fR \-  Returns the information for the specified parameter
+.SH Syntax \fBget_reinforce_pg_mode\fR  [-help]  [-critical_path_slack]  [-irdrop_hierarchical_block]  [-irdrop_hierarchical_top_rail_analysis_directory]  [-nonDefault]  [-respect_defined_nets]  [-respect_routes]  [-respect_stdcell_geometry]  [-quiet]
+.P Returns the information for the specified parameter. Note that you can specify one or more parameter. When you invoke this command without any argument, the software prints the current values stored in the database for all the options. If you provide an option, then the software prints the value currently stored in the database. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each get_reinforce_pg_mode parameter.  For a detailed description of the command and all its parameters, use the man command:   man get_reinforce_pg_mode  "\fB-parameter_names \fR" Returns the information for the specified parameters. You can specify one or more parameters.  See set_reinforce_pg_mode for descriptions of the get_reinforce_pg_mode parameters you can specify.  "\fB-quiet\fR" Returns the current settings for the specified parameters only in the Tcl list format. If you specify -quiet without any parameters, the software returns the current settings of all set_reinforce_pg_mode parameters in Tcl list format. 
+.SH Related Information
+.RS  "*" 2 reinforce_pg  "*" 2 set_reinforce_pg_mode  "*" 2 Power Planning and Routing chapter in the Innovus User Guide.
+.RE
+.P

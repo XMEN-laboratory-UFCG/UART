@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addBumpConnectTargetConstraint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddBumpConnectTargetConstraint\fR \-  Adds a string property in one or multiple bumps
+.SH Syntax \fBaddBumpConnectTargetConstraint\fR  [-help]   {-bump <list_of_bumps> | -selected }   { {-instName <instance_name>     [ {-pinName <pin_name> | -netName <net_name>}       [-portNum <value>]]}     |-PGConnectType {ioring corering stripe iopin}}
+.P Adds a string property in one or multiple bumps. If any of the specified/selected bump has a property value already, Innovus checks whether the new property value is exactly the same as the existing one. If not, the new property value is concatenated to the existing property string and separated by a space.
+.P Using this command, you can add either a complete port numbering property (inst:pin:port) or an incomplete property, such as  inst or inst:pin to PG bumps.  
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each addBumpConnectTargetConstraint parameter.  For a detailed description of the command and all of its parameters, use the man command:  man addBumpConnectTargetConstraint  "\fB-bump <list_of_bumps> | -selected\fR" Adds bump connect target constraint on specified or selected bumps. The option -bump can accept wildcards and -selected can have multiple bumps selected. In the multiple bump case, the same property is added onto all the bumps.  "\fB-instName <instance_name>  \fR" Specifies the connect target instance. If only -instName is specified and -netName or -pinName is not specified, the tool automatically finds the most suitable geometries in the instance specified by <instance_name>.  "\fB-netName net_name\fR" Specifies the connect target net name.  Note: This option cannot be used with -pinName.  "\fB-PGConnectType {ioring corering stripe iopin}\fR" Specifies the PG connect type. Connection type can be I/O Ring (ioring), Core Ring (corering), Stripe (stripe), or I/O Pin (iopin).  "\fB-pinName <pin_name>\fR" Specifies the connect target pin name.  Note: This option cannot be used with -netName.   "\fB-portNum value\fR" Specifies the connect target port number. 
+.SH Examples
+.RS  "*" 2 The following command adds bump_connect_target property onto Bump_1 on VDD net. Then Bump_1 pairs with PORT1 under the PIN connecting to VDD net of areaIo IOPADS_INST/esd.   addBumpConnectTargetConstraint -bump Bump_1 -instName IOPADS_INST/esd -netName VDD -portNum 1
+.RE
+.RS  "*" 2 The following command adds bump_connect_target property onto Bump_1. Then Bump_1 pairs with PORT2 under the PIN whose name is vdd! of instance DTMF_INST/PLLCLK_INST. PORT2 is required with PORT CLASS BUMP attribute in LEF.   addBumpConnectTargetConstraint -bump Bump_1 -instName DTMF_INST/PLLCLK_INST -pinName vdd! -portNum 2
+.RE 
+.SH Related Information
+.RS  "*" 2 deleteBumpConnectTargetConstraint  "*" 2 editBumpConnectTargetConstraint  "*" 2 findPinPortNumber  "*" 2 Flip Chip Methodologies chapter of the User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2 Port Numbering 
+.RE  "*" 2 Tools Menu chapter in the Menu Reference 
+.RS  "*" 2 Flip Chip
+.RE 
+.RE
+.P

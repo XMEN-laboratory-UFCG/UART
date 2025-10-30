@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_dont_touch_network  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_dont_touch_network\fR \-  Prevents the combinational path connected to the given clocks, pins, or ports from being modified
+.SH Syntax \fBset_dont_touch_network\fR   [-help]  <obj_list>[-no_propagate]
+.P Prevents the combinational path connected to the given clocks, pins, or ports from being modified. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB<object_list>\fR" Specifies the objects - clocks, pins, or ports - to be preserved.  "\fB-no_propagate\fR" Preserves all the nets driven by the specified pin up to the first leaf-cell input (combinational or sequential).  If this parameter is omitted, then preserving stops at the first sequential cell in the network.
+.P Examples 
+.RS  "*" 2 The following command prevents the combinational path connected to the specified pin from being modified:   set_dont_touch_network [get_pins and1/z]
+.RE 
+.SH Related Information
+.RS  "*" 2 get_pins
+.RE
+.P

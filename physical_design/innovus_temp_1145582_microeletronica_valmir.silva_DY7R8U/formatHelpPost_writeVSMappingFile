@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH writeVSMappingFile  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwriteVSMappingFile\fR \-  Writes out a bump mapping file for Voltage Storm use
+.SH Syntax \fBwriteVSMappingFile\fR  <fileName> 
+.P Writes out a bump mapping file for Voltage Storm use. Use this command after the aligned power bump pairs are created by the readBumpLocation command. 
+.SH Parameters    "\fB<fileName>\fR" Specifies the file name. 
+.SH Examples
+.RS  "*" 2 The following command creates a power bump mapping file:  writeVSMappingFile powerBump.mapping
+.RE 
+.SH Related Information
+.RS  "*" 2 readBumpLocation
+.RE

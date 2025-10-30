@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unplaceAllBlocks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunplaceAllBlocks\fR \-  Unplaces all blocks in the floorplan. You can use this command after importing the design
+.SH Syntax \fBunplaceAllBlocks\fR  [-help]
+.P Unplaces all blocks in the floorplan. You can use this command after importing the design. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description of the unplaceAllBlocks command.  For a detailed description of the command, use the man command:   man unplaceAllBlocks 
+.SH Related Information
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

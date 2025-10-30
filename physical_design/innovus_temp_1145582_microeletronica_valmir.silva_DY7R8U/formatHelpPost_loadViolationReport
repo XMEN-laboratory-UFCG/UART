@@ -1,0 +1,38 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH loadViolationReport  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBloadViolationReport\fR \-  Loads a violation marker file or a hotspot interface format (HIF) file in one of the following formats and creates markers that the Innovus software can interpret
+.SH Syntax \fBloadViolationReport\fR  [-help]   -filename <fileName>  [-orient {<r0 r90>
+...}]  [-rulemap <mapName>]  -type {Assura | Calibre | PVS | Hercules | ICV | CDNLitho | CDNCMP | inShapeLitho | CalibreLitho | DRV | ClockTran | CLP | VerifyPower}   [-xoffset <value>]   [-yoffset <value>]  
+.P Loads a violation marker file or a hotspot interface format (HIF) file in one of the following formats and creates markers that the Innovus software can interpret. Use this command to load third-party markers into Innovus:
+.RS  "*" 2 Assura  "*" 2 Calibre  "*" 2 PVS  "*" 2 Hercules  "*" 2 ICV  "*" 2 Chemical and Mechanical Polishing (CMP) HIF  "*" 2 Transition violation report  "*" 2 Low power violation reports  "*" 2 Cadence litho hotspot  "*" 2 NanoRoute litho  "*" 2 inShapeLitho  "*" 2 Calibre litho hotspot
+.RE
+.P After you load the file, you can view the markers in the Violation Browser. By cross-probing between Violation Browser and the design area, you can analyze the violations and take steps to resolve them. The Innovus Auto Query feature displays the rule names for the markers.
+.P Note: The route_fix_signoff_drc command can be used to call NanoRoute, to attempt and fix the violations based on the markers from the external DRC tool.
+.P 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each loadViolaltionReport parameter.  For a detailed description of the command and all its parameters, use the man command:   man loadViolaltionReport  "\fB-filename <fileName>\fR" Specifies the marker file to load.  Assura files must have a
+.err extension. Calibre files must have a
+.db extension.  "\fB-orient {<r0 r90>
+...}\fR" Supports advanced orientation transforms for loading rotated DRC violation markers before loading. This helps in overlaying the design to the top of the layout.   "\fB-rulemap <mapName>\fR" Specifies the rule map file for a PVS or Calibre Litho report. The rule map file provides the layer/error type information.  loadViolationReport saves this information to the database. When the markers are created, the layer, error type, and object information can be identified on the GUI in the Violation Browser. NR could fix the converted drc markers, the supported drc types: spacing, mincut, colorLoop, area, minhole, maxstackedvia, enclosure, width, and minstep. For the unsupported types, it can be mapped with "other". The rule map file should be a txt file with 3 columns:    <Rule_name Innovus_error_type layer_name>  Below is an example:  M1.W_4.5 width metal1  M1.A_0.048 minhole metal1  M1.M_1 minstep metal1  "\fB-type {Assura | Calibre | PVS | Hercules | ICV | CDNLitho | CDNCMP | inShapeLitho | CalibreLitho | DRV | ClockTran | CLP | VerifyPower}\fR" Specifies the file type.  The following file types contain violation markers:
+.RS  "*" 2 Assura - For Assura violations  "*" 2 Calibre - For Calibre violations  "*" 2 PVS - For PVS violations  "*" 2 Hercules - For Hercules violations  "*" 2 ICV - For ICValidator report violations  "*" 2 CDNCMP - For Cadence CMP Predictor (CCP) violations  "*" 2 DRV - For transition violations (reportTranViolation)  "*" 2 ClockTran, CLP, and VerifyPower - For low power violations
+.RE   The following file types contain hotspot markers, which are  used to identify areas susceptible to lithography problems:
+.RS  "*" 2 CDNLitho (LPA as well as NanoRoute litho HIF)  "*" 2 inShapeLitho  "*" 2 CalibreLitho
+.RE   "\fB-xoffset <value>\fR" Specifies the X offset. When you specify the X and Y offsets, Violation Browser displays the violations at the correct coordinates after accounting for the offsets.   "\fB-yoffset <value>\fR" Specifies the Y offset, which Violation Browser takes into account to displays violations at the correct coordinates. 
+.SH Examples
+.RS  "*" 2 The following command loads a CDN Litho marker file named LPA.hif:  loadViolationReport -type CDNLitho -xoffset 0.05 -yoffset 0.05 -filename LPA.hif   "*" 2 The following command loads a NanoRoute litho repair file named NR.hif:  loadViolationReport -type CDNLitho -filename NR.hif  "*" 2 The following command loads a Calibre litho file named litho.rdb:  loadViolationReport -type CalibreLitho -filename litho.rdb -rulemap rule.map  Contents of rule map  ====================  M1.W_4.5 width metal1 
+.RE 
+.SH Related Information
+.RS  "*" 2 The following sections in the Identifying and Viewing Violations chapter of User Guide:
+.RE
+.RS
+.RS  "*" 2 Viewing Violations With the Violation Browser
+.RE 
+.RE
+.RS
+.RS  "*" 2 Clearing Violations
+.RE 
+.RE
+.RS  "*" 2 "Load Violation Report" section in the Tools Menu chapter of the Innovus Menu Reference.  "*" 2 route_fix_signoff_drc 
+.RE
+.P

@@ -1,0 +1,26 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_reinforce_pg_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_reinforce_pg_mode\fR \-  Sets global variables for the reinforce_pg command
+.SH Syntax \fBset_reinforce_pg_mode\fR  [-help]  [-critical_path_slack {<slack>}]   [-irdrop_hierarchical_block  {block1 block2
+... | *}]  [-irdrop_hierarchical_top_rail_analysis_directory {<directory_name>}]  [-reset]  [-respect_defined_nets {<file_name>}]   [-respect_routes {none | fixed | fixed_and_clock | all}]  [-respect_stdcell_geometry {none | sequential | all}] 
+.P Sets global variables for the reinforce_pg command. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each set_reinforce_pg_mode parameter.  For a detailed description of the command and all its parameters, use the man command:   man set_reinforce_pg_mode  "\fB-critical_path_slack {<slack>}\fR" Specifies a slack threshold value (in nanoseconds) for critical nets during timing-driven PG stripe reinforcement. It means that reinforce_pg honors all the violation paths with slack value lesser than the specified -critical_path_slack value, since all such associated nets are considered critical. This parameter can be used only when the -respect_critical_path parameter is set to true.  Default: 0  "\fB-irdrop_hierarchical_block {block1 block2
+... | *}\fR" Reports the IR drop violations on the specified list of hierarchical block(s) to fix IR drop. The names of the specified hierarchical blocks should be instantiations of the same master block, which is the loaded block. If you specify the * value of this parameter, all the instantiations of the loaded block are considered.  "\fB-irdrop_hierarchical_top_rail_analysis_directory {<directory_name>}  \fR" Reads the rail analysis information of full chip available in the specified directory for the hierarchical flow blocks. It collects the IR drop information of the specified block and uses it to fix the IR drop.  "\fB-reset\fR" Resets all or specified parameters to their default values.  "\fB-respect_defined_nets {<file_name>}\fR" When this parameter is used, reinforce_pg respects the user-defined nets listed in the specified file, which are critical in stripe generation. This helps in reserving space around the specified nets, and the newly added PG wires are DRC clean with these nets. This parameter is independent of the -respect_routes and -respect_critical_path parameters. However, when it is used together with the -respect_routes and -respect_critical_path parameters, reinforce_pg respects all of them.  Default: ""  "\fB-respect_routes {none | fixed | fixed_and_clock | all}\fR" Specifies the route types to honor check of pre-existing routes during stripe generation. This parameter always honor all covers and PGs, but does not honor the trail routes, Following are the parameter values:
+.RS  "*" 2 none: Specifies that no route types are respected.  "*" 2 fixed: Respects fixed regular wires.  "*" 2 fixed_and_clock: Respects fixed and routed clocks.  "*" 2 all: Respects fixed and routed clocks along with the routed signals.
+.RE   For more information on the support of the set_reinforce_pg_mode -respect_route parameter values with various statuses of net, see SupportRespectRouteValuesSupport of set_reinforce_pg_mode -respect_route Parameter Values.  Default: fixed_and_clock  "\fB-respect_stdcell_geometry {none | sequential | all}\fR" Specifies all types of geometries (including pin and obs) to be respected in via generation. This parameter checks the standard cell types to decide weather the DRC violation needs to be checked on its geometries (including pin and obs) in via generation.  Default: all 
+.SH Support of set_reinforce_pg_mode -respect_route Parameter Values
+.P The following table presents the support of the set_reinforce_pg_mode -respect_route parameter values with various statuses of net:  ________________________________________________________
+.P |\fB Target PG Honoring a Wire\fR        | \fB -respect_route Values\fR                        |   |______________________________________________|________|
+.P |\fB Net Use\fR  | \fB Status\fR               | \fB none\fR     | \fB fixed\fR    | \fB fixed_an\fR | \fB all\fR      |   |          |                       |           |           | \fB d_clock\fR  |           |   |__________|___________|___________|___________|________|
+.P | Yes      |  Yes      |  Yes      |  Yes      |   |__________|___________|___________|___________|________|
+.P | Yes      |  Yes      |  Yes      |  Yes      |   |__________|___________|___________|___________|________|
+.P | No       |  Yes      |  Yes      |  Yes      |   |__________|___________|___________|___________|________|
+.P |\fB Clock\fR    |  No       |  No       |  Yes      |  Yes      |   |__________|___________|___________|___________|________|
+.P |\fB Signal\fR   |  No       |  No       |  No       |  Yes      |   |__________|___________|___________|___________|________|
+.P | No       |  No       |  No       |  No       |   |__________|___________|___________|___________|________| 
+.SH Related Information
+.RS  "*" 2 reinforce_pg  "*" 2 get_reinforce_pg_mode  "*" 2 Power Planning and Routing chapter in the Innovus User Guide.
+.RE
+.P

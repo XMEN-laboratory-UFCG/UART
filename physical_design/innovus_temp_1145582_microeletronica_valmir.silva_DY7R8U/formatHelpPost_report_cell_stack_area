@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_cell_stack_area  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_cell_stack_area\fR \-  Reports the cell stack area definition for cells
+.SH Syntax \fBreport_cell_stack_area\fR  [-help]   [-cell <cell_name>]   [-file <file_name>]   [-group <group_name>] 
+.P Reports the cell stack area definition for cells. 
+.SH Parameters   "\fB-cell <cell_name>\fR" Specifies the cell(s) for which the cell stack area definition needs to be reported.   "\fB-file <file_name>\fR" Specifies the file name in which the reported information is saved.  By default, all cell stack groups are reported to the cell_stack_area.rpt file.  "\fB-group <group_name>\fR" Specifies the group(s) for which the cell stack area definition needs to be reported.  "\fB-help\fR" Outputs a brief description that includes type and default information for each report_cell_stack_area parameter.  For a detailed description of the command and all of its parameters, use the man command: man report_cell_stack_area 
+.SH Related Information
+.RS  "*" 2 specify_cell_stack_area  "*" 2 delete_cell_stack_area
+.RE
+.P

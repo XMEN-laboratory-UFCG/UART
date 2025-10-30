@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addFillerGap  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddFillerGap\fR \-  Moves placed standard cell instances to create gaps so that filler cells can be added
+.SH Syntax \fBaddFillerGap\fR  <minGap>  [-effort {none | low | medium | high}]  [-radius <micron>] 
+.P Moves placed standard cell instances to create gaps so that filler cells can be added. Tries to move cells to create a gap of the specified size. If enough space is not available, moves cells until they touch each other. If a gap already exists, and it is larger than the specified size, the command does not move cells to make it smaller.
+.P By default, this command deletes all routing, because the routing is no longer valid due to the movement of the cells. To override this behavior, specify the following command:
+.P setPlaceMode -place_detail_preserve_routing true
+.P This command has the following limitations:
+.RS  "*" 2 It does not moved FIXED cells.
+.RE
+.RS  "*" 2 It does not guarantee to that all gaps will be larger than the specified minimum gap size.
+.RE
+.P Use this command after placement and before routing. 
+.SH Parameters     "\fB<minGap>\fR" Specifies the minimum-size gap in which a filler cell can be added. Unit is micron.  "\fB-effort {none | low| medium | high}\fR" Specifies the effort the command needs to spend for honoring the given gap constraint.
+.RS  "*" 2 none effort specifies that no standard cell is moved for honoring the giving gap constraint.  "*" 2 low effort specifies that only single height standard cells can be moved within the same row.  "*" 2 medium effort specifies that only single height standard cells can be moved across the rows.  "*" 2 high effort specifies that the standard cells can be moved across rows, and double height standard cells can be moved within the same row.
+.RE   Default: low  "\fB-radius <micron>\fR" Specifies the searching radius when solving the minimum filler gap.  Default: 16 
+.SH Example
+.P The following command moves standard cells within a row to create gaps of at least two microns between the cells:
+.P addFillerGap 0.168 
+.SH Related Information
+.RS  "*" 2 setPlaceMode
+.RE
+.P

@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_min_pulse_width  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_min_pulse_width\fR \-  Resets minimum pulse width constraint on the specified input ports of the top cell and the specified modules
+.SH Syntax \fBreset_min_pulse_width\fR  [-help]  <object_list>  [-all]  [-high]   [-low]  [-waveform_aware_type {absolute | source_width_ratio | all}] 
+.P Resets minimum pulse width constraint on the specified input ports of the top cell and the specified modules. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-all\fR" Resets the regular and waveform-aware pulse width assertions.   "\fB-low\fR" Resets the minimum pulse width checks that are applied to low signal levels only.  "\fB-high\fR" Resets the minimum pulse width checks that are applied to high signal levels only.  "\fB<object_list>\fR" Specifies a list of pins or clock waveforms for which the minimum pulse width is to be reset. If a clock waveform is specified, all the pins driven by the clock are affected.  "\fB-waveform_aware_type {absolute | source_width_ratio | all}\fR" Resets the regular and waveform-aware pulse width assertions. 
+.SH Related Information
+.RS  "*" 2 set_min_pulse_width
+.RE
+.P

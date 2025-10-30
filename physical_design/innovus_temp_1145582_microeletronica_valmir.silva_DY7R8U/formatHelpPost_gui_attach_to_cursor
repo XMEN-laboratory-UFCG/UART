@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH gui_attach_to_cursor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgui_attach_to_cursor\fR \-  Attaches selected or specified objects to the cursor
+.SH Syntax \fBgui_attach_to_cursor\fR  [-help]   [ -selected  | <objects> ]
+.P Attaches selected or specified objects to the cursor. The use model is as follows:
+.RS  "*" 2 Select the object(s) to be moved by using the gui_attach_to_cursor command.  "*" 2 Zoom into the location where you want to place the object(s).  "*" 2 Click at the required location to place the selected object(s) there.
+.RE
+.P This command is useful during floorplanning when you may need to move multiple objects into the same zoomed in area. 
+.SH Parameters   "\fB-help\fR" Prints a brief description of the gui_attach_to_cursor command.  For a detailed description of the command, use the man command: man gui_attach_to_cursor.  "\fB<objects>\fR" Specifies the object pointer list.   "\fB-selected\fR" Attaches the selected objects to the cursor. 
+.SH Example
+.P The following command attaches objects A and B to the cursor:
+.P gui_attach_to_cursor {A B}
+.P Now, move the cursor to the layout and click at the desired location to place objects A and B there. 
+.SH Related Information
+.RS  "*" 2 gui_select  "*" 2 zoomIn  "*" 2 zoomOut  "*" 2 zoomTo
+.RE
+.P

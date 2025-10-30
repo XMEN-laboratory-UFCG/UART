@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH dbu2uu  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdbu2uu\fR \-  Takes an arbitrary list of values and returns it in the same form, with each database integer value converted to its user unit floating point equivalent
+.SH Syntax \fBdbu2uu\fR  [help]  <value>   [-unit {100 | 200 | 400 | 800 | 1000 | 2000 | 4000 | 8000 | 10000 | 20000}]  
+.P Takes an arbitrary list of values and returns it in the same form, with each database integer value converted to its user unit floating point equivalent. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each dbu2uu parameter.  For a detailed description of the command and all its parameters, use the man command:  man dbu2uu  "\fB-unit <number>\fR" Specifies the convert factor by which to divide the database integer value. This is an optional parameter.  Value: One of 100, 200, 1000, 2000, 10000, or 20000  Default: Uses the LEF UNITS DATABASE MICRONS value from the Innovus database technology file, or the OpenAccess equivalent.  "\fB{<value> | {<value_list>}}\fR" Specifies the value or value list to convert. You can specify a single value, or an arbitrary list of values, including points, rectangles and coordinates. This is a mandatory parameter.  Type: Integer 
+.SH Examples
+.RS  "*" 2 The following command converts the database value 100 into its equivalent user unit value, based on a convert factor of 2000:   dbu2uu -unit 2000 100  The software returns the following information:  0.050
+.RE
+.RS  "*" 2 The following command converts the database values for the list of numbers {1000 1000 2000 2000} into their equivalent user unit values, based on a convert factor of 1000:   dbu2uu -unit 1000 {1000 1000 2000 2000}  The software returns the following information for the list of numbers. The list is implied, but not shown.  1.000 1.000 2.000 2.000  "*" 2  The following command converts the database value of the equivalent user unit value using the database units of the loaded database (2000 in this example):  dbu2uu 2   The output of this command is:  0.0010  Post running the above command, the following command returns the database units of the loaded database as 2000:   dbget head.dbUnits
+.RE 
+.SH Related Information
+.P uu2dbu
+.P

@@ -1,0 +1,35 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setWhatIfPortParameters  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetWhatIfPortParameters\fR
+.SH Syntax  \fBsetWhatIfPortParameters\fR  <blackBoxCellName>  [-port <portName>]   [-cap <capacitanceValue>]  [-cell <cell name>]  [-max_cap <maxCapacitanceValue>]   [-max_trans <maxTransitionValue>]   [-max_fanout <maxFanoutValue>]  [-pin <pin name>]  
+.P Sets the following values on the what-if cell ports:
+.RS  "*" 2 Capacitance
+.RE
+.RS  "*" 2 Maximum capacitance
+.RE
+.RS  "*" 2 Maximum transition
+.RE
+.RS  "*" 2 Maximum fanout
+.RE
+.P You can use this command after the module definition of the blackbox or the blackblob is available with the I/O's in the Verilog netlist. 
+.SH Parameters    "\fB<blackBoxCellName>\fR" Specifies the name of the blackbox or blackblob cell.  "\fB-cell <cell name>\fR" Specifies the name of library cell from which DRVs are inferred.   "\fB-pin <pin name>\fR" Specifies the name of pin from which DRVs are inferred.   "\fB-port <portname>\fR" Specifies the name of the clock port on which to set the value(s).  Default: By default, the specified parameters are applied to all ports in the what-if timing analysis model.  Note: The value specified for a particular port override the global values. For example, consider the following use case scenario for a cell b_cell: 1. You specify a maximum fanout value for all ports to 20 (without specifying any port with the command):  setWhatIfPortParameters b_cell -max_fanout 20
+.RS  "*" 2 You then run the command again on port out1 with a maximum fanout value of 5.
+.RE   setWhatIfPortParameters b_cell -max_fanout 5 -port out1  In this case, the maximum fanout for port out1 will be set to 5.  "\fB-cap <capacitanceValue>\fR" Specifies the capacitance value in picoFarad. This is the capacitance within the blackbox or the blackblob, on the specified I/O port.  The value can be in decimal, for example, 0.75.  "\fB-max_cap <maxCapacitanceValue>\fR" Specifies the maximum capacitance value. This is the maximum value of capacitance permitted on the net going through the I/O port.  "\fB-max_fanout <maxfanOutValue>\fR" Specifies the maximum fanout value. The value should be an integer, for example 20.  "\fB-max_trans <maxTransitionValue>\fR" Specifies the maximum transition value in nanoseconds. The value can be in decimal, for example, 5.3. 
+.SH Examples
+.RS  "*" 2 The following command sets the maximum capacitance value to 1.0 and the maximum fanout value to 20 for the port a1_outport1 of the blackbox or blackblob cell named blockCell2A.   setWhatIfPortParameters <blockCell2A> -port a1_outport1 -max_fanout 20 -max_cap 1.0 
+.RE
+.RS  "*" 2 The following command is similar to the previous command, except that it sets the values for all ports (as no port is specified with the command)   setWhatIfPortParameters <blockCell2A> -max_fanout 20 -max_cap 1.0 
+.RE
+.RS  "*" 2 The following set of commands set the values as follows
+.RE
+.RS
+.RS  "*" 2 the maximum maximum fanout value to 20 for all the ports except port a1_outport1
+.RE 
+.RE
+.RS
+.RS  "*" 2 the maximum fanout value to 5 and the maximum capacitance value to 1.3 for port a1_outport1  setWhatIfPortParameters blockCell2A -max_fanout 20   setWhatIfPortParameters blockCell2A -max_fanout 5 -max_cap 1.3 -port a1_outport1
+.RE 
+.RE
+.P

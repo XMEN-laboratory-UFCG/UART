@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH applyGlobalNets  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBapplyGlobalNets\fR \-  Applies or restores the global net connectivity rules to the design and creates the necessary connections between instances and these global nets
+.SH Syntax \fBapplyGlobalNets\fR  [-help]
+.P Applies or restores the global net connectivity rules to the design and creates the necessary connections between instances and these global nets. 
+.SH Parameters   "\fB-help\fR" Prints a brief description of the applyGlobalNets command usage.  For a detailed description of the command, use the man command:   man applyGlobalNets 
+.SH Related Information
+.P Power Planning and Routing chapter in the Innovus User Guide.
+.P

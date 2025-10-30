@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveModel  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveModel\fR \-  Saves block level design information for top level implementation
+.SH Syntax \fBsaveModel\fR    [-help]    -dir <string>   [-ilm]    [-sdf]    [-spef]    [-stream [-mapFile string][-outputMacros]]
+.P Saves block level design information for top level implementation. You can use this command after block implementation. The saveModel command saves the following data by default:
+.RS  "*" 2 LEF  "*" 2 DEF  "*" 2  Innovus DB (*.enc.dat)
+.RE
+.P For timing library (.lib) generation you need to use the do_extract_model command. 
+.SH Parameters    "\fB-dir <string>\fR" Specifies the name of the directory where you want to write the files. You can specify an additional level of hierarchy to define the model design stage, for example:  results_conv_model/postRoute/...   results_conv_model/signoff/...  Data_type: string, required  "\fB-help\fR" Outputs a brief description that includes type and default information for each saveModel parameter.  For a detailed description of the command and all of its parameters, use the man command:   man saveModel.  "\fB-ilm\fR" Generates ILM models.  Data_type: bool, optional  "\fB-mapFile <string>\fR" Specifies the file used for layer mapping. This file is required for successful stream out, and is read by the next tool used in the design flow.  Data_type: string, optional  "\fB-outputMacros\fR" Writes LEF abstract information such as LEF pin geometries and obstructions for macros. Writes one text label per port within a LEF macro pin plus one text label per shape for feedthrough pins. For more information, see streamOut.  Data_type: bool, optional  "\fB-sdf\fR" Generates the delay data for each view in MMMC mode or for setup and hold modes.  Data_type: bool, optional  "\fB-spef\fR" Generates parasitic data if a design is at least routed. It invokes extraction, if not already extracted. For extraction, it honors the default, detailed or CCE mode user settings.  Data_type: bool, optional  "\fB-stream\fR" Generates Stream data, if the design is routed.  Data_type: bool, optional 
+.SH Examples
+.RS  "*" 2 The  following command creates a directory called cts_condor_dma that contains the LEF (.lef and antenna.lef) files under the library directory, delay and parasitic information, and the design data of dma block:  saveModel -sdf -spef -dir cts_condor_dma
+.RE 
+.SH Related Information
+.RS  "*" 2 write_lef_abstract  "*" 2 defOut  "*" 2 saveDesign  "*" 2 write_sdf  "*" 2 rcOut  "*" 2 streamOut  "*" 2 do_extract_model  "*" 2 Partitioning the Design chapter in the Innovus User Guide
+.RE
+.P

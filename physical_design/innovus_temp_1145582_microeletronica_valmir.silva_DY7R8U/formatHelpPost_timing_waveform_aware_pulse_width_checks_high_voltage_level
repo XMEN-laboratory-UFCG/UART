@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_waveform_aware_pulse_width_checks_high_voltage_level  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_waveform_aware_pulse_width_checks_high_voltage_level\fR \-  Default: 0.95
+.P Range: {}
+.P Specifies the high voltage level to be used for waveform-aware pulse width checks
+.SH Syntax \fBtiming_waveform_aware_pulse_width_checks_high_voltage_level\fR <double> 
+.P Default: 0.95
+.P Range: {}
+.P Specifies the high voltage level to be used for waveform-aware pulse width checks.
+.P To set this global variable, use the set command.
+.P

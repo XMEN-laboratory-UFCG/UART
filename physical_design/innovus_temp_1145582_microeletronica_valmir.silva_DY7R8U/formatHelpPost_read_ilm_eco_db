@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH read_ilm_eco_db  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBread_ilm_eco_db\fR \-  Reads an ECO file after restoring a block-level design for non-iHDB flow
+.SH Syntax \fBread_ilm_eco_db\fR  [-help]  {-dir <directoryName> | -module_model_tag <tagName>}  
+.P Reads an ECO file after restoring a block-level design for non-iHDB flow.   Note: 
+.RS  "*" 2 For iHDB flow, you should use restore_module_model -add_ons {eco} command to read the ECO file. Internally, restore_module_model -add_ons {eco} will source  <cellName>_eco.tcl script that internally calls the read_ilm_eco_db -module_module_tag command.  "*" 2 For non-iHDB flow, if you use write_ilm_eco_db -module_model_tag, you should use read_ilm_eco_db -module_model_tag to read an ECO file at block-level design.
+.RE 
+.SH   Parameters    "\fB-help\fR" Outputs a brief description of the read_ilm_eco_db command. For a detailed description of the command, use the man command:  man read_ilm_eco_db  "\fB-dir <directoryName>\fR" Specifies the directory name to write the ILM eco database.  At the block-level design, if you use this command to read in the ECO changes, the command will automatically find out about the design name and only load/read the ECO file for this specific design.  "\fB-module_model_tag <tagName>\fR" Specifies the tag name to use for iHDB.  Use this option if write_ilm_eco_db -module_model_tag is used to save ECO file(s). 
+.SH Related Information
+.RS  "*" 2 restore_module_model   "*" 2 write_ilm_eco_db
+.RE
+.P

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_clocks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_clocks\fR \-  Returns a collection of clocks whose names match the supplied patterns, filtered by the filter expression
+.SH Syntax \fBget_clocks\fR  [-help]        [-filter <expr>]  [-regexp]   [-nocase]   [-quiet]   [<patterns>] 
+.P Returns a collection of clocks whose names match the supplied patterns, filtered by the filter expression.
+.P With no filter expression, the get_clocks command reports all clocks that match patterns, including inactive clocks. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-filter <expr>\fR" Filters the collection with the specified expression. For any clocks that match the pattern, the software evaluates the expression based on the attribute of the clock.  You can filter clocks using any of the clock properties supported through the get_property command. See filter_collection for an explanation of filter expressions.  "\fB-nocase\fR" Specifies that pattern matching is not case sensitive.  Note: You must specify -regexp in order to use this parameter.  "\fB<patterns>\fR" Specifies patterns for clock names. Patterns include the * and ? wildcard characters, and collections of instances and clocks. This can either be a single pattern or a list of patterns  "\fB-quiet\fR" Suppresses all the error and warning messages generated when the get_clocks command is run.  "\fB-regexp\fR" Treats the specified patterns as a regular expression patterns.  Default: Treats the specified pattern as a wild card 
+.SH Example
+.RS  "*" 2 The following example returns all clocks beginning with the name CK:   get_clocks CK*  "*" 2 The following example returns a collection of all clocks beginning with the name CK and Clk:   get_clocks [ list CK* Clk* ]  "*" 2 The following example returns a collection of all active clocks beginning with the name CK:   get_clocks CK* -filter {is_active == true}
+.RE 
+.SH Related Information
+.RS  "*" 2 all_clocks  "*" 2 create_clock  "*" 2 get_pins  "*" 2 get_ports  "*" 2 report_clocks
+.RE
+.P

@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_create_clock_default_propagated  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_create_clock_default_propagated\fR \-  Enables clocks to be created in propagated mode
+.SH Syntax \fBtiming_create_clock_default_propagated\fR  {true | false}  Default: false 
+.P Enables clocks to be created in propagated mode.
+.P By default, all clocks, created using create_clock and create_generated_clock, are in ideal mode.
+.P When the global is set to true, all subsequently created  regular clocks, derived clocks, and library generated clocks are in propagated mode.
+.P There is no effect on the functionality of set_propagated_clock and set_clock_latency commands.
+.P To set this global variable, use the set_global command. 
+.P

@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH commit_power_intent  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcommit_power_intent\fR \-  Commits IEEE1801  power intent specifications for the design for use in verification and implementation of the structure and behavior of the design in context of a given power management architecture
+.SH Syntax \fBcommit_power_intent\fR  [-help]  [-clpLog <string>]  [-eco <string>]  [-isolation]  [-keepRows]  [-level_shifter]  [-power_domain]  [-power_switch]  [-state_retention]  [-verbose]
+.P Commits IEEE1801  power intent specifications for the design for use in verification and implementation of the structure and behavior of the design in context of a given power management architecture. The method supports incremental refinement of power intent specifications required for IP-based design flows. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each commit_power_intent parameter.  For a detailed description of the command and all its parameters, use the man command:  man commit_power_intent  "\fB-clpLog <string>\fR" Specifies the CLP log file for CPF only.   "\fB-eco <string>\fR" Specifies the eco CPF file.  Note: The -eco option is available only for the CPF flow.  "\fB-isolation\fR" Specifies the commit isolation.   "\fB-keepRows\fR" Specifies the pre-existing rows to be retained. By default, rows are recreated based on the power domain information. The new rows might not match the original rows.     "\fB-level_shifter\fR" Specifies the commit level shifter.   "\fB-power_domain\fR" When specified, the command creates the power domains, makes the pg connection and saves the rules  such as level shifter, isolation and state retention rule.  Note: The command does not commit the rules  "\fB-power_switch\fR" Specifies the commit power switch.   "\fB-state_retention\fR" Specifies the commit state retention.   "\fB-verbose\fR" Prints the detailed information related to the commit_power_intent command. 
+.SH Related Information
+.RS  "*" 2 free_power_intent  "*" 2 read_power_intent  "*" 2 write_power_intent  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

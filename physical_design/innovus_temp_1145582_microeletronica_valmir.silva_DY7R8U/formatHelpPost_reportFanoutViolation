@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportFanoutViolation  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportFanoutViolation\fR \-  After timing analysis, reports all the pins that exceed the fanout constraints in the timing library and timing constraints file. Run this command after running timing analysis (timeDesign) or timing optimization (optDesign)
+.SH Syntax \fBreportFanoutViolation\fR  [-help]   [-all | -noGlobalNets]  [-excNetFile f<ileName>]   [-min]  [-max]  [-outfile <fileName>]  [-selNetFile <f> <ileName>]  [-significant_digits <integer>]  [-useDrcMargin] 
+.P After timing analysis, reports all the pins that exceed the fanout constraints in the timing library and timing constraints file. Run this command after running timing analysis (timeDesign) or timing optimization (optDesign). 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each reportFanoutViolation parameter.  For a detailed description of the command and all of its parameters, use the man command: man reportFanoutViolation  "\fB-all\fR" Reports fanout violations on all nets in the design.  "\fB-excNetFile <fileName>\fR" Specifies a file that lists the names of hierarchical nets to exclude from the report.   "\fB-max\fR" Reports violations of maximum fanout constraints.  "\fB-min\fR" Reports violations of minimum fanout constraints.  Note: Parameters -min and -max are mutually exclusive.  "\fB-noGlobalNets\fR" Reports fanout violations on all nets except for power and ground nets.  Note: Parameters -all and -noGlobalNets are mutually exclusive.  "\fB-outfile <fileName>\fR" Specifies the report file.   "\fB-selNetFile <fileName>\fR" Specifies a file that lists the names of hierarchical nets that are considered for the report. Only these net names are considered for inclusion in the violation report.  Note: The parameters, -selNetFile and -excNetFile are not mutually exclusive. If both parameters are specified, the -excNetFile parameter overides the -selNetFile parameter.  "\fB-significant_digits <integer>\fR" Allows the user to specify the number of significant digits.   Default: 3   "\fB-useDrcMargin\fR" Generates a report using the margin value that you specify with the -opt_drv_margin parameter of the  setOptMode command. 
+.SH Example
+.P The following command reports the pins that exceed the maximum fanout constraints in a file named maxFanout.report:
+.P reportFanoutViolation -outfile maxFanout.report 
+.SH Related Information
+.RS  "*" 2 optDesign  "*" 2 reportLengthViolation  "*" 2 reportCapViolation  "*" 2 reportTranViolation  "*" 2 setOptMode  "*" 2 timeDesign
+.RE
+.P

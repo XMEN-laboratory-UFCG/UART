@@ -1,0 +1,70 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_max_delay  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_max_delay\fR \-  Specifies a maximum delay for a timing path
+.SH Syntax \fBset_max_delay\fR  value  [-combinational_from_to | -ignore_clock_latency]   [{-from |-rise_from | -fall_from} <from_list>]   [{-through | -rise_through | -fall_through} <through_list>]   [{-to | -rise_to | -fall_to} <to_list>]  [-comment <string>]   [-rise]   [-fall]  
+.P Specifies a maximum delay for a timing path. The set_max_delay command takes precedence over other path exceptions specified for the same path, except for the set_false_path command.
+.P Use either the -from, -to, or -through option with the set_max_delay command to identify the paths. Specifying both the -from and -to options identifies a path with specific starting and ending points.
+.P When you specify a sequential cell name for starting point of the timing path, the valid path starts from the clk pin. This means the latency and delay from clk to output Q is also included in the delay. For path segmentation, you can specify the path to start from Q output of the register by adding /Q after the cell name. In this case, path from clk to Q is not considered in the calculation.
+.P Use only one -from, -rise_from, or -fall_from, -to, -rise_to, or -fall_to parameter per command. You can use multiple -through parameters in the same command. 
+.SH Parameters   "\fB-combinational_from_to\fR" Defines a path defined by -from/to pins as combinational.  When this parameter is used, the path between the -from/-to pins is treated as purely combinational,   that is, both the source/capture clock latencies are excluded from slack computation.   The presence of -from/-to pins is required for this option to take effect; the -from/-to pins can be   sequential or combinational start/end pins.  The -combinational_from_to parameter will be deprecated in a future release. This parameter will continue to work in the current release, but for compatibility with future releases you should migrate your scripts to use the -ignore_clock_latency parameter.  You can use the following global variables to match the semantics between the -ignore_clock_latency and -combinational_from_to parameters:
+.RS  "*" 2 timing_constraint_path_delay_exclude_check_delay_from_ignore_clock_latency   "*" 2 timing_constraint_path_delay_exclude_io_delay_from_ignore_clock_latency 
+.RE   "\fB-comment <string>\fR" Allows you to insert comments. The comments are read but are ignored with a one-time warning message. They are not used during timing analysis reporting nor are they written out during saving of constraints.  "\fB-fall\fR" Apply the assertion at the falling edge of the signal on the path endpoints.  "\fB-from |-rise_from |-fall_from <from_list>\fR" Specifies a list of timing paths start points. The <from_list> argument can contain either object IDs or hierarchical names relative to the current module or clock names. The pins can be on intermediate hierarchical boundaries. The <from_list> argument can be a collection.  The valid start points are:
+.RS  "*" 2 Input port
+.RE
+.RS  "*" 2 Bidirectional port
+.RE
+.RS  "*" 2 Clock pin of sequential cell   Clock pin of sequential cell is one of the following:
+.RE
+.RS  "*" 2 Structural clock pin that is part of latch or flip-flop.
+.RE
+.RS  "*" 2 Inferred clock pin in cells like macro cells. A pin is an inferred clock pin if it is associated with one of the following:
+.RE
+.RS  "*" 2 Reference end of setup check
+.RE
+.RS  "*" 2 Reference end of hold check
+.RE
+.RS  "*" 2 Reference end of removal check
+.RE
+.RS  "*" 2 Reference end of recovery check
+.RE
+.RS  "*" 2 Minimum period check
+.RE
+.RS  "*" 2 Minimum pulse width check
+.RE
+.RS  "*" 2 Pin associated with set_input_delay
+.RE   Specify one of the following: -from:  Applies the maximum delay constraint to all paths originating from the <from_list> list. If a clock is specified as the -from object, all primary inputs and registers clocked by that clock are used as start points.  By default, the -from option applies the constraint to both the rising and the falling edges. -rise_from: Applies the maximum delay constraint at the rising edge of the signal on the from pins. -fall_from: Applies the maximum delay constraint at the falling edge of the signal on the from pins.  "\fB-ignore_clock_latency\fR" When this parameter is specified, the software does not count the launch/capture clock latency delays into the timing path delay.  The -ignore_clock_latency parameter is an industry-standard construct introduced in SDC 2.1 to control the handling of clock-related timing with respect to the set_max_delay/set_min_delay constraints.  "\fB-rise\fR" Applies the assertion at the rising edge of the signal on the path endpoints.  "\fB-through | -rise_through | -fall_through <through_list>\fR" Specifies a list of timing paths through points.  The <through_list> argument can contain either object IDs or hierarchical names relative to the current module or clock names. The pins can be on intermediate hierarchical boundaries. The <through_list> argument can be a collection.  Specify one of the following: -through:  When you use this parameter without using the -from or -to options, all paths that go through the specified pins have the specified delay. When you use it with both the -from and -to options, any path starting at any pin on the -from list and going through any point on the -through pin list and going to any point on the -to list is affected by the constraint.  By default, the -through option applies the constraint to both the rising and the falling edges. -rise_through: Applies the assertion at the rising edge of the signal on the through pins. -fall_through: Applies the assertion at the falling edge of the signal on the through pins.  "\fB-to| -rise_to | -fall_to <to_list>\fR" Specifies a list of timing paths end points.  The <to_list> argument can contain either object IDs or hierarchical names relative to the current module or clock names. The pins can be on intermediate hierarchical boundaries. The <to_list> argument can be a collection.  The valid end points are:
+.RS  "*" 2 Output port
+.RE
+.RS  "*" 2 Bidirectional port
+.RE
+.RS  "*" 2 Data pin of sequential cell   Data pin of sequential cell is one of the following:
+.RE
+.RS  "*" 2 Structural data pin that is part of latch or flip-flop.
+.RE
+.RS  "*" 2 Inferred data pin in cells like macro cells. A pin is an inferred data pin if it is associated with one of the following:
+.RE
+.RS  "*" 2 Signal end of setup check
+.RE
+.RS  "*" 2 Signal end of hold check
+.RE
+.RS  "*" 2 Signal end of non-sequential setup check
+.RE
+.RS  "*" 2 Signal end of non-sequential hold check
+.RE
+.RS  "*" 2 Signal end of removal check
+.RE
+.RS  "*" 2 Signal end of recovery check
+.RE
+.RS  "*" 2 Pin associated with set_external_delay
+.RE
+.RS  "*" 2 Data pin of clock gating cell
+.RE   Select from one of the following: -to: Applies the maximum delay constraint to all paths ending in the -to pin list. If a clock is specified as the -to object, all primary outputs and registers clocked by that clock are used as endpoint.  By default, the -to option applies the constraint to both the rising and the falling edges. -rise_to: Applies the maximum delay constraint at the rising edge of the signal on the to pins. -fall_to: Applies the maximum delay constraint at the falling edge of the signal on the to pins.  "\fB<value>\fR" Specifies the maximum delay value. 
+.SH Example
+.RS  "*" 2 The following command specifies that all paths from in1 to out1 must have delays less than 10 units:   set_max_delay 10 -from in1 -to out1
+.RE 
+.SH Related Information
+.RS  "*" 2 create_clock  "*" 2 set_false_path  "*" 2 set_input_delay  "*" 2 set_min_delay  "*" 2 set_multicycle_path  "*" 2 set_output_delay  "*" 2 reset_path_exception
+.RE
+.P

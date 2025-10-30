@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getGenerateViaMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetGenerateViaMode\fR \-  Displays the information about the specified setGenerateViaMode parameter in the Innovus log file and in the Innovus console
+.SH Syntax \fBgetGenerateViaMode\fR  [-help]  [-auto]  [-ndr_only {true|false}]  [-quiet]   [-nonDefault]
+.P Displays the information about the specified setGenerateViaMode parameter in the Innovus log file and in the Innovus console. Displays the following information:
+.RS  "*" 2 Option name  "*" 2 Current value  "*" 2 Type (Boolean, string, and so on)  "*" 2 Whether the current value was set by user
+.RE
+.P If you do not specify a parameter, the software displays information for all of the setGenerateViaMode mode parameters. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each getGenerateViaMode parameter.  For a detailed description of the command and all of its parameters, use the man command:  man getGenerateViaMode.  "\fB-auto\fR" Enables auto via generation when design is loaded.   "\fB-nonDefault\fR" Displays the current settings which are not default settings.   "\fB-ndr_only {true|false}\fR" Generates vias for non default rules only.  Default: false  "\fB-quiet\fR" Displays the current settings in Tcl list format only. 
+.SH Example
+.P The following command gives the values of -auto and -ndr_only parameters that are set using the setGenerateViaMode:
+.P > getGenerateViaMode   -auto true # bool, default=false, user setting  -ndr_only true # bool, default=false, user setting
+.P {auto true} {ndr_only true} 
+.SH Related Information
+.RS  "*" 2 setGenerateViaMode  "*" 2 Design Implementation Flow chapter of Innovus User Guide.
+.RE
+.P

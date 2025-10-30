@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_clock_gating_check  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_clock_gating_check\fR
+.SH Syntax \fBreset_clock_gating_check\fR  [-setup]   [-hold]   [-rise]   [-fall]   [-high | -low]   [<object_list>] 
+.P Resets the specified setup and hold values for clock gating checks to the default values. 
+.SH Parameters   "\fB-high | -low\fR" Resets the non-controlling value (high or low) of the clock.  "\fB-hold\fR" Resets clock gating hold values.  "\fB-rise | -fall\fR" Resets the specified setup (or hold) value to the rising (or falling) signals on the specified pins.  "\fB-setup\fR" Resets clock gating setup values.  "\fB<object_list>\fR" Specifies a list of clocks, instances, or pins for which clock gating checks are to be reset to default values.  If the <object_list> parameter is not specified, the clock gating check is reset on the current design. 
+.SH Related Information
+.RS  "*" 2 set_clock_gating_check 
+.RE
+.P

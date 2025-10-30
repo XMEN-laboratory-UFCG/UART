@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteIntegRouteConstraint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteIntegRouteConstraint\fR \-  Deletes the routing constraints in the database
+.SH Syntax \fBdeleteIntegRouteConstraint\fR  [-help]   {-net <net1 net2
+...> | -name <string> | -customConstraints  | -all | -additional }
+.P Deletes the routing constraints in the database.
+.P Note: Integration constraints are used to convey the design intent in a mixed signal design. These constraints are fully interoperable between the digital and custom environments. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each deleteIntegRouteConstraint parameter.  For a detailed description of the command and all of its parameters, use the man command  man deleteIntegRouteConstraint.  "\fB-additional\fR" Removes the additional constraint file, containing the maximum resistance target values for nets, from memory.   "\fB-all\fR" Deletes all integration constraints, including constraints that are understood by NanoRoute and used to route nets with simple shield or NDR constraints.   "\fB-customConstraints\fR" Deletes all diffPair, matchLength, complex shield, and complex netClass constraints.  "\fB-name <string>\fR" Allows the deletion of a specific constraint by name. You can specify multiple constraint names, enclosed in braces. Use the getIntegRouteConstraint command to get the name of any constraint in the design.  "\fB-net <net1 net2
+...>\fR" Indicates the nets for which the constraints will be deleted. If the net is part of a netClass, the netClass will be deleted as well. 
+.SH Example
+.RS  "*" 2 The following command deletes all diffPair, matchLength, complex shield, and complex netClass constraints.  deleteIntegRouteConstraint -customConstraints  "*" 2 The following command deletes the constraints with the specified names:  deleteIntegRouteConstraint -name {Constr_2__analogNW__DTMF_INST/analogNW_INST Constr_1__analogNW__DTMF_INST/analogNW_INST}  "*" 2 The following command deletes all Integration constraints in the design.  deleteIntegRouteConstraint -all  The tool displays the following warning before deleting the constraints:  **WARN: (ENCMSC-270): You are attempting to delete all routing constraints in this design. These include many constraints that are intended for use by NR for routing nets with simple shield, or NDR constraints.
+.RE 
+.SH Related Information
+.RS  "*" 2 getIntegRouteConstraint  "*" 2 setIntegRouteConstraint  "*" 2 writeIntegRouteConstraint
+.RE
+.RS  "*" 2 Routing Constraint Interoperability chapter in the Mixed Signal Interoperability Guide  "*" 2 Tools Menu chapter in the Menu Reference 
+.RS  "*" 2 Mixed Signal -> Integration Constraint Editor
+.RE 
+.RE
+.P

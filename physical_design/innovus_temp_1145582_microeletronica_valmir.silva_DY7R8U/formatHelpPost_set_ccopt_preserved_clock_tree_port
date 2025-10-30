@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_ccopt_preserved_clock_tree_port  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_ccopt_preserved_clock_tree_port\fR \-  This command preserves module ports for the flexible h-tree feature. It can be used on any module port in the clock tree
+.SH Syntax \fBset_ccopt_preserved_clock_tree_port\fR  [-help]  {[<portname> [-location {x y}]]}
+.P This command preserves module ports for the flexible h-tree feature. It can be used on any module port in the clock tree. It will preserve the specified module ports in both, clock tree synthesis and flexible h-tree synthesis. Any sinks connected downstream of the ports will remain downstream, and only those ports will be considered downstream.
+.P Note: Currently, physical locations are only supported for flexible h-tree synthesis, and only on partition boundaries, although they will be accepted on all other module ports. Also, ports belonging to hInsts that have siblings but are not defined as partitions are not supported.  
+.SH Parameters   "\fB-help          \fR" Outputs a brief description that includes type and default information for each set_ccopt_preserved_clock_tree_port parameter. For a detailed description of the command and all of its parameters, use the man command:  man set_ccopt_preserved_clock_tree_port.   "\fB-location\fR" Provides the location of the preserved port specified using the <portname> parameter.  "\fB<portname>\fR" Specifies the name of the port. 
+.SH Examples
+.RS  "*" 2 Use the following command to mark a port on a partition boundary as preserved and set the location:  set_ccopt_preserved_clock_tree_port m0/ck -location {100 100}
+.RE 
+.SH Related Information
+.RS  "*" 2 report_ccopt_preserved_clock_tree_ports  "*" 2 reset_all_ccopt_preserved_clock_tree_ports  "*" 2 reset_ccopt_preserved_clock_tree_port
+.RE
+.P

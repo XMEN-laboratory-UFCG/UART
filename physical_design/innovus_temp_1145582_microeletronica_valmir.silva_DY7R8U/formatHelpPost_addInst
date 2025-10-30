@@ -1,0 +1,28 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addInst  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddInst\fR \-  Adds an instance and places it in the design
+.SH Syntax \fBaddInst\fR  [-help]  [-dontSnapToPlacementGrid]  [-moduleBased <verilogModule>]   [-physical]   -cell <cellName>  -inst <instName>  [-loc {<x y>} [-ori {R0 | R90 | R180 | R270 | MX | MX90 | MY | MY90}]]  [-place_status <placementStatus>]
+.P Adds an instance and places it in the design.
+.P When -inst is specified, the instance is bound with the correct cell in the power domain.
+.P When -inst and -loc are specified, the location also gives a power domain, which is checked against the power domain of the instance. If the power domains are different, a warning is issued. 
+.P In a MSV design, a cell specified using the -cell parameter should exist in libraries bound to the power domain of the newly added instance.
+.P When -loc is specified along with the -inst parameter, the power domain given by the location should be consistent with the power domain of the newly added instance.
+.P Note: When addInst is used in the post-mask ECO, do not place the new instance with the -loc option to avoid the base layer change. Call ecoPlace -useSpareCells or ecoSwapSpareCell to map the new instance to spare cell, or use loadECO <ecofile> -postMask to add instances in post-mask ECO. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each addInst parameter.  For a detailed description of the command and all of its parameters, use the  man  command:    man addInst  "\fB-dontSnapToPlacementGrid\fR" If -dontSnapToPlacementGrid is specified, Innovus places the instance at the specified location even if the location is off the placement grid. This parameter is used with -loc.   Default: false  "\fB-moduleBased <verilogModule>\fR" Adds the new instance to the specified verilog module.  "\fB-physical\fR" Places a physical instance without updating the netlist.  "\fB-cell<cellName>\fR" Specifies the master of the instance.  "\fB-inst<instName>\fR" Specifies the name of the instance to add and place.  If the instance name contains special characters, you need to start the part of the instance name, which contains special characters, with a backslash '\\' and end it with a space.  "\fB-loc {<x y}>\fR" Specifies the location of the placed instance.   Default: If you do not specify a location, Innovus places the instance at the design origin.  "\fB-ori {R0 | R90 | R180 | R270 | MX | MX90 | MY | MY90}\fR" Specifies orientation of the placed instance.   Default: If you do not specify an orientation, Innovus uses R0.  "\fB-place_status <placementStatus>\fR" Specifies the placement status of the added instance.  You can specify the following as the placement status:
+.RS  "*" 2 cover: Specifies that the instance has a location and is a part of a cover macro. It cannot be moved by automatic tools or interactive commands. You must specify the instance's location and its orientation.  "*" 2 placed: The status of the added instance is placed.  "*" 2 fixed: The status of the added instance is fixed.  "*" 2 soft_fixed: The status of the added instance is soft_fixed. It cannot be moved by global placement and can only be moved by the legalization step of detail placement  "*" 2 unplaced: The status of the added instance is unplaced.
+.RE   Default: unplaced  Note: This option is used along with the -loc option. It should not be used along with the -moduleBased option. 
+.SH Examples
+.RS  "*" 2 The following command adds buffer instance i1/i2 at location 100, 200:   addInst -cell BUF1 -inst i1/i2 -loc 100 200 
+.RE
+.RS  "*" 2 The following command adds buffer instance insta to the verilog module HIER_2:   addInst -moduleBased HIER_2 -cell BUFX2_6 -inst insta
+.RE
+.RS  "*" 2 The following command adds an instance with base name ant to hierarchy DTMF_INST/TDSP_CORE_INST/TDSP_CORE_MACH_INST[0].g:  addInst -cell ANTENNA -inst{DTMF_INST/TDSP_CORE_INST/TDSP_CORE_MACH_INST[0].g/ant}
+.RE
+.RS  "*" 2 The following command adds an instance with base name TDSP_CORE_INST/TDSP_CORE_MATCH_INST[0].g/ant to hierarchy DTMF_INST:  addInst -cell ANTENNA -inst {DTMF_INST/TDSP_CORE_INST\\/TDSP_CORE_MATCH_INST[9].g/ant}
+.RE 
+.SH Related Information
+.RS  "*" 2 deleteInst  "*" 2 ecoPlace   "*" 2 ecoSwapSpareCell   "*" 2 loadECO 
+.RE
+.P

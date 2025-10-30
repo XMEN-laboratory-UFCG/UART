@@ -1,0 +1,77 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deriveTimingBudget  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBderiveTimingBudget\fR \-  Generates timing budgets for partitions for standalone implementation
+.SH Syntax \fBderiveTimingBudget\fR  [-help]  [-parameterized]  [-cycleRatio | -stageBased | -timingCore | -preliminary | -pushDownSDC]  [-allIlmHinsts | -inst <instanceName>| -ptn <partitionName>]  [-verbose]  [-views <string>] 
+.P Generates timing budgets for partitions for standalone implementation. This command can also generate timing budgets on an instance basis instead of partitions. The generated timing constraint files allow you to do standalone block implementation. In case of partition based budgeting, it also generates timing models that will allow you to do standalone top level implementation. This command also directs summary files into the default budget justification directory.
+.P Note: You must free the timing graph to use multiple deriveTimingBudget commands with different options.
+.P Innovus operates in multi-mode multi-corner (MMMC) mode, and generates viewFilesautomatically for partition implementation and top-level chip assembly. Note that the deriveTimingBudget command does not generate a timing graph, if it already exists. Additionally, user will have to provide a timing graph generated without using deriveTimingBudget and must set the value of the setBudgetingMode -virtualOptEngine parameter same as that of the command used to generate the timing graph.
+.P When the deriveTimingBudget command is run, all the public setBudgetingMode parameters with their non-default values are displayed before the intended output of the deriveTimingBudget command, in an information message. This information message follows the format shown below:
+.P This command "deriveTimingBudget" required an extra checkout of license invs_hier. Additional license(s) checked out: 1 'Innovus_Hier_Opt' license(s)  **INFO: User settings:  setBudgetingMode -abutted true  setBudgetingMode -fixTopLevelPaths all  setBudgetingMode -masterClone merged  setBudgetingMode -noHoldView true 
+. 
+. 
+.SH Parameters  ________________________________________________________
+.P | -help           |  Outputs a brief description that   |   |                 |   includes the type and default     |   |                 |   information for each              |   |                 |   deriveTimingBudget parameter. For |   |                 |   a detailed description of the     |   |                 |   command and all its parameters,   |   |                 |   use the man command:man           |   |                 |   deriveTimingBudget                |   |____________________________________|__________________|
+.P | -allIlmHinsts   | \fB Derives timing budgets only for\fR    |   |                 | \fB  all the ILM-based partitions.\fR     |   |                 | \fB  When this parameter is used, \fR     |   |                 | \fB the software automatically derives\fR |   |                 | \fB  the list of ILM instances and\fR     |   |                 | \fB  budgets for them.Note: The\fR        |   |                 | \fB  -allIlmHinsts parameter\fR           |   |                 | \fB  internally calls -inst based\fR      |   |                 | \fB  budgeting. So, saving budgets \fR    |   |                 | \fB is only supported through the \fR     |   |                 | \fB  command. Therefore, it is\fR         |   |                 | \fB  necessary to run saveTimingBudget\fR |   |                 | \fB  after deriveTimingBudget\fR          |   |                 | \fB  -allIlmHinsts,  else  will\fR |   |                 | \fB  not save the budgeting\fR            |   |                 | \fB  information of ILM instances.\fR     |   |____________________________________|__________________|
+.P | -cycleRatio     | \fB Honors the  constraints and\fR        |   |                 | \fB  enables usage of clock cycle time\fR |   |                 | \fB  based budgeting. If no \fR           |   |                 | \fB  constraints are applied:The top\fR   |   |                 | \fB  and block default ratio is 20%\fR    |   |                 | \fB  and 80% of the clock\fR              |   |                 | \fB  respectively.The partition for\fR    |   |                 | \fB  start and end points splits the\fR   |   |                 | \fB  block ratio in 50%\fR                |   |                 | \fB  each.Equivalent default\fR           |   |                 | \fB  constraint is as\fR                  |   |                 | \fB  follows:setCycleBudgetRatio\fR       |   |                 | \fB  -fromPtn {*
+.4} -toPtn {*\fR         |   |                 | \fB 
+.4}setCycleBudgetRatio -fromPtn\fR   |   |                 | \fB  {*
+.8} \fR                           |   |                 | \fB -toTopsetCycleBudgetRatio -fromTop\fR |   |                 | \fB  -toPtn {*
+.8}Note: Do \fR     |   |                 | \fB not use the  command with this\fR     |   |                 | \fB  parameter.\fR                        |   |____________________________________|__________________|
+.P | -inst instanceName...                                 |   |_______________________________________________________|
+.P |  CDN_NBS |  Performs budgeting for the         |   | P CDN_NB |   hierarchical instance(s). This    |   | SP              |   instance could be a black box.    |   |                 |   You can derive timing budgets for |   |                 |   black boxes and other instances   |   |                 |   in the same run. Specify the      |   |                 |   setBudgetingMode -mergeClones     |   |                 |   parameter in addition to the      |   |                 |   -inst parameter to obtain         |   |                 |   worst-case budgets based on       |   |                 |   worst-case data per-pin for       |   |                 |   specified instances in a          |   |                 |   master/clone set. If you          |   |                 |  specify instances from more than   |   |                 |   one master/clone set, the tool    |   |                 |   derives separate worst-case       |   |                 |   timing budgets for the            |   |                 |  specified instances in each        |   |                 |   set.Default: If you do not        |   |                 |   specify this parameter, the       |   |                 |   software derives budgets for      |   |                 |  all the partitions.                |   |____________________________________|__________________|
+.P | -parameterized  |  Generates constraints as a         |   |                 |   function of the clock period.When |   |                 |   you set this parameter, the       |   |                 |   software generates timing         |   |                 |   constraints, such as              |   |                 |   set_input_delay and               |   |                 |   set_output_delay constraints as a |   |                 |   function of the clock period in   |   |                 |   the top-level and block-level     |   |                 |   SDCs.                             |   |____________________________________|__________________|
+.P | -preliminary    |  Derives timing budgets in the      |   |                 |   early stages of the design to get |   |                 |   a preliminary estimate of the     |   |                 |   budgets. When you use this        |   |                 |   parameter, the software uses      |   |                 |  the net delays and net loads       |   |                 |  that you specify using             |   |                 |   the setBudgetingMode       |   |                 |   command. The software does not    |   |                 |   use virtual optimization for      |   |                 |   calculating budgets.The           |   |                 |  software distributes the           |   |                 |  positive slack equally between     |   |                 |   source block, destination         |   |                 |  block, and top-level.For more      |   |                 |   information, see the 'Deriving    |   |                 |   Preliminary Budgets in Early      |   |                 |   Design Phase' section in the      |   |                 |   chapter of the Innovus User       |   |                 |   Guide.                            |   |____________________________________|__________________|
+.P | -ptn partitionName                                    |   |_______________________________________________________|
+.P |  CDN_NBS |  Performs budgeting for the         |   | P               |   specified partition(s). Specify   |   |                 |   the setBudgetingMode -mergeClones |   |                 |   parameter in addition to the -ptn |   |                 |   parameter to obtain worst-case    |   |                 |   budgets based on worst-case       |   |                 |  data per-pin for all partitions in |   |                 |   the master/clone set containing   |   |                 |   the partition.You cannot          |   |                 |  specify -ptn if you use            |   |                 |   -inst.Default: Performs budgeting |   |                 |   on all partitions.                |   |____________________________________|__________________|
+.P | -pushDownSDC    | \fB Helps timing budgeting in\fR          |   |                 | \fB  creating only pushdown\fR            |   |                 | \fB  constraints for block partitions.\fR |   |                 | \fB  The constraints applied to only\fR   |   |                 | \fB  those paths, which are completely\fR |   |                 | \fB  inside a partition, are known \fR    |   |                 | \fB as pushdown constraints. By\fR        |   |                 | \fB  considering only the pushdown\fR     |   |                 | \fB  constraints, this parameter\fR       |   |                 | \fB  ignores the constraints applied\fR   |   |                 | \fB  on partition interface paths from\fR |   |                 | \fB  full chip SDC.Note: In the \fR       |   |                 | \fB early design phase, the \fR           |   |                 | \fB reg-to-IO reg-to-IO and \fR           |   |                 | \fB IO-to-reg paths can be ignored\fR     |   |                 | \fB  using this parameter. In such a\fR   |   |                 | \fB  case, the timing constraints \fR     |   |                 | \fB for only reg-to-reg paths are\fR      |   |                 | \fB  generated.\fR                        |   |____________________________________|__________________|
+.P | -stageBased     | \fB Creates a quick stage-based\fR        |   |                 | \fB  timing graph to be used for\fR       |   |                 | \fB  timing budgeting. Timing\fR   |   |                 | \fB  budgeting with the stage-based\fR    |   |                 | \fB  timing graphs is used in very\fR     |   |                 | \fB  early stages of the design,\fR       |   |                 | \fB  before applying optimization \fR     |   |                 | \fB for quick budgets. This method \fR    |   |                 | \fB is more accurate than the\fR          |   |                 | \fB  cycle-based timing budgeting.When\fR |   |                 | \fB  this parameter is used, any\fR       |   |                 | \fB  existing timing graph in the\fR      |   |                 | \fB  design is overwritten by the\fR      |   |                 | \fB  generated special quick\fR           |   |                 | \fB  stage-based timing graph. The\fR     |   |                 | \fB  following example presents the\fR    |   |                 | \fB  scenarios in which this parameter\fR |   |                 | \fB  can be used:reg2reg path\fR          |   |____________________________________|__________________|
+.P | -timingCore     | \fB Generates timing constraints for\fR   |   |                 | \fB  the partition core (internal\fR      |   |                 | \fB  register-to-register path \fR        |   |                 | \fB only). The following are \fR          |   |                 | \fB included in the constraints\fR        |   |                 | \fB  file:Clock definitionsCore timing\fR |   |                 | \fB  constraints such as\fR               |   |                 | \fB  set_multicycle_path,\fR              |   |                 | \fB  set_false_path, and\fR               |   |                 | \fB  set_max_delay.These constraints\fR   |   |                 | \fB  are pushed down from the\fR          |   |                 | \fB  top-level constraints.Default:\fR    |   |                 | \fB  Generates timing budget files for\fR |   |                 | \fB  each partition from the \fR          |   |                 | \fB imported top-level timing\fR          |   |                 | \fB  constraint file.Note: The\fR         |   |                 | \fB  software does not generate\fR        |   |                 | \fB  budgets for the interface ports\fR   |   |                 | \fB  of the partition. Therefore the\fR   |   |                 | \fB  set_input_delay or\fR                |   |                 | \fB  set_output_delay values are not\fR   |   |                 | \fB  generated for the partition\fR       |   |                 | \fB  ports.\fR                            |   |____________________________________|__________________|
+.P | -verbose        |   Enables        |                  |   |                 |   various        |                  |   |                 |   verbose        |                  |   |                 |   controls.      |                  |   |_________________|__________________|__________________|
+.P | -views s |   Derives budget for multiple       |   | tring           |   views in parallel for reducing    |   |                 |   the runtime.                      |   |____________________________________|__________________| 
+.SH Examples
+.RS  "*" 2 For MMMC examples, see the "Timing Budgeting" chapter of the Innovus User Guide.
+.RE
+.RS  "*" 2 The following command creates a budget for the black box BBox:   deriveTimingBudget -inst BBox   saveTimingBudget -inst BBox
+.RE 
+.SH Related Information
+.RS  "*" 2 The following sections in the Timing Budgeting chapter of the User Guide document:
+.RE
+.RS 7incomplete"Deriving Timing Budgets"
+.RE
+.RS
+.RS
+.RS  "*" 2 "Budgeting Using Text Commands"
+.RE 
+.RE 
+.RE
+.RS
+.RS
+.RS  "*" 2 "Top-Level Budgets Derived by Using Active Logic View"
+.RE 
+.RE 
+.RE
+.RS
+.RS
+.RS  "*" 2 "Deriving Preliminary Budgets in Early Design Phase"
+.RE 
+.RE 
+.RE
+.RS 8incomplete"Budgeting Output Files for MMMC Designs"
+.RE
+.RS 9incomplete"Analyzing Timing Budgets"
+.RE
+.RS
+.RS
+.RS  "*" 2 "Resolving Conflicts with Path-Based Exceptions"
+.RE 
+.RE 
+.RE
+.RS 10incomplete"Customizing Budget Generation"
+.RE
+.RS 11incomplete"Verifying Timing Budgets"
+.RE
+.RS 12incomplete"Reading the Justify Budget Report"14incomplete"Warning Report"
+.RE
+.P

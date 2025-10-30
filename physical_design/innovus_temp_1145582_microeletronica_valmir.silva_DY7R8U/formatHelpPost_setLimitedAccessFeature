@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setLimitedAccessFeature  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetLimitedAccessFeature\fR \-  Enables or disables a limited access feature
+.SH Syntax \fBsetLimitedAccessFeature\fR  [-help]  <variableName>  <1> | <0>  
+.P Enables or disables a limited access feature.
+.P The Innovus includes certain limited access features that showcase advanced technology integrated in the software. These features have been internally qualified at Cadence but have had only limited customer testing.    Note: Limited access features are enabled by a variable specified through the setLimitedAccessFeature command. To use these limited access features, contact your Cadence representative to qualify your usage and to make sure it meets your needs before deploying it widely. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each setLimitedAccessFeature parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setLimitedAccessFeature  "\fB<variableName>\fR" Specifies the name of the variable that enables the limited access feature.  Data_type: string, required  "\fB<1> | <0>\fR" Specifying a value of 1 enables the feature. Specifying a value of 0 disables the feature.  Data_type: bool, required
+.P

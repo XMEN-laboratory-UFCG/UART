@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH distributed_mmmc_disable_reports_auto_redirection  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdistributed_mmmc_disable_reports_auto_redirection\fR
+.SH Syntax \fBdistributed_mmmc_disable_reports_auto_redirection\fR   {true | false} 
+.P Default: false
+.P Allows reports to be generated in the specified location. 
+.P When set to true, the software does not allow the reports for different views to get overwritten. When set to false, the reports are generated automatically in the DMMMC view directory structure. 
+.P To set this global variable, use the set command.
+.P

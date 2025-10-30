@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setSelectedDensityArea  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetSelectedDensityArea\fR \-  Specifies the attributes for the selected density screen area(s)
+.SH Syntax \fBsetSelectedDensityArea\fR   [-help]  <x1 y1 x2 y2>  density   <name>  {Partial Soft Hard}   {Instance Pushdown Undefined}  
+.P Specifies the attributes for the selected density screen area(s).  After importing the design and selecting the density area, if required, you can use this command to change the density area's location, type, or density.  
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setSelectedDensityArea parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setSelectedDensityArea  "\fB<x1 y1 x2 y2>\fR" Specifies the coordinates of the density screen area.  Data_type: float, required  "\fB<density>\fR" Specifies the standard cell placement density percentage. The valid values are in increments of 5: 0, 5, 10,
+...100.   For example, setting a density percentage of 75 percent means that up to 75 percent of the defined density area will be used for placement.  Note: If you enter any number that is not valid, the percentage defaults to the nearest valid value.  Maximum: 100  Minimum: 0  Data_type: float, required  "\fB<name>\fR" Specifies the name of the density screen area.  Data_type: string, required  "\fB{Partial Soft Hard} \fR" Specifies the hardness of the density screen area.  Data_type: enum, optional  "\fB{Instance Pushdown Undefined} \fR" Specifies the relationship of the density screen area to the design.
+.RS  "*" 2 Instance: The density screen area is associated with the current design.  "*" 2 Pushdown: The density screen area is pushed down from the hierarchy.  "*" 2 Undefined: The relationship of the density screen area to the design is undefined.
+.RE   Default: Undefined.  Data_type: enum, optional 
+.SH Example
+.P The following command sets a soft density screen area, softDensity2, of the current design in the specified design area:
+.P setSelectedDensityArea 100.0 100.0 200.0 200.0 75 softDensity2 Soft Instance 
+.SH Related Information
+.RS  "*" 2 deleteAllDensityAreas  "*" 2 createDensityArea   "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

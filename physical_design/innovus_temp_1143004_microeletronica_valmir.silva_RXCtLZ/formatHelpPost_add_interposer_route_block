@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH add_interposer_route_block  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBadd_interposer_route_block\fR \-  Adds the clone blocks. It transforms the similar unrouted areas to a clone partition, which repeats the same routing pattern as the routed master block
+.SH Syntax \fBadd_interposer_route_block\fR  [-help]   -cell <cell_name>  -inst <clone_name>  -location {<x y>}  -orient {R0 R90 R180 R270 MX MY MX90 MY90}
+.P Adds the clone blocks. It transforms the similar unrouted areas to a clone partition, which repeats the same routing pattern as the routed master block. This command enables you to replicate the routed master block multiple times with different orientations.
+.P Note: Before using the add_interposer_route_block command, you must launch another Innovus session for loading the initial DB followed by using create_interposer_route_block command to create the routed master block partition by specified box. This is used to generate master block partition and top DB. 
+.SH Parameters   "\fB-cell <cell_name>\fR" Specifies the master cell name that needs to be repeated (string, required)  Data_type: string, required   "\fB-help\fR" Outputs a brief description that includes the type and default information for each add_interposer_route_block parameter. For a detailed description of the command and all of its parameters, use the man command:  man add_interposer_route_block  "\fB-inst <clone_name>\fR" Specifies the clone block name.  Data_type: list, required  "\fB-location {<x y>}\fR" Specifies the clone block's origin location.  Note: The relative location between clone block's origin and the terms should exactly be the same with the master. Otherwise, the wire of clone blocks will be shift accordingly after assemble design.  Note: The snapping grid of the created block honors the setFPlanMode -snapBlockGrid command settings.  Data_type: point, required  "\fB-orient {R0 R90 R180 R270 MX MY MX90 MY90} \fR" Specifies the orientation of the clone block compared with the master.  Data_type: enum, required 
+.SH Examples
+.RS  "*" 2 The following command replicates the routing pattern of the master cell (master_block) to the clone block (clone_block_1) at location x1 y1 at orientation R0.  add_interposer_route_block -cell master_block -inst clone_block_1 -location {x1 y1} -orient R0  "*" 2 The following command repeats replicating the routing pattern of the master cell (master_block) to the clone block (clone_block_2) at location x2 y2 at orientation R180.  add_interposer_route_block -cell master_block -inst clone_block_2 -location {x2 y2} -orient R180
+.RE 
+.SH Related Information
+.RS  "*" 2 create_interposer_route_block  "*" 2 "Repeating Routing Patterns in Interposer Designs" in the Innovus User Guide
+.RE
+.P

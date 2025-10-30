@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_resolve_driver_conflicts  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_resolve_driver_conflicts\fR
+.SH Syntax  \fBtiming_resolve_driver_conflicts\fR  {conservative | aggressive}  
+.P Default: aggressive 
+.P Resolves constant propagation results on nets with multiple drivers. 
+.P When set to conservative mode, the net values are as follows:
+.RS  "*" 2 If all the drivers are 1, the net will be driven to value 1
+.RE
+.RS  "*" 2 If all the drivers are 0, the net will be driven to value 0
+.RE
+.RS  "*" 2 In other cases, the net value will be Undefined
+.RE
+.P When set to aggressive mode, the net values are as follows:
+.RS  "*" 2 If some of the drivers are 0, the net value will be 0
+.RE
+.RS  "*" 2 If some of the drivers are 1, but none are 0, then the net value will be 1
+.RE
+.RS  "*" 2 In other cases, the net value will be Undefined
+.RE
+.P To set this global variable, use the set_global command.
+.P

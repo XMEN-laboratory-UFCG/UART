@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH enc_save_timing_constraints_always  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBenc_save_timing_constraints_always\fR
+.SH Syntax \fBenc_save_timing_constraints_always\fR {true | false} 
+.P Type: Boolean
+.P Default: false
+.P If true, saveDesign will copy SDC timing constraint files to the output directory rather than keep links to the original external SDC files.  This is the equivalent to always using the -tcon option whenever saveDesign is called. 
+.SH Related Information
+.RS  "*" 2 saveDesign
+.RE
+.P

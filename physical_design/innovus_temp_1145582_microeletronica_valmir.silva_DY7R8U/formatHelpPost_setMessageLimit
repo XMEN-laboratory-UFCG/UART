@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setMessageLimit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetMessageLimit\fR \-  Limits error and warning messages to a specified number per unique ID
+.SH Syntax \fBsetMessageLimit\fR  [-help]  <numberToLimit>  [<prefix> [<ID1>, <ID2>,
+...]] 
+.P Limits error and warning messages to a specified number per unique ID. Any occurrences beyond the limit are suppressed. The default limit is 20 per message ID. The default limit is applicable only for ERROR* and WARNING* messages; there is no default limit for verify*, check*, and INFO* messages. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each setMessageLimit parameter.  For a detailed description of the command and all of its parameters, use the man command: man setMessageLimit.  "\fB<numberToLimit>\fR" Limits error and warning messages to a specified number per unique ID. Any occurrences beyond the limit are suppressed. The default limit is 20 per message ID. The default limit is applicable only for ERROR* and WARNING* messages; there is no default limit for verify*, check* and INFO* messages.  Default: 20  Data_type: int, required  "\fB<prefix [> <ID1> <,> <ID2> <,
+...]>\fR" Specifies the number per unique ID of specified prefix.  Data_type: string, optional  
+.SH Example
+.RS  "*" 2 The following command sets a limit of 10 messages per unique ID for all error and warning messages:   setMessageLimit 10
+.RE
+.RS  "*" 2 The following command sets a limit of 2 for the TCLCMD-917 error message.   setMessageLimit 2 TCLCMD 917  After 2 occurences of TCLCMD-917, which is the same as the limit set, the system announces that the limit has been reached.  [DEV]innovus 4> set_propagated_clock CLK1  **ERROR: (TCLCMD-917):  Cannot find 'ports, pins, or clocks' that match 'CLK1'  [DEV]innovus 5> set_propagated_clock CLK1  **ERROR: (TCLCMD-917):  Cannot find 'ports, pins, or clocks' that match 'CLK1'  [DEV]innovus 6> set_propagated_clock CLK1  Message <TCLCMD-917> has exceeded the message display limit of '2'. setMessageLimit/set_message_limit sets the limit. unsetMessageLimit/unset_message_limit can be used to reset this.
+.RE 
+.SH Related Information
+.RS  "*" 2 set_message command  "*" 2 get_message command
+.RE
+.P

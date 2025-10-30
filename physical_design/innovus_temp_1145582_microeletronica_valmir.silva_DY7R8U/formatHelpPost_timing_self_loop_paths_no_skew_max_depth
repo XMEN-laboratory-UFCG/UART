@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_self_loop_paths_no_skew_max_depth  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_self_loop_paths_no_skew_max_depth\fR \-  Identifies self-loop paths at the specified depth
+.SH Syntax \fBtiming_self_loop_paths_no_skew_max_depth\fR <value>  Default: 10
+.P Identifies self-loop paths at the specified depth. 
+.P To set this global variable, use the set_global command. 
+.P For example:
+.P         set_global timing_self_loop_paths_no_skew_max_depth 20      
+.P Lets the timer traverse 20 timing arcs (10 stages of logic) before abandoning the search for a self loop.

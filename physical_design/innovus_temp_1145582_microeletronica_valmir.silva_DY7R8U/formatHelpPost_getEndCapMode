@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getEndCapMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetEndCapMode\fR \-  Returns the information about setEndCapMode parameters in the Innovus log file and in the Innovus console
+.SH Syntax \fBgetEndCapMode\fR  [-help]  [-avoidTwoSitesCellAbut]  [-bottomEdge]  [-boundary_tap]  [-boundary_tap_swap_flow]  [-cells]  [-create_rows]  [-DoubleHeightIncornerProtrusion]  [-disable_check_zone_at_boundary]  [-flipY]  [-incrementalLeftEdge]  [-incrementalRightEdge]  [-leftBottomCorner]  [-leftBottomCornerEven]  [-leftBottomCornerNeighbor]  [-leftBottomCornerOdd]  [-leftBottomEdge]   [-leftBottomEdgeEven]  [-leftBottomEdgeNeighbor]  [-leftBottomEdgeOdd]   [-leftcornerbottomborder]  [-leftcornertopborder]  [-leftEdge]  [-leftEdgeBottomBorder]  [-leftEdgeEven]   [-leftEdgeOdd]  [-leftEdgeTopBorder]  [-leftTopCorner]  [-leftTopCornerEven]  [-leftTopCornerNeighbor]  [-leftTopCornerOdd]   [-leftTopEdge]  [-leftTopEdgeEven]   [-leftTopEdgeNeighbor]   [-leftTopEdgeOdd]  [-min_horizontal_channel_width]  [-min_jog_height]  [-min_jog_width]  [-min_vertical_channel_width]  [-min_horizontal_channel_width]  [-min_jog_height]  [-min_jog_width]  [-min_vertical_channel_width]  [-prefix]  [-reset]  [-rightBottomCorner]  [-rightBottomCornerEven]  [-rightBottomCornerNeighbor]  [-rightBottomCornerOdd]  [-rightBottomEdge]  [-rightBottomEdgeEven]  [-rightBottomEdgeNeighbor]  [-rightBottomEdgeOdd]   [-rightcornerbottomborder]  [-rightcornertopborder]  [-rightEdge]  [-rightEdgeBottomBorder]  [-rightEdgeEven]   [-rightEdgeOdd]  [-rightEdgeTopBorder]  [-rightTopCorner]  [-rightTopCornerEven]  [-rightTopCornerNeighbor]  [-rightTopCornerOdd]  [-rightTopEdge]  [-rightTopEdgeEven]  [-rightTopEdgeNeighbor]  [-rightTopEdgeOdd]  [-topBottomEdge]  [-topEdge]  [-useEvenOddSite]   [-wall_keepout_from_vertical_boundary]  [-wall_offset]  [-wall_pitch]  [-wall_to_incorner_spacing]
+.P Returns the information about setEndCapMode parameters in the Innovus log file and in the Innovus console. Returns the following information:
+.RS  "*" 2 Parameter name
+.RE
+.RS  "*" 2 Current value
+.RE
+.RS  "*" 2 Type (Boolean, string, and so on)
+.RE
+.RS  "*" 2 Source of current value (default, user)
+.RE
+.P If you do not specify a parameter, the software displays values for all of the setEndCapMode mode parameters. 
+.SH Related Information
+.RS  "*" 2 addEndCap  "*" 2 setEndCapMode   "*" 2 verifyEndCap
+.RE
+.P

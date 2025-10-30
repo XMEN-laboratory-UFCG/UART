@@ -1,0 +1,30 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH readTransitionFile  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreadTransitionFile\fR \-  Reads external transition files that are used to perform maximum transition violation reporting and fixing
+.SH Syntax \fBreadTransitionFile\fR  -file <fileName>  [-view <viewName>] 
+.P Reads external transition files that are used to perform maximum transition violation reporting and fixing.
+.P The contents of a transition file must be in the following format:
+.P setTranTime [-add] [-maxR <slewValue> | -maxF <slewValue>] {<pinName>}
+.P or
+.P setTranTime [-add] [-minR <slewValue> | -minF <slewValue>] {<pinName>}
+.P Where:
+.RS  "*" 2 -add: Specifies that the transition value is incremental.
+.RE
+.RS  "*" 2 -maxR | -maxF: Specifies the maximum rise or fall transition.  "*" 2 -minR | -minF: Specifies the minimum rise or fall transition.  Note: The minimum transition values will be ignored while performing transition violation fixing.
+.RE
+.RS  "*" 2 <pinName>: Specifies the pin name for which the transition value is specified. To specify multiple pin names, you need to use separate setTranTime statements as given below:   setTranTime -add -maxR 3.5 inst/A  setTranTime -add -maxR 3.5 pinB
+.RE
+.P Note: The readTransitionFile command uses the time unit that is written in the slew file. If time unit is specified as 1e-12, it reads the values in picoseconds. For time unit specified as 1e-09, the command reads the values in nanoseconds. For example,
+.P # Time Unit : 1e-09 seconds
+.P setTranTime -minR 0.80050 {AAA/BBB/CCC/A}
+.P setTranTime -minF 0.580300 {AAA/BBB/DDD/A}
+.P When a transition file is read and third-party slew values are annotated, Innovus uses the following command to report transition violations with the annotated slews:  timeDesign {-postRoute | -signoff | -reportOnly} -useTransitionFiles 
+.SH Parameters   "\fB-file <fileName>\fR" Specifies the name of the file that contains information about the transition time.  "\fB-view <viewName>\fR" Specifies the view name for which the transition file will be read in case of MMMC designs. You need to ensure that you specify the transition files for all setup views to perform transition violation fixing. Note: This parameter is required for MMMC designs only. 
+.SH Example
+.RS  "*" 2 The following command reads an external transition file called sampleFile for non-MMMC designs:   readTransitionFile -file sampleFile
+.RE
+.RS  "*" 2 The following commands read view specific external transition files for a MMMC design:   readTransitionFile -view view1 -file sampleFile1   readTransitionFile -view view2 -file sampleFile2
+.RE
+.P

@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH source  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsource\fR \-  Reads a file and executes the commands in the file (scripts)
+.SH Syntax \fBsource\fR   [-help]   filename   [-quiet  | -verbose ] [-quiet  | -echo ] 
+.P Reads a file and executes the commands in the file (scripts). You can source an encrypted file created by the encrypt command. To be sourced, the file must have suffix p added to the file name, for example, test.tcl being encrypted as test.tclp.
+.P Parameters    "\fB-help\fR" Describes the command usage.  "\fB<filename>\fR" Specifies the name of the file to source.  Data_type: string, required  "\fB-quiet\fR" Disable verbose source.  Data_type: bool, optional  "\fB-verbose\fR" Enable verbose source.  Data_type: bool, optional  "\fB-echo         \fR" Enable verbose source.  Data_type: bool, optional
+.P With no -quiet, -verbose, -echo argument, file is sourced according to the enc_source_verbose    global.
+.P Note that the setting of -quiet, -verbose, -echo argument only affects the verbosity of sourcing the outermost file. If that file contains nested source commands, the verbosity of those nested commands is controlled by their associated [-quiet | -verbose | -echo] arguments or the      enc_source_verbose    global if no arguments. 
+.SH Related Information
+.RS  "*" 2 enc_source_verbose  "*" 2 enc_source_continue_on_error  "*" 2 enc_source_echo_filename
+.RE
+.P

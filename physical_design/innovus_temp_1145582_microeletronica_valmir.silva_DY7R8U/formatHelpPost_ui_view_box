@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH ui_view_box  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBui_view_box\fR \-  Reports the coordinates of the current area being viewed in the GUI
+.SH Syntax \fBui_view_box\fR [-help]
+.P Reports the coordinates of the current area being viewed in the GUI. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage. For a detailed description of the command, use the man command:  man ui_view_box 
+.SH Example
+.P The following command reports the coordinates of the current area being viewed in the GUI:
+.P innovus 9> ui_view_box
+.P 93.367 -646.465 103.294 -638.724 
+.SH Related Information
+.RS  "*" 2 zoomBox
+.RE
+.P

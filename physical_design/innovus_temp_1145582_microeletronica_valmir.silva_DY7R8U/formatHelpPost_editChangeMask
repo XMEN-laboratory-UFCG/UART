@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editChangeMask  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditChangeMask\fR \-  Changes the mask for the selected wires, vias, physical pins, or trim metal to the specified color
+.SH Syntax \fBeditChangeMask\fR  [-help]   {-to {0 1 2} | [[-top {0 1 2}] [-bottom {0 1 2}] [-cut {0 1 2}]] | -trim_metal {0 1 2}} 
+.P Changes the mask for the selected wires, vias, physical pins, or trim metal to the specified color. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each editChangeMask parameter.  For a detailed description of the command and all of its parameters, use the man command:  man editChangeMask  "\fB-bottom {0 1 2}\fR" Changes the mask for the bottom layer of the selected vias to the specified color.  "\fB-cut {0 1 2}\fR" Changes the mask for the cut layer of the selected vias to the specified color.   "\fB-to {0 1 2}\fR" Changes the mask for the selected wires and physical pins to the specified color.  "\fB-top {0 1 2}\fR" Changes the mask for the bottom layer of the selected vias to the specified color.   "\fB-trim_metal {0 1 2}\fR" Changes the mask for the trim metal of the selected patch wires to the specified color. If the trim metal being edited completely covers another trim metal, the mask of the covered trim metal is also changed simultaneously. 
+.SH Examples
+.RS  "*" 2 The following command changes the mask for the selected wire and physical pin to 2:  editChangeMask -to {2}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command changes the mask for the bottom layer of the selected via to 1:  editChangeMask -bottom {1}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command changes the mask for the trim metal of the selected patch wires to 2:  editChangeMask -trim_metal {2}  Given below are the results of running this command in various situations:
+.RS  "*" 2 If a single patch wire was selected before running the command:  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 If multiple patch wires were selected before running the command:  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 If the trim metal for the selected patch wire (Patch Wire A) completely overlaps the trim metal for another patch wire that is not selected (Patch Wire B):  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 If the trim metal for the selected patch wire (Patch Wire A) partially overlaps the trim metal for another patch wire that is not selected (Patch Wire B):  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.RE 
+.SH Related Information
+.RS  "*" 2 editAddTrimMetal    "*" 2 editChangeLayer  "*" 2 editChangeNet  "*" 2 editChangeRule  "*" 2 editChangeStatus  "*" 2 editChangeVia  "*" 2 editDelete  "*" 2 editSelect  "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unfixBump  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunfixBump\fR \-  Removes the bump assignment status from a specified list of assigned bumps that were set with the setBumpFixed command
+.SH Syntax \fBunfixBump\fR  [-help]   {-allBumps | -byBumpName {<list>}} 
+.P Removes the bump assignment status from a specified list of assigned bumps that were set with the setBumpFixed command. The software updates the DEF file by removing the +FIXEDBUMP attribute from the specified group of assigned bumps to indicate that they are now in an unfixed state. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each unfixBump parameter.  For a detailed description of the command and all of its parameters, use the man command:  man unfixBump  "\fB-allBumps\fR" Removes the bump assignment status from all bumps.  "\fB-byBumpName {<list>}\fR" Removes the bump assignment status from a specified list of assigned bumps. 
+.SH Examples
+.RS  "*" 2 The following command removes the bump assignment status from all bumps:   unfixBump -allBumps
+.RE
+.RS  "*" 2 The following command removes the bump assignment status from bumps bumpA and bumpB:   unfixBump -byBumpName {bumpA bumpB}
+.RE 
+.SH Related Information
+.RS  "*" 2 assignBump  "*" 2 defOut  "*" 2 setBumpFixed  "*" 2 Flip Chip Methodologies chapter in the User Guide  "*" 2 Tools Menu chapter in the Menu Reference 
+.RS  "*" 2 Flip Chip
+.RE 
+.RE
+.P

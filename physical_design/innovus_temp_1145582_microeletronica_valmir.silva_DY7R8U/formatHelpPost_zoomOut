@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH zoomOut  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBzoomOut\fR \-  Zooms out from the viewable window by two times
+.SH Syntax \fBzoomOut\fR [-help] 
+.P Zooms out from the viewable window by two times. 
+.SH Parameters    "\fB-help\fR" Prints a brief description of the zoomOut command.  For a detailed description of the command, use the man command: man zoomOut. 
+.SH Related Information
+.RS  "*" 2  viewLast  "*" 2  viewNext  "*" 2  zoomBox  "*" 2  zoomIn  "*" 2  zoomSelected  "*" 2  zoomTo  "*" 2  View Menu chapter in the Menu Reference
+.RS  "*" 2 Zoom
+.RE 
+.RE
+.P

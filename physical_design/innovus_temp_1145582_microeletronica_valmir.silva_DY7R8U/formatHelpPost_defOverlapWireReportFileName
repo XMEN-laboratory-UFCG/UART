@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH defOverlapWireReportFileName  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefOverlapWireReportFileName\fR
+.SH Syntax \fBdefOverlapWireReportFileName\fR <fileName> 
+.P Type: String
+.P Default: NULL
+.P Reports overlapping wire segments in the specified file. The defOverlapWireReportFileName variable can be used along with the defInShapeBasedDefFile variable. 
+.SH Related Information
+.RS  "*" 2 defIn  "*" 2  defInShapeBasedDefFile
+.RE
+.P

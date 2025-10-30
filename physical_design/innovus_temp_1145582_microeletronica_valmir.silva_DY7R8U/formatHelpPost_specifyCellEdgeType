@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH specifyCellEdgeType  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBspecifyCellEdgeType\fR \-  Specifies edge type for cell edges as EDGETYPE in macro LEF
+.SH Syntax \fBspecifyCellEdgeType\fR   [-help]   {-left <edgeType> | -right <edgeType> | -top <edgeType> | -bottom <edgeType> | -reset }   [{-left <edgeType> | -right <edgeType>} [-cellRow <rowNumber>]]   [{-left <edgeType> | -right <edgeType>} [-half {top | bottom}]]   [{-top <edgeType> | -bottom <edgeType>} [-range {x y}]]   [{-cell <cellName>} [-reset]]
+.P Specifies edge type for cell edges as EDGETYPE in macro LEF. It allows to specify one edge at a time for a particular cell.
+.P To ensure the correct edge type specification, edge types asserted by specifyCellEdgeType command should be pre-defined by the specifyCellEdgeSpacing command. 
+.P For example:
+.P specifyCellEdgeSpacing grp1 grp2 0.18  specifyCellEdgeType -cell BUF1X -left grp1
+.P If the edge type is specified without corresponding spacing rule, tool gives a warning and ignores the edge type specification. 
+.SH Parameters    "\fB-bottom <edgeType>\fR" Specifies an edge type on the bottom side.   "\fB-cell <cellName> \fR" Specifies cell to which to add edge constraint.   "\fB-cellRow <rowNumber>\fR" Specifies the row number for horizontal edge type.  You can define different edge types for each row of multiple height cells using -cellRow.  For example, there is triple height cell CKBUF.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   The following commands define different edge types for different rows of the CKBUF cell.  specifyCellEdgeType -cell CKBUF -right grp1 -cellRow 1  specifyCellEdgeType -cell CKBUF -right grp2 -cellRow 2  In the above example, grp1 is applied to the first row (bottom row) of the right edge, grp2 is applied to the second row of right edge, and no specific edge type is defined for the third row of right edge and is of DEFAULT type.  The legal value of -cellRow is from 1 to n, where n is the number of cell height of the cell.  "\fB-half {top bottom} \fR" Defines the edge types corresponding to the top or bottom half of the cell.   The following example associates the edge type 'grp1' with the bottom row, top half of the multi-height cell SDFF8:  specifyCellEdgeType -cell SDFF8 -right grp1 -cellRow 1 -half top   "\fB-help\fR" Outputs a brief description that includes type and default information for each specifyCellEdgeType parameter.  For a detailed description of the command and all of its parameters, use the man command: man specifyCellEdgeType    "\fB-left <edgeType>\fR" Defines the edge types corresponding to the top or bottom half of the cell.   The following example associates the edge type 'grp1' with the bottom row, top half of the multi-height cell SDFF8.  specifyCellEdgeType -cell SDFF8 -right grp1 -cellRow 1 -half top    "\fB-range {<x> <y>}\fR" Specifies the range for the vertical edge type.  The range for the vertical edge type can also be negative.  The following example defines a partial range of an edge that the type should be labeled.This could only be defined on TOP or BOTTOM edges.  specifyCellEdgeType -cell A -top GROUP1 -range 0 0.1   specifyCellEdgeType -cell A -bottom GROUP1 -range 0 0.1   specifyCellEdgeType -cell A -top GROUP2 -range 0.2 0.3   specifyCellEdgeType -cell A -top GROUP3 -range 0.15 0.25   (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   "\fB-reset \fR" Resets the specified cell constraint to the LEF status.   "\fB-right <edgeType>\fR" Specifies an edge type on the right side.    "\fB-top <edgeType>\fR" Specifies an edge type on the top side. 
+.SH Example
+.P The following commands specify one edge at a time for the BUF1X cell
+.RS  "*" 2 specifyCellEdgeType -cell BUF1X -left grp1
+.RE
+.RS  "*" 2 specifyCellEdgeType -cell BUF1X -right grp1 -cellRow 1
+.RE
+.RS  "*" 2 specifyCellEdgeType -cell BUF1X -right grp1 -cellRow 2
+.RE 
+.SH Related Information
+.RS  "*" 2 deleteCellEdgeSpacing  "*" 2 report_cell_edge_spacing  "*" 2 specifyCellEdgeSpacing
+.RE
+.P

@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_multifrequency_clock_rounding_factor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_multifrequency_clock_rounding_factor\fR \-  Rounds off irrational numbers so that they can be read appropriately
+.SH Syntax \fBtiming_multifrequency_clock_rounding_factor\fR  {1e-04 | 1e-05}   Default: 1e-05
+.P Rounds off irrational numbers so that they can be read appropriately. The "round off factor" helps improve the level of accuracy of floating point numbers. 
+.P To round off clock period numbers accurate to the fourth decimal place, you can use the following command: 
+.P         set_global timing_multifrequency_clock_rounding_factor 1.0e-4      
+.P To set this global variable, use the set_global command. 
+.P

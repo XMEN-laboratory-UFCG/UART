@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH wireload  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwireload\fR \-  Generates the wireload models and outputs the models in hierarchical and flat formats
+.SH Syntax \fBwireload\fR  [-help]  [-outfile <fileNamePrefix>]   [-scale <factor>]   [-percent <samplingRate>]   [-cell <cellName> | -inst <instanceName> [-name <modelName>]]   [-instanceBased]   [-cellLimit <moduleSize>]   [-custom]   [-noSmooth]   [-netCoverRatio]   [-logarithmic]   [-peakCap]  [-view <viewName>] 
+.P Generates the wireload models and outputs the models in hierarchical and flat formats. Use this command after extracting the RC data in your design.
+.P The wireload models in the hierarchical format are generated for cells and instances based on external nets (hierarchical view). The hierarchical format considers only nets that crosses the boundaries of child modules within the module, while the flat format considers all nets within the module and its child modules.The wireload models in the flat format are generated for cells and instances based on internal nets (flat view).
+.P Two wireload model formats are available: standard and custom. 
+.SH Parameters   "\fB-cell <cellName>\fR" Specifies the cell name for generating a wireload model.  "\fB-cellLimit <moduleSize>\fR" Specifies the module size limit of cells or instances for generating a wireload model. Cells or instances that contain fewer than the <moduleSize> cells or instances will not have wireload models generated.   Default: 100  "\fB-custom\fR" Generates the custom wireload model format, which is also known as the long format. The default is the standard wireload model format, which is also known as the short format.  "\fB-help\fR" Outputs a brief description of the wireload command. For a detailed description of the command, use the man command: man wireload.  "\fB-inst <instanceName>\fR" Specifies the name of the hierarchical instance in a path for which to generate a wireload model. The hierarchical instance can be at any point in the path or at the beginning or end of the path.  "\fB-instanceBased\fR" Generates wireload models for each instance in the design. The default is to generate wireload models for each cell type used in the design.  "\fB-logarithmic\fR" Uses logarithmic average of the fanout value to calculate the wireload model.  "\fB-name <modelName>\fR" Renames the cell name or instance name in the wireload model file.  "\fB-netCoverRatio\fR" Specifies the percentage of nets to be considered for generating wireload model.  "\fB-noSmooth\fR" Suppresses the smoothing of the wireload models.  "\fB-outfile <fileNamePrefix>\fR" Specifies the filenames for the generated wireload models. The software generates four files for the hierarchical and flat models, and one command file each to load the model files back into the synthesis tool.  "\fB-peakCap\fR" Uses peak fanout value to calculate the wireload model.  "\fB-percent <samplingRate>\fR" Specifies the sample rate of the number of nets for calculation of wireload models. The values are between 0.0 and 1.0 (all sampled).   Default: 1.0  "\fB-scale <factor>\fR" Specifies the scaling value used to multiply the results.   Default: 1.0.  "\fB-view <viewName>\fR" Generates the wireload models for the specified analysis view.  Default: Uses the default analysis view. 
+.SH Examples
+.RS  "*" 2 The following command generates instance-based wireload models and outputs two model files, design_name.wl.flat and design_name.wl.hier and two command files for loading:   wireload -instanceBased
+.RE
+.RS  "*" 2 The following command uses logarithmic average of the fanout value to calculate the wireload model and outputs two model files, design_name.wl.flat and design_name.wl.hier:   wireload -celldtmf_chip -logarithmic-outfile dtmf.wl  wireLoad Option : -cell dtmf_chip -logarithmic -outfile dtmf.wl design/module characterization flags: 
+... 
+...  Generation hierarchical Wireload Model File dtmf.wl.hier
+...  Generation flat Wireload Model File dtmf.wl.flat
+...
+.RE 
+.SH Related Information
+.RS  "*" 2 extractRC  "*" 2 setExtractRCMode
+.RE
+.P

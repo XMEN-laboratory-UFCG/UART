@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH findLefEquivalentCells  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBfindLefEquivalentCells\fR \-  Provides support to debug certain cells that may be non-equivalent without detailed analysis of the LEF
+.SH Syntax \fBfindLefEquivalentCells\fR  [-help]   -cells <string>   [-outfile <filename>]
+.P Provides support to debug certain cells that may be non-equivalent without detailed analysis of the LEF. For example, if two cells have the same function and size they still may not be LEF equivalent.  
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each findLefEquivalentCells parameter. For a detailed description of the command and all of its parameters, use the man command: man findLefEquivalentCells  "\fB-cells <string>\fR" Specifies the cell names. You can also use wildcards or specify individual cells.   "\fB-outfile <filename>\fR" Specifies the output file name for reporting LEF equivalent cells. All the equivalent and non-equivalent cells are saved in the output file. 
+.SH Examples
+.RS  "*" 2 The following example command reports equivalence information on all cells and outputs to a file:  findLefEquivalentCells -cells * -outFile equivalency_file.txt 
+.RE
+.RS  "*" 2 To report equivalence information on a specific cell, say SCBUF1X, you can use the following command:  findLefEquivalentCells -cells SCBUF1X
+.RE
+.RS  "*" 2 To report equivalence information on all cells that begin with SCBUF, you can use the following command:  findLefEquivalentCells -cells SCBUF*
+.RE

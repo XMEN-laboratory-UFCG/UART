@@ -1,0 +1,33 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH uiAdd  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBuiAdd\fR \-  Adds a new interface element with the specified name of the specified type
+.SH Syntax \fBuiAdd\fR  [-help]   <name>  [-before <name>]   [-checked {true | false}]   [-command <string>]   [-disabled {true | false}]   [-enablevar <string>]   [-foreground <string>]   [-icon <filename>]   [-in <name>]   [-label <string>]  [-movable {true | false}]   [-newline {true | false}]  [-shortcut <string>]    [-tooltip <string>]  -type {menu | toolbar | submenu | command | check | radio | separator | toolbutton}   [-underline <integer>]   [-value <string>]   [-variable <string>]   [-visiblevar <string>]
+.P Adds a new interface element with the specified name of the specified type. Use this command to customize the Innovus graphical interface by adding menus, toolbars, status bar, and other interface elements, as required. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each uiAdd parameter.  For a detailed description of the command and all of its parameters, use the man command:  man uiAdd  "\fB<name>\fR" Specifies as a string the internal name of the interface element you want to add.  Note: Choose the internal name of the element carefully as this is what is used internally by the software to identify the element for any further manipulation.  "\fB-before <name>\fR" When specified, adds the new element before the element identified by <name>.  "\fB-checked {true | false}\fR" Specifies whether or not the check box or radio button you are adding should be checked.  Note: You can use the -checked parameter only if you are adding elements of type check or radio.  Default: false  "\fB-command <string>\fR" Specifies the Tcl command to be executed when the element you are adding is invoked.  Note: You can use the -command parameter only if you are adding elements of type command, check, radio or toolbutton.  "\fB-disabled {true | false}\fR" Specifies the state of the interface element you are adding.  Note: You can use the -disabled parameter only if you are adding elements of type menu, submenu, command, check, radio or toolbutton. The parameter is NOT applicable for elements of type toolbar and separator.  Default: false  "\fB-enablevar <string>\fR" Represents the Tcl global variable for Enable status.  "\fB-foreground <string>\fR" Specifies foreground color of the icon.  Note: You can use the -foreground parameter only if you are adding an element of type toolbutton.  "\fB-icon <filename>\fR" When adding a toolbutton, specifies the file name of the toolbutton icon. <filename> can be the full path of the icon file or an icon name supported by Innovus.  The icon names used in Innovus can be queried using the uiGet command.  For list of supported image formats for the icon file, see the "Supported Image Formats" section of the Customizing the User Interface chapter in the Innovus User Guide.  Note: The -icon parameter is applicable only for elements of type toolbutton.  "\fB-in <name>\fR" Specifies the name of the parent element. Use this parameter along with -before to specify the location of the element you are adding. By default, -in adds the element to the end of the parent element. Use -before to add the element at a specific location within the parent element.  Note: If -in is not specified, the new element is created but is not added to any location.  "\fB-label <string>\fR" Specifies the label to be displayed on the new element.  Note: This parameter is NOT applicable for elements of type separator.  "\fB-movable {true | false}\fR" When adding a toolbar, specifies whether or not it will be movable.    "\fB-newline {true | false}\fR" When adding a toolbar, specifies whether or not the toolbar should be added as a new row.  Note: The -newline parameter is applicable only for elements of type toolbar.  Default: false  "\fB-shortcut <string>\fR" Specifies the shortcut key for a command, check box, radio button, or toolbutton.  Note: You can use the -shortcut parameter only if you are adding elements of type command, check, radio, ortoolbutton.  "\fB-tooltip <string>\fR" Specifies the tooltip text for the toolbar or toolbutton you are adding.  Note: The -tooltip parameter is applicable only for elements of type toolbar and toolbutton.  "\fB-type {menu | toolbar | submenu | command | check | radio | separator | toolbutton}\fR" Specifies the type of the interface element you want to add. Currently, elements of type main and  statusbar are not supported.   "\fB-underline <integer>\fR" Specifies the integer index of the character to be underlined in the element label. The index begins with 0 and should have a value less than or equal to the length of the element label. For instance, if you want the second letter of the element label to appear underlined, specify <integer>as 1.  Note: The -underline parameter is NOT applicable for elements of type toolbar, separator, and toolbutton.  Note: This parameter can be used only if the -label parameter is also specified.  "\fB-value <stringValue>\fR" When adding a radio button, specifies the value to be stored in the associated variable when the radio button is selected.  Note: The -value parameter is applicable only for elements of type radio.  "\fB-variable <string>\fR" When adding a check box or radio button, specifies the Tcl global variable for the item.  "\fB-visiblevar <string>\fR" Represents the Tcl global variable for Visible status 
+.SH Examples
+.RS  "*" 2 The following command will add a new menu labeled ExampleMenu in the main window:   uiAdd exmpMenu -type menu -label ExampleMenu -in main
+.RE
+.RS  "*" 2 The following command will add a new menu item labeled ExampleCommand in ExampleMenu:   uiAdd exmpCommand -type command -label ExampleCommand -in exmpMenu -command [list puts Example Command]  "*" 2  The following command adds a new, unmovable toolbar to the layout window:  uiAdd newTB -type toolbar -in main.layout -movable false
+.RE 
+.SH Related Information
+.RS  "*" 2 uiDelete  "*" 2 uiFind  "*" 2 uiGet  "*" 2 uiSet  "*" 2 Customizing the User Interface chapter in the User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2 Creating a New Menu
+.RE 
+.RE
+.RS
+.RS  "*" 2 Adding a Menu Element to an Existing Menu
+.RE 
+.RE
+.RS
+.RS  "*" 2 Replacing an Existing Menu Element
+.RE 
+.RE
+.RS  "*" 2
+.RS  "*" 2 Adding a New Toolbar or Toolbutton
+.RE 
+.RE
+.P

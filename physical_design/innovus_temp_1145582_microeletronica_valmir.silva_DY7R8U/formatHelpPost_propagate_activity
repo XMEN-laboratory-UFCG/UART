@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH propagate_activity  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBpropagate_activity\fR
+.SH Syntax  \fBpropagate_activity\fR  [-set_net_freq {true | false}]
+.P Propagates the activity file in the database after it is read in using the read_activity_file command. This command propagates the activity for all primary inputs, nets, and other devices in the design whose activity has not been previously defined through user attributes.
+.P propagate_activity can be used to propagate activities in the design and check for activity annotation before running power calculation. This is not a mandatory step as execution of report_power will also do the same and then do power calculation based on the propagated activities. 
+.SH Parameters    "\fB  -set_net_freq {true | false}\fR" Specifies that activity from the generated TCF file needs to be used to capture net frequency for signal EM analysis. When this parameter is set, you do not have to read the TCF file to set net frequency. 
+.SH Example
+.RS  "*" 2 The following commands read and propagate the activity file in the database:   read_activity_file   propagate_activity
+.RE 
+.SH Related Information
+.RS  "*" 2 read_activity_file  "*" 2 "Dynamic Power and IRDrop Analysis" in the Voltus IC Power Integrity Solution User Guide
+.RE
+.P

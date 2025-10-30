@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH specify_cell_stack_group  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBspecify_cell_stack_group\fR \-  Defines the stack rule of a cell group
+.SH Syntax \fBspecify_cell_stack_group\fR  [-help]   -name <group_name>   {-max_horizontal_length <max_continuous_length> } 
+.P Defines the stack rule of a cell group. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each specify_cell_stack_group parameter.  For a detailed description of the command and all of its parameters, use the man command: man specify_cell_stack_group  "\fB-max_horizontal_length <max_continuous_length>\fR" Specifies the maximum continuous length in horizontal direction.  "\fB-name <group_name>\fR" Specifies the cell group name with the stack constraint. 
+.SH Related Information
+.RS  "*" 2 delete_cell_stack_area  "*" 2 delete_cell_stack_group  "*" 2 specify_cell_stack_area  "*" 2 report_cell_stack_group  "*" 2 specify_cell_stack_area
+.RE
+.P

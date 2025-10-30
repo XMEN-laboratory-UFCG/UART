@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteNet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteNet\fR \-  Logically deletes nets from a design
+.SH Syntax \fBdeleteNet\fR  [-help]  <netName>  [-bus <startId>:<endId>]  [-moduleBased <verilogModule>] 
+.P Logically deletes nets from a design. If a net is routed, wire segments associated with the net are also deleted.
+.P If you plan to call ecoRoute -modifyOnlyLayers bottomLayer:topLayer later, ensure that the net to be deleted only has wire segments on the specified layer.
+.P Note: To delete wire segments associated with a net without deleting it logically, use the editDelete command.
+.P You can use wildcards (*?) to specify the nets you want Innovus to delete. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each deleteNet.  For a detailed description of the command and all of its parameters, use the man command:   man deleteNet  "\fB-bus <startId>:<endId>\fR" Deletes the specified bus bits. The specified bus bit net must be a one pin net, which means that the bus bit net is floating on the other side. The specified range must be adjacent to the most significant bit or the least significant bit of the existing bus. Also, it must have the same ascending or descending order as the existing bus.  Note: PG bus net is not supported.  "\fB-moduleBased <verilogModule>\fR" Deletes the net from the specified verilog module.   "\fB<netName>\fR" Specifies the name of the net to delete. 
+.SH Example
+.RS  "*" 2 The following command deletes one bit h1/net2[3] from existing bus h1/net2[3:0]:  deleteNet h1/net2 -bus 3:3  "*" 2 The following command deletes two bits h1/net2[3], h1/net2[2] from existing bus h1/net2[3:0]:  deleteNet h1/net2 -bus 3:2
+.RE
+.RS  "*" 2 The following command deletes net1:   deleteNet net1
+.RE
+.RS  "*" 2 The following command deletes all nets whose name begin with net1:   deleteNet net1*
+.RE 
+.SH Related Information
+.RS  "*" 2 addNet  "*" 2 ecoRoute  "*" 2 editDelete
+.RE
+.P

@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH lib_build_asynch_de_assert_arc  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBlib_build_asynch_de_assert_arc\fR
+.SH Syntax \fBlib_build_asynch_de_assert_arc\fR  {true | false} 
+.P Default: true
+.P Controls whether input to output arcs from the preset or clear pins transitioning to inactive state are included when the timing system is initialized.
+.P When the control signal to the preset or clear pins transitions to inactive state (deassertion), in some cases, the output pin can subsequently transition. In the case of edge-triggered flip-flops, the removal timing check (a type of hold check) prevents the preset or clear from deasserting too close to the active edge of the clock; therefore, there is usually no chance of the output changing, and no need to have an additional arc to model this transition.
+.P However, in the case of latches, it is possible that the removal constraint will still allow the signal to deassert when the latch is in transparent mode. If the input state of the latch is not equivalent to the state previously forced by the preset or clear, an output transition results. In these situations, an additional arc is required to model this transition. A similar corner-case can result when both preset and clear signals are asserted, and one of them is subsequently released.
+.P Note: The timing_enable_preset_clear_arcs global variable has higher priority than lib_build_asynch_de_assert_arc. If both of these global variables are set to true, then all the asynchronous arcs are recognized. If timing_enable_preset_clear_arcs is set to true and lib_build_asynch_de_assert_arc is set to false, then only the assert asynchronous arcs are recognized.  If timing_enable_preset_clear_arcs is set to false, then both the assert and de-assert asynchronous arcs will not be recognized.    Note: Because the timing_enable_preset_clear_arcs and lib_build_asynch_de_assert_arc global variables affect how the timing graph is built, it is important to set the desired state before performing any timing analysis.
+.P To set this global variable, use the set_global command.
+.P

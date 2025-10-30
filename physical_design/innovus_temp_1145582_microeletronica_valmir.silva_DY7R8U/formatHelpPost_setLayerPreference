@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setLayerPreference  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetLayerPreference\fR \-  Sets a new preference for the specified object or layer
+.SH Syntax \fBsetLayerPreference\fR  [-help]   <layer_name>  [-isVisible {1 | 0}]   [-isSelectable {1 | 0}]  [-color {<color_name> | <color_value>}]   [-lineWidth {<lw>}]  [-stipple <stipple_name> | -stippleData <width> <height> <"stipple_data">] 
+.P Sets a new preference for the specified object or layer.
+.P See getLayerPreference for descriptions of how to display layer preferences. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each setLayerPreference parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setLayerPreference  "\fB-color\fR" Specifies a color for the object. Specify either a color name or a numeric RGB value.  Date_type: string, optional  "\fB-isSelectable\fR" Specifies whether the object is selectable. Specify 1 to make the object selectable. Specify 0 to make the object non-selectable.  Date_type: enum, optional  "\fB-isVisible\fR" Specifies whether the object is visible. Specify 1 to make the object visible. Specify 0 to make the object invisible.  Examples
+.RS  "*" 2 You can turn off the visibility of all custom layers by using the following command:   setLayerPreference customLayers -isVisible 0   "*" 2 You can turn off display of flightlines by using the following command:  setLayerPreference flightLine -isVisible 0
+.RE   Date_type: enum, optional   "\fB<layer_name>\fR" Specifies the name of the layer or the object type.  The valid layer names are:
+.RS  "*" 2 layer number  "*" 2 <#>AVio, <#>Cont, <#>ContPin, <#>ContRB, <#>Pin, <#>RB, <#>RTrk, #Track, and M<#>Vio, where <#> is the number representing layer.  "*" 2 MGroup* for controlling preference for by group, where * represents a group such as Pin or Track.
+.RE   The valid object types are blackBox, block, blockHalo, bump, bump1, bump2, bump3, cellBlkgObj, channel, clkTree, congest, congestH, congestObj, congestV, datapath, fence, gcellOvflow, guide, hinst, inst, ioSlot, ioRow, macroSitePattern, metalFill, mGrid, net, netRect, nonPrefTrackObj, obstruct, pinObj, pinText, power, powerNet, ptnFeed, ptnPinBlk, pwrdm, pwrdm1, pwrdm2, pwrdm3, layerBlk, region, routeGuide, ruler, screen, select, sitePattern, stdRow, term, text, trackObj, userGrid, and violation.  "\fB-lineWidth\fR" Specifies the number of pixels in the border of the specified object. Specify this value as integer.  Date_type: int, optional  "\fB-stipple\fR" Specifies information about the stipple pattern of the object. The valid stipple names are None, Horizontal, Vertical, Grid, Slash, Backslash, Cross, and Brick.  Date_type: string, optional  "\fB-stippleData\fR" Specifies the stipple information for the object. Specify this information in x-window bitmap format.  Date_type: string, optional 
+.SH Examples
+.RS  "*" 2 The following command sets a layer preference for the module object in green with dotted stipple pattern (8 by 4 bitmap with dot at every 4 pixels):  setLayerPreference hinst -color green -stippleData 8 4 "0x00 0x11 0x00 0x00"   "*" 2 The following command turns off the visibility of the track for Metal1:  setLayerPreference Metal1Track -isVisible 0   "*" 2 The following command turns on the selectability of the track for Metal1:  setLayerPreference Metal1Track -isSelectable 1   "*" 2 The following command turns off selectability for all tracks:  setLayerPreference MetalGroupTrack -isSelectable 0
+.RE 
+.SH Related Information
+.RS  "*" 2 getLayerPreference
+.RE
+.P

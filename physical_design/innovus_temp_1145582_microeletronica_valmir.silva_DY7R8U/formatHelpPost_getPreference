@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getPreference  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetPreference\fR \-  Returns the current preference settings
+.SH Syntax \fBgetPreference\fR  [-help]  preference_name
+.P Returns the current preference settings. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage   "\fB<preference_name>\fR" Specifies the name of a preference.  Data_type: string, optional 
+.SH Related Information
+.RS  "*" 2 setPreference
+.RE
+.P

@@ -1,0 +1,29 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH fill_setting_save  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBfill_setting_save\fR
+.SH Syntax \fBfill_setting_save\fR {0 | 1} 
+.P Type: Integer
+.P Default: 0
+.P Specifies whether metal fill settings are to be saved in the
+.init file when saving the design. Metal fill settings include setMetalFill, setMetalFillSpacingTable, and setViaFill settings. By default, these metal fill settings are lost when you exit Innovus. To enable Innovus to record metal fill settings in the
+.init file, you must set the fill_setting_save to 1 before saving the design. You can easily reload your settings by restoring the saved design:
+.P set fill_setting_save 1
+.P setMetalFill iterationName iter1
+...
+.P saveDesign
+.P restoreDesign
+.P #The previous metal fill settings are reloaded. 
+.SH Related Information
+.RS  "*" 2 setMetalFill
+.RE
+.RS  "*" 2 setMetalFillSpacingTable
+.RE
+.RS  "*" 2 setViaFill
+.RE
+.RS  "*" 2 saveDesign
+.RE
+.RS  "*" 2 restoreDesign
+.RE
+.P

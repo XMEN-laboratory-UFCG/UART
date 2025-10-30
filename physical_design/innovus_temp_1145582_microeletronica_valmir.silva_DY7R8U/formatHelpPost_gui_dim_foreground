@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH gui_dim_foreground  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgui_dim_foreground\fR \-  Dims the display area to the specified level
+.SH Syntax \fBgui_dim_foreground\fR  [-help]   -lightness_level {default medium dark} 
+.P Dims the display area to the specified level. Use this command to view selected and highlighted objects clearly against the dimmed foreground. This command is especially useful when you are debugging.
+.P The equivalent bindkey is F12. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each gui_dim_foreground parameter.  For a detailed description of the command and all of its parameters, use the man command: man gui_dim_foreground.  "\fB-lightness_level {default medium dark}\fR" Specifies the brightness level of the foreground in the display area. 
+.SH Related Information
+.RS  "*" 2 gui_select  "*" 2 highlight  "*" 2 View Menu chapter in Menu Reference 
+.RS  "*" 2 Dim Background
+.RE 
+.RE
+.P

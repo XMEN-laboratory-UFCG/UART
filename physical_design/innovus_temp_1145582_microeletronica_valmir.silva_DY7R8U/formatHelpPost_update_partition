@@ -1,0 +1,27 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH update_partition  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBupdate_partition\fR \-  Creates a new partitioned output that contains the optimised blocks and top
+.SH Syntax \fBupdate_partition\fR  [-pinLocation]  [-postECOSuffix <postECOSuffix>]   {-flexIlmECO}  {-goldenBlockDir <directory>}  -flexIlmDir <directory>[-ecoDir <directory>]  [-fullNetlistWithECODir <directory> -flexILMECODir <directory>] 
+.P Creates a new partitioned output that contains the optimised blocks and top. It also performs ECO on the original block. The ECO output is saved as new Innovus database in the partitioned block. The ECO would happen only on flexILM partitions and not the regular blocks. 
+.SH Parameters    "\fB-ecoDir<directory>\fR" Specifies the scratch directory for partitioning and running distributed ECO job after optimization.  "\fB-flexIlmDir<directory>\fR" Specifies the new partitioned output directory containing optimized blocks/top and ECO results.  "\fB-flexIlmECO\fR" Performs ECO on FlexILM modules.  Note: This is default.  "\fB-flexILMECODir <directory>\fR" Specifies the postOpt FlexILM data directory.   "\fB-fullNetlistWithECODir <directory>\fR" Specifies the directory to store full netllist ECO result.   "\fB-goldenBlockDir <directory>\fR" Specifies the golden database directory for individual blocks.   "\fB-pinLocation\fR" Updates new partition pin locations into the golden block DB. This option does not allow new added logic ports.   "\fB-postECOSuffix <postECOSuffix>\fR" Specifies the suffix name that will be part of generated postECO DB name. 
+.SH Examples
+.P The following command will perform ECO on the block of tdsp_core, ram_128x16_test and ram_256x16_test.The ECO output is saved as new Innovus database with the suffix "_postECO" at the
+../flexILM_postOpt directory (which is defined by the -flexIlmDir option) for each specified partition block.
+.P update_partition -flexIlmECO \\  -goldenBlockDir
+../../PTN/tdsp_core/tdsp_core_data.enc.dat \\  -goldenBlockDir
+../../PTN/ram_128x16_test/ram_128x16_test_data.enc.dat \\  -goldenBlockDir
+../../PTN/ram_256x16_test/ram_256x16_test_data.enc.dat \\  -flexIlmDir
+../flexIlm_postOpt -postECOSuffix postECO
+.P After update_partition, a new dir of flexIlm_postOpt will be generated. Under this directory, ecoDataSummary.rpt will be generated to show summary for post ECO data and an example for assembleDesign to use post ECO data.
+.P # Post ECO Data Summary  ################################################################################  TOP data:
+../flexIlm_postOpt/dtmf_recvr_core  ram_256x16_test data:
+../flexIlm_postOpt/ram_256x16_test/ram_256x16_test_postECO.enc.dat  ram_128x16_test data:
+../flexIlm_postOpt/ram_128x16_test/ram_128x16_test_postECO.enc.dat  tdsp_core data:
+../flexIlm_postOpt/tdsp_core/tdsp_core_postECO.enc.dat  ################################################################################  #To assemble postECO full netlist data, please run  assembleDesign -fe -topDir
+../flexIlm_postOpt/dtmf_recvr_core\\   -blockDir
+../flexIlm_postOpt/ram_256x16_test/ram_256x16_test_postECO.enc.dat\\   -blockDir
+../flexIlm_postOpt/ram_128x16_test/ram_128x16_test_postECO.enc.dat\\   -blockDir
+../flexIlm_postOpt/tdsp_core/tdsp_core_postECO.enc.dat\\   -mmmcFile <full chip viewDefinition file>  ################################################################################
+.P Note: if there is no -postECOSuffix specified, a suffix of eco_<system time> will be added to the ECO database.

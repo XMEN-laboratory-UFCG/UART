@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH ignore_max_via_stack_rule  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBignore_max_via_stack_rule\fR
+.SH Syntax \fBignore_max_via_stack_rule\fR { true | false}
+.P Type: Boolean
+.P Default: false
+.P The tech lef file contains MAXVIASTACK syntax by default. You can use ignore_max_via_stack_rule  to turn off MAXVIASTACK syntax checking. When ignore_max_via_stack_rule  is set to true, the MAXVIASTACK rule in the tech lef file is ignored.
+.P

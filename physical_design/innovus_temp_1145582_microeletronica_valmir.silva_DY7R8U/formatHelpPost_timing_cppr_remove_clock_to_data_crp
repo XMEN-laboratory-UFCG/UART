@@ -1,0 +1,8 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_cppr_remove_clock_to_data_crp  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_cppr_remove_clock_to_data_crp\fR \-  When set to true, removes clock reconvergence pessimism (CRP) for clock source paths
+.SH Syntax \fBtiming_cppr_remove_clock_to_data_crp\fR  {true | false}  Default: false
+.P When set to true, removes clock reconvergence pessimism (CRP) for clock source paths.
+.P To set this global variable, use the set_global command.

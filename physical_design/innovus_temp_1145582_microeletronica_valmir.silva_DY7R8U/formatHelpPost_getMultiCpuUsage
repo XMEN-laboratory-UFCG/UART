@@ -1,0 +1,30 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getMultiCpuUsage  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetMultiCpuUsage\fR \-  Displays the requested number of threads or hosts
+.SH Syntax  \fBgetMultiCpuUsage\fR  [-help]   [-autoPageFaultMonitor]  [-cpuPerRemoteHost]  [-keepLicense]   [-localCpu]  [-remoteHost]  [-threadInfo]  [-verbose] 
+.P Displays the requested number of threads or hosts.
+.P To request threads or hosts, use setMultiCpuUsage. 
+.SH Parameters   "\fB-help\fR" Outputs the command usage and a brief description about the command parameters.   "\fB-autoPageFaultMonitor\fR" Displays the warning rank set for performance issues caused by major page faults   "\fB-cpuPerRemoteHost\fR" Displays the number of CPUs available on every remote host for Superthreading.   "\fB-keepLicense\fR" Displays the current setting for the setMultiCpuUsage -keepLicense parameter.  "\fB-localCpu\fR" Displays the number of available local CPUs for multi-threading.  "\fB-remoteHost\fR" Displays the number of available remote hosts for distributed processing or Superthreading.  "\fB-threadInfo\fR" Displays the level of informational messages for each thread.  "\fB-verbose\fR" Displays a message with the current multiple-CPU setting. 
+.SH Examples
+.RS  "*" 2 The following command displays the requested number of threads for multi-threading:  getMultiCpuUsage -localCpu
+.RE
+.RS  "*" 2 The following command displays the requested number of remote hosts for Superthreading or distributed processing:  getMultiCpuUsage -remoteHost
+.RE
+.RS  "*" 2 The following command displays the requested number of CPUs per remote hosts for Superthreading:  getMultiCpuUsage -cpuPerRemoteHost
+.RE 
+.SH Related Information
+.RS  "*" 2 "Accelerating the Design Process By Using Multiple-CPU Processing" chapter in the Innovus User Guide.
+.RE
+.RS
+.RS  "*" 2 Accelerating the Design Process By Using Multiple-CPU Processing
+.RE 
+.RE
+.RS  "*" 2 "Options Menu" chapter in the Innovus Menu Reference
+.RE
+.RS
+.RS  "*" 2 Set Multiple CPU Usage
+.RE  "*" 2 checkMultiCpuUsage  "*" 2 setMultiCpuUsage
+.RE
+.P

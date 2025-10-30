@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH uiFind  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBuiFind\fR \-  Enables you to retrieve an element's name by specifying a property-value combination
+.SH Syntax \fBuiFind\fR  [-help]   [<name>]  [<property> {<value>}]  
+.P Enables you to retrieve an element's name by specifying a property-value combination. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each uiFind parameter.  For a detailed description of the command and all of its parameters, use the man command:  man uiFind  "\fB<name>\fR" Specifies the name of the parent element to define the search scope. If multiple elements are found with the same <name>, the first matched element is searched. If <name> is not specified, a global search is performed.  "\fB<property>{<value>}\fR" Specifies the property-value combination that should be used as the search criteria for finding an element. In addition to all the properties listed in the uiAdd command, -type <type> is also supported.  To see the list of properties supported by the uiAdd command, see uiAdd. 
+.SH Examples
+.RS  "*" 2 The following command returns the names of all the menus in the main window:   uiFind main -type menu  The software returns the following:  file view edit partition fplan power place eco clock route timing verify pvs tools windows flow help
+.RE
+.RS  "*" 2 The following command returns the name of the element before the Help menu in the main window:   uiFind -before help  The software returns the following:  flow  "*" 2 The following command returns the name of the element with a label "CCOpt Clock Tree Debugger..." on the menu in the main window:  uiFind -label "CCOpt Clock Tree Debugger..."  The software returns the following:  _CCOpt_Clock_Tree_Debugger...  You can then get any property of the element by using uiGet. For example:  uiGet _CCOpt_Clock_Tree_Debugger... -command  The software returns the following:  ctdMainWin::createSetting  Here, ctdMainWin::createSetting is the command that is invoked when the menu item labeled CCOpt Clock Tree Debugger... is clicked.  "*" 2 The following command returns all movable toolbars in the main window:  uiFind -movable true  The software returns the following:  tbFile tbEdit tbView tbTools tbReport tbToolBox we main.layout.selectbar
+.RE 
+.SH Related Information
+.RS  "*" 2 uiAdd  "*" 2 uiDelete  "*" 2 uiGet  "*" 2 uiSet  "*" 2 Customizing the User Interface chapter in the User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2 Querying and Configuring Interface Elements
+.RE 
+.RE
+.P

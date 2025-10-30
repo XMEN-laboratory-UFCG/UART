@@ -1,0 +1,33 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH ctd_win  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBctd_win\fR \-  Opens a Clock Tree Debugger (CTD) window with the user-defined window ID and title
+.SH Syntax \fBctd_win\fR    [-help]    [-id <windowIDName>]   [-include_reporting_only_skew_groups]   [-title <CTDWindowID>]    [-unit_delay]
+.P Opens a Clock Tree Debugger (CTD) window with the user-defined window ID and title.
+.P When run without specifying the ID and title, the command opens a CTD window with a system default window title. By default, the window title is the name of the current analysis corner, which shows in the CTD window. For example, "Clock Tree Debugger - func_rcbest".
+.P By default, all CTD windows have their unique window ID. The mechanism of the default window ID is ctdMain_0, ctdMain_1, ctdMain_2, ctdMain_3....and so on. So, by default, the window ID of a new opened Clock Tree Debugger window is ctdMain_0.
+.P The information in the title comprises the following:
+.P Session title: Window type: Window title
+.P where,
+.P Window type is always Clock Tree Debugger.
+.P If the user-specified session title is my_test.tcl, and the default primary analysis corner is primary_corner, then with ctd_win, the total set of the window title line will be:
+.P my_test.tcl : Clock Tree Debugger : primary_corner 
+.SH Parameters   "\fB-help       \fR" Outputs a brief description that includes type and default information for each ctd_win parameter. For a detailed description of the command and all of its parameters, use the man command: man  ctd_win.   "\fB-id <windowIDName>  \fR" Opens a Clock Tree Debugger window with a user-specified window ID. By default, the window IDs will be ctdMain_0, or ctdMain_1, and so on.  "\fB-include_reporting_only_skew_groups\fR" When this parameter is specified, the GUI displays the reporting-only skew groups. A reporting-only skew group is a skew group whose constrains property is set to none. Such a skew group imposes no clock balancing constraint and is not considered by CTS.  By default, this setting if off, which means the reporting-only skew groups are omitted from the CTD.  Note: Once the CTD is started, you cannot add or remove the reporting-only skew groups from those that are displayed. Start a new CTD window to specify the skew group filtering.  "\fB-title <CTDWindowID>\fR" Specifies the user-defined title for the CTD window. Open a Clock Tree Debugger window with a user specified title. For example, if you specify my_title as the window title, when session title is my_test.tcl and the primary analysis corner is primary_corner, then the total set of the window title line will be:  my_test.tcl : Clock Tree Debugger : my_title  Note: The window's ID if not specified using the -id parameter, will be system default ID. To view the default window ID, use the get_ctd_win_id command.   "\fB-unit_delay\fR" Opens the CTD in the unit delay mode. The unit delay lets you view the depth of clock tree objects easily. This is useful when you have large designs with deep gate-level trees. When debugging clock trees, you can use this view to check how the clock trees are balanced by looking at the depth of the clock trees. Although, the unit delay mode can also be enabled using the Unit delay submenu in the Visibility menu of the CTD but this is only valid after running clock tree synthesis, and you still need to invoke timing calculation and extraction, which are time consuming. You can use this parameter to open the CTD in unit delay mode even if the design is not placed or without performing CTS.  When the CTD is opened in this mode, the following options in CTD menus are disabled:  Visibility menu:
+.RS  "*" 2 Timing windows  "*" 2 Delays  "*" 2 Unit delay
+.RE   Color by menu and the Control panel:
+.RS  "*" 2 Transition time   "*" 2 Total net cap   "*" 2 Max cap violation  "*" 2 Skew  "*" 2 Setup slack  "*" 2 Hold slack  "*" 2 Timing windows
+.RE   This is shown in below image.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Examples
+.RS  "*" 2 The following command creates a CTD window ID with the default name, ctdMain_0:  ctd_win   When you use the get_ctd_win_id command to list the window ID, you get the above window ID:  get_ctd_win_id  ctdMain_0 
+.RE
+.RS  "*" 2 The following command creates a CTD window ID with the user-specified name, my_test:  ctd_win -id my_test  Now, when you use the get_ctd_win_id command to list all window IDs, you get the above window IDs in the list:  get_ctd_win_id -all  ctdMain_0 my_test   If you use the ctd_win command with an existing window ID, it will pop up the corresponding CTD windows instead of creating a new one. This command will open the existing window, my_test.   ctd_win -id my_test
+.RE
+.RS  "*" 2 The following command creates a CTD window ID, my_test and CTD window title of myTest.tcl:  ctd_win -id my_test -title myTest.tcl   When you use the -detail parameter of the get_ctd_win_id  command, the following information is returned:  get_ctd_win_id -detail  my_test "Clock Tree Debugger:myTest.tcl: func_rcbest"  where, my_test is the specified window ID, window type is Clock Tree Debugger, window title is myTest.tcl, and func_rcbest is the name of the current analysis corner.
+.RE 
+.SH Related Information
+.RS  "*" 2 create_ccopt_clock_tree_spec  "*" 2 close_ctd_win  "*" 2 get_ctd_win_id  "*" 2 get_ctd_win_title  "*" 2 gui_zoom_ctd  "*" 2 set_ctd_win_title
+.RE
+.RS  "*" 2 Clock Menu chapter of the Innovus Menu Reference.
+.RE
+.P

@@ -1,0 +1,25 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH check_library  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheck_library\fR \-  Checks the problematic cells that cause issues such as bad geometries for DRC and bad pin access for routing
+.SH Syntax \fBcheck_library\fR   [-help]   [-place [-cell <cell_name>|-all_lib_cell][-legal_frequency ] [-file <fileName>] ]
+.P Checks the problematic cells that cause issues such as bad geometries for DRC and bad pin access for routing. You can specify a library cell or a partition cell. It also performs checks for the multi-height cell legal frequency. The report is dumped into an output file. 
+.SH Parameters   "\fB-all_lib_cell\fR" Specifies to check all library cells.   "\fB-cell <cell_name>\fR" Specifies the cell to check.   "\fB-file <fileName>\fR" Specifies the name of the output file.   "\fB-help\fR" Outputs a brief description that includes type and default information for each check_library parameter.  For a detailed description of the command and all of its parameters, use the man command: man check_library.  "\fB-legal_frequency\fR" Specifies to check multi-height cell legal frequency   "\fB-place\fR" Specifies to do library checking for placement. 
+.SH Example
+.RS  "*" 2 The following command checks the buf01 cell:
+.RE
+.P check_library -place -cell buf01
+.P Estimated cell power/ground rail width = 0.021 um
+.P *info: running library checker
+...
+.P *info: total 1 cell checked.
+.P *reporting cell (buf01)
+...
+.P reporting cell drc : "legal"
+.P reporting cell pin access : "legal"
+.P reporting cell symmetry : cell (buf01) has lef symmetry X Y
+.P reporting cell pin alignment : "legal"
+.P reporting cell legal frequency
+...   cell (buf01) legalization frequency: one legal location out of every 1.25 sites
+.P

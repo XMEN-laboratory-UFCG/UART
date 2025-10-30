@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveSignalStormConstraint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveSignalStormConstraint\fR
+.SH Syntax  \fBsaveSignalStormConstraint\fR   [-help]   -outfile <fileName> 
+.P Translates constraint information from the Innovus software, such as boundary slews and loads, into signalStorm constraint syntax, and outputs it into a specified file. This file can then be included in, or sourced by, a signalStorm script to run standalone signalStorm. Use this command after loading the netlist and timing constraints. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for the saveSignalStormConstraint parameter. For a detailed description of the command and its parameter, use the man command: man saveSignalStormConstraint.  "\fB-outfile <fileName>\fR" Specifies the file to which to output the constraint information. 
+.SH Examples
+.P The following command saves a file containing Signal Storm constraint information:
+.P saveSignalStormConstraint -outfile signalStorm.sndc

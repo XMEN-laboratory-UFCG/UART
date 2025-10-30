@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH enc_partial_cmd_argument_matching  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBenc_partial_cmd_argument_matching\fR
+.SH Syntax \fBenc_partial_cmd_argument_matching\fR
+.P Type: enum
+.P Choices: error, warn, quiet
+.P Default: quiet
+.P Enables partial command argument matching. 
+.RS  "*" 2 error: Does not allow partial argument matching. System will issue errors when command arguments are uniquely matched from a partial specification.  "*" 2 warn: Allows partial argument matching. System will issue warnings when command arguments are uniquely matched from a partial specification.  "*" 2 quiet: Allows partial argument matching without any warnings or errors.
+.RE

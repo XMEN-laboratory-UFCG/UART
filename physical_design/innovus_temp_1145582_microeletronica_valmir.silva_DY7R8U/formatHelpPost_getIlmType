@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getIlmType  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetIlmType\fR \-  Displays information about the specified setIlmType in the Innovus log file and the Innovus console
+.SH Syntax \fBgetIlmType\fR  [-help]  [-model] 
+.P Displays information about the specified setIlmType in the Innovus log file and the Innovus console. Displays the following information:
+.RS  "*" 2 Parameter name
+.RE
+.RS  "*" 2 Current value
+.RE
+.RS  "*" 2 Type (boolean, string, and so on)
+.RE
+.RS  "*" 2 The current value set by the user
+.RE
+.P If you do not specify a parameter, the Innovus software displays information for all of the setIlmType parameters. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each getIlmType parameter.  For a detailed description of the command and all of its parameters, use the man command:   man getIlmType  "\fB-model\fR" Outputs the model. 
+.SH Examples
+.RS  "*" 2 The following example displays the current setting for the -model parameter:   getIlmType -model  The software displays the following information:  timing
+.RE 
+.SH Related Information
+.RS  "*" 2 setIlmType
+.RE
+.P

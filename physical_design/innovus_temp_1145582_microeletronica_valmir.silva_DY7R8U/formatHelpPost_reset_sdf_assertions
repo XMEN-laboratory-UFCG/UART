@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_sdf_assertions  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_sdf_assertions\fR
+.SH Syntax \fBreset_sdf_assertions\fR 
+.P Resets the sdf delays to the values defined in the library. When you perform timing analysis using the timing engine, the software uses sdf values that you define using the read_sdf command earlier in the flow. You use the reset_sdf_assertions commands to discard delay values specified using the sdf files, and use the delays defined in the library.
+.P Note: You do not need to read in the sdf delays every time you perform delay calculation. The software uses the sdf files specified earlier in the flow. 
+.SH Parameter
+.P None 
+.SH Related Information
+.RS  "*" 2 read_sdf
+.RE
+.P

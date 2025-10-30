@@ -1,0 +1,2 @@
+ "\fB-cover_fixed_macros {true|false}\fR" When enabled it forces flexModel to cover fixed macros that belong to it when using the proto_design command
+.SH Syntax \fBset_proto_design_mode\fR  [-help]   [-reset]  [-cover_fixed_macros {true | false}]  [-effort {low | high}]   [-flexmodel_constraint_type {guide |region |fence}]  [-keep_guide {true  | false}]  [-place_macro {true | false}]  [-remove_overlap {true | false}]

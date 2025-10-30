@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_cppr_transition_sense  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_cppr_transition_sense\fR
+.SH Syntax \fBtiming_cppr_transition_sense\fR  {normal | same_transition | same_transition_expanded} 
+.P Default: normal
+.P Specifies the transition sense of the launching and capturing clocks at the common node, to calculate clock path pessimism removal (CPPR).
+.P When set to normal, the CPPR analysis computes the CPPR value even if the launching and capturing clock transitions at the common node are in opposite directions. If the transition sense at the common node are in opposite directions, the pessimism is the minimum of the difference between late and early arrival times for rise and fall clock transitions.
+.P When set to same_transition, the CPPR analysis computes the CPPR value only if the launching clock transition is same as the capturing clock transition at the common node. If the transitions are different, the CPPR value is zero.
+.P When set to same_transition_expanded, the CPPR analysis computes the CPPR value only if the launching clock transition is the same as the capturing clock transition at the common node. If the transitions are different, the software searches until it finds a common point where the transitions are the same, and calculates the CPPR value from that point.
+.P To set this global variable, use the set_global command.
+.P

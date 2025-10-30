@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveWhatIfTimingAssertions  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveWhatIfTimingAssertions\fR \-  Writes timing arcs to the specified file or Tcl list
+.SH Syntax  \fBsaveWhatIfTimingAssertions\fR  [<blackBoxCellName>]   -outfile <fileName> | -tclList 
+.P Writes timing arcs to the specified file or Tcl list. The Innovus software saves the final state of the timing arc. The history of all the modifications is not saved. You can source the generated file, regrouping the whole timing arc specifications of the blackbox or blackblob in a new Innovus session.
+.P You can use this command after the module definition of the blackbox or the blackblob is available with the I/O's in the Verilog netlist. 
+.SH Parameters    "\fB<blackBoxCellName>\fR" Specifies the name of the blackbox or blackblob cell. If the name is not specified, all timing arc specifications are saved.  "\fB-outfile <fileName>\fR" Specifies the name of the output file in which to save the information.  "\fB-tclList\fR" Generates the timing arcs as a Tcl list. The Tcl list is useful for integrating what-if timing with custom Tcl functions. 
+.SH Related Information
+.RS  "*" 2 What-If Timing Analysis chapter in the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 PerformingWhat-IfTimingAnalysis
+.RE 
+.RE
+.RS
+.RS  "*" 2 UsingtheWhat-IfTimingCommands
+.RE 
+.RE
+.P

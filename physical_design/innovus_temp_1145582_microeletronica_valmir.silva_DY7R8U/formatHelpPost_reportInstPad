@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportInstPad  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportInstPad\fR \-  Reports the padding for a specific instance, or all instance padding in the design
+.SH Syntax \fBreportInstPad\fR {<instName> | -all}  
+.P Reports the padding for a specific instance, or all instance padding in the design. This command can be used if there is instance padding specified. 
+.SH Parameters    "\fB-all \fR" Reports all instance padding in the design.  "\fB<instName>\fR" Reports the padding for the specified instance. 
+.SH Example
+.P The following command reports the padding for a specified instance named U19567:
+.P reportInstPad U19567
+.P It outputs following:
+.P Padding for Instant [U19567] is 2. 
+.SH Related Information
+.RS  "*" 2 deleteInstPad  "*" 2 specifyInstPad  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RS  "*" 2 Adding Padding
+.RE 
+.RE
+.P

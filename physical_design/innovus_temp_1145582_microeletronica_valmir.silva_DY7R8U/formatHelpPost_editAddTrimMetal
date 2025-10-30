@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editAddTrimMetal  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditAddTrimMetal\fR \-  Adds trim metal at the specified location
+.SH Syntax \fBeditAddTrimMetal\fR  [-help]   [-layer <string>]  -location {<x y>}  [-mask <integer>]   [-snap_to_end]
+.P Adds trim metal at the specified location. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each editAddTrimMetal parameter.  For a detailed description of the command and all of its parameters, use the man command:  man editAddTrimMetal  "\fB-layer <string>\fR" Specifies the layer on which the trim metal is to be added. The layer name should be a routing layer defined in the LEF file. Note that you can specify only one valid layer name. That is, a layer name list is not supported. If the -layer option is not specified,  editAddTrimMetal adds the trim metal on the nearest object.  Check the Examples section below to see how to use this option.  "\fB-location {<x y>}\fR" Specifies the coordinates for the center point of the trim metal. The tool may adjust automatically to the closest location that is best for the trim metal.  "\fB-mask <integer>\fR" Specifies the mask value for the trim metal. However, if USEMETALMASK is already defined for the trim layer in the tech LEF, you cannot define the mask value here.   "\fB-snap_to_end\fR" Specifies that the trim metal should be snapped to the closest end of the selected pin or wire. 
+.SH Examples
+.P In the following illustration, the pin Y has two pin shapes, one on M1 and the other on M3. The Pin Y on Inst A is selected.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RS  "*" 2 If you add trim metal with the -layer option (as specified below), the tool will add the trim metal on the pin shape that is on layer M1.   editAddTrimMetal -layer M1 -location {50 37}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 If you add trim metal without the -layer option (as shown in the command below), the tool will add the trim metal on the nearest pin, which in this case is on M3.  editAddTrimMetal -location {50 37}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 editDelete  "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

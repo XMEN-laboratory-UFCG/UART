@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportPinAssignStatistics  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportPinAssignStatistics\fR \-  Generates the pin QoR data for a specified partition(s)
+.SH Syntax \fBreportPinAssignStatistics\fR  [-help]   [-maxFanOut <fanOutCount>]  [-maxRegisterFanOut <registerFanOutCount>]  [-outFile <pinQoRFileName>]   [-hinst <hinstNameList> | -ptn <ptnNameList>]  
+.P Generates the pin QoR data for a specified partition(s).
+.P Note:
+.RS  "*" 2 If a net is not routed, then, manhattan distance between source-sink pairs is be used to replace corresponding wire-length distance.  "*" 2 For floating pins (from outside) of a partition,the pin is always assumed to be within the timing cone box.  "*" 2 Pin QoR statistics is not generated for blackbox partitions
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each reportPinAssignStatistic parameter. For a detailed description of the command and all of its parameters, use the man command: man reportPinAssignStatistic.  "\fB-hinst <hinstNameList>\fR" Generates the pin QoR metrics for all pins of the specified hierarchical instance name or list of instance names.  Default: All partition and clone hierarchical instances.  Data_type: string, optional   "\fB-maxFanOut <fanOutCount>\fR" Specifies the maximum fanout count. The QoR report is not generated for a pin if the number of instances in its timing cone fanout exceeds this maximum fanout count,  Default: 1000  Data_type: string, optional  "\fB-maxRegisterFanOut <registerFanOutCount>\fR" Specifies the maximum register fanout count. The QoR report is not generated for a pin if the number of registers in its timing cone fanout exceeds this maximum fanout count.  Default: 50  Data_type: string, optional   "\fB-outFile <pinQoRFileName>\fR" Specifies an output report file for the pin QoR data.
+.P Default:
+./pin_qor.txt   Data_type: string, optional  "\fB-ptn <ptnNameList>\fR" Generates the pin QoR metrics for all pins of the partition or list of partitions.  Default: All partition and clones.  Data_type: string, optional 
+.SH Example
+.RS  "*" 2 The following command creates a pin_qor.txt report file:  reportPinAssignStatistics   "*" 2 The following command generates a reference pin QoR file named pin_qor_reference.txt.  reportPinAssignStatistics -outFile pin_qor_reference.txt   "*" 2 The following command generates a target pin QoR file named pin_qor_target.txt.  reportPinAssignStatistics -outFile pin_qor_target.txt
+.RE 
+.SH Related Information
+.RS  "*" 2 comparePinAssignStatistics  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RS  "*" 2 Pin QoR Metrics and Comparison
+.RE 
+.RE
+.P

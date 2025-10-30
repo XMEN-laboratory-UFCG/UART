@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deselectInstByCellName  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeselectInstByCellName\fR \-  Deselects an instance by cell name. Use this command after selecting an instance by cell name
+.SH Syntax \fBdeselectInstByCellName\fR   [-help]  cellName
+.P Deselects an instance by cell name. Use this command after selecting an instance by cell name. 
+.SH Parameters    "\fB<cellName>\fR" Specifies the name of the cell.  Data_type: (libCell/ptnCell|vCell|topCell)+, required  "\fB-help\fR" Outputs a brief description that includes the type and default information for each deselectInstByCellName parameter.  For a detailed description of the command and all of its parameters, use the man command:   man deselectInstByCellName 
+.SH Related Information
+.RS  "*" 2 selectInstByCellName  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

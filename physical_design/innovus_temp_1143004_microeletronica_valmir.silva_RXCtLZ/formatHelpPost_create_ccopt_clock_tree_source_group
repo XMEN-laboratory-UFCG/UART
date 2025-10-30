@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH create_ccopt_clock_tree_source_group  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreate_ccopt_clock_tree_source_group\fR \-  Creates a clock tree source group
+.SH Syntax \fBcreate_ccopt_clock_tree_source_group\fR  [-help]  -clock_trees <clock_tree_list>  -name <clock_tree_source_group_name> 
+.P Creates a clock tree source group. These source groups are used when a clock tree has multiple equivalent roots, and you want CTS to automatically swap sinks between roots to reduce insertion delay. It is required for flows where we are connecting one logical clock tree to multiple tap-off points from a top level H-tree or a mesh. 
+.SH Parameters   "\fB-help           \fR" Outputs a brief description that includes type and default information for each create_ccopt_clock_tree_source_group parameter. For a detailed description of the command and all of its parameters, use the man command:  man create_ccopt_clock_tree_source_group.   "\fB-clock_trees <clock_tree_list>   \fR" Specifies a Tcl list of clock tree names that should be grouped together. CTS will attempt to swap sinks between these clock trees in order to balance the insertion delay under each clock tree's root and may clone clock logic to help this. This parameter is required.  Note: This Tcl list is the same as that defined previously using the create_ccopt_clock_tree command.  "\fB-name <clock_tree_source_group_name>\fR" Specifies the user-defined name for the new clock tree source group. The name must be unique. This parameter is required. 
+.SH Example
+.RS  "*" 2 The following command creates a clock tree source group containing three clock trees: clk1, clk2 and clk3:  create_ccopt_clock_tree_source_group -name clk_grp -clock_trees {clk1 clk2 clk3}
+.RE 
+.SH Related Information
+.RS  "*" 2 add_clock_tree_source_group_roots  "*" 2 assign_clock_tree_source_groups  "*" 2 create_ccopt_clock_tree_spec  "*" 2 create_ccopt_clock_tree  "*" 2 ccopt_design  "*" 2 delete_ccopt_clock_tree_source_group  "*" 2 get_ccopt_clock_tree_source_groups
+.RE
+.RS  "*" 2 Clock Tree Synthesis chapter in the Innovus User Guide
+.RE
+.P

@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setNet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetNet\fR \-  Marks the specified nets and their related pins as either special nets and pins, or regular nets and pins
+.SH Syntax \fBsetNet\fR  [-help]   {-net <netName> | -file <fileName>}   [-setTermSpecial]  -type {regular | special} 
+.P Marks the specified nets and their related pins as either special nets and pins, or regular nets and pins.
+.P When the Verilog list is first loaded into the design, all LEF pins except those with USE POWER and USE GROUND are considered "regular pins" by default, and are routed by Trial Route and NanoRoute. You can use this command to mark nets (and their pins) as special prior to routing to keep NanoRoute from attempting to route them. This is useful when you have nets that need to be routed by hand, or with other specialized routers.
+.P If you later decide you want the nets to be routed by NanoRoute, you can use the setNet command to set them back to regular.
+.P Note: The setNet command has no effect if the net is already routed.  
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes the type and default information for each setNet parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setNet.  "\fB-file <fileName>\fR" Changes all nets (and their related pins) in the specified file to be either special or regular. The file must contain a list of net names, with one net name per line.  "\fB-net <netName>\fR" Changes the specified net and its related pins to be either special or regular.  "\fB-setTermSpecial\fR" Sets the term   "\fB-type {regular | special}\fR" Specifies the type to which to change the net.  regular: Changes the net and its pins to a regular net, so that NanoRoute will route them.  special: Changes the net and its pins to a special net to keep NanoRoute from attempting to route them. 
+.SH Example
+.P The following command sets the net myAnalogNet and its related pins as special:
+.P setNet -net myAnalogNet -type special -setTermSpecial
+.P The NanoRoute router ignores this net when routing.
+.P

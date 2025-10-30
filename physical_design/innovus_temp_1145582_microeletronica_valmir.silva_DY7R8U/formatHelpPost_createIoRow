@@ -1,0 +1,40 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createIoRow  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateIoRow\fR \-  Creates new I/O rows and edits the existing I/O rows. You can use this command in the floorplanning stage
+.SH Syntax \fBcreateIoRow\fR   [-help]  {-site <site_name> [{-side {N | W | S | E}   [-rowMargin <value>]   [-beginOffset <value>]   [-endOffset <value> | -length <len> | -nrSites <nr>] } |   {-corner {BL | BR | TR | TL} [-xOffset <value>] [-yOffset <value>]}}]  [-orientation {R0 | R90 | R180 | R270}]   [-name <row_name>]} | {-deriveByCells} | {-deriveBySelection}
+.P Creates new I/O rows and edits the existing I/O rows. You can use this command in the floorplanning stage.
+.P Note: Before creating I/O rows for I/O row based pad placement, you need to set the I/O row flag using the setIoFlowFlag command. 
+.SH Parameters    "\fB-beginOffset <value>\fR" Specifies the starting location of the I/O row from the die edge.
+.RS  "*" 2 For a horizontal row, this value is the lower X value.  "*" 2 For a vertical row, this value is the lower Y value.
+.RE   Default: 0, starting from the die edge.  Data_type: float, optional  "\fB-corner {BL | BR | TR | TL}\fR" Specifies the location of the corner cell. This can be:
+.RS  "*" 2 BL: Bottom Left  "*" 2 BR: Bottom Right  "*" 2 TR: Top Right  "*" 2 TL: Top Left
+.RE   Default: BL  Data_type: string, optional  "\fB-deriveByCells\fR" Creates an I/O row for all the I/O cells in the design.  Data_type: bool, required  "\fB-deriveBySelection\fR" Creates an I/O row only for the selected I/O cells.  Note: When you specify this parameter, some I/O rows may overlap depending on the I/O cell distribution.  Data_type: bool, required  "\fB-endOffset <value>\fR" Specifies the end location of the I/O row from the die edge.
+.RS  "*" 2 For a horizontal row, this value is the higher X value.  "*" 2 For a vertical row, this value is the higher Y value.
+.RE   Default: 0, ending from the die edge.  Data_type: float, optional  "\fB-help\fR" Outputs a brief description that includes type and default information for each createIoRow parameter. For a detailed description of the command and all of its parameters, use the man command:  man createIoRow.  "\fB-length <len>\fR" Specifies the length of the row, in meters, starting from the die edge or -beginOffset <value>.  Data_type: float, optional  "\fB-name <row_name>\fR" Specifies the name of the I/O row to be created.  Data_type: string, optional  "\fB-nrSites <nr>\fR" Specifies the number of sites to define the length of the row.  Note: You can either specify -endOffset or -length or -nrSites each time you run the createIoRow command.  Data_type: int, optional  "\fB-orientation {R0 | R90 | R180 | R270}\fR" Specifies the orientation of the created row. If you do not specify this parameter, the default orientation for each side starting from the row on the south side is R0, rotate R90 for the next side, and so on... as follows:
+.RS  "*" 2 R0 - South West  "*" 2 R90 - South East  "*" 2 R180 - North East  "*" 2 R270 - North West
+.RE   The default order of orientation is South, East, North, and West.  Data_type: string, optional  "\fB-rowMargin <value>\fR" Specifies the distance, in meters, from the row edge to the die edge. The row edge is `top' for a North side row, `bottom' for a South side row, `left' for a West side row, and `right' for an East side row.  Data_type: float, optional  "\fB-side {N | W | S | E}\fR" Specifies the side on which the row is to be created. If you do not specify the side, by default, one row is created on all sides (South, East, North, and West).  Data_type: string, optional  "\fB-site <site_name>\fR" Specifies the name of the site defined in the LEF library.  Data_type: string, required  "\fB-xOffset <value>\fR" Specifies the distance, in meters, from the left or right edge of the corner row to the die edge.  Data_type: float, optional  "\fB-yOffset <value>\fR" Specifies the distance, in meters, from the top or bottom edge of the corner row to the die edge.  Data_type: float, optional 
+.SH Example
+.RS  "*" 2 The following command creates I/O rows based on the existing pad placement.  createIoRow -deriveByCells  "*" 2 The following command creates I/O row at north side with offset 30 from left side, offset 20 from right side and row margin 15 from top side.  createIoRow -name IO_ROW_N -beginOffset 30 -endOffset 20  -rowMargin 15 -side N -site IO -orientation R180  "*" 2 The following command creates I/O row at bottom left corner to place corner IO with offset 10 in x and y direction.  createIoRow -name IO_ROW_BL  -xOffset  10  -yOffset  10  -corner BL -site corner -orientation R0  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE 
+.SH Related Information
+.RS  "*" 2 addIoRowFiller  "*" 2 deleteIoRowFiller  "*" 2 setIoFlowFlag  "*" 2 getIoFlowFlag  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference
+.RE
+.RS
+.RS  "*" 2 Create I/O Row 
+.RE 
+.RE
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Performing I/O Row Based Pad Placement
+.RE 
+.RE
+.RS  "*" 2 Data Preparation chapter in the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Creating an I/O Assignment Flow 
+.RE 
+.RE
+.P

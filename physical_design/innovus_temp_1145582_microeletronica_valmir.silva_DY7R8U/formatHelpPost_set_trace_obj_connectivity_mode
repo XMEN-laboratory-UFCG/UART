@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_trace_obj_connectivity_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_trace_obj_connectivity_mode\fR \-  Controls certain aspects of how the connections of specified macros, selected macros, or specified ports are traced
+.SH Syntax \fBset_trace_obj_connectivity_mode\fR  [-help]   [-reset]   [-macro_pins <list_of_pins>]   [-max_fanin_fanout <number>]  [-register_inputs <list_of_pins>]   [-register_outputs <list_of_pins>]
+.P Controls certain aspects of how the connections of specified macros, selected macros, or specified ports are traced. It enables you to set the trace mode such as register pins, macro pins, and maximum fanin and fanout. Use the get_trace_obj_connectivity_mode command to return the current settings for the set_trace_obj_connectivity_mode command. The set_trace_obj_connectivity_mode parameters affects the behavior the trace_obj_connectivity command. You can use this command after importing the design and before using the trace_obj_connectivity command. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each set_trace_obj_connectivity_mode parameter. For a detailed description of the command and all of its parameters, use the man command: man set_trace_obj_connectivity_mode  "\fB-macro_pins <list_of_pins>\fR" Specifies the macro pin name patterns.  Default: " "  Data_type: string  "\fB-max_fanin_fanout <number>\fR" Specifies the maximum fanin/fanout number for a pin. While tracing the connectivity, a pin will be ignored if its fanin/fanout number is larger than the specified number.  Default: 1000  Data_type: int   "\fB-register_inputs <list_of_pins>\fR" Specifies the register input pin names.  Default: " "  Data_type: string   "\fB-register_outputs <list_of_pins>\fR" Specifies the register output pin names.  Default: " "  Data_type: string  "\fB-reset\fR" Restores all parameters modified using set_trace_obj_connectivity_mode to their default settings. The -reset parameter must be the first parameter specified. If you specify -reset by itself, the software resets all set_trace_obj_connectivity_mode parameters to their default values. If you specify parameters after -reset, the software resets only those parameters to their default values. Any values that do not already match the default value and are reset will be reported. 
+.SH Example
+.P The following command set the maximum fanin/fanout number for pins to 200:  set_trace_obj_connectivity_mode -max_fanin_fanout 200 
+.SH Related Information
+.RS  "*" 2 trace_obj_connectivity  "*" 2 get_trace_obj_connectivity_mode  "*" 2 display_obj_connectivity  "*" 2 all_fanin  "*" 2 all_fanout  "*" 2 Floorplanning the Design chapter in the Innovus User Guide  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference
+.RE
+.P

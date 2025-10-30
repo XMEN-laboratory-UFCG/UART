@@ -1,0 +1,31 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setIoFlowFlag  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetIoFlowFlag\fR \-  Sets the flag to use I/O row flow for pad placement. To view the current flag setting, use the getIoFlowFlagcommand
+.SH Syntax \fBsetIoFlowFlag\fR   [-help]   {0 | 1}
+.P Sets the flag to use I/O row flow for pad placement. To view the current flag setting, use the getIoFlowFlagcommand. You can use this command in the floorplanning stage. You can use this commands before creating I/O rows for I/O row based pad placement. 
+.SH Parameters    "\fB{0 | 1}    \fR" Specify 1, to use the I/O row flow. Specify 0, to use the normal I/O flow.  Data_type: int, required  "\fB-help\fR" Outputs a brief description that includes type and default information for each setIoFlowFlag parameter. For a detailed description of the command and   all of its parameters, use the man command:   man setIoFlowFlag. 
+.SH Examples
+.RS  "*" 2 The following command enables you to start using the I/O row flow in Innovus:  setIoFlowFlag 1
+.RE 
+.SH Related Information
+.RS  "*" 2 getIoFlowFlag  "*" 2 createIoRow  "*" 2 Floorplan Menu chapter in the Innovus Menu Reference
+.RE
+.RS  "*" 2
+.RS  "*" 2 Create I/O Row 
+.RE 
+.RE
+.RS  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2 Performing I/O Row Based Pad Placement
+.RE 
+.RE
+.RS  "*" 2 Data Preparation chapter in the Innovus User Guide
+.RE
+.RS  "*" 2
+.RS  "*" 2 Creating an I/O Assignment Flow 
+.RE 
+.RE
+.P

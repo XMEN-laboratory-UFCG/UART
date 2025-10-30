@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editDuplicate  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditDuplicate\fR \-  Copies the geometry of selected special wires and pastes them at the same coordinates
+.SH Syntax \fBeditDuplicate\fR  [-help]   -layer_horizontal <layer>  -layer_vertical <layer> 
+.P Copies the geometry of selected special wires and pastes them at the same coordinates. If you do not specify a layer, the software pastes them onto the same layer. If you specify a layer, the software copies them to the specified layer and generates vias to maintain connectivity for the duplicated wire.
+.P After duplicating the wires, the software selects the new wires and deselects the original wires. Use the editMove command to move duplicated wires to new locations.
+.P Note: Use the editSelect command to select wires. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each editDuplicate parameter.  For a detailed description of the command and all of its parameters, use the man command:  man editDuplicate  "\fB-layer_horizontal <layer>\fR" Specifies the new layer for duplicated horizontal wires.  "\fB-layer_vertical <layer>\fR" Specifies the new layer for duplicated vertical wires. 
+.SH Example
+.RS  "*" 2 The following command duplicates selected horizontal wires and places them on the METAL3 layer and duplicates selected vertical wires and places them on the METAL4 layer. It generates vias for the new wires.   editDuplicate -layer_horizontal METAL3 -layer_vertical METAL4
+.RE 
+.SH Related Information
+.RS  "*" 2 editAddRoute  "*" 2 editAdjust   "*" 2 editCommitRoute   "*" 2 editCutWire  "*" 2 editDelete   "*" 2 editMerge   "*" 2 editMove   "*" 2 editResize   "*" 2 editRotate   "*" 2 editSelect   "*" 2 editSplit   "*" 2 editTrim   "*" 2 getEditMode  "*" 2 redo  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

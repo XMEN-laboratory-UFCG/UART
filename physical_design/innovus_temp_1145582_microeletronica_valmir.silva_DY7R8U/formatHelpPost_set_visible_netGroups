@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_visible_netGroups  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_visible_netGroups\fR \-  Displays only the specified netGroups and hides all other netGroups
+.SH Syntax \fBset_visible_netGroups\fR  [-help]  {<netGroups> | -all} 
+.P Displays only the specified netGroups and hides all other netGroups.
+.P To display all netGroups, specify the -all parameter. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each set_visible_netGroups parameter.  For a detailed description of the command and all of its parameters, use the man command:   man set_visible_netGroups  "\fB-all\fR" Displays all the netGroups.   "\fB<netGroups>\fR" Displays only the specified netGroups and hides all other netGroups. You can specify multiple netGroup names. 
+.SH Examples
+.RS  "*" 2 The following command hides all netGroups except the specified one:  set_visible_netGroups test_ng
+.RE 
+.SH Related Information
+.RS  "*" 2 get_visible_netGroups
+.RE
+.P

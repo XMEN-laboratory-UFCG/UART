@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH init_import_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBinit_import_mode\fR
+.SH Syntax  \fBinit_import_mode\fR <import_mode_parameters> 
+.P Type: String
+.P Default: NULL
+.P You can use this global variable to set the options of the setImportMode command (import mode parameters). The string with the options of the setImportMode command can be passed during the design initialization. This global variable replaces the previous rda_Input(ui_import_mode) configuration file variable. 
+.SH Example
+.P The following command passes the -discardFloatingVNets true -keepEmptyModule true options of the setImportMode command during initialization:  set init_import_mode {-discardFloatingVNets true -keepEmptyModule true}
+.P Note:
+.RS  "*" 2 Empty modules and cells without physical cell definitions should not be converted into blackboxes and partitions.  "*" 2 Empty modules should be retained. 
+.RE 
+.SH Related Information
+.RS  "*" 2 init_design
+.RE
+.RS  "*" 2 setImportMode
+.RE
+.P

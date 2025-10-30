@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH define_bundled_bus  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefine_bundled_bus\fR \-  Allows you to control user-defined bus groups
+.SH Syntax \fBdefine_bundled_bus\fR   [-help]  [-add_members <string>]  [-delete_members <string>]  [-name <string>]
+.P Allows you to control user-defined bus groups.
+.P The software automatically identifies bus nets. However, in some cases the software may not be able to mark bus bits properly (or treat marked bits as bus). For improved bus identification, the define_bundled_bus command allows you to control the nets that you want to add (or remove) from the list of recognized bus bits. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  "\fB-add_members <string>\fR" Specifies the name of nets to be added to the group.  "\fB-delete_members <string>\fR" Specifies the name of nets to be deleted from the group.  "\fB-name <string>\fR" Specifies the name of the group. 
+.SH Examples
+.RS  "*" 2 The following example command will create a bus named bus1 with 3 net members x[1] and x[2]:  define_bundled_bus -name bus1 -add_members {x[1] x[2]}  report_bundled_bus -type user_defined  ###############################################################  Summary:  Total number of user defined bus groups reported = 1  Total number of tool inferred bus groups reported = 0  ---------------------------------------------------------------  Group Name (user_defined) : bus1  Constituents:  - x[1]  - x[2]  "*" 2 The following example command will add one more member x[3] and delete member x[2] to the bus 'bus1':  define_bundled_bus -name bus1 -add_members x[3] -delete_members x[2]   Added [1] net(s) to group 'bus1'.  Deleted [1] net(s) from user-defined group 'bus1'.
+.RE 
+.SH Related Information
+.RS  "*" 2 report_bundled_bus 
+.RE
+.P

@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getFPlanMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetFPlanMode\fR \-  Returns information about the specified setFPlanMode parameter in the Innovus log file and the console
+.SH Syntax \fBgetFPlanMode\fR  [-help]   [-autoSyncMasterClone]  [-cellsForExtraSites]  [-checkTypes]   [-cutOffPlaceBlockageOutsideDie]   [-cutOffRouteBlockageOutsideDie]   [-defaultBlockageNamePrefix]  [-defaultPowerDomainSite]   [-defaultTechSite]   [-enableRectilinearDesign]  [-extraSites]  [-forceHonorSnapRule {true|false}]  [-includeIoWhenInitArea]   [-initAllCompatibleCoreSiteRows]  [-keepRowsWhenMovingPowerDomain]   [-maxIoHeight]   [-minimumSites]   [-move_macros_with_constraint]   [-move_preplaced_std_cell_only]  [-move_std_cell_with_constraint]   [-narrowChannelThreshold]   [-no_cut_row]   [-powerRailLayer]   [-rowSiteHeight]   [-rowSiteWidth]  [-snap_all_corners_to_grid]   [-snapBlockGrid]   [-snapConstraintGrid]   [-snapCoreGrid]   [-snapDieGrid]   [-snapIoGrid]   [-snapPlaceBlockageGrid]  [-snapPlaceBlockageType]  [-user_define_grid]   [-quiet]   [-nonDefault]
+.P Returns information about the specified setFPlanMode parameter in the Innovus log file and the console. The following information is returned:
+.RS  "*" 2 Parameter name  "*" 2 Current value  "*" 2 Type (Boolean, string, and so on)  "*" 2 Whether the current value was set by user
+.RE
+.P You can use this command after importing the design. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each getFPlanMode parameter.  For a detailed description of the command and all of its parameters, use the man command:  man getFPlanMode  "\fB<parameters>\fR" Returns information for the specified parameters. You can specify one or more parameters.  See setFPlanMode for descriptions of the parameters you can specify.  "\fB-quiet\fR" Displays the current settings for the specified parameters in Tcl list format only. 
+.SH Related Information
+.RS  "*" 2 setFPlanMode  "*" 2 floorPlan  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

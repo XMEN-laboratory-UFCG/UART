@@ -1,0 +1,27 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteInst  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteInst\fR \-  Deletes an instance from a design
+.SH Syntax \fBdeleteInst\fR  [-help]  <listOfInst>  [-moduleBased <moduleName>]  [-verbose]  
+.P Deletes an instance from a design. Innovus checks whether the instance is physical or logical, and deletes the instance accordingly. You can use deleteInst to delete the list of logical instances in one HECO session.
+.P You can use wildcards (*?) to specify the instances you want the tool to delete.
+.P As deleteInst supports deletion of a list of instance, you can get the list of instances using the dbGet command  The correct way to use dbGet is to use TCL join command. The following example shows the correct usage of deleteInst command with dbGet:
+.P deleteInst [ join [dbGet top.insts.name]]
+.P Notes:
+.RS  "*" 2 If the deleteInst command deletes a constrained instance, the command will delete the timing graph to avoid other crashes because constraints would be referring to deleted objects and a message will be displayed.  "*" 2 The deleteInst command cannot be used in the post-mask ECO. Please use loadECO <ecofile> -postMask to delete instances in the post-mask ECO.
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each deleteInst.  For a detailed description of the command and all of its parameters, use the man command:   man deleteInst  "\fB<listOfInst>\fR" Specifies the list of the instances to delete.  "\fB-moduleBased <m><oduleName>\fR" Specifies the name of the Verilog module.  "\fB-verbose\fR" Prints out the deleted instance message. 
+.SH Example
+.RS  "*" 2 The following command deletes instance i1/i2:   deleteInst i1/i2
+.RE
+.RS  "*" 2 The following command deletes all instances whose names begin with i inside the hierarchical instance i1:  deleteInst i1/i*
+.RE
+.RS  "*" 2 The following command deletes the instance insta from the verilog module HIER_2:   deleteInst -moduleBased HIER_2 insta
+.RE
+.RS  "*" 2 The following command deletes all instances in the SPGM module:   deleteInst * -moduleBased SPGM
+.RE 
+.SH Related Information
+.RS  "*" 2 addInst  "*" 2 loadECO
+.RE
+.P

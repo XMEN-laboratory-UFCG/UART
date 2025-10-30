@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_capture_timing_analysis_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_capture_timing_analysis_mode\fR
+.SH Syntax \fBmetric_capture_timing_analysis_mode\fR {gba | ipba}
+.P Type: Enum<Default>: gba
+.P Controls the timing analysis mode for metric capture during create_snapshot categories setup and hold; gba, ipba.
+.RS  "*" 2 gba: graph based analysis  "*" 2 ipba: path based analysis, retime_method == path_slew_propagation, retime_mode == exhaustive, timing_path_based_exhaustive_pba_bounded_mode == true
+.RE

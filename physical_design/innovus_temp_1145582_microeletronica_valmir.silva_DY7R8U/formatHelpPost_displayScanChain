@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH displayScanChain  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdisplayScanChain\fR \-  Displays a scan chain
+.SH Syntax \fBdisplayScanChain\fR  [-help]  [<chain_name>] 
+.P Displays a scan chain. You must load the scan information, place the design, and view the design in the Placement view. Use this command after scan chains are traced. 
+.SH Parameters   "\fB<chain_name>\fR" Specifies the scan chain.  Default: If you do not specify this parameter, the software displays all scan chains. 
+.SH Examples
+.RS  "*" 2 The following command displays all scan chains in the design:   displayScanChain
+.RE
+.RS  "*" 2 The following command displays the scan chain whose name is chain0.   displayScanChain chain0
+.RE 
+.SH Related Information
+.RS  "*" 2 defIn   "*" 2 defOut    "*" 2 specifyScanChain   "*" 2 report_scan_chain  "*" 2 Placing the Design chapter in the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Optimizing and Reordering Scan Chains 
+.RE 
+.RE
+.P

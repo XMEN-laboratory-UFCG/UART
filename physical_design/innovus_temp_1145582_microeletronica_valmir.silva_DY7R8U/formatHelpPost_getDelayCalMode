@@ -1,0 +1,8 @@
+ "*" 2 Parameter name
+.RE
+.RS  "*" 2 Current value of the parameter
+.RE
+.RS  "*" 2 Type (Boolean, string, and so on)
+.RE
+.RS  "*" 2 Information on whether the parameter value is user-defined or default
+.SH Syntax \fBgetDelayCalMode\fR  {-help]  [-combine_mmmc]   [-enable_high_fanout]  [-enable_low_memory_mode]  [-enable_quiet_receivers_for_hold]  [-equivalent_waveform_model]  [-ewm_type]  [-honorSlewPropConstraint]  [-ignoreNetLoad]  [-pessimistic_base_timing]   [-reportOutBound]  [-SIAware]   [-slewOutBoundLimitHigh]  [-slewOutBoundLimitLow]  [-socv_accuracy_mode]  [-socv_lvf_mode]  [-socv_use_lvf_tables]  [-quiet]  [-nonDefault]

@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_property  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_property\fR \-  Reports the properties associated with each object in the specified collection
+.SH Syntax \fBreport_property\fR   [-help]  {<collection> | <list_of_collections>}   [-property_list <list of properties>]  [{> | >>} <filename>] 
+.P Reports the properties associated with each object in the specified collection.
+.P For properties that return a populated collection, the command output displays {...}. For any empty collections,{} will be displayed. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB<collection> | <list_of_collections>\fR" Specifies a collection, or a list of collections to report. The collections can contain any of the following object types:  cell, clock, design, lib, lib_cell, lib_pin, lib_pg_pin, pg_net, pg_pin, lib_timing_arc, net, path_group, pin, port, timing_arc, timing_path, or timing_point  "\fB-property_list <list of properties>\fR" Specifies a list of valid property names to report.  Note: If the -property_list parameter is not specified, then all the properties associated with a collection of objects will be  reported.  "\fB{> | >>} <filename>\fR" When specified with >, the software writes the report to the specified file name. If the file already exists, the software overwrites it.  When specified with >>, the software writes the report to the specified file name. If the file already exists, the software concatenates the report to the end of the file.  You can add the
+.gz extension to the file name to generate a compressed report.  Note: The file name must be the last argument in the list. 
+.SH Examples
+.RS  "*" 2  The following command shows the values of the specified properties:  report_property [get_pins TU11/A] -property_list {name direction clocks}   property | value   name | TU11/A   direction | in   clocks | {...}
+.RE 
+.SH Related Information
+.RS  "*" 2 get_property  "*" 2 define_property  "*" 2 list_property  "*" 2 set_property  "*" 2 reset_property
+.RE
+.P

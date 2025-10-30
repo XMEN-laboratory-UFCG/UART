@@ -1,0 +1,2 @@
+ "\fB-analysis_type {early | late}\fR" Specifies whether early or late views have to be checked for voltage scaling
+.SH Syntax \fBreport_voltage_scaling\fR   [-help]  [<objectListOrCollection>]  [-analysis_type {early | late}]  [-view <string>]   [-output_file <string>]

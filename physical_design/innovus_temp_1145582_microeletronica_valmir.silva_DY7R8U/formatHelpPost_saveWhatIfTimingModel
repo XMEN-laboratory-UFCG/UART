@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveWhatIfTimingModel  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveWhatIfTimingModel\fR \-  Saves the specification of black boxes or black blobs at the top level, including the timing arc specifications in the dotlib library file format
+.SH Syntax \fBsaveWhatIfTimingModel\fR  [-help]  <blackBoxCellName>  [-outfile <fileName>] 
+.P Saves the specification of black boxes or black blobs at the top level, including the timing arc specifications in the dotlib library file format.
+.P You can use this command after the module definition of a black box or black blob is available with the I/O's in the Verilog netlist. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB<blackBoxCellName>\fR" Specifies the name of the black box or black blob cell.  "\fB-outfile <fileName>\fR" Specifies the name of the file to save the information.  Default: <BBoxName>.lib 
+.SH Related Information
+.RS  "*" 2 What-If Timing Analysis chapter in the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 PerformingWhat-IfTimingAnalysis
+.RE 
+.RE
+.RS
+.RS  "*" 2 UsingtheWhat-IfTimingCommands
+.RE 
+.RE
+.P

@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setFixedBudget  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetFixedBudget\fR \-  This command fixes the budget for a particular path segment between partitions and start/end points and helps in reducing the distribution budget delay in the path segments
+.SH Syntax \fBsetFixedBudget\fR  [-help]  {[{[{-from {list_of_pins} | -fromFlopsOf {hinst}} {-to {list_of_pins} | -toFlopsOf {hinst}}] | [-through {list_of_hinst}]} {-slack | -delay } [-add ] <value>] | [-reset ]}
+.P This command fixes the budget for a particular path segment between partitions and start/end points and helps in reducing the distribution budget delay in the path segments.
+.P Note: Do not use this command with cycle-based timing budgeting.
+.P This command is valid only for the following segments:
+.RS  "*" 2 Chip In -> Partition In  "*" 2 Start Point -> Partition In  "*" 2 Partition In -> Partition Out  "*" 2 Partition In -> End Point (FF D Pin) inside same partition  "*" 2 Start Point (FF Q Pin) inside same partition -> Partition Out  "*" 2 Partition Out -> Chip Out  "*" 2 Partition Out -> End Point
+.RE 
+.SH Parameters   "\fB-add\fR" Adds the slack/delay to previous value (Boolean, Optional)  "\fB-help\fR" Prints out the command usage  "\fB<value>\fR" Presents delay or slack values (Float)  "\fB-delay\fR" Specifies the delay value (Boolean, Optional)   "\fB-from {list_of_pins} \fR" Presents the 'from pins' to be analyzed (String)  "\fB-fromFlopsOf {hinst}\fR" Specifies the from hierarchical inst for which start pins to be analyzed (String)   "\fB-reset\fR" Resets all previously declared fixed budgets (Boolean, Optional)   "\fB-slack\fR" Specifies the slack value (Boolean, Optional)   "\fB-through {list_of_hinst}\fR" Specifies the hierarchical instances to be analyzed (String)  "\fB-to {list_of_pins}\fR" Specifies the 'to pins' to be analyzed (String)  "\fB-toFlopsOf {hinst}\fR" Specifies the to hierarchical inst for which end pins to be analyzed (String) 
+.SH Examples
+.P The following command fixes the budget of the hierarchical instance feed-through paths to the existing delay:  setFixedBudget -through P5 -slack 0
+.P The following command gives a fixed clack of 1 to the paths from port 'in' to hierarchical instance input pin 'p4/in'; budgets will distribute rest of the slack to other segments of the paths:  setFixedBudget -from in -to P4/in -slack 1
+.P The following command fixes the delay of this segment to 0.5 from the hierarchical instance input pin 'p4/in' to the endpoint 'P4/FF1/D'; budgets will be calculated for the whole path considering the path delay of this segment as 0.5:  setFixedBudget -from P4/in -to P4/FF1/D -delay 0.5 
+.SH Related Information
+.P The Timing Budgeting chapter of the User Guide document.
+.P

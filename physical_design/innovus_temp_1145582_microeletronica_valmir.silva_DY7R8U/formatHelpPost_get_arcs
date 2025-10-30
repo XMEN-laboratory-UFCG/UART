@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_arcs  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_arcs\fR
+.SH Syntax \fBget_arcs\fR  [-help]   { [-to <to_list>] [-from <from_list>]    | -of_objects <object_list>}   [-filter <expr>]  [-quiet] 
+.P Creates a collection of timing arcs. Assign these arcs to a variable, or pass them to another command. If no objects match the criteria, an empty collection is returned.
+.P Note: The timing graph must be built before you can use this command. A warning message is issued indicating that the timing graph is not generated. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-filter <expr>\fR" Filters a collection based on the specified expression. For any arcs that match the pattern, the software evaluates the expression based on the attribute of the arc.  "\fB-from <from_list>\fR" Adds all timing arcs that fan in directly to the specified pins or ports to the collection.  You can specify a list of pins or a list of ports, but you cannot specify a list that contains both pins and ports. You can specify a pattern for the pin or port name, a collection of pins or ports, or a pattern and a collection.  Note: You cannot specify this parameter with the -of_objects parameter.  "\fB-of_objects <object_list>\fR" Adds all timing arcs that are associated with the specified cells or nets to the collection. You can specify a list of cells or a list of nets, but you cannot specify a list that contains both cells and nets. You can specify a pattern for the cell or net name, a collection of cells or nets, or a pattern and a collection.  Note: You cannot specify this parameter with the -to or -from parameters.  "\fB-quiet\fR" Suppresses all error and warning messages generated when the get_arcs command is run.  "\fB-to <to_list>\fR" Adds all timing arcs that fan out directly from the specified list of pins or ports to the collection.  You can specify a list of pins or a list of ports, but you cannot specify a list that contains both pins and ports. You can specify a pattern for the pin or port name, a collection of pins or ports, or a pattern and a collection.  Note: You cannot specify this parameter with the -of_objects parameter. 
+.SH Examples
+.RS  "*" 2 The following command returns a collection of the timing arcs fan in directly to the pin dff1/CP:   get_arcs -from dff1/CP
+.RE
+.RS  "*" 2 The following command creates a collection of the timing arcs that are associated with the nets in the specified collection:   get_arcs -of_objects [get_nets {n1}]
+.RE 
+.SH Related Information
+.RS  "*" 2 get_property
+.RE
+.P

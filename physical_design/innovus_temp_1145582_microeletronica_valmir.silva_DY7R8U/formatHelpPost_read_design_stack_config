@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH read_design_stack_config  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBread_design_stack_config\fR
+.SH Syntax 
+.P read_design_stack_config   [-help]  [-avoid_floorplan_change]   [-chipName <NameOfChip>]  [-manufacturing_grid <grid>]   [-power_config_file <PowerConnectionFile>]   [-topNetlist <VerilogFileName>]  [-xml <StackedDieFileName>]
+.P Loads the die stacking config file (*.xml) for Innovus to understand the 3D-IC top-level structure.
+.P You can use this command before or after the init_design command. When you use read_design_stack_config before init_design, in addition to loading the die stacking information into the memory, it patches up the virtual techLEF of the 3DIC top cell and the Verilog netlist if the init_lef_file and init_verilog variables are not set before init_design. If you use read_design_stack_config after init_design, when the top design (Netlist, tech LEF) has already been loaded into Innovus, but without XML. Without the XML, Innovus does not know that the top cell is the top of a 3DIC design. Therefore, XML is required to let Innovus know the vertical position and face up/down information of the dies for the GUI display and the contact layer mapping relationship. 
+.P When the top-level netlist is missing, read_design_stack_config can help generate a virtual netlist, but the pins are floating so that you can still load the 3D-IC design into Innovus with iHDB. Only top is in the virtual netlist. read_design_stack_config internally calls addInst to add other dies. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each read_design_stack_config parameter. For a detailed description of the command and all of its parameters, use the man command:  man read_design_stack_config  "\fB-avoid_floorplan_change\fR" When you specify this option, the floorplan and die instances will not be created.   "\fB-chipName <NameOfChip>\fR" Specifies the name to be used when the current die is instantiated.   "\fB-manufacturing_grid <grid>\fR" Specifies the manufacturing grid.   "\fB-power_config_file <PowerConnectionFile>\fR" Specifies the file name of the power connection.   "\fB-topNetlist <VerilogFileName>\fR" Specifies the file name of the top-level netlist verilog.    "\fB-xml <StackedDieFileName>\fR" Specifies the file name of the stacked die. 
+.SH Related Information
+.RS  "*" 2 init_design  "*" 2 init_lef_file  "*" 2 init_verilog  "*" 2 write_design_stack_config
+.RE
+.P

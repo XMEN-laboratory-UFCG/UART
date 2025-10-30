@@ -1,0 +1,29 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH alias  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBalias\fR \-  Create command aliases for any Tcl command
+.SH Syntax  \fBalias\fR   [-help]  <new_cmd>   <old_cmd>   [-args {{<new> <old>}
+...}]
+.P Create command aliases for any Tcl command. It is a wrapper around the built-in Tcl interp alias command. All command aliases are public, so partial command matching and using <tab> to complete a typed in command work on them. It also supports argument name aliases for procs that use define_proc_arguments and parse_proc_arguments for parsing the arguments, and for application commands. The argument aliases do not work for built-in Tcl commands. The argument aliases are private, so they are not shown by -help, and do not support partial-option completion or matching.
+.P  You can use this command to migrate an existing Tcl script when some of the commands or argument names have changed, but are otherwise compatible. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each bindkey parameter.  For a detailed description of the command and all of its parameters, use the man command:    man bindkey  "\fB<new_cmd>  \fR" Specifies the new command name that is an alias for the existing <old_cmd> name. It can be the same name as the <old_cmd> if you only want to create new -arg aliases, and do not need a new command alias.  Data_type: string, required  "\fB<old_cmd>\fR" Specifies the existing old command name.  Data_type: string, required  "\fB-args {{<new><old>}
+...}\fR" Specifies a list of new and old argument names to create aliases. You can give multiple <new> names for the same <old> name. The new aliases are private, and do not show up with -help. You can create more than one alias for the same <old> name.  Data_type: string, optional 
+.SH Example
+.P The following command adds a new command name alias new_read_sdf and some arg name aliases for read_sdf:
+.P >alias new_read_sdf read_sdf -args {
+.P   {-ignore_error -continue_on_error}
+.P   {-summary -report_summary}
+.P   {-sum -report_summary}
+.P }
+.P Then, the following commands
+.P >new_read_sdf in.sdf -ignore_error -summary
+.P >new_read_sdf in.sdf -ignore_error -sum
+.P >new_read_s in.sdf -ignore_error -sum
+.P would behave the same as
+.P >read_sdf in.sdf -continue_on_error -report_summary
+.P Note: Tcl partial command matching works if the partial command is unique as shown in the above example, but the alias argument names are private, and will not support partial option matching, or appear in the -help output. 
+.SH Related Information
+.RS  "*" 2 define_proc_argumentsdefine_proc_arguments   "*" 2 parse_proc_arguments
+.RE
+.P

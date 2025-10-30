@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_library_setup_constraint_corner_sigma_multiplier  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_library_setup_constraint_corner_sigma_multiplier\fR
+.SH Syntax \fBtiming_library_setup_constraint_corner_sigma_multiplier\fR <double>
+.P Default: 0
+.P Applies user control multiplier to generate a constraint table using sigma values applied for setup arc.
+.P To set this global variable, use the set command.
+.P

@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH auto_file_prefix  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBauto_file_prefix\fR
+.SH Syntax \fBauto_file_prefix\fR   
+.P Type: String
+.P Default: ""
+.P Specifies a prefix to be applied to all files 'auto-generated' by the tool. This includes report files or other output files with default names that are automatically created by some commands in the current run directory. So a default name like "cmd.report" will become "<prefix>cmd.report". Default names that have been overridden with a name chosen by the user, are not affected. This allows multiple simultaneous runs from the same run directory to direct default output files to different locations to avoid collisions. 
+.SH Related Information
+.RS  "*" 2 auto_file_dir
+.RE
+.P

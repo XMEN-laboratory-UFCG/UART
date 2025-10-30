@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_pg_pins  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_pg_pins\fR \-  Returns a collection of netlist-level instance PG pins in the current design
+.SH Syntax \fBget_pg_pins\fR   [-help]  [-filter <expr>]  [-of_objects <object_list>]
+.P Returns a collection of netlist-level instance PG pins in the current design. An empty collection is returned if no PG pin definitions are found in the design netlist. 
+.SH Parameters   "\fB-help                        \fR" Prints out the command usage.  "\fB-filter <expr>             \fR" Specifies the filters for the collection with the given expression.  For any pg pins that match the pattern, the software evaluates the expression based on the attribute of the pin.  You can filter pg pins along with the -of_objects parameter - using the pg pin properties of object type pg_pin (supported through the get_property command).  "\fB-of_objects <object_list>   \fR" Specifies the collection of all the pins associated with the specified cells or nets.  The -of_objects parameter supports get_cells as valid objects.  For example:  get_pg_pins -of_objects [get_cells iA/out_reg] iA/out_reg/VSS iA/out_reg/VDD  get_pg_pins iA/out_reg/VDD  **ERROR: (TCLCMD-1420): Currently only -of_objects option is supported. 
+.SH   Examples
+.RS  "*" 2 The following command filters the collection of all the pg_pins of the cell instance object to return only the pg pins containing the string name defined with the pg_pin hierarchical_name attribute:  get_pg_pins -of_objects [get_cells iA/out_reg] -filter "hierarchical_name =~ *VDD*"
+.RE
+.RS  "*" 2 The following command gets the collection of all pg pins of the cell instance object:  get_pg_pins -of_objects [get_cells iA/out_reg]
+.RE 
+.SH Related Information
+.RS  "*" 2 get_pg_nets  "*" 2 get_pins
+.RE
+.P

@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_enable_get_objects_regexp_compatibility  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_enable_get_objects_regexp_compatibility\fR
+.SH Syntax \fBtiming_enable_get_objects_regexp_compatibility\fR {true | false}
+.P Default: false
+.P Defines the pattern search scope to boundaries deduced from hierarchy separation characters specified in the search pattern.
+.P When set to false, the commands with -regexp parameter will search at the top level only (unless used with the -hier parameter).
+.P When set to true, the commands will search the specified pattern within the hierarchies based upon the given pattern hierarchy (similar to pattern search without the -regexp parameter). The -hier along with the -regexp parameter shows the same behavior similar to when the command is used without the -regexp option - only the leaf level object name is compared to the pattern match.
+.P To set this global variable, use the set command.
+.P Examples
+.P Command behavior when this global variable is false:  get_pins -regexp seg2/.*/QN  **WARN: (TCLCMD-513): The software could not find a matching object of the specified type for the pattern '.*/.*'  **ERROR: (TCLCMD-917): Cannot find 'pins' that match 'seg2/.*.*/QN'
+.P get_pins -regexp seg2/.*/QN -hier  seg2/u3/QN seg2/u9/QN seg2/u14/QN
+.P get_pins -regexp
+.*/QN -hier  seg1/u3/QN seg1/u9/QN seg1/u14/QN seg2/u3/QN seg2/u9/QN seg2/u14/QN seg3/u3/QN seg3/u9/QN seg3/u14/QN u2/QN u5/QN u8/QN
+.P Command behavior when this global variable is true:  get_pins -regexp seg2/.*/QN  seg2/u3/QN seg2/u9/QN seg2/u14/QN
+.P get_pins -regexp seg2/.*/QN -hier  **WARN: (TCLCMD-513): The software could not find a matching object of the specified type for the pattern '.*/.*'  **ERROR: (TCLCMD-917): Cannot find 'pins' that match 'seg2/.*.*.*.*.*/QN'
+.P get_pins -regexp
+.*/QN -hier  seg1/u3/QN seg1/u9/QN seg1/u14/QN seg2/u3/QN seg2/u9/QN seg2/u14/QN seg3/u3/QN seg3/u9/QN seg3/u14/QN u2/QN u5/QN u8/QN
+.P

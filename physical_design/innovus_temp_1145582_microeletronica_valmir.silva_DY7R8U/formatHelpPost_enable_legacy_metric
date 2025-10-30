@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH enable_legacy_metric  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBenable_legacy_metric\fR
+.SH Syntax \fBenable_legacy_metric\fR {true | false}  
+.P Type: Boolean
+.P Default: false
+.P Enables the legacy get_metric command. If set to true, the get_metric command used is old legacy. 
+.SH Related Information
+.RS  "*" 2 get_metric
+.RE
+.P

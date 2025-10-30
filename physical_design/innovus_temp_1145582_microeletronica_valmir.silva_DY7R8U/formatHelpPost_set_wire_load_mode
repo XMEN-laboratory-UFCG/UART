@@ -1,0 +1,29 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_wire_load_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_wire_load_mode\fR \-  Controls how the software searches through the design hierarchy to find the appropriate wire load model for a net, or a hierarchical part of a net
+.SH Syntax \fBset_wire_load_mode\fR  [-help]  {top | enclosed | segmented}
+.P Controls how the software searches through the design hierarchy to find the appropriate wire load model for a net, or a hierarchical part of a net. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes type and default information for each set_wire_load_mode parameter.  For a detailed description of the command and all of its parameters, use the man command: man set_wire_load_mode.  "\fB<{top | enclosed | segmented}>\fR" Specifies the wire load model. You can specify one of the following options.
+.RS  "*" 2 enclosed   "*" 2 segmented  "*" 2 top
+.RE  enclosed: Selects the wire load model using an area lookup table for the module that is at the lowest level in the design hierarchy and contains the entire net.  When you set the mode to enclosed, the software uses the area of the smallest block enclosing the net to select the wire load model.  In the enclosed mode, the software uses the following order of precedence to search the wire load model in:
+.RS  "*" 2 The inner-most block enclosing the net on which you set the wire load selection group using the set_wire_load_selection_group command, if the auto_wire_load_selection global variable is enabled.   Or:  The inner-most block enclosing the net on which you set the wire load model using the set_wire_load_model command.
+.RE
+.RS  "*" 2 Each higher level hierarchical block for a set_wire_load_selection_group assertion, all the way up to the top-level block, if the auto_wire_load_selection global variable is enabled.   Or:  Each higher level hierarchical block for a set_wire_load_model assertion, all the way up to the top-level block.
+.RE
+.RS  "*" 2 The default_wire_load_selection field in the first timing library.   Or,  The default_wire_load field in the first timing library.  Note: If even the default values are not present in the timing library, you will not be able to use the wire load model functionality.
+.RE  segmented: Selects the wire load model in a way similar to the enclosed mode except that each hierarchical segment of the net is treated separately.  In the segmented mode:
+.RS  "*" 2 A segment is defined by pins (including hierarchical pins) connected to a particular net.
+.RE
+.RS  "*" 2 When counting the drivers and receivers, only the pins connected to the segment are considered. This information along with the wire load models determine the parasitic information for the segment.
+.RE
+.RS  "*" 2 The parasitics of each segment sum up to form the parasitics for the entire net.  Note: Each segment may have different wire load models.
+.RE  top: Selects the wire load model in a way similar to enclosed and segmented except that all nets use the wire load selection or wire load models defined by the top-level (largest) block enclosing the net.  Note: If the first library read in does not define the default wire load mode, the software uses top as the default mode. 
+.SH Examples
+.RS  "*" 2 The following command sets the wire load mode to enclosed:  set_wire_load_mode enclosed
+.RE 
+.SH Related Information
+.RS  "*" 2 reset_wire_load_mode
+.RE
+.P

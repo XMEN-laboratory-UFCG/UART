@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_pulse_clock_max_transition  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_pulse_clock_max_transition\fR \-  Sets the maximum pulse clock transition constraint on the specified pulse generator cells, pulse generator library cells, clocks, and/or current design
+.SH Syntax \fBset_pulse_clock_max_transition\fR  <transition_limit>  <object_list>  [-transitive_fanout]   [-rise]   [-fall] 
+.P Sets the maximum pulse clock transition constraint on the specified pulse generator cells, pulse generator library cells, clocks, and/or current design. 
+.SH Parameters    "\fB-fall\fR" Sets transition limit value for falling transition.  "\fB<object_list>\fR" Specifies a list of objects - pulse generator cells, pulse generator library cells, clocks, or current design.  "\fB-rise\fR" Sets transition limit value for rising transition.  "\fB<transition_limit>\fR" Specifies the transition limit value.  "\fB-transitive_fanout\fR" Specifies the transition limit value for transitive fanout. 
+.SH Examples
+.P The following example sets the max pulse clock transition constraint of 0.1ns on the input pins of all the instances of the lib cell PULSE_GEN_00:  set_pulse_clock_max_transition 0.1 PULSE_GEN_00
+.P This constraint can be observed on the input pin 'A' of an instance 'pg_inst' of this lib cell using the following command:
+.P report_constraint pg_inst/A -drv_violation_type pulse_clock_max_transition
+.P Fragmented output:
+.P Check type : pulse_clock_max_transition_rise  ---------------------------   ---------------------------------------------   Pin Name Required Actual Slack    ---------------------------------------------    pg_inst/A 0.100 0.030 0.070
+.P Check type : pulse_clock_max_transition_fall  ---------------------------   ---------------------------------------------    Pin Name Required Actual Slack    ---------------------------------------------    pg_inst/A 0.100 0.030 0.070 
+.SH Related Information
+.RS  "*" 2 get_clocks  "*" 2 get_cells  "*" 2 reset_pulse_clock_max_transition
+.RE
+.P

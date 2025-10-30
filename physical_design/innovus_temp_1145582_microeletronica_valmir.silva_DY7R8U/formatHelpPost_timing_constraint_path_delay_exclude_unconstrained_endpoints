@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_constraint_path_delay_exclude_unconstrained_endpoints  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_constraint_path_delay_exclude_unconstrained_endpoints\fR
+.SH Syntax \fBtiming_constraint_path_delay_exclude_unconstrained_endpoints\fR
+.P {true | false}
+.P Default: false
+.P Allows you to configure the valid endpoints.
+.P When path delay exceptions are asserted (using the set_min_delay or set_max_delay commands) with a complete -from and -to specification, the exception can be applied between any two data path pins. If the constraint assertion includes only a -from and/or -through argument, then a set of valid endpoints must be established to define the constrained paths. This global variable allows you to configure the set of valid endpoints (inferred -to pins) that are selected.  When set to false, the set of allowed endpoints is simply all of the endpoints in the combinational fanout of the -from and/or -through arguments - essentially, wherever the path tracing stops. The path delay constraint will be applied as if there were a -to argument specified for each endpoint.  When set to true, the software uses different rules to determine the valid set of inferred -to endpoints. Only constrained pins in the fanout of -from and/or -through arguments are considered as valid -to endpoints for the constraint. A constrained endpoint will have some type of timing check - such as Setup or Hold already in force on that pin. Additionally, each transition at the endpoints will be examined to determine if each is individually constrained. The path exception will only be applied to the edges that are constrained. As an example, if a register preset or a clear pin was a potential endpoint, then only the edge constrained by the recovery or removal check will have the path delay applied. To apply the path delay constraint to unconstrained endpoints while in this mode, you must specify them explicitly with the -to, -rise_to, or -fall_to parameters of the set_min_delay and set_max_delay constraints.
+.P To set this global variable, use the set command.
+.P

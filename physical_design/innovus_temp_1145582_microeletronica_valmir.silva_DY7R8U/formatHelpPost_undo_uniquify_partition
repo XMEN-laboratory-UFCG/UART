@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH undo_uniquify_partition  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBundo_uniquify_partition\fR \-  Brings back the recursion of cells in a netlist and restores the master and clone association
+.SH Syntax \fBundo_uniquify_partition\fR  [-help]   -hinst <hierarchical_instance_name>[-preserve_routes]
+.P Brings back the recursion of cells in a netlist and restores the master and clone association.
+.P Note: The uniquify_partition command is used to remove the master and clone association by uniquifying the netlist. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each undo_uniquify_partition parameter.  For a detailed description of the command and all of its parameters, use the man command:   man undo_uniquify_partition  "\fB-hinst <hierarchical_instance_name>\fR" Specifies name of the hierarchical instance that is used to bring back the recursion of cells in a netlist and restore the master and clone association.  Based of the selected hierarchical instance, its cell (module) is identified. All other occurrences of the identified cell with the same naming format ( cellname_<number>) are then renamed to the identified cell name. That means all instances will have the same cell name and definition again, thereby restoring the master and clone relationship.   Note:
+.RS  "*" 2 You can specify any hierarchical instance with the undo_uniquify_partition command.   "*" 2 Any hierarchical instance with R0 orientation can become a master.  "*" 2 The name of the cells will change to the name of the cell of the specified hierarchical instance.   "*" 2  The netlist and def of the cell of the hierarchical instance name specified with the undo_uniquify_partition command will be copied in all hierarchical instances.
+.RE   Data_type: string, optional  "\fB-preserve_routes\fR" Preserves the routes during undo_uniquify_partition.  Data_type: bool, optional 
+.SH Example
+.P The following command brings back the master and clone association for the cell name associated with I2/p2:  undo_uniquify_partition -hinst I2/p2
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 uniquify_partition  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

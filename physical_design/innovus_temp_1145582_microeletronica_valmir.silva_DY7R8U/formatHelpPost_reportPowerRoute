@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportPowerRoute  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportPowerRoute\fR \-  Reports the cut ratio when two types of cuts are inserted between two parallel followpin rails with editPowerVia -followpin_via_stapling to maximize the effective number of cuts
+.SH Syntax \fBreportPowerRoute\fR  [-help]   [-followpin_cut_ratio {<cutClass1 weight1 cutClass2 weight2>}]   [-net <string>]
+.P Reports the cut ratio when two types of cuts are inserted between two parallel followpin rails with editPowerVia -followpin_via_stapling to maximize the effective number of cuts. The ratio is calculated by dividing the sum of weighted cut count of each cut class by theoretical cut count, if the smallest via is inserted along with the power rail with minimum spacing. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each reportPowerRoute parameter.  For a detailed description of the command and all its parameters, use the man command:   man reportPowerRoute  "\fB-followpin_cut_ratio {<cutClass1 weight1 cutClass2 weight2>}\fR" Specifies the names and weights of the two types of the cut classes.  Note: The cutClass must be defined in the header lef file before loading the design. Otherwise, it will print error message(IMPPP-4411). Additionally, the format of the cutClass to be defined in the lef file should be:  PROPERTYDEFINITIONS  LAYER LEF58_CUTCLASS STRING ;  END PROPERTYDEFINITIONS  LAYER VIA0  TYPE CUT ;  PROPERTY LEF58_CUTCLASS "  CUTCLASS VSINGLECUT WIDTH 0.020 LENGTH 0.020 CUTS 1;   CUTCLASS VDOUBLECUT WIDTH 0.020 LENGTH 0.050 CUTS 2;  " ;  END VIA0  "\fB-net <string>\fR" Specifies the followpin net names to be reported. If this parameter is not specified, the report is calculated for all the followpin nets. 
+.SH Example
+.P The following command specifies the weights for the VDOUBLE and VSINGLE cut classes and calculates the reports for the VSS followpin net:
+.P reportPowerRoute -followpin_cut_ratio {VDOUBLE 1.8 VSINGLE 1} -net VSS 
+.SH Related Information
+.P Power Planning and Routing chapter in the Innovus User Guide.
+.P

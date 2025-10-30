@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH cleanupExcludeNet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcleanupExcludeNet\fR \-  Clears excluded net settings that were specified with the delaycal_exclude_net global variable
+.SH Syntax  \fBcleanupExcludeNet\fR [-help] 
+.P Clears excluded net settings that were specified with the delaycal_exclude_net global variable. Any nets that were previously excluded from delay calculation using the delaycal_exclude_net variable are now included in delay calculation. You do not have to rebuild the timing graph to include the previously-excluded nets. Use this command after specifying the nets that are to be excluded from delay calculation. 
+.SH Parameter   "\fB-help\fR" Outputs a brief description of the cleanupExcludeNet command. For a detailed description of the command, use the man command:  man cleanupExcludeNet.
+.P  Example
+.P The following command clears excluded nets such that previously excluded nets are now included again in delay calculation:
+.P cleanupExcludeNet

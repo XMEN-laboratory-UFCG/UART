@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH savePowerSwitch  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsavePowerSwitch\fR \-  Stores the power switch database information, which can later be restored in the same floorplan through the restorePowerSwitch command
+.SH Syntax \fBsavePowerSwitch\fR  [-help]  [-outFile <string>]
+.P Stores the power switch database information, which can later be restored in the same floorplan through the restorePowerSwitch command. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each savePowerSwitch parameter. For a detailed description of the command and all its parameters, use the man command:  man savePowerSwitch  "\fB-outFile <string>\fR" Specifies the output file for storing the power switch database information. 
+.SH Related Information
+.RS  "*" 2 addPowerSwitch  "*" 2 restorePowerSwitch
+.RE

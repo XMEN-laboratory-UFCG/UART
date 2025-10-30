@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_pulse_width_matching_launch_capture_paths  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_pulse_width_matching_launch_capture_paths\fR
+.SH Syntax \fBtiming_report_pulse_width_matching_launch_capture_paths\fR {true | false}  
+.P Default: false
+.P Reports pulse width paths that have matching launch and capture paths - the count of pins and the pins must match exactly. The paths that do not meet this condition will not be reported.
+.P When set to true, the software will impact the minimum pulse width report that is generated with the report_min_pulse_widthreport_min_pulse_width command along with the -path_type short and -path_type full_clock options.
+.P To set this global variable, use the set command.
+.P

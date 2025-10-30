@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reportWirePath  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreportWirePath\fR \-  Extracts the routing topology report in a point-to-point manner (for example between routing layer, wire length, via, resistor, and capacitance)
+.SH Syntax \fBreportWirePath\fR  [-help]  [-detail]  -end <string>[-include_pin]  -start <string>  [-tcl [-no_output]]
+.P Extracts the routing topology report in a point-to-point manner (for example between routing layer, wire length, via, resistor, and capacitance). The report contains the information such as timing path for each via, wire length, and width of path. 
+.SH Parameters    "\fB -help\fR" Prints a brief description that includes the type and default information for each reportWirePath parameter.  For a detailed description of the command and all its parameters, use the man command:  man reportWirePath  "\fB-detail\fR" Prints the detailed information related to the path.   "\fB-end <string>\fR" Specifies the end terminal name, which can be an instTerm,  term,  hinstTerm, and  hTerm.   "\fB-include_pin\fR" Specifies whether to include pin in the report.   "\fB-no_output\fR" Specifies whether to print the path when -tcl is used.   "\fB-start <string>\fR" Specifies the start terminal name, which can be an instTerm,  term,  hinstTerm, and  hTerm.   "\fB-tcl\fR" Specifies whether to return the Tcl dict of the wire path. 
+.SH Examples
+.P Use the following command to get the routing topology report from inst1/Z to inst2/A:
+.P reportWirePath -start inst1/Z -end inst2/A Start pt: 15.075, 6.72 Via NR_VIA1_PH Wire M2, Width: 0.032, Length: 0.01 Via NR_VIA2_PV Wire M3, Width: 0.032, Length: 0.832 Via NR_VIA2_PV Wire M2, Width: 0.032, Length: 0.35 Via NR_VIA1_PH End pt: 15.435, 5.888 Total wire length: 1.192 Manhattan length: 1.192
+.P

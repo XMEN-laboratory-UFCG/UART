@@ -1,0 +1,32 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveDrc  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveDrc\fR \-  Saves DRC violation markers in the specified file
+.SH Syntax \fBsaveDrc\fR  [-help]   <fileName>[-force]  [-selected] 
+.P Saves DRC violation markers in the specified file. The saveDrc command is useful for situations where you want to save DRC violation markers without having to save the entire design.
+.P For example, if during ECO you find that only 25 of the 500 reported violations are actual violations that need to be corrected immediately, you can:
+.RS  "*" 2 Delete the other 475 violations.  "*" 2 Save the 25 violations in a marker file using the saveDrc command.  "*" 2 Clear the violations from the design window.  "*" 2 Load the marker file containing the saved violation markers using the loadDrc command.
+.RE
+.P Use the saveDrc command after markers have been flagged by any of the following commands:
+.RS  "*" 2 verify_drc
+.RE
+.RS  "*" 2 verifyMetalDensity
+.RE
+.P You can also use this command to save Calibre violation markers after a Calibre file has been loaded using the loadViolationReport command. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes the type and default information for each saveDrc parameter.  For a detailed description of the command and all its parameters, use the man command:   man saveDrc  "\fB<fileName>\fR" Saves the DRC violation markers in a file with the specified name.  "\fB-force\fR" Creates drc file with a 0 drc count.  Note: When there is no drc in the design, drc file is not generated (Default).  "\fB-selected\fR" Saves only the selected DRC violation markers. 
+.SH Examples
+.P The following command saves markers to the VG.drc file:
+.P saveDrc VG.drc 
+.SH Related Information
+.RS  "*" 2 verify_drc  "*" 2 The following sections in the Identifying and Viewing Violations chapter of User Guide:
+.RE
+.RS
+.RS  "*" 2 Viewing Violations With the Violation Browser
+.RE 
+.RE
+.RS
+.RS  "*" 2 Clearing Violations
+.RE 
+.RE
+.P

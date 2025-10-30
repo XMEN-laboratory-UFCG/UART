@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH start_parallel_edit  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBstart_parallel_edit\fR \-  Initializes parallel editing by drawing a yellow square on the main window to indicate the edit area and saving the physical data, net attributes, via cell names and Non-Default Rules (NDRs) to a multiple binary files. 
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P Once the DRC edits are complete, the parallel edit session can be stopped by using the end_parallel_edit command
+.SH Syntax \fBstart_parallel_edit\fR  [-help]  [-area_restricted]   -region {<x1 y1 x2 y2>} 
+.P Initializes parallel editing by drawing a yellow square on the main window to indicate the edit area and saving the physical data, net attributes, via cell names and Non-Default Rules (NDRs) to a multiple binary files. 
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P Once the DRC edits are complete, the parallel edit session can be stopped by using the end_parallel_edit command.
+.P Note: If the design is freed up from the current session by using freeDesign, the edit session is terminated automatically. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each start_parallel_edit parameter.  For a detailed description of the command and all of its parameters, use the man command:  man start_parallel_edit  "\fB-area_restricted\fR" Writes out only the different objects inside or touching the specified edit area. This is a strict interpretation of the region, and ignores the changes made outside of the region.  "\fB-region {<x1 y1 x2 y2>}  \fR" Specifies the coordinates of the edit area. 
+.SH Example
+.RS  "*" 2 The following command marks the specified edit area in yellow and saves the design data to binary files:   innovus 8> start_parallel_edit -area_restricted -region {12.524 6.627 0.0 0.0}  Saving net attribute and regular wire/via information  Saving instance information  Saving physical pin information  Saving NDR rule information  Saving routing blockage information  Saving placement blockage information  Saving special wire/via information 
+.RE 
+.SH Related Information
+.RS  "*" 2  end_parallel_edit  "*" 2  read_parallel_edit_files  "*" 2  Editing Wires chapter in the User Guide
+.RS  "*" 2 Parallel Editing Capability
+.RE 
+.RE
+.P

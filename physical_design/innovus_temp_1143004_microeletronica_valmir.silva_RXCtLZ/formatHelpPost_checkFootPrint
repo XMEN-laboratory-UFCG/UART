@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH checkFootPrint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheckFootPrint\fR \-  Checks the timing library for missing footprint functions or timing information
+.SH Syntax \fBcheckFootPrint\fR  [-help] 
+.P Checks the timing library for missing footprint functions or timing information.
+.P To view the above information in the software, use the man command: man checkFootPrint. 
+.SH Related Information
+.RS  "*" 2 loadFootPrint  "*" 2 reportFootPrint  "*" 2 setBufFootPrint  "*" 2 setInvFootPrint  "*" 2 setDelayFootPrint
+.RE
+.RS  "*" 2 The following section in Optimizing Timing chapter of the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 Using Cell Footprints
+.RE 
+.RE
+.P

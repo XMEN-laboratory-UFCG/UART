@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH replaceLefMacro  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreplaceLefMacro\fR \-  Replaces the current MACRO information in the design with the MACRO information in the specified LEF file
+.SH Syntax \fBreplaceLefMacro\fR  [-macros {<listOfMacros>}]   <lefFile> 
+.P Replaces the current MACRO information in the design with the MACRO information in the specified LEF file. You can use the replaceLefMacro command to change the geometry information of a macro, such as boundary size, pin location, pin layer, and pin size. You cannot use the command to change the number or name of pins for a macro.
+.P The replaceLefMacro command only reads and replaces the MACRO information from the LEF file; it does not use any other information in the file.
+.P Note: In the following scenarios tool cannot replace the LEF file automatically.
+.RS  "*" 2 If you replaced the LEF macro file multiple times. In this case, the tool would not know which file to keep at the end.  "*" 2 If the old LEF file that contains the original macro contains other MACRO definition. In this case, the old file cannot be removed by the tool. If the old file is not removed, the new file is appended to the list. As mentioned in the above point, the list may have multiple LEF files that contain the same MACRO but with different definition. When reading LEF files with multiple definitions, the tool keeps only the first one. As a result, in the next session the file that you want will not be loaded.
+.RE
+.P After trying different macro definitions, you need to replace the content of the macro definition manually. You can do this either by overwriting the one in original LEF file, or if the original LEF file contains only that macro, replacing the LEF file in the LEF file list. 
+.SH Parameters    "\fB<lefFile>\fR" Specifies the LEF file to read.  "\fB-macros {<listOfMacros>}\fR" Replaces the information for the specified macros only.  Default: Replaces the information for all macros in the LEF file.
+.P

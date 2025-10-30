@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH zoomSelected  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBzoomSelected\fR \-  Zooms in the viewable window to the area that encloses the selected objects
+.SH Syntax \fBzoomSelected\fR  [-help]  [-margin <value>]       
+.P Zooms in the viewable window to the area that encloses the selected objects. 
+.SH Parameters    "\fB-help\fR" Prints a brief description of the zoomSelected command.  For a detailed description of the command, use the man command: man zoomSelected.  "\fB-margin <value>\fR" Specifies the zoom margin ratio as an integral value. The zoom margin is the minimum spacing between the bounding box of the selected object(s) and the layout view.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   The minimum value is 0 and the maximum value is 99.  Default: 50 
+.SH Related Information
+.RS  "*" 2  viewLast  "*" 2  viewNext  "*" 2  zoomBox  "*" 2  zoomIn  "*" 2  zoomOut  "*" 2  zoomTo  "*" 2  View Menu chapter in the Menu Reference
+.RS  "*" 2 Zoom
+.RE 
+.RE
+.P

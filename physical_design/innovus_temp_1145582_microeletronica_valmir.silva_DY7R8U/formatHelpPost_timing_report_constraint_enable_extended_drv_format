@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_constraint_enable_extended_drv_format  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_constraint_enable_extended_drv_format\fR
+.SH Syntax \fBtiming_report_constraint_enable_extended_drv_format\fR   {true | false}
+.P Default: false
+.P Enables the software to report data as per clock/data and rise/fall phases. 
+.P To set this global variable, use the set command.
+.P

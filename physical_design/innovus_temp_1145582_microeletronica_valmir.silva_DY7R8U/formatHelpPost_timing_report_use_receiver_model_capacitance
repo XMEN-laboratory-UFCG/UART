@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_use_receiver_model_capacitance  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_use_receiver_model_capacitance\fR
+.SH Syntax \fBtiming_report_use_receiver_model_capacitance\fR {true | false}  
+.P Default: false
+.P Enables the max_capacitance violations based on dynamic pin capacitance.
+.P When set to true, the software checks for both the input level and timing arc level dynamic pin capacitance tables for worst-case pin capacitance table for given input slew. If conditional pin capacitance tables (or timing_arcs) exist, the worst-case is used among all the conditions.
+.P This global variable performs static pin capacitance inference after delay calculation, so the delay computation is not impacted. The pin capacitance is used only for reporting and max_cap violations.
+.P To set this global variable, use the set command.
+.P

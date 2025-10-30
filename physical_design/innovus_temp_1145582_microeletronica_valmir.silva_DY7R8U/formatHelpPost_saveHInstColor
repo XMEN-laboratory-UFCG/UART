@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveHInstColor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveHInstColor\fR \-  Saves the current color setting for a hierarchical instance from the Module Color Preference form to a file
+.SH Syntax \fBsaveHInstColor\fR  [-help]   <fileName> 
+.P Saves the current color setting for a hierarchical instance from the Module Color Preference form to a file. The Module Color Preference form is accessed by clicking Floorplan - Edit Floorplan - Color Module. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each saveHInstColor parameter.  For a detailed description of the command and all of its parameters, use the man command: man saveHInstColor.  "\fB<fileName>\fR" Specifies the name of the file that stores 30 color settings starting with the setLayerPreference command.  This is the same behavior as the Save button on the Module Color Preference form. 
+.SH Example
+.P The following command saves the current color setting for a hierarchical instance from the Module Color Preference form to a file named hinstColorFile:
+.P saveHInstColor hinstColorFile 
+.SH Related Information
+.RS  "*" 2 resetMultiColorsHier  "*" 2 saveColorPreference  "*" 2 setHInstColorId  "*" 2 setMultiColorsHier  "*" 2 set_object_color  "*" 2 setSelHInstColor  "*" 2 Floorplan Menu chapter in the Menu Reference
+.RS  "*" 2 Color Module
+.RE 
+.RE
+.P

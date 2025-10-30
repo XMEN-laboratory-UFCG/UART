@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH placeCursor  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBplaceCursor\fR \-  Places the cursor at the specified location in the main window
+.SH Syntax \fBplaceCursor\fR  [-help]  <x> <y> 
+.P Places the cursor at the specified location in the main window.
+.P You can specify this command at any time after starting the Innovus software. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each placeCursor parameter.  For a detailed description of the command and all of its parameters, use the man command:   man placeCursor  "\fB<x>\fR" Specifies the x coordinate of the cursor location.  Data_type: float, required  "\fB<y>\fR" Specifies the y coordinate of the cursor location.  Data_type: float, required 
+.SH Example
+.P The following command places the cursor at the coordinates (133, 277).
+.P placeCursor 133 277
+.P

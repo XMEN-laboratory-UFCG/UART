@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH createBusGuide  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcreateBusGuide\fR \-  Creates bus guides associated with net groups, to guide routing for all the nets of the specified net group
+.SH Syntax \fBcreateBusGuide\fR  [-help]  [-type {hard | soft}]  -netGroup <netGrpName>  -layer {id | id1:id2}   {[{-centerLine {<x1 y1 x2 y2>} -width <value>} [-beginExt <value>] [-endExt <value>]] | -rect {<x1 y1 x2 y2>}} 
+.P Creates bus guides associated with net groups, to guide routing for all the nets of the specified net group. You can create horizontal, vertical, and 45-degree bus guide segments. 45-degree bus guides are required for flip chip routing.
+.P Use this command after defining a net group that will be associated with the new bus guide segment.
+.P After a bus guide is created, you can modify its layer or width later by using the update_bus_guide command. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each createBusGuide parameter.  For a detailed description of the command and all of its parameters, use the man command:   man createBusGuide.  "\fB-beginExt <value>\fR" Specifies the value, in microns, by which the bus guide segment is to be extended in the beginning.  "\fB-centerLine <x1><y1><x2><y2>\fR" Specifies the coordinates of the center line of the bus guide segment.  The direction of the guide segment is derived from the x1 y1 x2 y2 coordinate values.  Note: Non-orthogonal bus guide segments are not supported.  "\fB-endExt <value>\fR" Specifies the value, in microns, by which the bus guide segment is to be extended in the end.  "\fB-layer {<id> | <id1>:<id2>}\fR" Specifies the routing layer constraint honored by the router.  Note: Routing done on non-preferred routing layers or on layers which are not part of the specified layer constraint can have high cost implications   "\fB-netGroup <netGrpName>\fR" Specifies the name of the net group that will be associated with the new bus guide segment that you are creating.  "\fB-rect {<x1 y1 x2 y2>}\fR" Specifies the lower-left and upper-right coordinates of the rectangle formed by the bus guide segment.  "\fB-type {hard | soft}\fR" Specifies the constraint type of the bus guide:
+.RS  "*" 2 hard - After running Early Global Route (eGR), NanoRoute (NR), or NanoRoute High Frequency Router (NRHF), the route obeys the path of the bus guide.  "*" 2 soft - After running eGR, NR, or NRHF, the bus guide only guides the route path. The tool can route the net out of the bus guide.
+.RE   Default: soft (If you don't specify the -type parameter to define the constraint type, the value of constraint type is taken as soft.)  "\fB-width <value>\fR" Specifies the width, in microns, of the bus guide segment that you are creating. 
+.SH Examples
+.RS  "*" 2 The following command creates a horizontal bus guide segment whose width is 120 microns, and layer constraint is from METAL4 to METAL8:  createBusGuide -netGroup netGroup1 -centerLine 4421.8 10749.36 4960.8 10749.36 -width 120 -layer METAL4:METAL8  "*" 2  The following command creates a bus guide segment whose lower-left coordinate is at pt {464 1240} and upper-right coordinate is at pt {528 1260} for the net group test and with a layer constraint of Metal1 to Metal4:   createBusGuide -netGroup test -layer {1:4} -rect {464 1240 528 1260}  "*" 2  The following command creates a 45-degree bus guide segment:  createBusGuide -netGroup test3Group -centerLine 400 500 450 550 -width 20 -layer {METAL7:METAL8}
+.RE 
+.SH Related Information
+.RS  "*" 2 createNetGroup  "*" 2 deleteBusGuide  "*" 2 selectBusGuide  "*" 2 update_bus_guide  "*" 2 Bus Planning chapter in the User Guide
+.RS  "*" 2 Creating a Bus Guide
+.RE  "*" 2 Edit Menu chapter in the Menu Reference
+.RS  "*" 2 Bus Guide
+.RE 
+.RE
+.P

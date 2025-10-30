@@ -1,0 +1,22 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_annotated_check  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_annotated_check\fR
+.SH Syntax \fBreset_annotated_check\fR  [-clock [rise | fall]]   [-cond <sdf_condtion>]   [-setup | -recovery]   [-hold | -removal]   [-nochange_high | -nochange_low]   [-rise] [-fall]   {[[-from <from_pins>][-to <to_pins>]] | -all}   [<object_list>] 
+.P Removes annotated timing check values that you had set by using the set_annotated_check command or by SDF annotation.
+.P Note: The reset_annotated_check command does not reset the timing check values set by SDF annotations. 
+.SH Parameters    "\fB-all\fR" Resets all annotated timing check values in the design.  "\fB-clock [rise | fall]\fR" Specifies the direction of the related pin of the check to reset.  Default: Resets checks against both edges of the clock  "\fB-cond <sdf_condtion>\fR" Resets all annotated timing check values for which a condition is specified.  "\fB-fall\fR" Restricts the reset to only affect the falling edge of the constrained pins.  Default: Checks on both rising and falling signals are reset  "\fB-from <from_pins>\fR" Specifies the beginning instance pin of the timing arcs for which the annotated check is reset. This is usually the reference (for example, clock pin) of the constraint. The selected timing arcs are those that have their source pins specified using this option and the sink pins specified using the -to option. If this option is not specified, only timing arcs whose sink pins are specified using the -to option are selected. You cannot use this parameter with <object_list> parameter.  "\fB-hold | -removal\fR" Resets annotations on the hold or removal check type.  "\fB-nochange_high | -nochange_low\fR" Resets the annotations on the specified timing check type.  "\fB<object_list>\fR" Resets the annotated checks on specified list or collection of cell instances.  "\fB-rise\fR" Restricts the reset to only affect the rising edge of the constrained pins.  Default: Checks on both rising and falling signals are reset  "\fB-setup | -recovery\fR" Resets annotations on the setup or recovery check type.  "\fB-to <to_pins>\fR" Specifies the terminating instance pin of the timing arcs for which the annotated check is reset. This is usually the constrained pin (data pin) of the check. The selected timing arcs are those that have their sink pins specified using this option and the source pins specified using the -from option. If this option is not specified, only timing arcs whose source pins are specified using the -from option are selected. You cannot use this parameter with <object_list> parameter. 
+.SH Examples
+.RS  "*" 2 The following command resets all the timing check annotations in the design:   reset_annotated_check -all
+.RE
+.RS  "*" 2 The following command resets all timing check annotations on a particular cell:   reset_annotated_check [get_cells BLK/BR1]
+.RE
+.RS  "*" 2 The following command resets specific checks on a specific instance:   reset_annotated_check -setup -hold [get_cells BLK/BR2]
+.RE
+.RS  "*" 2 The following command resets checks on a specific timing check arc:   reset_annotated_check -from BLK/BR1/CK -to BLK/BR1/D
+.RE 
+.SH Related Information
+.RS  "*" 2 set_annotated_check
+.RE
+.P

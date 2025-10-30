@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH commit_module_model  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcommit_module_model\fR \-  Commits module models
+.SH Syntax \fBcommit_module_model\fR  [-help]   [-copy_mmmc_latencies]  [-merged_mmmc_map_file <mapFiles>]  [-merged_mmmc_sdc_files <mergedSdcFiles>]  [-mmmc_file <fullChipSdc>]  [-mmmc_module_model_tag <modelTag>]  [-propagate_clocks]  [-cpf_file <filename>| -1801 <filename>]
+.P Commits module models. 
+.SH Parameters   "\fB-copy_mmmc_latencies\fR" Copies clock latencies of all analysis views at the top-level design and applies them after assembling the design:  When this option is specified, the command will do following after assembling the design:   foreach view [all_analysis_views] {      update_analysis_view -name $view -latency_file $latency_map($view)    }  Where latency_map has clock latency files for all views.  "\fB-cpf_file <filename> \fR" Specifies the name of the full chip CPF file to be used.  "\fB-help\fR" Outputs a brief description that includes the type and default information for each commit_module_model parameter.  For a detailed description of the command and all of its parameters, use the man command:   man commit_module_model  "\fB-merged_mmmc_map_file <mapFiles>\fR" Specifies merge hierarchical mmmc map files.  "\fB-merged_mmmc_sdc_files <mergedSdcFiles>\fR" Specifies SDC files for different dies.   "\fB-mmmc_file <fullChipSdc> \fR" Specifies the name of the full chip MMMC view file.   "\fB-mmmc_module_model_tag <modelTag>\fR" Specifies MMMC module model tag.  "\fB-propagate_clocks\fR" Changes clock ideal to propagated clock. When this option is specified, you can run the following commands:   set_interactive_constraint_modes [all_constraint_modes -active]   set_propagated_clock [all_clocks]  "\fB-1801 <filename>\fR" Specifies the name of the IEEE 1801 file to be used. 
+.SH Related Information
+.RS  "*" 2 set_interactive_constraint_modes  "*" 2 set_propagated_clock   "*" 2 update_analysis_view
+.RE
+.P

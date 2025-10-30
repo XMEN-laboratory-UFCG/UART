@@ -1,0 +1,8 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_unconstrained_path_early_late_header  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_unconstrained_path_early_late_header\fR \-  To set this global variable, use the set command
+.SH Syntax \fBtiming_report_unconstrained_path_early_late_header\fR   {true | false}  Default: false  When set to true, the software provides information in the timing report header that indicates whether an unconstrained path is a late or early path.
+.P To set this global variable, use the set command.
+.P

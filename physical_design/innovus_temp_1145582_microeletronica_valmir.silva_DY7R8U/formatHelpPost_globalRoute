@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH globalRoute  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBglobalRoute\fR \-  Plans the interconnect by breaking the routing portion of the design into rectangles called global routing cells (gcells) and assigning the signal nets to the gcells
+.SH Syntax \fBglobalRoute\fR  [-help] 
+.P Plans the interconnect by breaking the routing portion of the design into rectangles called global routing cells (gcells) and assigning the signal nets to the gcells.
+.P Note: If you are running ECO routing, use globalDetailRoute. Your results are not predictable with other routing commands.
+.P Use this command after completing the following steps:
+.RS  "*" 2 Placing the design.  "*" 2 Setting net attributes with setAttribute, and NanoRoute run-time options with setNanoRouteMode. To use current values for attributes and default values for options, this step is optional.
+.RE 
+.SH Parameters   "\fB-help\fR" Outputs a brief description of the globalRoute command.   For a detailed description of the command, use the man command:    man globalRoute 
+.SH Example
+.P The following command globally routes the design and saves the design as droute.  globalRoute  saveDesign droute 
+.SH Related Information
+.RS  "*" 2 detailRoute  "*" 2 globalDetailRoute  "*" 2 routeDesign  "*" 2 setAttribute  "*" 2 setNanoRouteMode  "*" 2 Using the NanoRoute Router chapter in the Innovus User Guide
+.RS  "*" 2 Global Routing
+.RE 
+.RE
+.P

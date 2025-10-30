@@ -1,0 +1,36 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH showPtnWireX  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBshowPtnWireX\fR \-  Displays and writes a file of wires that physically cross over partitions. You can use this command after routing the design
+.SH Syntax \fBshowPtnWireX\fR   [-help]  [ptnName]   [-outfile <fileName>]   [-excludeNet <exNetFileName>]   [-excludeClock]   [-excludeTri]   [-excludeHighFan <nrFan>]   [-allNets]  [-delta]
+.P Displays and writes a file of wires that physically cross over partitions. You can use this command after routing the design.
+.P Note: The showPtnWireX command supports designs with nested partitions.  
+.SH Parameters    "\fB-allNets\fR" Reports nets that cross partitions that also connect to the ports of partitions. If this parameter is not specified, only nets that cross the partitions are reported.  Data_type: bool, optional  "\fB-delta\fR" Reports the total segment length of the wires crossing the block in the X and Y directions.  Data_type: bool, optional  "\fB-excludeClock\fR" Excludes clock nets from the wire crossing information.  Data_type: bool, optional  "\fB-excludeHighFan <nrFan>\fR" Excludes nets with fanouts over nrFan from the display.  Data_type: int, optional  "\fB-excludeNet <exNetFileName>\fR" Specifies the filename that contains nets to be excluded from the display.  Data_type: string, optional  "\fB-excludeTri\fR" Excludes all tristate nets from the display.  Data_type: bool, optional  "\fB-help\fR" Outputs a brief description that includes the type and default information for each showPtnWireX parameter. For a detailed description of the command and all of its parameters, use the man command:  man showPtnWireX  "\fB-outfile <fileName>\fR" Specifies the name of the output file of wire crossing information.  Default: If you do not specify this parameter, the detailed information is output to the ptnName.wireCrossing file, where ptnName is the name of the partition.  For master clone designs, three output files are created. These files can be used by the insertPtnFeedthrough command for path based feedthrough insertions in master and clone designs.  For example, when you specify,  showPtnWireX -outFile abc  The following files are generated:
+.RS  "*" 2 abc.mc_connected_nets.txt:  For all nets connected to master/clone partitions.  "*" 2 abc.mc_crossing_nets.txt: For all nets with wires over master/clone partitions (but not in the above file) and not intra partition nets.  "*" 2 abc.non_mc.txt:  For all remaining nets which are not in above files and are not intra partition nets.
+.RE   Note: The default output file, abc.wireCrossing, is now only valid for non master/clone designs and has no significance for master and clone designs.  Note: It is not recommended to use the insertPtnFeedthrough -routeBased option for the nets in abc.mc_connected_nets.txt and abc.mc_crossing_nets.txt.   Data_type: string, optional  "\fB<ptnName>\fR" Specifies the name of the partition to show wire crossing. If you choose this option with other options, it must be the first specified when running this command.  Default: If you do not specify this parameter, it will show all partition wire crossings.  Data_type: string, optional 
+.SH Example
+.P The following command displays the routes crossing over partition, sheet17, and outputs the detail information into file, sheet17.crossing:
+.P showPtnWireX sheet17 -outfile sheet17.crossing
+.P The wire crossing report section lists the nets, their wire lengths, in micrometers, and the shape of the wire in relation to the partition.   For example, the following report segment is for a partition module named sheet17:
+.P #########################################################  # Nets that cross partition module sheet17  # Box (335 335) (833 567)  # Format: Net <netName> <wireLength> <shape>  #########################################################
+.P Net A 65 I  Net B 80 L  Net C 1050 T  Net D 132 X 
+...
+.P The first net in the report, A, has a wire length of 65 micrometers in an `I' shape, which indicates that the net crosses the partition on opposite sides, as follows:
+.P Net A 65 I
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P The second net in the report, B, has a wire length of 80 micrometers in an `L' shape, which indicates that the net crosses the partition on adjacent sides, as follows:
+.P Net B 80 L
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P The third net in the report, C, has a wire length of 105 micrometers in an `T' shape, which indicates that the net crosses the partition on three sides, as follows:
+.P Net C 105 T
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)
+.P The fourth net in the report, D, has a wire length of 132.30 micrometers in an `X' shape, which indicates that the net crosses the partition on all four sides, as follows:
+.P Net D 132 X
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.SH Related Information
+.RS  "*" 2 insertPtnFeedthrough  "*" 2 Partitioning the Design chapter in the Innovus User Guide
+.RS  "*" 2 Generating the Wire Crossing Report
+.RE 
+.RE
+.P

@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH trPrintIgnoredPadNets  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtrPrintIgnoredPadNets\fR
+.SH Syntax \fBtrPrintIgnoredPadNets\fR <value> 
+.P Type: Integer
+.P Default: 0
+.P Sets a limit to the number of nets to be printed during earlyGlobalRoute. This limit is used to warn about the nets that have connectivity from a pad term to a fterm without geometry. Without a geometry on the terminal these nets can not be routed. A pad term is a pin of a pad logically connected to a top level module port (fterm). 
+.P Type 'set trPrintIgnoredPadNets ' prior to earlyGlobalRoute to have it report each net up to limit value.
+.P The default value of this integer variable is 0 
+.SH Related Information
+.RS  "*" 2 earlyGlobalRoute 
+.RE
+.P

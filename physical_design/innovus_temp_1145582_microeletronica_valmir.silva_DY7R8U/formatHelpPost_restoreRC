@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH restoreRC  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBrestoreRC\fR \-  Restores the RC extraction data that was previously saved either with the saveDesign name -rc or the saveRC command
+.SH Syntax \fBrestoreRC\fR   [-help]  dirName  
+.P Restores the RC extraction data that was previously saved either with the saveDesign name -rc or the saveRC command.
+.P Note: The systems you use to save and restore RC extraction data must match (32-bit or 64-bit data models). 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for the restoreRC parameter.  For a detailed description of the command and all of its parameters, use the man command: man restoreRC.  "\fB<dirName>\fR" Specifies the location of the RCDB directory. The syntax of the directory name is *.rcdb.d. For example, you can restore the parasitic data in test.rcdb.d. 
+.SH Related Information
+.RS  "*" 2 saveRC  "*" 2 saveDesign
+.RE
+.P

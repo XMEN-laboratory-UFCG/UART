@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH displayUserBundleNet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdisplayUserBundleNet\fR \-  Displays flightlines for the specified net bundle
+.SH Syntax \fBdisplayUserBundleNet\fR   [-help]   [-keepExisting]   -netBundle <bundleName>  [-remove]  
+.P Displays flightlines for the specified net bundle. Bundled nets help you with data flow analysis before and after layout. Net bundles can be created and viewed in floorplan and amoeba views. When you run the displayUserBundleNet command, the software switches automatically to the net bundle mode and clears flightlines based on selection.
+.P You can create flight line net bundles using the createUserBundleNet command and delete them using the deleteUserBundleNet command.
+.P Note: When selecting objects, you can choose to display flightlines for only bundled nets by using the Only Show Net Bundle Flight Line option in the Preferences form. If this option is not selected, the net bundle flightlines are displayed along with other flightlines. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each displayUserBundleNet parameter.  For a detailed description of the command and all of its parameters, use the man command:  man displayUserBundleNet  "\fB-keepExisting\fR" Retains existing net bundle flightlines while displaying the flightline of specified net bundles. If this option is not specified, the command clears existing flightlines before displaying specified net bundle flightlines.  "\fB-netBundle <bundleName>\fR" Specifies the name of the net bundle whose flightlines you want to display. You can specify more than one net bundle.  "\fB-remove\fR" Clears flightlines of specified net bundle from the display area. If no net bundle name is specified, all flightlines based on net bundles are removed.  Note: This option only clears the flightlines of the net bundle from the display area. If you want to remove the net bundle itself, use the deleteUserBundleNet command. 
+.SH Examples
+.RS  "*" 2 The following command displays flightlines of the net bundle bundle_1. Here, bundle_1 contains net_1, which is just between A and B, and net_2, which is just between B and C:  displayUserBundleNet -netBundle bundle_1  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)   "*" 2 The following command displays flightlines of the net bundle bundle_2 while retaining flightlines of bundle_1. Here, bundle_2 contains net_3, which is among B, C, and D:  displayUserBundleNet -netBundle bundle_2 -keepExisting  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  Note: The same flightlines could also be displayed in a single step by using the following command:  displayUserBundleNet -netBundle {bundle_1 bundle_2}
+.RE 
+.SH Related Information
+.RS  "*" 2 createUserBundleNet  "*" 2 deleteUserBundleNet   "*" 2 View Menu chapter of the Menu Reference 
+.RS  "*" 2 Preferences - Flightline
+.RE 
+.RE
+.P

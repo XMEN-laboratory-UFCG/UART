@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_dont_touch  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_dont_touch\fR \-  Prevents the specified object from being modified during optimization. However, the specified object can be moved during optimization
+.SH Syntax  \fBset_dont_touch\fR  <object_list>  [true | false] 
+.P Prevents the specified object from being modified during optimization. However, the specified object can be moved during optimization.
+.P When you specify a net, it cannot be buffered or become a part of the logic cone restructuring. However, you can resize the instances connected to this net because the dont_touch attribute set of the net does not propagate on the connected instances. 
+.SH Parameters    "\fBtrue | false\fR" Sets or removes the set_dont_touch attribute for the specified <object_list>.  Default: true  "\fB<object_list>\fR" Specifies the list of instances, nets, library cells, or submodules. 
+.SH Examples
+.RS  "*" 2 The following command prevents the specified instance from being modified:   set_dont_touch [get_cells {TWA/FF1}]  "*" 2  The following commands can be used to prevent any ECO inside RESULTS_CONV_INST hierarchical instance: set_dont_touch [get_cells RESULTS_CONV_INST/*] true  set_dont_touch [get_nets RESULTS_CONV_INST/*] true   "*" 2 The set_dont_touch RESULTS_CONV_INST/* true command will return [get_cells RESULTS_CONV_INST/*] only. This is because the software looks into the first match (type of object). If a match is not found, then the successive objects are searched. 
+.RE 
+.SH Related Information
+.RS  "*" 2 get_cells
+.RE
+.P

@@ -1,0 +1,130 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH report_constraint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreport_constraint\fR \-  Reports constraint information of current design
+.SH Syntax  \fBreport_constraint\fR  [-all_violators]  [-verbose]  [-late]  [-early]  [-check_type { pulse_width | clock_period | recovery | removal | clock_gating_setup | clock_gating_hold | skew | pulse_clock_max_width | pulse_clock_min_width | electromigration | rail_swing}]  [-drv_violation_type { max_capacitance | max_transition | max_fanout | min_capacitance | min_transition | min_fanout | pulse_clock_max_transition | pulse_clock_min_transition}]  [-connection_class]  [-retime {aocv | path_slew_propagation | aocv_path_slew_propagation}]  [-retime_mode {path | exhaustive}]  [-view <viewName>]  [<pin_port_list>]  [{> | >>} filename[.gz]]
+.P Reports constraint information of current design. The constraints information includes information such as whether or not constraint is violated, by how much amount, and the worst violator object.
+.P The following timing checks are reported when you use the report_constraint command:
+.RS  "*" 2 All setup and hold checks
+.RE
+.RS  "*" 2 DRV
+.RE
+.RS  "*" 2 Clock and asynchronous checks including pulse_width, min_period, recovery, removal, clock_gating_setup, clock_gating_hold, skew
+.RE
+.P The report_constraint command does not honor the report_timing_format global variable by default. To honor this global you need to set the timing_report_constraint_use_report_timing_format global variable to true.
+.P The report_constraint command supports DRV constraints (set_min_fanout, set_max_fanout, set_min_transition, set_max_transition, set_min_capacitance, and set_max_capacitance) applied on library pins.
+.P The report_constraint command supports multi-threaded reporting. You can make the following settings to enable multi-threaded reporting:
+.P setMultiCpuUsage -localCpu <number_of_CPU>set_table_style -no_frame_fix_width
+.P By default, the report_constraint command reports only the mean slews. You can enable DRV checking to use mean as well as the n-sigma slew values (in SOCV mode), with the following setting:  set timing_report_max_transition_check_using_nsigma_slew true 
+.SH Parameters    "\fB{> | >>} <filename>\fR" When specified with >, writes the report to the specified file name. If the file already exists, the software overwrites it.  When specified with >>, writes the report to the specified file name. If the file already exists, the software concatenates the report to the end of the file.  The <filename> parameter must be the last argument in the list.  Note: To write a compressed report, add the
+.gz extension to the file name.  Default: Report is displayed on standard output without being saved.  "\fB-all_violators\fR" Reports negative slack values for timing checks. The supported check types are:
+.RS  "*" 2 setup
+.RE
+.RS  "*" 2 hold
+.RE
+.RS  "*" 2 clock_gating_setup
+.RE
+.RS  "*" 2 clock_gating_hold
+.RE
+.RS  "*" 2 recovery
+.RE
+.RS  "*" 2 removal
+.RE
+.RS  "*" 2 clock_period
+.RE
+.RS  "*" 2 pulse_width
+.RE
+.RS  "*" 2 max_capacitance
+.RE
+.RS  "*" 2 max_transition
+.RE
+.RS  "*" 2 max_fanout
+.RE
+.RS  "*" 2 min_capacitance
+.RE
+.RS  "*" 2 min_transition
+.RE
+.RS  "*" 2 min_fanout
+.RE
+.RS  "*" 2 skew
+.RE
+.RS  "*" 2 pulse_clock_max_width
+.RE
+.RS  "*" 2 pulse_clock_min_width
+.RE
+.RS  "*" 2 pulse_clock_max_transition
+.RE
+.RS  "*" 2 pulse_clock_min_transition
+.RE   You can use the -all_violators parameter for reporting specific check types to generate report for that particular check type only. For example, you can use -all_violators with -late to report setup checks and path delays from set_max_delay.  "\fB-check_type\fR" Reports setup or hold checks. The supported check types are:
+.RS  "*" 2 clock_gating_setup: Reports only the paths that end at the clock_gating_setup timing check.
+.RE
+.RS  "*" 2 clock_gating_hold: Reports only the paths that end at the clock_gating_hold timing check.  "*" 2 electromigration: Reports signal EM analysis related violations. When high density current passes through a thin metal wire, the high energy electrons exert forces on atoms causing them to migrate. Electromigration (EM) can drastically reduce the lifetime of a chip by increasing the resistivity of a metal wire or creating a short circuit between adjacent lines. When this option is specified, the software reports standard cell level electromigration violations.
+.RE
+.RS  "*" 2 recovery: Reports paths that end at the recovery timing check.
+.RE
+.RS  "*" 2 removal: Reports paths that end at the removal timing check.  Note: The check types - recovery, removal, clock_gating_setup, and clock_gating_hold are also supported in AOCV mode.
+.RE
+.RS  "*" 2 pulse_width: Reports only the paths that end at the pulse_width timing check.   If you do not specify the -all_violators parameter, then the pulse_width option reports only one entry of the most critical pulse_width check. The DRV checks also report only the most critical entry.  To report all the violated pulse_width checks, you need to specify report_constraint -check_type pulse_width -all_violators command (which is consistent with other check types of the report_constraint command).  To report both violating and met entries, you can use the report_min_pulse_width command.
+.RE
+.RS  "*" 2 clock_period: Reports only the paths that end at the clock_period timing check.
+.RE
+.RS  "*" 2 skew: Reports skew checks.   The report_constraint command performs skew checks by default.  Skew checks are implemented as setup checks that are reported in the late analysis or simultaneous mode. These checks are not reported in the early mode. Skew checks are performed assuming the signal and reference clocks have the same frequency. If the frequencies of the signal and reference clocks are different, a warning message is displayed.  "*" 2 pulse_clock_max_width: Reports the maximum pulse clock width checks.  "*" 2 pulse_clock_min_width: Reports the minimum pulse clock width checks.  "*" 2 rail_swing: Reports details related to the rail swing checks. For rail swing check settings, you can use the following global variables:
+.RS  "*" 2 timing_rail_swing_checks_low_voltage_threshold  "*" 2 timing_rail_swing_checks_high_voltage_threshold
+.RE 
+.RE   "\fB-connection_class\fR" Reports violations if the connection class attributes of the driving pin and receiving pin of a net are different.  "\fB-drv_violation_type\fR" Reports DRV violations. The supported DRV check types are:
+.RS  "*" 2 max_capacitance: Reports pins having the worst max_capacitance constraint. If you specify the -all_violators parameter, you can see all the pins whose actual capacitance is greater than the max_capacitance value specified in library and timing constraints file.
+.RE
+.RS  "*" 2 min_capacitance: Reports pins having the worst min_capacitance constraint. If you specify the -all_violators parameter, you can see all the pins whose actual capacitance is less than the min_capacitance value specified in the library and timing constraints file.
+.RE
+.RS  "*" 2 max_transition: Reports pins having the worst max_transition constraint. If you specify the -all_violators parameter, you can see all the pins whose actual transition is greater than the max_transition value specified in the library and timing constraint file.  Note: These checks are not reported in hold analysis mode. The set_si_mode -enable_drv_with_delta_slew true setting is required for max_transition DRV violations with SI slew.
+.RE
+.RS  "*" 2 min_transition: Reports pins having the worst min_transition constraint. If you specify the -all_violators parameter, you can see all the pins whose actual transition is less than the min_transition value specified in the library and timing constraints file.
+.RE
+.RS  "*" 2 max_fanout: Reports pins having the worst max_fanout constraint. If you specify the -all_violators parameter, you can see all the pins whose actual fanout is greater than the max_fanout value specified in the library and timing constraints file.
+.RE
+.RS  "*" 2 min_fanout: Reports pins having the worst min_fanout constraint. If you specify the -all_violators parameter, you can see all the pins whose actual fanout is less than the min_fanout value specified in the library and timing constraints file.
+.RE
+.RS  "*" 2 pulse_clock_max_transition: Reports maximum pulse clock transition checks.  "*" 2 pulse_clock_min_transition: Reports minimum pulse clock transition checks.
+.RE   "\fB-early\fR" Reports all of the hold checks, including regular, clock_gating_hold, and data-to-data hold checks. Also reports path delays from set_min_delay.  Note: This parameter does not report removal checks.  "\fB-late\fR" Reports all of the setup checks, including regular, clock_gating_setup, and data-to-data setup checks. Also reports path delays from set_max_delay.  Note: This parameter does not report recovery checks.  "\fB<pin_port_list>\fR" Controls the output of DRV constraints. When specified, all DRV violations are reported for the specified pins or ports only.  "\fB-retime {aocv | path_slew_propagation | aocv_path_slew_propagation}\fR" Reanalyzes the specified set of paths using the specified method.  Note: The parameter supports setup/hold check types only.  aocv: Re-evaluates the given set of graph-based analysis (GBA) paths by reverting back graph-based AOCV derate factors and applying path- based AOCV derates instead of less pessimistic derates. In this case the slew (and respective delays) values are worst that are propagated during graph-based analysis.  aocv_path_slew_propagation: Re-evaluates the given set of graph-based analysis (GBA) paths by using path-based AOCV derates and delays using actual path- based propagated slew.  path_slew_propagation: Re-evaluates the given set of graph-based analysis (GBA) paths by recalculating the delay values based upon actual propagated slew across the path. In this case the AOCV derates are the ones that are reported during graph-based analysis.  "\fB-retime_mode {path | exhaustive}\fR" Allows the report_constraint command to be run in exhaustive path-based analysis (PBA) mode.  In this mode, the software will exhaustively examine nworst paths of the selected endpoints and then select the true worst path to be reported - based on retimed slacks of all the examined paths.  To enable exhaustive mode, the use model is given below:  report_constraint -all_violators -retime path_slew_propagation -retime_mode exhaustive  When you use this parameter, reporting can be run time intensive as the software needs to do an exhaustive search for true worst paths. Therefore, it is recommended to use this option in the later phases of sign-off stage when there are very few violations left for analysis.  Default: path  "\fB-verbose\fR" Generates a report that displays the full data path with accompanying required time and slack calculation.  "\fB-view <viewName>\fR" Generates a report containing endpoint and other constraint information for the specified analysis view.  You can only specify this parameter when the software is in multi-mode multi-corner analysis mode.  Default: Generates a report containing the worst endpoint and constraint information based on all of the analysis views. 
+.SH Examples
+.RS  "*" 2
+.RS  "*" 2 Consider a design having 3 sequential endpoints:
+.RE
+.RS  "*" 2
+.RS  "*" 2 setup_pin: Having a setup check with slack equal to -9.000
+.RE 
+.RE
+.RS  "*" 2
+.RS  "*" 2 recovery_pin: Having a recovery check with slack equal to -8.000
+.RE 
+.RE
+.RS  "*" 2
+.RS  "*" 2 both_setup_recovery_pin: Having both setup check (slack = -6.000) and recovery check (slack = -7.000)   In this case, the report_constraint -late -all_violators command will display the following output:  max_delay/setup  --------------------------------------------------------  End Point                 Slack          Cause  --------------------------------------------------------  setup_pin f               -9.000         VIOLATED  both_setup_recovery_pin   -6.000         VIOLATED  -------------------------------------------------------
+.RE 
+.RE
+.RS  "*" 2 The report_constraint -check_type recovery -all_violators command will display the following output:  Check type : recovery  ------------------------------------------------------------  End Point                    Slack          Cause  -----------------------------------------------------------  recovery_pin r               -8.000         VIOLATED  both_setup_recovery_pin      -7.000         VIOLATED  -----------------------------------------------------------
+.RE
+.RS  "*" 2  The report_constraint -late -check_type recovery -all_violators command displays the following output:  max_delay/setup  -----------------------------------------------------------------------------  End Point                 Slack           Cause  -----------------------------------------------------------------------------  setup_pin f               -9.000          VIOLATED  recovery_pin r            -8.000          VIOLATED  both_setup_recovery_pin   -7.000          VIOLATED  -----------------------------------------------------------
+.RE
+.RS  "*" 2 The report_constraint command displays the following output:  max_delay/setup  ------------------------------------------------------------  End Point            Slack                Cause  -----------------------------------------------------------  out2 r              -4111.834             VIOLATED  ----------------------------------------------------------  Check type : clock_period  ---------------------------  No paths found  Check type : pulse_width  -------------------------------------------------------------------                            SEQUENTIAL CLOCK PULSE WIDTH  --------------------------------------------------------------------  Pin             Required         Actual Pulse         Slack                  Pulse Width      Width  -------------------------------------------------------------------  dff2/CK (low)   0.260            -670.800            -671.060  -------------------------------------------------------------------  Check type : max_transition  ---------------------------  Pin : sub1/dff1/D  max_transition : 4.500  Transition Time: 5114.060  -----------------------------------------------------------------------------  slack: -5109.560 (VIOLATED)  Check type : max_capacitance  ---------------------------  Pin : buf133/Y  max_capacitance: 0.000  -Capacitance : 0.423  ----------------------------  slack : -0.423 (VIOLATED)  Check type : max_fanout  ---------------------------  Pin : specialClkGate/o  max_fanout : 0.557  fanout : 1.000  ---------------------------  slack : -0.443 ( VIOLATED )
+.RE
+.RS  "*" 2 The report_constraint -all_violators command displays the following output:  max_delay/setup  ---------------------------------------------------------  End Point               Slack               Cause  ---------------------------------------------------------  out2 r                  -4111.834           VIOLATED  dff3/D r                -4110.260           VIOLATED  lat2/D r                -3774.174           VIOLATED  dff2/D r                -3770.285           VIOLATED  out r                   -3161.115           VIOLATED  and1/B r                -2464.880           VIOLATED  dff1/D r                -2098.868           VIOLATED  sub2/bufH1/dff1/D r     -2098.821           VIOLATED  sub2/bufH2/dff1/D r     -2028.843           VIOLATED  sub1/dff1/D r           -2028.843           VIOLATED  dff5/D r                -1279.155           VIOLATED  ---------------------------------------------------------  Check type : clock_period  ---------------------------  No paths found  Check type : skew  ---------------------------  No paths found  Check type : pulse_width  -----------------------------------------------------------------                               SEQUENTIAL CLOCK PULSE WIDTH                     ----------------------------------------------------------------  Pin                        Required      Actual Pulse     Slack                             Pulse Width   Width  ----------------------------------------------------------------  dff2/CK (low)               0.260       -670.800        -671.060  lat2/GN (low)               0.201       -670.800        -671.001  sub2/bufH1/dff1/CK (high)   0.167       -670.800        -670.968  dff1/CK (high)              0.167       -670.800        -670.968  sub2/bufH2/dff1/CK (high)   0.167       -670.800        -670.968  sub1/dff1/CK (high)         0.167       -670.800        -670.968  dff11/CK (high)             0.167       -670.800        -670.968  -----------------------------------------------------------------  Check type : max_transition  -----------------------------------------------------------------  Pin Name                Required       Actual         Slack  -----------------------------------------------------------------  and_parallel_1/A        4.500          5114.060      -5109.560  buf4/A                  4.500          5114.060      -5109.560  sub1/dff1/D             4.500          5114.060      -5109.560  Check type : max_capacitance  --------------------------------------------------------------  Pin Name                 Required        Actual      Slack  -------------------------------------------------------------  buf133/Y                 0.000          0.423       -0.423  buf11/Y                  0.000          0.105       -0.105  buf5/Y                   0.000          0.105       -0.105  dff11/Q                  0.000          0.105       -0.105  Check type : max_fanout  --------------------------------------------------------------  Pin Name                 Required        Actual      Slack  -------------------------------------------------------------  specialClkGate/o         0.557           1.000       -0.443
+.RE
+.RS  "*" 2 The report_constraint -all_violators -drv_violation_type min_capacitance command reports the following:  -----------------------------------------------  Pin Name    Required     Actual       Slack  -----------------------------------------------  DIN        0.0400        0.0013       -0.0387  F2/Q       0.0400        0.0013       -0.0387  CLK1       0.0400        0.0051       -0.0349
+.RE
+.RS  "*" 2 The report_constraint -drv_violation_type min_capacitance command outputs the following:  Check type : min_capacitance  ---------------------------  Pin : F2/Q  Capacitance: 0.0013  - min_capacitance: 0.0400  -----------------------------------------------------  slack: -0.0387 ( VIOLATED )
+.RE
+.RS  "*" 2 The report_constraint -all_violators -drv_violation_type min_transition command outputs the following:  -----------------------------------------------  Pin Name    Required      Actual      Slack  ----------------------------------------------  I0/A       0.0300        0.0001       -0.0299  I1/A       0.0300        0.0001       -0.0299  CLK0       0.0300        0.0001       -0.0299  CLK1       0.0300        0.0001       -0.0299  DIN        0.0300        0.0001       -0.0299  I4/S0      0.0300        0.0001       -0.0299  F1/DATA    0.0300        0.0001       -0.0299  SEL        0.0300        0.0001       -0.0299
+.RE
+.RS  "*" 2 The report_constraint -drv_violation_type min_transition command outputs the following:  Check type : min_transition  ---------------------------  Pin : F1/DATA  Transition Time:0.0001  - min_transition :0.0300  -----------------------------------------------------  slack : -0.0299 ( VIOLATED )
+.RE
+.RS  "*" 2 The report_constraint -all_violators -drv_violation_type min_fanout command outputs the following:  ----------------------------------------------------  Pin Name    Required       Actual        Slack  ----------------------------------------------------  F5/Q       2.0000         0.0000         -2.0000  CLK0       2.0000         1.0000         -1.0000  F3/Q       2.0000         1.0000         -1.0000  F2/Q       2.0000         1.0000         -1.0000  F1/Q       2.0000         1.0000         -1.0000  SEL        2.0000         1.0000         -1.0000  CLK1       2.0000         1.0000         -1.0000 
+.RE
+.RS  "*" 2 The report_constraint -drv_violation_type min_fanout command outputs the following:  Check type : min_fanout  ---------------------------  Pin : F5/Q  Fanout: 0.0000  - min_fanout: 2.0000  -----------------------------------------------------  slack : -2.0000 ( VIOLATED )  "*" 2  The report_constraints -check_type clock_period command reports the following:  Check type : clock_period  ---------------------------------------------------------  End Point                Slack      Cause  ---------------------------------------------------------  ffo_ram/mm0/mm1/CLKB f   -0.027     VIOLATED  ---------------------------------------------------------
+.RE 
+.RE 
+.SH Related Information
+.RS  "*" 2 set_min_fanout  "*" 2 set_max_fanout  "*" 2 set_min_transition  "*" 2 set_max_transition  "*" 2 set_min_capacitance  "*" 2 set_max_capacitance  "*" 2 report_timing_format  "*" 2 report_timing
+.RE
+.P

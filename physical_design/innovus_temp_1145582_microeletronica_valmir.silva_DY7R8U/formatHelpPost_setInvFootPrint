@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setInvFootPrint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetInvFootPrint\fR \-  Specifies the inverter cell footprints
+.SH Syntax \fBsetInvFootPrint\fR  [-help]  [-library <libName>]  <invCellOrFootprintNames> 
+.P Specifies the inverter cell footprints. The footprint names are usually assigned during design import. The Innovus software uses these inverter footprint names during timing optimization and top-level inverter insertion in a partition design. 
+.SH Parameters   "\fB-help\fR" Prints a brief description that includes type and default information for each setInvFootPrint parameter.  For a detailed description of the command and all of its parameters, use the man command: man setInvFootPrint  "\fB<invCellOrFootprintNames>\fR" Specifies the inverter cell footprint names or inverter cell names. When you specify an inverter cell name, the Innovus software automatically finds the cell footprint name.  "\fB-library <libName>\fR" Specifies the library name from where the cells will be picked up. 
+.SH Related Information
+.RS  "*" 2 checkFootPrint  "*" 2 loadFootPrint  "*" 2 setBufFootPrint  "*" 2 setDelayFootPrint
+.RE
+.RS  "*" 2 The following section in Optimizing Timing chapter of the Innovus User Guide
+.RS  "*" 2 Using Cell Footprints in Timing Optimization
+.RE 
+.RE
+.P

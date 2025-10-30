@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setInstGroupPhyHier  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetInstGroupPhyHier\fR \-  Sets a pre-existing instance group into a physical hierarchy where you can generate a corresponding netlist. You can use this command after creating a group name
+.SH Syntax \fBsetInstGroupPhyHier\fR  [-help]  <groupName> 
+.P Sets a pre-existing instance group into a physical hierarchy where you can generate a corresponding netlist. You can use this command after creating a group name. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each setInstGroupPhyHier parameter. For a detailed description of the command and all of its parameters, use the man command:   man setInstGroupPhyHier  "\fB<groupName>\fR" Specifies the name of the created group.  Data_type: string, required 
+.SH Example
+.P The following commands create and set the instance group adder1 as a physical hierarchy:
+.P createInstGroup adder1  setInstGroupPhyHier adder1 
+.SH Related Information
+.RS  "*" 2 createInstGroup  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

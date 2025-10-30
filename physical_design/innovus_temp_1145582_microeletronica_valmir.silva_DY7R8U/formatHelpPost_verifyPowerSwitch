@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH verifyPowerSwitch  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBverifyPowerSwitch\fR \-  Verifies power switch placement and enable connections, including the row coverage for column insertion
+.SH Syntax \fBverifyPowerSwitch\fR  [-help]  [-powerDomain <powerDomain>]  [-checkFloatingInput]  [-checkFloatingOutput]  [-checkFloating]  [-checkOverlap]  [-checkPlace]  [-checkLoop]  [-checkRowCoverage]  [-checkAll]  [-hilite]  [-reportFile]  [-reportLongestChain]  [-startingNet] 
+.P Verifies power switch placement and enable connections, including the row coverage for column insertion. The command issues a warning message detailing which rows do not contain power switches. The options also enable reporting for the longest signal chain starting from a given enable net. If the start of the enable net is not available, all enable nets of all domains will be used as starting points and all chains will be reported. Both the length of the chain and the switch instances involved in the longest chain will be reported.
+.P The verifyPowerDomain -powerSwitch parameter performs the same function. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each verifyPowerSwitch parameter.  For a detailed description of the command and all its parameters, use the man command:   man verifyPowerSwitch.  "\fB-checkFloatingInput\fR" To check floating input enable pins.  "\fB-checkFloatingOutput\fR" To check floating output enable pins.  "\fB-checkFloating\fR" To check both floating input and output enable pins.  "\fB-checkOverlap\fR" To check any overlap among the pins.   "\fB-checkPlace\fR" To check for unplaced power switches.  "\fB-checkLoop\fR" To check for accidentally created enable signal loops.  "\fB-checkRowCoverage\fR" To check if every row is covered by power switch.  "\fB-checkAll\fR" To verify all the checks.  "\fB-hilite\fR" To select the violation.  "\fB-startingNet\fR" To start the net to report longest chain.  "\fB-reportFile\fR" To report output to a file.  "\fB-reportLongestChain [startingNet <enableNet>]\fR" Reports the longest chain starting from the given enable net. If-startingNet is not given, all enable nets of all domains will be used as the starting point and all chains will be reported. The report will include both: the length of the chain, and the switch instances involved in the longest chain.  "\fB-powerDomain powerDomain\fR" Verify only the specified power domain. 
+.SH Examples
+.P The following command verifies the placement status of power switch cells and checks the row coverage by power switch cells for the powerDomain TDSPCore:
+.P verifyPowerSwitch -powerDomain TDSPCore -checkPlace -checkRowCoverage  Verifying domain: TDSPCore.  Verifying power switch row coverage
+...  Verifying power switch placement status
+...  Switch verification completed on domain: TDSPCore.  Number of warnings on domain TDSPCore : 0.  Power switch verification completed with 0 warnings..  1  
+.SH Related Information
+.RS  "*" 2 deletePowerSwitch  "*" 2 exportPowerSwitch  "*" 2 importPowerSwitch  "*" 2 movePowerSwitch  "*" 2 rechainPowerSwitch  "*" 2 replacePowerSwitch  "*" 2 Low Power Design chapter in the Innovus User Guide
+.RE
+.P

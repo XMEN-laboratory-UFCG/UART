@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH cvd  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcvd\fR
+.SH Syntax \fBcvd\fR<string> 
+.P Type: String
+.P Default: NULL
+.P Specifies the path name to the physical location of the lib/cell/view that was "restored" using restoreDesign -cellview. cvd is a system-defined, transient (non-persistent) global variable used in the OpenAccess flow. This should be treated as a read-only variable. 
+.SH Related Information
+.RS  "*" 2 restoreDesign
+.RE
+.P

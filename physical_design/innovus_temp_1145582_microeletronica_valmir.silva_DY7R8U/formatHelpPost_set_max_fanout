@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_max_fanout  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_max_fanout\fR \-  Sets the maximum fanout load limit constraint on the specified instance pin, ports of the top cell, the specified modules, and/or clock waveforms
+.SH Syntax \fBset_max_fanout\fR  [-help]  <fanout_limit>  <object_list>  [-override] 
+.P Sets the maximum fanout load limit constraint on the specified instance pin, ports of the top cell, the specified modules, and/or clock waveforms. The pins of cell instances of timing libraries will have their own maximum constraint. The software will pick the more aggressive value of the two.
+.P When set on a port, the fanout load of the net connected to the port must be less than or equal to the specified limit value to meet the constraint. The fanout load of a net is the sum of the fanout loads of the pins driven by the net. When set on a module, the limit applies to all the nets of that module. Libraries and library cell pins may also have the maximum fanout load limit. In this case the most constraining limit is applied to the nets.
+.P Use the report_ports -type fanout_load_limit command to view the maximum fanout load limits set on ports of the top cell.
+.P Fanout load limit can be asserted on input ports, output pins, bidirectional pins, or ports and library pins. You cannot apply the constraint on input pins and output ports. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB<fanout_limit>\fR" Specifies the value of the maximum fanout load limit constraint. This is a float number and it must be greater than or equal to zero.  "\fB<object_><list>\fR" Specifies a list of objects - ports, instance pins, modules, or library cell pins.  "\fB-override\fR" Overrides the maximum fanout limit from other sources, such as, library or constraints.  This parameter can be used to force a specific constraint value for a specified list of instance pins/port/library cell pins - this overrides the maximum/minimum values set prior to this setting.  To enable this feature, make the following setting:  set timing_constraint_enable_drv_limit_override true 
+.SH Examples
+.RS  "*" 2 The following example sets a maximum fanout load limit of 5.0 units on all the ports of the top cell:  set_max_fanout 5.0 [get_ports *]
+.RE
+.RS  "*" 2 The following example shows a report of the maximum fanout load limit set on ports using the report_ports command, as shown in the example below:  set_max_fanout 5.0 [get_ports *] report_ports -type fanout_load_limit -pin [get_ports *]  Example: Maximum Fanout Load Limit Set On Ports Report  > report_ports -type fanout_load_limit -pin [get_ports *]  -------------------------------------------  Pin    Dir  Assertion        Value  Name  -------------------------------------------  CLK2   IN  fanout_load_limit 5.000  CLK1   IN  fanout_load_limit 5.000  in2    IN  fanout_load_limit 5.000  in1    IN  fanout_load_limit 5.000  ------------------------------------------- 
+.RE 
+.SH Related Information
+.RS  "*" 2 get_ports  "*" 2 report_ports  "*" 2 set_fanout_load  "*" 2 set_max_capacitance  "*" 2 set_max_transition  "*" 2 report_constraintreport_constraint
+.RE
+.P

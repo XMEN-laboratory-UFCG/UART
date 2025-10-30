@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_extract_model_slew_propagation_mode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_extract_model_slew_propagation_mode\fR \-  Specifies the type of slew propagation to use for generating extracted timing model (ETM)
+.SH Syntax \fBtiming_extract_model_slew_propagation_mode\fR  {worst_slew | path_based_slew}  Default: worst_slew
+.P Specifies the type of slew propagation to use for generating extracted timing model (ETM). 
+.P In worst slew propagation mode, the software propagates the worst slew of all the incoming arcs at a converging point for extracting the arcs.
+.P In path based slew propagation mode, the software propagates the actual slew for the path elements for extracting the arcs.
+.P To set this global variable, use the set_global command.

@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_socv_constraint_config  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_socv_constraint_config\fR \-   Enhances the built-in sigma pessimism of check values for setup and hold constraints in the library
+.SH Syntax \fBset_socv_constraint_config\fR    [-help]   [-hold_folding <float>]   -libs <string>   [-nochange_hold_folding <float>]  [-nochange_setup_folding <float>]   [-setup_folding <float>]
+.P  Enhances the built-in sigma pessimism of check values for setup and hold constraints in the library. The folding factor attribute records the amount of on-chip-variation pessimism added during cell characterization to the nominal setup/hold tables in the libraries. The folding factor attributes are library level attributes. 
+.P Notes
+.RS  "*" 2 The set_socv_constraint_config command does not reset the timing; so it should be used before the report_timing command.  "*" 2 To change the setting later in the flow, you need to use the  update_timing -full command.  "*" 2 You cannot use this command, if any of the following global variables are specified:  timing_library_setup_sigma_multiplier  timing_library_hold_sigma_multiplier
+.RE 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  "\fB-hold_folding <float>\fR" Specifies a number of additional sigma units added on top of the existing nominal hold value.  Min = -100  Max = 100  "\fB-libs <string>\fR" Specifies a list of library names (not library paths) or collection objects.   "\fB-nochange_hold_folding <float>\fR" Specifies a number of additional sigma units added on top of the existing nominal hold value for no-change timing arcs.  Min = -100  Max = 100  "\fB-nochange_setup_folding <float>\fR" Specifies a number of additional sigma units added on top of the existing nominal setup value for no-change timing arcs.  Min = -100  Max = 100  "\fB-setup_folding <float>\fR" Specifies a number of additional sigma units added on top of the existing nominal setup value.  Min = -100  Max = 100 
+.SH   Examples
+.RS  "*" 2 The following command is used when an additional margin of 10 sigma units is applied to the nominal hold tables in the library collection test.lib:  set_socv_constraint_config -hold_folding 10 -libs [get_libs test.lib]
+.RE 
+.SH Related Information
+.RS  "*" 2 report_timing  "*" 2 set_analysis_view
+.RE
+.P

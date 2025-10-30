@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_global  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_global\fR \-  Retrieves the current value of the specified timing global variable
+.SH Syntax \fBget_global\fR<global_variable_name> 
+.P Retrieves the current value of the specified timing global variable. To set the value of a timing global variable, use the set_global command.
+.P For a list of timing global variables, see Timing Global Variables.
+.P Example
+.P The following command retrieves the setting for the timing_cppr_threshold_ps global:
+.P get_global timing_cppr_threshold_ps
+.P

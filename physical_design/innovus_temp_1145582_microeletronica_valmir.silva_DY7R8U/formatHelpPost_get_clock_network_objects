@@ -1,0 +1,16 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH get_clock_network_objects  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBget_clock_network_objects\fR \-  Returns the cells or pins that exist in the clock network of the specified clocks
+.SH Syntax \fBget_clock_network_objects\fR   [-help]  [-clocks <clock_list>]  [-type {cell | pin}] 
+.P Returns the cells or pins that exist in the clock network of the specified clocks. 
+.SH Parameters    "\fB-help \fR" Prints out the command usage.   "\fB-clocks <clock_list>\fR" Returns the cells or pins present in the clock network of the specified clock(s).   "\fB-type {cell | pin}\fR" Returns the specified cells or pins in the clock network. 
+.SH   Examples
+.RS  "*" 2 The following command returns the pins present in the clock network of all the clocks:  get_clock_network_objects
+.RE
+.RS  "*" 2 The following command returns the pins that exist in the clock network of CLK and CLK2 clocks:  get_clock_network_objects -clocks {CLK CLK2}
+.RE
+.RS  "*" 2 The following command returns the cells that exist in the clock network of CLK clock.  get_clock_network_objects -clocks {CLK} -type cell
+.RE
+.P

@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setInstancePlacementStatus  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetInstancePlacementStatus\fR \-  Changes the placement attributes status for all hard macros, all partition blocks, all blackboxes, or selected instances. This allows you to fix all blocks so they are not moved by place_design
+.SH Syntax \fBsetInstancePlacementStatus\fR   [-help]  {-allHardMacros | -allPtnBlks |-allBlackBoxes | -name <instName(s)>}  [-status {unplaced | fixed | placed | cover | softFixed}]
+.P Changes the placement attributes status for all hard macros, all partition blocks, all blackboxes, or selected instances. This allows you to fix all blocks so they are not moved by place_design. 
+.SH Parameters   "\fB-allHardMacros\fR" Applies the status option only to all hard macros.  Data_type: bool, required  "\fB-allPtnBlks\fR" Applies the status option only to all partition blocks.  Data_type: bool, required  "\fB-allBlackBoxes\fR" Applies the status option only to all blackboxes.  Data_type: bool, required  "\fB-help\fR" Outputs a brief description that includes type and default information for each setInstancePlacementStatus parameter. For a detailed description of the command and all of its parameters, use the man command:  man setInstancePlacementStatus   "\fB-name <instName(s)>\fR" Applies the status options to the specified instance(s). You can use a wildcard to specify multiple instances.  Data_type: string, required  "\fB-status {unplaced | fixed | placed | cover | softFixed} \fR" Specifies the change in placement status for instances.
+.RS  "*" 2 unplaced: Specifies the change in placement status to be an unplaced status. The unplaced component does not have a location.  "*" 2 fixed: Specifies the change in placement status to a fixed status. The fixed component has a location and cannot be moved by automatic tools, but can be moved using interactive commands.   "*" 2 placed: Specifies the change in placement status to a placed status. The placed component has a location, and can be moved using automatic tools and interactive commands.   "*" 2 cover: Specifies the change in placement status to a cover status. The cover component has a location, but cannot be moved by automatic tools or interactive commands.  "*" 2 softFixed: Specifies the change in placement status to a softFixed status. The softFixed placement status means that instances cannot be moved by global placement and can only be moved by the legalization step of detail placement. Instances with this status can also be upsized by optimization.
+.RE   Data_type: enum, required 
+.SH Example
+.P The following commands set all hard macros and blackboxes to fixed. By setting this status, place_design can run without moving these fixed blocks.
+.P setInstancePlacementStatus -allHardMacros -status fixed   setInstancePlacementStatus -allBlackBoxes -status fixed 
+.SH Related Information
+.RS  "*" 2 place_design  "*" 2 Floorplanning the Design chapter in the Innovus User Guide
+.RE
+.P

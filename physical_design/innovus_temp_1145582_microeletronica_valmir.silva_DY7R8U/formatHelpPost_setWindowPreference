@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setWindowPreference  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetWindowPreference\fR \-  Enables or disables windows (panels) from the Innovus main display
+.SH Syntax \fBsetWindowPreference\fR  [-help]  <window_name>  {on | off} 
+.P Enables or disables windows (panels) from the Innovus main display. You can save these window settings in the
+.enc file in your home directory. The settings are automatically loaded when invoking the Innovus main window. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each setWindowPreference parameter.  For a detailed description of the command and all of its parameters, use the man command: man setWindowPreference.  "\fB<window_name> \fR" Specifies the name of the window you want to turn on or off in the Innovus main display. You can select from the following:
+.RS  "*" 2 properties -- Controls the Attribute Viewer panel.
+.RE
+.RS  "*" 2 status -- Controls the message bar display, which shows object identifier or coordinate information.
+.RE
+.RS  "*" 2 toolbox -- Controls the tool widget display.
+.RE
+.RS  "*" 2 viewColor -- Controls the visibility, selectability, and color display of various attributes.
+.RE
+.RS  "*" 2 world -- Controls the satellite window display.
+.RE   Data_type: string, required  "\fB{on | off}\fR" Specifies whether window shoud be turned on or off.  Data_type: string, required 
+.SH Example
+.P The following command turns on the tool widget display:
+.P setWindowPreference toolbox on
+.P

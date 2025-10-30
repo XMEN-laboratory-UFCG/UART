@@ -1,0 +1,35 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH editTrim  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBeditTrim\fR \-  Removes or trims wires
+.SH Syntax \fBeditTrim\fR  [-help]   [-keep_floating_stubs]  [-status {COVER FIXED NOSHIELD ROUTED SHIELD}]  [-type {float}]  [-all | -selected | -nets <net>* | -layers <layer_names> | -area {<x1 y1 x2 y2>}]
+.P Removes or trims wires. Wires are trimmed or removed as follows:
+.RS  "*" 2 Trims floating stubs of wires back to the closest connection point.
+.RE
+.RS  "*" 2 Removes wires that do not have electrical connections to other wires or pins (floating wires).
+.RE
+.RS  "*" 2 Removes wires with only one connection to another wire or pin, along with connecting vias. Removing a wire with one connection might cause the wire to which the just-removed wire is connected to change from being a wire with two connections to a wire with one connection and thus it will also be removed. This process is repeated until no wires with one connection are left.  Note: The editTrim command recognizes patch wires and detects the patch wire connection with the via. Therefore, it does not delete patch wires even if they are connected from only one side.
+.RE
+.RS  "*" 2 Trims shield wires along with signal wires.  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 Trims wires to support 45-degree wire segments.
+.RE
+.P Notes
+.RS  "*" 2 The editTrim command recognizes Through Silicon Via (TSV) connections and detects the backside wire connection with the TSV so it does not remove the backside routes connected to TSV.
+.RE
+.P (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RS  "*" 2 The editTrim command does not trim metal fill segments. To trim metal fill segments use the trimMetalFill command.
+.RE 
+.SH Parameters   "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man editTrim  "\fB-all\fR" Trims all special wires and floating stubs.  "\fB-area {<x1 y1 x2 y2>}\fR" Specifies the coordinates for the box area from which to trim the wires. Here:
+.RS  "*" 2 x1 - Specifies the lower left x coordinate.  "*" 2 y1 - Specifies the lower left y coordinate.  "*" 2 x2 - Specifies the upper right x coordinate.  "*" 2 y2 - Specifies the upper right y coordinate.
+.RE   Only the wires that overlap with the specified box area are trimmed. The wires that just touch the box area are not trimmed.  "\fB-keep_floating_stubs\fR" Selects the floating wires but does not remove the floating stubs. Use this parameter if you want to assess the impact before actually trimming.   "\fB-layers <layer_names>\fR" Specifies the layers from which to trim wires. If you are specifying multiple layers, enclose the layer names in braces.  Default: If you do not specify this parameter, the command trims wires on all layers.  "\fB-nets <net>*\fR" Trims wires on the nets you specify. You can use wildcards to specify the nets.  "\fB-selected \fR" Trims selected wires. Use the editSelect command to select the wires. This is the default value.  "\fB-status {COVER FIXED NOSHIELD ROUTED SHIELD}\fR" Allows you to filter the wires to be trimmed by status. If you specify -status without specifying  -all,  -nets, or  -selected, the tool will trim selected wires with the specified status.   "\fB-type {float}\fR" Removes only wires that do not have electrical connections to other wires or pins (floating wires). The tool will not trim the wire with connection to other wires at one end if this option is specified. 
+.SH Examples
+.RS  "*" 2 The following command trims the wires overlapping the box area specified by the coordinates {<x1 y1 x2 y2>}:  editTrim -area {<x1 y1 x2 y2>}  Before  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  After  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE
+.RS  "*" 2  The following command trims the wires in the specified layers:  editTrim -layers {Metal1 Metal3}
+.RE 
+.SH Related Information
+.RS  "*" 2 editAddRoute  "*" 2 editAdjust   "*" 2 editCommitRoute   "*" 2 editCutWire  "*" 2 editDelete   "*" 2 editDuplicate   "*" 2 editMerge   "*" 2 editMove  "*" 2 editSelect  "*" 2 editResize   "*" 2 editRotate   "*" 2 editSplit  "*" 2 getEditMode  "*" 2 redo  "*" 2 selectBusGuide  "*" 2 setEditMode  "*" 2 undo  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

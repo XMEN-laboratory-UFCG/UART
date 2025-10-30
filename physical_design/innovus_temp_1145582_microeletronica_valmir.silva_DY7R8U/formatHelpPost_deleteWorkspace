@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH deleteWorkspace  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdeleteWorkspace\fR \-  Deletes the specified workspace
+.SH Syntax \fBdeleteWorkspace\fR  [-help]   -name <workspaceName>  [-dir <directory>] 
+.P Deletes the specified workspace. Use this command at any stage in the design flow to remove a workspace that you do not need any longer. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each deleteWorkspace parameter.  For a detailed description of the command and all of its parameters, use the man command:   man deleteWorkspace  "\fB-name <workspaceName>\fR" Specifies the name of the workspace to be deleted.  "\fB-dir <directory>\fR" Specifies the directory from which the workspace is to be deleted. The default search order to access directories for deleting workspaces is as below:
+.RS  "*" 2 Current working directory
+.RE
+.RS  "*" 2 User home directory
+.RE 
+.SH Example
+.P The following example deletes the Test workspace from the current working directory.
+.P deleteWorkspace -name Test 
+.SH Related Information
+.RS  "*" 2 loadWorkspace  "*" 2 saveWorkspace  "*" 2 setDefaultWorkspace   "*" 2 Windows Menu chapter of the Menu Reference 
+.RS  "*" 2 Workspaces
+.RE 
+.RE
+.P

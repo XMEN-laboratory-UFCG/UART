@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_net_groups_topo  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_net_groups_topo\fR \-  Creates a topological file (used by the insertPtnFeedthrough command) for nets of the net group associated with a bus guide
+.SH Syntax \fBwrite_net_groups_topo\fR  [-help]  [-net_groups <list_of_net_groups>]  [-outFile <file_name>] 
+.P Creates a topological file (used by the insertPtnFeedthrough command) for nets of the net group associated with a bus guide. The topology of nets for feedthrough is derived from the shape of the bus guide. All the partitions that the bus guide shape overlaps with, become a node in the topological path. 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the type and default information for each write_net_groups_topo parameter.  For a detailed description of the command and all of its parameters, use the man command:   man write_net_groups_topo  "\fB-net_groups <list_of_net_groups>\fR" Specifies the net groups to be added in topo file.  Default: *.  For example, the following command specifies that the ng1, ng2, and ng3 netgroups must be added to the topo file.  write_net_groups_topo -net_groups {ng1 ng2 ng3-*}  Data_type: string, optional  "\fB-outFile <file_name>\fR" Writes the bus guide violation log to the specified file.  Default: bus_guided.topo.v2  Data_type: string, optional 
+.SH Example
+.RS  "*" 2 The following command writes the net group information to a topology file.  write_net_groups_topo
+.RE 
+.SH Related Information
+.RS  "*" 2 Partitioning the Design chapter in the Innovus User Guide 
+.RE
+.P

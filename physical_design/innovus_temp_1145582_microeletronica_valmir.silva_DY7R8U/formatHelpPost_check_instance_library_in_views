@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH check_instance_library_in_views  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBcheck_instance_library_in_views\fR \-  Checks for missing libraries for instances in the active view
+.SH Syntax \fBcheck_instance_library_in_views\fR
+.P Checks for missing libraries for instances in the active view.
+.P This command checks whether the library for the cell associated with the instance is present in the associated power domain library set of the instance in the active views. 
+.SH Parameters
+.P None 
+.SH Examples
+.RS  "*" 2 The following command displays a report showing missing libraries:
+.RE
+.P check_instance_library_in_views
+.P The software displays the following information:
+.P Checking the Library binding for instance in active view 'vA'  Pass. All instances have library definition in view 'vA'  Checking the Library binding for instance in active view 'vB'  No library found for instance 'U1', cell 'AND2X1', in powerdomain 'PD_BAD', of view 'vB'  Fail. Missing Library for some instance found in view 'vB'  Checking the Library binding for instance in active view 'vAB'  Pass. All instances have library definition in view 'vAB'
+.P

@@ -1,0 +1,23 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH loadFootPrint  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBloadFootPrint\fR \-  Loads a footprint file to update the footprint information, which is obtained from the timing library file during design import
+.SH Syntax \fBloadFootPrint\fR   [-help]  -infile <fileName> 
+.P Loads a footprint file to update the footprint information, which is obtained from the timing library file during design import. Loading a footprint file takes precedence over what is currently defined in the Innovus session. That is, after a footprint file is loaded for a session, only the cells in the footprint file are considered. This feature lets you run individual timing optimization commands with a limited set of cell footprints.
+.P When the command is run successfully, the software gives the following message:
+.P ------------------------------------------  Clearing footprints for all libraries  Loading footprints for all corners.  ------------------------------------------ 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for each loadFootPrint parameter. For a detailed description of the command and all of its parameters, use the man command:  man loadFootPrint.   "\fB-infile <fileName>\fR" Specifies the name of the footprint file. 
+.SH Examples
+.RS  "*" 2 The following command loads the footprint file INV.fpt:   loadFootPrint -infile INV.fpt  After loading the footprint file, the Innovus software ignores the previous footprint information.
+.RE
+.RS  "*" 2 When the loadFootPrint command reads the output from the reportFootPrint command, the loadFootPrint command ignores all other fields except the library name, cell name, and the footprint name. The footprint file format for the loadFootprint command is as follows:   Library:<library_name>  <cell_name> <footprint_name><cell_name> <footprint_name>  For example:   Library:stdcellLib  xr03d1 xr03_5  xr03d2 xr03_5
+.RE 
+.SH Related Information
+.RS  "*" 2 checkFootPrint  "*" 2 setBufFootPrint  "*" 2 setInvFootPrint  "*" 2 setDelayFootPrint
+.RE
+.RS  "*" 2 The following section in Optimizing Timing chapter of the Innovus User Guide
+.RS  "*" 2 Using Cell Footprints
+.RE 
+.RE
+.P

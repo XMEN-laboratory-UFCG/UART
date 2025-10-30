@@ -1,0 +1,10 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_constraint_load_minimal_set_for_automated_eco  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_constraint_load_minimal_set_for_automated_eco\fR
+.SH Syntax \fBtiming_constraint_load_minimal_set_for_automated_eco\fR {true | false}
+.P Default: false
+.P Skips loading the SDC constraints that are not required, when the signoffOptDesign command is used. The timing data is obtained from the ECO timing database - this global variable reduces the TAT for designs with complex constraint mode files. 
+.P To set this global variable, use the set command.
+.P

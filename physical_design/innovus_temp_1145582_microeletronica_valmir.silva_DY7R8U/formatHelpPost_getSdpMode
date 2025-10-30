@@ -1,0 +1,21 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH getSdpMode  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBgetSdpMode\fR \-  Displays the current values of various SDP-related sticky options
+.SH Syntax \fBgetSdpMode\fR  [-help]   [-clock_location]   [-disable_extended_core]  [-honor_dont_use]  [-honor_orient]   [-legalization]  [-legalization_effort]  [-max_move_distance]   [-num_column]   [-place_report]  [-pre_fixed_cells_blockage_direction]  [-quiet]  [-nonDefault]
+.P Displays the current values of various SDP-related sticky options. Use this command when you want to retrieve current values of all or specified setSdpMode settings. If you do not specify any parameter, getSdpMode returns information on all of the setSdpMode parameters. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each getSdpMode parameter.  For a detailed description of the command and all of its parameters, use the man command: man getSdpMode.  "\fB<parameter_names>\fR" Displays information for the specified parameters. You can specify one or more parameters.  See setSdpMode for descriptions of the parameters you can specify.  "\fB-quiet\fR" Displays the current settings for the specified parameters in Tcl list format only.  If you specify -quiet without any parameters, the software displays the current settings of all setSdpMode parameters in Tcl list format.  "\fB-nonDefault\fR" Displays the current settings that are not default settings. 
+.SH Example
+.RS  "*" 2 The following command displays the current setting of the -clock_location parameter:   getSdpMode -clock_location  The software displays the following information:  -clock_location center # string, default=center  center
+.RE
+.RS  "*" 2 The following command displays the current settings for all setSdpMode parameters in Tcl list format only:   getSdpMode -quiet  The software returns the following information:  {clock_location center} {disable_extended_core true} {honor_dont_use false} {honor_orient false} {legalization NONE} {legalization_effort low} {max_move_distance 0} {num_column 2} {place_report {}} {pre_fixed_cells_blockage_direction NONE} 
+.RE 
+.SH Related Information
+.RS  "*" 2 getSdpGroupAttribute  "*" 2 placeSdpGroup  "*" 2 place_design  "*" 2 proto_design  "*" 2 setSdpGroupAttribute  "*" 2 setSdpMode
+.RE
+.RS  "*" 2 sdpsdp object in Innovus Database Object Information  "*" 2 Using Structured Data Paths chapter of the User Guide  "*" 2 Floorplan Menu chapter of the Menu Reference 
+.RS  "*" 2 Structured Data Path
+.RE 
+.RE
+.P

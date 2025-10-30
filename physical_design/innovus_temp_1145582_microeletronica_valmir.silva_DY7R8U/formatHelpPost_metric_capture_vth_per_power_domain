@@ -1,0 +1,9 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH metric_capture_vth_per_power_domain  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBmetric_capture_vth_per_power_domain\fR
+.SH Syntax \fBmetric_capture_vth_per_power_domain\fR [true | false} 
+.P Default: false
+.P Captures vth metrics per power domain.
+.P

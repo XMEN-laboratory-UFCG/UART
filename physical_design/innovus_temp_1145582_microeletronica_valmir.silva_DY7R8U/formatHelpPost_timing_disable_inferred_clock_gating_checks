@@ -1,0 +1,8 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_disable_inferred_clock_gating_checks  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_disable_inferred_clock_gating_checks\fR \-  When set to true, disables clock gating checks that are inferred on combinational elements in the clock path
+.SH Syntax \fBtiming_disable_inferred_clock_gating_checks\fR  {true | false}  Default: false (performs checks)
+.P When set to true, disables clock gating checks that are inferred on combinational elements in the clock path. Explicit clock gating checks that are described in the timing library are not affected by this global variable. 
+.P To set this global variable, use the set_global command.

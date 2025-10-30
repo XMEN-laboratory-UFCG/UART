@@ -1,0 +1,14 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH timing_report_drv_enable_frequency_per_view  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBtiming_report_drv_enable_frequency_per_view\fR
+.SH Syntax 
+.P timing_report_drv_enable_frequency_per_view  {true | false}
+.P Default : false
+.P Enables view-based frequency DRV flow.
+.P When set to true, in the MMMC DRV flow, the software performs frequency computation for design pins as per the clock period of specific analysis views reaching a pin. In case of non-activity based flow, the frequency is computed as per the fastest clock of all the views.
+.P When set to false, in the propagate activity flow, the software performs frequency computation for design pins from propagated activity on that pin.
+.P For other flows. the software performs frequency computation for design pins as per the smallest clock period (largest clock frequency) from all the active analysis views. 
+.P To set this global variable, use the set command.
+.P

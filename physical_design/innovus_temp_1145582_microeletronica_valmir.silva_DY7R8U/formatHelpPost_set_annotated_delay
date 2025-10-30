@@ -1,0 +1,42 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH set_annotated_delay  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBset_annotated_delay\fR \-  Annotates delay to timing arcs
+.SH Syntax \fBset_annotated_delay\fR  [-help]  <delay_value>  [-cond <expression>]  [-delta_only]  [-fall]   [-increment]  [-max]  [-min]  [-rise]  {-net | -cell }  {[-from <from_pins>] [-to <to_pins>]}  
+.P Annotates delay to timing arcs. If you specify the set_annotated_delay command without any parameters, the delay value specified is assumed to include both the base delay and any delta (cross-talk) delay. 
+.SH Parameters    "\fB-help\fR" Prints out the command usage.   "\fB-cond <expression>\fR" Specifies the sdf condition of the selected timing arcs.   Default: The delay applies to all the timing arcs selected using the -from and the -to options. The expression is ignored for net arcs.  Note: You cannot specify the -cond parameter with -net. If specified, an error is displayed.  "\fB<delay_value>\fR" Specifies the delay value to be annotated to the selected timing arcs.  "\fB-delta_only\fR" Populates the incremental delay slot with the delay value, so that you can differentiate between the base net delay and a delay offset that is due to cross talk. The software reports the incremental (or delta) delay value separately in the timing report using report_timing -format incr_delay, and maintains the separate value for CPPR calculations.  If the base delay was previously calculated or annotated from the SDF, the -delta_only parameter adds the specified delay to the existing base delay.  Note: This parameter only can be used with the -net parameter; you cannot specify it with the -cell parameter.  "\fB-from <from_pins>\fR" Specifies timing arcs to which the delay applies. The selected timing arcs are those that have their source pins specified using this option and the sink pins specified using the -to option. If this option is not specified, only timing arcs whose sink pins are specified using the -to option are selected.  Note: You cannot specify hierarchical pins. If specified, an error message is displayed.  "\fB-increment\fR" Increments the specified delay value on top of the existing base delay value.  "\fB-min | -max\fR" Specifies the annotated delay for a particular operating corner. You can apply the -min parameter to the minimum operating corner and the -max parameter to the maximum operating corner.  "\fB-net | -cell\fR" Specifies whether the delay should be annotated to cell arcs or net arcs.  "\fB-rise/-fall\fR" Specifies the transition to which the delay applies. For cell arc, this is the output transition.  Default: The delay applies to both transitions.  "\fB-to <to_pins>\fR" Specifies timing arcs to which the delay applies. The selected timing arcs are those that have their sink pins specified using this option and the source pins specified using the -from option. If this option is not specified, only timing arcs whose source pins are specified using the -from option are selected.  Note: You cannot specify hierarchical pins. If specified, an error message is displayed. 
+.SH Examples
+.RS  "*" 2 The following example shows the usage of -cell and -net options:  Example Figure to Show How to Use the -cell and -net Options  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE
+.RS
+.RS  "*" 2 Use the -cell option to select the cell arc carc2 only:  set_annotated_delay 3.0 -cell -from {I1/IO}
+.RE 
+.RE
+.RS
+.RS  "*" 2 Use the -net arc option to select net arcs narc1 and narc2 only:  set_annotated_delay 3.0 -net -from {I1/IO}
+.RE 
+.RE
+.RS  "*" 2 This TLF description is used for the following examples:   CELL (NAND3
+.
+.
+.
+. // arc 1   Path( A => Z 10 01 DELAY(ioDelayRiseModel0) SLEW(SlopeRiseModel0) ) Path( A => Z 01 10 DELAY(ioDelayFallModel0) SLEW(SlopeFallModel0) ) // arc2 Path( A => Z 10 01 COND(B & C) SDF_COND(B & C) DELAY(ioDelayRiseModel1) SLEW(SlopeRiseModel1) ) Path( A => Z 01 10 COND(B & C) SDF_COND(B & C) DELAY(ioDelayFallModel1) SLEW(SlopeFallModel1) ) arc3 Path( A => Z 10 01 COND(~B | ~C) SDF_COND(!B | !C) DELAY(ioDelayRiseModel2) SLEW(SlopeRiseModel2) ) Path( A => Z 01 10 COND(~B | ~C) SDF_COND(!B | !C) DELAY(ioDelayFallModel2) SLEW(SlopeFallModel2) )
+.
+.
+. }  Example Figure to Show How to Use the -from and -to Options  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.) 
+.RE
+.RS  "*" 2 The following command annotates a delay of 3.0 to arcs arc1, arc2, and arc3 for the rise and fall transition at the pin I1/Z, for the two corners {min typ max}:  set_annotated_delay 3.0 -from A -to Z -cell
+.RE
+.RS  "*" 2 The following command annotates a delay of 2.5 to net arc arc4 for both the rising and the falling transition and for the two corners {min typ max}: set_annotated_delay 2.5 -from I1/Z -to I2/A -net
+.RE
+.RS  "*" 2 The following command annotates a delay of 1.5 to arc2 for the rising transition and the min corner: set_annotated_delay 1.5 -from I1/A -to I1/Z -rise -min -cond "B & C" -cell
+.RE
+.RS  "*" 2 The following commands annotate a delay of 3.0 to arc1 and arc2, and a delay of 2.4 to the arc3: set_annotated_delay 3.0 -from I1/A -to I1/Z -cell set_annotated_delay 2.4 -from I1/A -to I1/Z -cond {!B | !C} -cell
+.RE
+.RS  "*" 2 The following commands first annotate a delay of 3.0 to arc1, arc2 and arc3, then overwrite the value set by the first set_annotated_delay command: set_annotated_delay 2.4 -from I1/A -to I1/Z -cond {!B | !C} -cell set_annotated_delay 3.0 -from I1/A -to I1/Z -cell
+.RE 
+.SH Related Information
+.RS  "*" 2 reset_annotated_delay
+.RE
+.P

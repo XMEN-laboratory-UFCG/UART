@@ -1,0 +1,11 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH load_netlist_ignore_undefined_cell  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBload_netlist_ignore_undefined_cell\fR \-  If false, a Verilog reference to an undefined cell (for example, a Verilog module name that has no matching library cell and no Verilog module definition) causes an error and an exit after parsing the netlist
+.SH Syntax \fBload_netlist_ignore_undefined_cell\fR { 1 | 0 }   
+.P If false, a Verilog reference to an undefined cell (for example, a Verilog module name that has no matching library cell and no Verilog module definition) causes an error and an exit after parsing the netlist. If true, an empty Verilog module is created with a warning.  The default value is true in Innovus to allow repair of 'dirty netlists'. An empty module will become an hinst or inst depending on the value of setImportMode -keepEmptyModule.
+.P To set this variable, use the set command.
+.P Datatype: boolean
+.P Default: 1
+.P

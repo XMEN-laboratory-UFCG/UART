@@ -1,0 +1,19 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveWhatIfConstraints  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveWhatIfConstraints\fR \-  Saves the what-if timing constraints in Design Compiler format
+.SH Syntax  \fBsaveWhatIfConstraints\fR  [<blackBoxCellName>]   [-pt | -dc]   [-dir <dirName>]   [-filePrefix <prefix>]  
+.P Saves the what-if timing constraints in Design Compiler format. You can use this command after the module definition of the blackbox or the blackblob is available with the I/O's in the Verilog netlist. 
+.SH Parameters    "\fB<blackBoxCellName>\fR" Specifies the name of the blackbox or blackblob cell.  Default: If you do not specify a name for the blackbox or blackblob cell, constraints are saved for all blackbox or blackblob cells.  "\fB-dir <dirName>\fR" Specifies the name of the directory in which the constraints file will be generated. This directory must reside within the current working directory.  Default: The constraints file is saved in the current working directory.  "\fB-filePrefix <prefix>\fR" Specifies the prefix for the constraints file name. This prefix is added to the name of the blackbox or blackblob cell to generate the name of the constraints file. For example, if you specify the prefix constraintsFile and the blackbox or blackblob cell name is Block1, the name of the file in which the constraints are saved will be constraintsFileBlock1.pt or constraintsFileBlock1.dc.  Default: If you do not specify a prefix, the constraints file is saved as <blackBoxCellName>.pt or <blackBoxCellName>.dc, where <blackBoxCellName> is the name of the blackbox or blackblob cell.  "\fB-pt | -dc\fR" Specifies the constraint format.  Default: Constraints are saved both in PT and DC format. 
+.SH Related Information
+.RS  "*" 2 What-If Timing Analysis chapter in the Innovus User Guide
+.RE
+.RS
+.RS  "*" 2 PerformingWhat-IfTimingAnalysis
+.RE 
+.RE
+.RS
+.RS  "*" 2 UsingtheWhat-IfTimingCommands 
+.RE 
+.RE

@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH encEnableMetric  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBencEnableMetric\fR
+.SH Syntax  \fBencEnableMetric\fR<value> 
+.P Type: Integer
+.P Default: 1000
+.P Controls design metrics display. 
+.SH Related Information
+.RS  "*" 2 get_metric
+.RE
+.P

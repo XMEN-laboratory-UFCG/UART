@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH defOutPolygonDieArea  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBdefOutPolygonDieArea\fR
+.SH Syntax \fBdefOutPolygonDieArea\fR {0 | 1} 
+.P Type: Integer
+.P Default: 1
+.P By default, defOut writes out polygon DIEAREA if the design is rectilinear. To write out rectangular DIEAERA along with blockages in cut-out area for a rectilinear design, set this variable to 0. 
+.SH Related Information
+.RS  "*" 2 defOut
+.RE
+.P

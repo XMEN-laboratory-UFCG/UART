@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH setHInstColorId  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsetHInstColorId\fR \-  Specifies the color ID for a hierarchical instance
+.SH Syntax \fBsetHInstColorId\fR  [-help]   <hInstName>  <colorID>  [-descendant]  
+.P Specifies the color ID for a hierarchical instance. 
+.SH Parameters    "\fB-help\fR" Prints a brief description that includes type and default information for each setHInstColorId parameter.  For a detailed description of the command and all of its parameters, use the man command:   man setHInstColorId  "\fB<hInstName>\fR" Name of the hierarchical instance to which this color ID applies.  "\fB<colorID>\fR" Specifies the color ID from 0 to 29. The color value for the color id is the same as specified in the Module Color Preferences form (accessed by clicking Floorplan - Edit Floorplan - Color Module).  "\fB-descendant\fR" Specifies that the color ID should be applied to the child/descendant instances as well.  Default: If no ID is specified, the color id is applied only for the top-level instance. 
+.SH Example
+.P The following command applies color ID 3 to the hierarchical instance topModule:
+.P setHInstColorId topModule 3 
+.SH Related Information
+.RS  "*" 2 resetMultiColorsHier  "*" 2 saveColorPreference  "*" 2 saveHInstColor  "*" 2 set_object_color  "*" 2 setMultiColorsHier  "*" 2 setSelHInstColor  "*" 2 Floorplan Menu chapter in the Menu Reference
+.RS  "*" 2 Color Module
+.RE 
+.RE
+.P

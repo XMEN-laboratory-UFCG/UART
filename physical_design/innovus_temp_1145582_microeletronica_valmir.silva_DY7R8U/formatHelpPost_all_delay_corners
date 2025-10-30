@@ -1,0 +1,18 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH all_delay_corners  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBall_delay_corners\fR \-  Returns a Tcl list of all defined delay calculation corner objects in the design
+.SH Syntax  \fBall_delay_corners\fR  [-help]  [-active]  
+.P Returns a Tcl list of all defined delay calculation corner objects in the design.
+.P Use this command after creating delay calculation corner objects with create_delay_corner. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.   "\fB-active\fR" Returns a list of the defined delay corners associated with all the active analysis views. 
+.SH Examples
+.RS  "*" 2 The following commands create the delay calculation corners dcWCCOM and dcBCCOM:   create_delay_corner -name dcWCCOM \\    -library_set IsCOM-1V \\    -opcond_library stdcell_1V \\    -opcond WCCOM \\    -rc_corner rc-cworst  create_delay_corner -name dcBCCOM \\    -library_set IsCOM-1V \\    -opcond_library stdcell_1V \\    -opcond BCCOM \\    -rc_corner rc-cbest
+.RE
+.RS  "*" 2 The following command returns a list of all the delay calculation corners in the design:   all_delay_corners   The software returns the following information:  {dcWCCOM dcBCCOM}
+.RE 
+.SH Related Information
+.RS  "*" 2 create_delay_corner 
+.RE
+.P

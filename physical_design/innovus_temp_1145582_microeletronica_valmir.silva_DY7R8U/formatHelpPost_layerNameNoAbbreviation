@@ -1,0 +1,17 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH layerNameNoAbbreviation  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBlayerNameNoAbbreviation\fR
+.SH Syntax \fBlayerNameNoAbbreviation\fR {0 | 1}  
+.P Type: Boolean
+.P Default:
+.RS  "*" 2 1 for N7 designs  "*" 2 0 for rest all designs
+.RE
+.P By default dbGet layer.name and most command -layer <layer> options allow abbreviations such as M1 and M2, for routing layers such as 1 and 2. If this global variable is set to 1, dbGet layer.name returns the full layer names rather than an abbreviation, and the M1 and M2 abbreviations are not allowed for -layer input. 
+.P This global is intended to be set when a technology has real layer names like M1, M2, that do not correspond to routing layers 1, 2.  Setting this global to 1 will disable the M<num> abbreviations that may cause confusion, and only allow full layer names, or routing layer numbers. 
+.SH Example
+.P dbGet head.layers.extName                 //.extName is full layer name  Metal1 Metal2 Metal3 Metal4 Metal5 Metal6 Via12 Via23 Via34 Via45 Via56 OVERLAP
+.P dbGet head.layers.name                    //.name is abbreviated layer name  M1 M2 M3 M4 M5 M6 Via12 Via23 Via34 Via45 Via56 OVERLAP add_shape -rect {0 0 5 5} -layer Metal1  //full name worksadd_shape -rect {0 0 5 5} -layer M1      //abbreviated name workadd_shape -rect {0 0 5 5} -layer 1       //routing number works
+.P set layerNameNoAbbreviation 1 //set layer name returned with full layer name instead of abbreviation  1
+.P dbGet head.layers.name                    //.name is now full layer name  Metal1 Metal2 Metal3 Metal4 Metal5 Metal6 Via12 Via23 Via34 Via45 Via56 OVERLAP add_shape -rect {0 0 5 5} -layer Metal1   //full name worksadd_shape -rect {0 0 5 5} -layer M1       //abbreviated name fails**ERROR: (IMPSPR-162): Incorrect usage for command 'add_shape'. Invalid layer name: M1add_shape -rect {0 0 5 5} -layer 1        //routing number works

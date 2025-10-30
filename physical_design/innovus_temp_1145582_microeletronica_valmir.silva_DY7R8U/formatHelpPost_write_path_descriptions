@@ -1,0 +1,15 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH write_path_descriptions  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBwrite_path_descriptions\fR \-  Writes out the path description of all the specified timing paths to an ASCII file
+.SH Syntax \fBwrite_path_descriptions\fR  [-help]   var_name  -out_file <string>
+.P Writes out the path description of all the specified timing paths to an ASCII file. The output file contains a set of report_timing commands for each timing path in the given path collection. The file also includes a complete description of each timing path captured through timing points along with the clock and edge information. 
+.SH Parameters   "\fB-help\fR" Prints out the command usage.  "\fB<var_name>\fR" Specifies the object collection.  "\fB-out_file <string>  \fR" Redirects output to the specified file. 
+.SH   Examples
+.RS  "*" 2 The following example command writes out descriptions of late GBA paths to pathfile1:  write_path_descriptions var1 -out_file file1 > file2  The output file pathfile1 will contain the following information:  report_timing -net -path_type full_clock -late -from_rise A -through_rise B -through_rise C -to_rise D -view slow_v -clock_from clk1 -edge_from lead -clock_to clk2 -edge_to lead
+.RE 
+.SH Related Information
+.RS  "*" 2 read_path_descriptions
+.RE
+.P

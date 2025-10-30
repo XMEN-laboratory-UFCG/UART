@@ -1,0 +1,45 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH addSplitPowerVia  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBaddSplitPowerVia\fR \-  Adds or deletes Jenga vias and does not modify vias
+.SH Syntax \fBaddSplitPowerVia\fR    [-help]    [-delete | -wires_only]    [-edgeLength {layer1 value1 layer2 value2
+...}]    [-forceCount]    [-localCheckerBoard]   [-master <cell_name>]   [-maxViaSize {x y}]    [-maxWireLength {layer1 value1 layer2 value2
+...}]    [-maxWireSpacing {layer1 value1 layer2 value2
+...}]    [-mergeCount {x y}]    [-mergeDistance {x y}]    [-minEnclosure]    [-minViaSize {x y}]    [-minWireLength {layer1 value1 layer2 value2
+...}]    [-minWireSpacing {layer1 value1 layer2 value2
+...}]    [-pinLayer {layer1 layer2
+...}]    [-prerouteAlign {none samelayer alllayer}]   [-snap_wire_center_to_grid {layer1 {none|grid|half_grid|either} layer2 {none|grid|half_grid|either}}
+...]   [-stackedCheckerBoard]    [-uda <userDefinedAttribute>]    [-wireCount {layer1 value1|auto layer2 value2|auto
+... }]  [-wireOffset {layer1 value1 layer2 value2
+...}]    [-wireWidth {layer1 value1 layer2 value2
+...}]
+.P Adds or deletes Jenga vias and does not modify vias. It passes on all Jenga parameters to separate options.
+.P 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes the type and default information for each addSplitPowerVia parameter.  For a detailed description of the command and all its parameters, use the man command:    man addSplitPowerVia.  "\fB-delete\fR" Deletes the via for selected wires/objects. This is a boolean value and is optional.  "\fB-edgeLength {<layer1 value1 layer2 value2
+...>}\fR" Sets extension length of the wires for each layer in um. The value is a string and is optional.  "\fB-forceCount\fR" Forces the tool to generate the given wirecount even if the wires extend beyond the overlap area. This is a boolean value and is optional.  "\fB-localCheckerBoard\fR" Allows local checkerboard cut generation instead of matching the global checkerboard pattern.   "\fB-master <cell_name>\fR" Passes the selected wires through the specified cells.   "\fB-maxViaSize {<x y>}\fR" Displays the maximum via size. This value is in points and is optional.  "\fB-maxWireLength {<layer1 value1 layer2 value2
+...>}\fR" Sets the maximum length of the wires for each layer in um. This value is a string and is optional.  "\fB-maxWireSpacing {<layer1 value1 layer2 value2
+...>}\fR" Sets the maximum wire spacing of wires for each layer in um. The value is in strings and is optional.  "\fB-mergeCount {<x y>}\fR" Merges the neighboring wire count. The value is an integer and is optional.  "\fB-mergeDistance {<x y>}\fR" Merges the distance in x and y direction. The value is in points and is optional.  "\fB-minEnclosure\fR" Creates the shortest wires that meet DRC rules rather than the default wire length of the entire overlap area. This is a boolean value and is optional.  "\fB-minViaSize {<x y>}\fR" Sets the minimum via size. The value is in point and is optional.  "\fB-minWireSpacing {<layer1 value1 layer2 value2
+...>}\fR" Sets the minimum wire spacing of wires for each layer in um. The value is a string and is optional.  "\fB-minWireLength {<layer1 value1 layer2 value2
+...>}\fR" Sets the minimum length of the wires for each layer in um.The value is a string and is optional.  "\fB-snap_wire_center_to_grid {layer1 {none|grid|half_grid|either} layer2 {none|grid|half_grid|either}}\fR" Specifies the wire center alignment style for middle layer jenga wires. If you do not specify this parameter, stripes are not snapped to the routing grid. Specify one of the following options:
+.RS  "*" 2 none: Does no snapping of the wires.  "*" 2 grid: Snaps the center of the wire to the routing grid of the same layer as the wire.  "*" 2 half_grid: Snaps the center of the wire to the half-routing grid. The half-routing grid is a virtual grid with the tracks at the center of every two adjacent tracks of the routing grid.  "*" 2 either: Snaps the center of the wire to the closer of the routing grid or half-grid track.
+.RE   "\fB-wireCount {<layer1 value1|auto layer2 value2|auto
+...> }\fR" Sets the count of wires for each layer in integer or 'auto'. If the value of a layer is not set, the tool takes '2' as default. If -wireCount {Mx auto} is specified, the wire count on Mx will be max wire count calculated by intersection area, wire width and wire spacing. The 'auto' setting is mostly used for adding split power vias between paralleled wires. The value is a string and is optional.  "\fB-wireOffset {<layer1 value1 layer2 value2
+...>}\fR" Sets the wire offset from the intersection edge of the selected wires in floating value. It also defines the left edge for vertical and bottom edges for horizontal middle layer split wires. The value is a string and is optional.   "\fB-wireWidth {<layer1 value1 layer2 value2
+...>}\fR" Sets the width of the wires for each layer in um. The value is a string and is optional.  "\fB-pinLayer {<layer1 layer2>...}\fR" Lists pin layers in a macros used to create via with crossover wire.  "\fB-prerouteAlign {<none>|<samelayer>|<alllayer>}\fR" Defines the alignment of via wires with preexisting wires on the same net. The value is numerical and is optional.  "\fB-stackedCheckerBoard\fR" Creates stacked checker board vias between intermediate layers.  "\fB-uda\fR" Adds the user-defined attribute to the to-be-built split vias and wires.  "\fB-wires_only\fR" Generates only those wires, which are without violations. By default, the command generates both wires and vias. Prior to implementing this option, if any via was not dropped because of violation, the tool was not generating any wires. 
+.SH Examples
+.P Note: The command will add split power via after the user selects the wires which need to add the split power via (else, no split power via will be added).
+.RS  "*" 2 The command will add split power via and merge wires which are within 1.2 for both x and y direction   addSplitPowerVia -mergeDistance 1.2
+.RE
+.RS  "*" 2 The command will add split power via and merge wires which are within 1.2 for x direction and 1.5 for y direction.   addSplitPowerVia -mergeDistance { 1.2 1.5 }
+.RE
+.RS  "*" 2 The command will add split power via and merge wires of count 2 in both x and y direction.   addSplitPowerVia -mergeCount 2
+.RE
+.RS  "*" 2 The command will add split power via and merge wires of count 2 in x direction and count of 4 in y direction.   addSplitPowerVia -mergeCount { 2 4}
+.RE
+.RS  "*" 2 The command will add split power via and create wire lengths to a max of 1.3 in both x and y direction for all intermediate layers within a crossover b/w wire and a wire or b/w wire and a pin.   addSplitPowerVia -maxWireLength 1.3
+.RE 
+.SH Related Information
+.RS  "*" 2 editPowerVia  "*" 2 Power Planning and Routing chapter in the Innovus User Guide.
+.RE
+.P

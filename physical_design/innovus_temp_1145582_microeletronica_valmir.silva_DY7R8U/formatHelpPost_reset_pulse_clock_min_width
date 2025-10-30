@@ -1,0 +1,12 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH reset_pulse_clock_min_width  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBreset_pulse_clock_min_width\fR \-  Resets the minimum pulse clock width constraint specified (using the set_pulse_clock_min_width command) on the pulse generator cells, pulse generator library cells, clocks, and/or current design
+.SH Syntax  \fBreset_pulse_clock_min_width\fR   <object_list>  [-transitive_fanout] 
+.P Resets the minimum pulse clock width constraint specified (using the set_pulse_clock_min_width command) on the pulse generator cells, pulse generator library cells, clocks, and/or current design. 
+.SH Parameters    "\fB<object_list>\fR" Specifies a list of objects - pulse generator cells, pulse generator library cells, clocks, or current design - for which the minimum pulse clock width is to be reset.  "\fB[-transitive_fanout]\fR" Specifies the pulse width value for transitive fanout. 
+.SH Related Information
+.RS  "*" 2 set_pulse_clock_min_width
+.RE
+.P

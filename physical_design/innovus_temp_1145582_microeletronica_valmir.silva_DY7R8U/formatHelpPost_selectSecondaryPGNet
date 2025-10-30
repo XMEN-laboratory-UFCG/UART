@@ -1,0 +1,20 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH selectSecondaryPGNet  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBselectSecondaryPGNet\fR \-  Selects Power/Ground (P/G) net wire segments from specified instances
+.SH Syntax \fBselectSecondaryPGNet\fR  [-help]   -insts <inst>+   {-net <net_name> | -pin <pin_name>}
+.P Selects Power/Ground (P/G) net wire segments from specified instances. The wire segments are selected from the instance P/G pins to stripes (swire targets). This provides an easy way to select and delete routing from specific instance P/G pins to stripes.
+.P Note: This command does not support dangling secondary P/G nets. 
+.SH Parameters   "\fB-help\fR" Prints the usage of the command. For a detailed description of the command, use the man command:  man selectSecondaryPGNet  "\fB-insts <inst>+\fR" Specifies the list of instances that have a secondary PG pin. Wildcards are supported in instance names.  If one or more specified instances does not connect with the specified net, the tool displays a warning and ignores those instances.  "\fB-net <net_name>\fR" Specifies the net name. This parameter cannot be used with -pin.  Note: <net_name> does not take any wildcard values.  "\fB-pin <pin_name>\fR" Specifies the pin name.  This parameter cannot be used with -net. 
+.SH Examples
+.RS  "*" 2  The following command selects the routing from the P/G pin in instance A of net VDD_1 to the power stripe:  selectSecondaryPGNet -net VDD_1 -insts {A}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2  The following command selects the routing from the P/G pins in instances A and B in net VDD_1 to the power stripe:  selectSecondaryPGNet -net VDD_1 -insts {A B}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2  The following command selects the routing from the P/G pins in instances A/B1 and A/B2 in net VDD_1 to the power stripe:  selectSecondaryPGNet -net VDD_1 -insts {A/*}  (<Image> To view the image, refer to the Innovus Text Command Reference - Release 22.1 manual.)  "*" 2 The following command selects secondary PG net through the VDDO pin and checks all its ports:  selectSecondaryPGNet -insts $instn -pin VDDO  If a port of the the VDDO pin has an open, the tool prints a message as follows:  **WARN: (IMPSPR-405): There is no route for secondary pin "VDDO" to inst "PD_CHIPLET2_PADS_PD_CHIPPADS_pads_out_balanced_ls_padring_chiplet2_u_DISP_LSYNC_C_UPF_LS" at '3.085500 1.902500'.
+.RE 
+.SH Related Information
+.RS  "*" 2 deleteSecondaryPGNet  "*" 2 deselectSecondaryPGNet
+.RE
+.RS  "*" 2 Editing Wires chapter in the User Guide  "*" 2 Edit Menu chapter in the Menu Reference 
+.RS  "*" 2 Wire section
+.RE 
+.RE
+.P

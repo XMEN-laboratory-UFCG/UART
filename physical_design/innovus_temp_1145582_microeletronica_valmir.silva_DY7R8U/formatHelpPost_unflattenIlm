@@ -1,0 +1,24 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH unflattenIlm  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBunflattenIlm\fR \-  Reverts the ILM back to its original hard macro view
+.SH Syntax \fBunflattenIlm\fR  [-help] 
+.P Reverts the ILM back to its original hard macro view.
+.P You can use this command after the      flattenIlm    command.
+.P Note: unflattenIlm will take no effect if the design is already in the unflattened mode. 
+.P Many physical commands would not work in the flattened mode. They would need to be unflattened before performing the operation.
+.P For example:
+.P flattenIlm
+.P report_timing
+.P unflattenIlm 
+.SH Parameters    "\fB-help\fR" Outputs a brief description that includes the usage of the unflattenIlm command. 
+.SH Example
+.P The following command flattens all partitions and their ILM designs to the top-level. After reporting timing, the design is reverted back to the unflattened state with the unflattenIlm command.
+.P flattenIlm
+.P report_timing
+.P unflattenIlm 
+.SH Related Information
+.RS  "*" 2 flattenIlm  "*" 2 report_timing  "*" 2 Top-level Timing Closure Methodologies chapter of Innovus User Guide.
+.RE
+.P

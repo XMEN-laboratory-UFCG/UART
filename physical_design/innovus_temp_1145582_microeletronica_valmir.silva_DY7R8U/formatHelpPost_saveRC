@@ -1,0 +1,13 @@
+.nf
+.P Product Version     22.14    Cadence Design Systems, Inc. 
+.fi
+.TH saveRC  22.14 "Fri Oct 06 02:12:27 2023" 
+.SH Name \fBsaveRC\fR \-  Saves the RC extraction data in the specified directory
+.SH Syntax \fBsaveRC\fR   [-help]  dirName  
+.P Saves the RC extraction data in the specified directory. Use the restoreRC command to restore the parasitic data. Use this command after running either extractRC or spefIn to ensure that the parasitic data is available in Innovus database. 
+.P Note: You can restore the parasitic data on systems that are same as those used for saving the data. For example, if the data was saved on Linux in 32-bit mode, you can restore it on Linux 32-bit mode only. 
+.SH Parameters   "\fB-help\fR" Outputs a brief description that includes type and default information for the saveRC parameter.  For a detailed description of the command and all of its parameters, use the man command: man saveRC.  "\fB<dirName>\fR" Specifies the location of the RCDB directory. The directory name should follow the *.rcdb.d format. 
+.SH Related Information
+.RS  "*" 2 restoreRC  "*" 2 extractRC  "*" 2 spefIn
+.RE
+.P
