@@ -1,0 +1,57 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Thu Oct 30 10:09:44 2025                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.19-s058_1 (64bit) 04/04/2024 09:59 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.19-s058_1 NR231113-0413/21_19-UB (database version 18.20.605) {superthreading v2.17}
+#@(#)CDS: AAE 21.19-s004 (64bit) 04/04/2024 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.19-s010_1 () Mar 27 2024 01:55:37 ( )
+#@(#)CDS: SYNTECH 21.19-s002_1 () Sep  6 2023 22:17:00 ( )
+#@(#)CDS: CPE v21.19-s026
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+
+#@ source innovus_script.tcl
+#@ Begin verbose source (pre): source innovus_script.tcl
+set LEF_PATH $env(HOME)/PDK/gsclib045/lef
+set_db init_lib_search_path [list $LEF_PATH]
+set_db init_lef_files {gsclib045_tech.lef gsclib045_macro.lef}
+set_db init_read_netlist_files ../sim/outputs/uart_netlist.v
+set_db init_lef_files {gsclib045_tech.lef gsclib045_macro.lef}
+set_db init_power_nets VDD
+set_db init_ground_nets VSS
+set init_mmmc_file uart2.view
+read_mmmc uart2.view
+#@ Begin verbose source uart2.view (pre)
+create_library_set -name min_timing\
+   -timing ../lib/fast_vdd1v0_basicCells.lib
+create_library_set -name max_timing\
+   -timing ../lib/slow_vdd1v0_basicCells.lib
+create_timing_condition -name default_mapping_tc_2\
+   -library_sets min_timing
+create_timing_condition -name default_mapping_tc_1\
+   -library_sets max_timing 
+create_rc_corner -name rccorners\
+   -cap_table ../captable/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl\
+   -pre_route_res 1\
+   -post_route_res 1\
+   -pre_route_cap 1\
+   -post_route_cap 1\
+   -post_route_cross_cap 1\
+   -pre_route_clock_res 0\
+   -pre_route_clock_cap 0\
+   -qrc_tech ../qrc/qx/gpdk045.tch
+create_delay_corner -name max_delay\
+   -timing_condition {default_mapping_tc_1}\
+   -rc_corner rccorners
+create_delay_corner -name min_delay\
+   -timing_condition {default_mapping_tc_2}\
+   -rc_corner rccorners
+create_constraint_mode -name sdc_cons\
+   -sdc_files\
+    ../sim/outputs/uart_sdc.sdc 
+#@ End verbose source uart2.view
+#@ End verbose source innovus_script.tcl
+exit

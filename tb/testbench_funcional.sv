@@ -10,6 +10,8 @@ module tb;
 
     realtime    rtime1,    rtime2;
     parameter BYTESIZES = 8, OVERSAMPLING = 16, BAUDRATE = 9600,COUNTER_CLOCK_INPUT = 50_000_000,COUNTER_CLOCK_INPUT2 = 100_000_000, CLOCK_REF = 5_000_000;
+    logic valid, ready_env_uart_rx,EvenT_SevenToZero,EvenT_SevenToZero_next;
+parameter WIDTHx =1,SIZE = 8, WIDTH = 8;
 
     uart_top#(.BYTESIZES(BYTESIZES), .OVERSAMPLING(OVERSAMPLING), .BAUDRATE(BAUDRATE),.COUNTER_CLOCK_INPUT(COUNTER_CLOCK_INPUT),.CLOCK_REF(CLOCK_REF))uart_top_h(
         .clock       (clock    )        ,
@@ -26,6 +28,23 @@ module tb;
         .sdata_tx_out(sdata1)            
     );
 
+logic [3:0]cnt1,next_cnt1;
+
+
+logic [WIDTH-1:0]IMPUT_A[2*SIZE-1:0];
+
+assign next_cnt1 =   cnt1 +1 ;
+
+    always_ff@(posedge ready_rx, negedge nreset)begin
+        if(!nreset)begin 
+            cnt1 <= 0;
+            
+        end
+        else begin 
+                  cnt1 <= next_cnt1;
+                  IMPUT_A[cnt1] <= dataout; 
+        end 
+    end
     initial begin
         rtime1 = 1/(2*COUNTER_CLOCK_INPUT);
         rtime2 = 1/(2*COUNTER_CLOCK_INPUT2);
